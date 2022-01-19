@@ -1,0 +1,4 @@
+[Desktop Entry]
+Hidden=false
+TryExec=sh -c "sleep 30; xfce4-clipman"
+Exec=sh -c "sleep 30; xfce4-clipman"
