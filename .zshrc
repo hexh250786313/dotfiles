@@ -28,6 +28,7 @@ alias server="source ~/.config/my-config/sh/.server.sh"
 alias fluent-proxy="source ~/.config/my-config/sh/.fluent_proxy.sh"
 alias hello="source ~/.config/my-config/sh/.hello.sh"
 alias mine="source ~/.config/my-config/sh/.mine.sh"
+alias music="source ~/.config/my-config/sh/.musicbox.sh"
 alias lock='source ~/.config/my-config/sh/.lock.sh'
 
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
