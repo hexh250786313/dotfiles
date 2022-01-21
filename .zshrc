@@ -22,12 +22,13 @@ plugins=(
 )
 
 alias sudo="sudo "
-alias work="source ~/.sh/.work.sh"
-alias server="source ~/.sh/.server.sh"
-alias fluent-proxy="source ~/.sh/.fluent_proxy.sh"
-alias hello="source ~/.sh/.hello.sh"
-alias mine="source ~/.sh/.mine.sh"
-alias lock='source ~/.sh/.lock.sh'
+alias work="source ~/.config/my-config/sh/.work.sh"
+alias server="source ~/.config/my-config/sh/.server.sh"
+alias fluent-proxy="source ~/.config/my-config/sh/.fluent_proxy.sh"
+alias hello="source ~/.config/my-config/sh/.hello.sh"
+alias mine="source ~/.config/my-config/sh/.mine.sh"
+alias lock='source ~/.config/my-config/sh/.lock.sh'
+
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
