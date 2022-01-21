@@ -22,6 +22,7 @@ plugins=(
 )
 
 alias sudo="sudo "
+
 alias work="source ~/.config/my-config/sh/.work.sh"
 alias server="source ~/.config/my-config/sh/.server.sh"
 alias fluent-proxy="source ~/.config/my-config/sh/.fluent_proxy.sh"
@@ -30,6 +31,7 @@ alias mine="source ~/.config/my-config/sh/.mine.sh"
 alias lock='source ~/.config/my-config/sh/.lock.sh'
 
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
+alias landrop="sh -c '~/app/LANDrop-latest-linux.AppImage'"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -64,3 +66,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
