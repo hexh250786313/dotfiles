@@ -65,4 +65,4 @@ bind -T copy-mode-vi v send-keys Space
 set-option -g focus-events on
 set -g mouse on
 # set -g status off
-set-option repeat-time 0
+# set-option repeat-time 0
