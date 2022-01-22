@@ -5,7 +5,7 @@ tmux has-session -t $SESSIONNAME_0
 
 if [ "$?" != 0 ] 
  then
-    tmux new-session -s $SESSIONNAME_0 -n script -d
+    tmux new-session -s $SESSIONNAME_0 -n main -d
     tmux send-keys -t $SESSIONNAME_0 "wd workspace" C-m
     tmux send-keys -t $SESSIONNAME_0 "cd MOBILE" C-m
     tmux send-keys -t $SESSIONNAME_0 "gl && yarn && yarn start" C-m

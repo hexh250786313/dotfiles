@@ -5,7 +5,7 @@ tmux has-session -t $SESSIONNAME_0
 
 if [ "$?" != 0 ] 
  then
-    tmux new-session -s $SESSIONNAME_0 -n script -d
+    tmux new-session -s $SESSIONNAME_0 -n main -d
     tmux send-keys -t $SESSIONNAME_0 "cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howard.ovpn" C-m
     tmux split-window -h -t $SESSIONNAME_0
     tmux send-keys -t $SESSIONNAME_0 "sleep 10 && ssh node@10.10.5.28" C-m
