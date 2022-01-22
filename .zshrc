@@ -23,13 +23,13 @@ plugins=(
 
 alias sudo="sudo "
 
-alias work="source ~/.config/my-config/sh/.work.sh"
-alias server="source ~/.config/my-config/sh/.server.sh"
-alias fluent-proxy="source ~/.config/my-config/sh/.fluent_proxy.sh"
-alias hello="source ~/.config/my-config/sh/.hello.sh"
-alias mine="source ~/.config/my-config/sh/.mine.sh"
-alias music="source ~/.config/my-config/sh/.musicbox.sh"
-alias lock='source ~/.config/my-config/sh/.lock.sh'
+alias work="source ~/.config/my-config/sh/work.sh"
+alias hexh="source ~/.config/my-config/sh/hexh.sh"
+alias fluent-proxy="source ~/.config/my-config/sh/fluent_proxy.sh"
+
+alias lock='source ~/.config/my-config/sh/lock.sh'
+alias music="all_proxy='' http_proxy='' https_proxy='' musicbox"
+alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howard.ovpn"
 
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 alias landrop="sh -c '~/app/LANDrop-latest-linux.AppImage'"
