@@ -199,8 +199,8 @@ gaps left 6
 gaps right 6
 # gaps top 8
 # gaps bottom 9
-gaps top 7
-gaps bottom 7
+gaps top 5
+gaps bottom 5
 # gaps bottom 11
 # gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
 # smart_gaps on # 一个程序时没有间隔边框
