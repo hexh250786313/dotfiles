@@ -235,6 +235,7 @@ let g:coc_user_config =
       \   "suggest.enablePreselect": 1,
       \   "coc.source.file.ignoreHidden": 0,
       \   "coc.source.around.firstMatch": 0,
+      \   "coc.preferences.colorSupport": 0
       \ }
 
       " \   "signature.target": "echo",
