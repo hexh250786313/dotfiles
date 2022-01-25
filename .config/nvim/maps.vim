@@ -133,6 +133,7 @@ nnoremap <silent> <Space>sq <cmd>botright copen<cr><esc>
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <Space>sb <cmd>Telescope coc mru<cr><esc>
+nnoremap <silent> <Space>sr <cmd>Telescope resume<cr>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@

@@ -46,6 +46,7 @@ if has("nvim")
   Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' } " html 的 <script> 标签执行 InlineEdit 可以打开一个 js 缓存
   Plug 'tanvirtin/vgit.nvim',
   Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'anuvyklack/pretty-fold.nvim'
 endif
 
 call plug#end()
