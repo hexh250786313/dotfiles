@@ -32,7 +32,6 @@ alias music="all_proxy='' http_proxy='' https_proxy='' musicbox"
 alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howard.ovpn"
 
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
-alias landrop="sh -c '~/app/LANDrop-latest-linux.AppImage'"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
