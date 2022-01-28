@@ -55,6 +55,7 @@ tmux_conf_theme_prefix_fg="#ffffff"
 tmux_conf_theme_pairing_fg="#ffffff"
 
 set-option -g prefix M-b
+set -g prefix2 M-b
 tmux_conf_copy_to_os_clipboard=true
 set -g default-terminal "tmux-256color"
 set-option -ga terminal-overrides ",*256col*:Tc" # 这句是关键
