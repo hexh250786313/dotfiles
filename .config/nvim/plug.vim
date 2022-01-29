@@ -50,6 +50,7 @@ if has("nvim")
   " Plug 'petertriho/nvim-scrollbar'
   Plug 'dstein64/nvim-scrollview'
   Plug 'karb94/neoscroll.nvim'
+  Plug 'rlue/vim-barbaric'
 endif
 
 call plug#end()
