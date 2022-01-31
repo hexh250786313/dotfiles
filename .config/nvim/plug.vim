@@ -17,7 +17,7 @@ if has("nvim")
   Plug 'honza/vim-snippets'
   " Plug 'psliwka/vim-smoothie'
   Plug 'rhysd/conflict-marker.vim'
-  " Plug 'junkblocker/git-time-lapse'
+  Plug 'junkblocker/git-time-lapse'
   Plug 'preservim/nerdcommenter'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'kyazdani42/nvim-web-devicons'
