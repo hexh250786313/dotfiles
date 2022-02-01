@@ -27,8 +27,8 @@ nnoremap <silent> <Space>bd :bd<CR>
 
 nnoremap <silent> <Space>gs :CocCommand git.chunkStage<CR>
 nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>
-nnoremap <silent> <Space>gi :CocCommand git.chunkInfo<CR>
-nnoremap <silent> <Space>gI :VGit buffer_hunk_preview<CR>
+nnoremap <silent> <Space>gI :CocCommand git.chunkInfo<CR>
+nnoremap <silent> <Space>gi :VGit buffer_hunk_preview<CR>
 nnoremap <silent> <Space>gt :GitTimeLapse<CR>
 nnoremap <silent> <Space>gT :VGit buffer_history_preview<CR>
 nnoremap <silent> <Space>gd :CocCommand git.diffCached<CR>
@@ -127,6 +127,7 @@ nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
 
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 
 nnoremap <silent> <Space>] <cmd>Telescope coc definitions<cr><esc>
 nnoremap <silent> <Space>[ <cmd>Telescope coc references<cr><esc>
@@ -151,6 +152,22 @@ function! s:GrepFromSelected(type)
   let @@ = saved_unnamed_register
   " execute 'CocList grep '.word
   execute 'Telescope live_grep default_text='.word
+endfunction
+
+function! s:FindFromSelected(type)
+  let saved_unnamed_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  let word = substitute(@@, '\n$', '', 'g')
+  let word = escape(word, '| ')
+  let @@ = saved_unnamed_register
+  " execute 'CocList grep '.word
+  execute 'Telescope find_files find_command=rg,--hidden,--files default_text='.word
 endfunction
 
 " nnoremap <silent> <Space>w= :FocusToggle<CR>

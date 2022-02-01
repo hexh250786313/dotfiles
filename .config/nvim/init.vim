@@ -460,10 +460,6 @@ au VimEnter * call AddCycleGroup(['const', 'let'])
 au VimEnter * call AddCycleGroup(['prev', 'next'])
 au VimEnter * call AddCycleGroup(['var', 'const', 'let'])
 
-au VimEnter * call timer_start(2000, { tid -> execute('VGit toggle_live_gutter') })
-" au VimEnter * call timer_start(2000, { tid -> execute('VGit toggle_diff_preference') })
-au VimEnter * call timer_start(2000, { tid -> execute('VGit toggle_live_blame') })
-
 " let g:matchup_matchparen_offscreen = {}
 
 " autocmd FileType defx hi! Normal ctermbg=NONE guibg=NONE

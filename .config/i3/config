@@ -231,6 +231,8 @@ for_window [class="Viewnior"] floating enable
 
 for_window [class="Steam"] floating enable
 
+for_window [class="flameshot"] floating enable
+
 # for_window [class="uTools"] floating enable
 
 # for_window [class="XTerm"] floating enable
