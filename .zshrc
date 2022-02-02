@@ -42,6 +42,8 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 export all_proxy="socks://127.0.0.1:4780"
 export http_proxy="http://127.0.0.1:4780"
 export https_proxy="http://127.0.0.1:4780"
+alias proxy_unset="unset all_proxy && unset http_proxy && unset https_proxy"
+alias proxy_set='export all_proxy="socks://127.0.0.1:4780" && export http_proxy="http://127.0.0.1:4780" && export https_proxy="http://127.0.0.1:4780"'
 
 eval "$(rbenv init - zsh)"
 

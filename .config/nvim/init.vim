@@ -235,7 +235,19 @@ let g:coc_user_config =
       \   "suggest.enablePreselect": 1,
       \   "coc.source.file.ignoreHidden": 0,
       \   "coc.source.around.firstMatch": 0,
-      \   "coc.preferences.colorSupport": 0
+      \   "coc.preferences.colorSupport": 0,
+      \   "codeLens.enable": 1,
+      \   "codeLens.position": "eol",
+      \   "typescript.inlayHints.parameterTypes.enabled": 1,
+      \   "javascript.inlayHints.parameterTypes.enabled": 1,
+      \   "typescript.inlayHints.propertyDeclarationTypes.enabled": 1,
+      \   "javascript.inlayHints.propertyDeclarationTypes.enabled": 1,
+      \   "typescript.inlayHints.variableTypes.enabled": 1,
+      \   "javascript.inlayHints.variableTypes.enabled": 1,
+      \   "typescript.inlayHints.functionLikeReturnTypes.enabled": 1,
+      \   "javascript.inlayHints.functionLikeReturnTypes.enabled": 1,
+      \   "typescript.inlayHints.enumMemberValues.enabled": 1,
+      \   "javascript.inlayHints.enumMemberValues.enabled": 1
       \ }
 
       " \   "signature.target": "echo",
