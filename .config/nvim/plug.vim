@@ -15,7 +15,6 @@ if has("nvim")
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'tpope/vim-surround'
   Plug 'honza/vim-snippets'
-  " Plug 'psliwka/vim-smoothie'
   Plug 'rhysd/conflict-marker.vim'
   Plug 'junkblocker/git-time-lapse'
   Plug 'preservim/nerdcommenter'
@@ -49,7 +48,8 @@ if has("nvim")
   Plug 'anuvyklack/pretty-fold.nvim'
   " Plug 'petertriho/nvim-scrollbar'
   Plug 'dstein64/nvim-scrollview'
-  Plug 'karb94/neoscroll.nvim'
+  " Plug 'karb94/neoscroll.nvim'
+  " Plug 'psliwka/vim-smoothie'
   Plug 'rlue/vim-barbaric'
 endif
 

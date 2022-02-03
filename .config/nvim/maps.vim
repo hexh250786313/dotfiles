@@ -89,13 +89,10 @@ nnoremap <Space><tab> <C-^>
 
 " map <Space> <Plug>(easymotion-prefix)
 
-" nmap f <cmd>:HopChar1<CR>
-" vmap f <cmd>:HopChar1<CR>
-nmap f <cmd>:HopChar1CurrentLine<CR>
-vmap f <cmd>:HopChar1CurrentLine<CR>
-
-" nmap <silent> <C-f> <Plug>(SmoothieForwards)
-" nmap <silent> <C-b> <Plug>(SmoothieBackwards)
+nmap f <cmd>:HopChar1<CR>
+vmap f <cmd>:HopChar1<CR>
+" nmap f <cmd>:HopChar1CurrentLine<CR>
+" vmap f <cmd>:HopChar1CurrentLine<CR>
 
 xnoremap > >gv|
 xnoremap < <gv
@@ -180,6 +177,10 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  " nmap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<Plug>(SmoothieForwards)"
+  " nmap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<Plug>(SmoothieBackwards)"
+  " vmap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<Plug>(SmoothieForwards)"
+  " vmap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<Plug>(SmoothieBackwards)"
 endif
 
 nnoremap ma mA
@@ -200,3 +201,4 @@ nnoremap `b 'B
 nnoremap mc mC
 nnoremap 'c 'C
 nnoremap `c 'C
+
