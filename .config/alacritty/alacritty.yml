@@ -34,9 +34,10 @@ font:
   offset:
     x: -1
     # y: 5
+  opacity: 0.80
 mouse:
   hide_when_typing: true
-background_opacity: 0.80
+# background_opacity: 0.80
 # Colors (Solarized Dark)
 colors:
   # Default colors
