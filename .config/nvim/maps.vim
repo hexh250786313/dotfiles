@@ -114,8 +114,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-" nnoremap <silent> <Space>] :call CocAction('jumpDefinition', v:false)<CR>
-" nnoremap <silent> <Space>[ :call CocAction('jumpReferences', v:false)<CR>
+nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
+nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 " nnoremap <silent> <script> <Space>sq :CocList --auto-preview --normal --tab --number-select quickfix<CR>
 " nnoremap <silent> <Space>sf :CocList files<CR>
 " nnoremap <silent> <Space>sg :CocList grep<CR>
