@@ -328,7 +328,13 @@ endif
 
 let g:fugitive_pty = 0
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" let blacklist = ['vim', 'help']
+" autocmd CursorHold * if (index(blacklist, &ft) < 0 || !coc#rpc#ready()) | silent! call CocActionAsync('doHover')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * if (coc#rpc#ready()) | silent call CocActionAsync('highlight')
+" autocmd CursorHold * if (coc#rpc#ready()) | silent call timer_start(2000, { tid -> execute("call CocActionAsync('highlight')") })
+" au VimEnter * call timer_start(2000, { tid -> execute('VGit toggle_live_blame') })
 
 set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h16
 let neovide_remember_window_size = v:true

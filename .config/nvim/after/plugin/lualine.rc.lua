@@ -54,6 +54,7 @@ lualine.setup {
     -- theme = 'solarized_dark',
     theme = custom_codedark,
     section_separators = {left = '▓░', right = '░▓'},
+    component_separators = {left = ' ', right = ' '},
   },
   sections = {
     lualine_a = {'mode'},
