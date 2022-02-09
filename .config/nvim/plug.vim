@@ -51,6 +51,7 @@ if has("nvim")
   " Plug 'karb94/neoscroll.nvim'
   " Plug 'psliwka/vim-smoothie'
   Plug 'rlue/vim-barbaric'
+  Plug 'github/copilot.vim'
 endif
 
 call plug#end()
