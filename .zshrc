@@ -26,6 +26,7 @@ alias sudo="sudo "
 alias work="source ~/.config/my-config/sh/work.sh"
 alias hexh="source ~/.config/my-config/sh/hexh.sh"
 alias fluent-proxy="source ~/.config/my-config/sh/fluent_proxy.sh"
+alias server="source ~/.config/my-config/sh/server.sh"
 
 alias lock='source ~/.config/my-config/sh/lock.sh'
 alias music="all_proxy='' http_proxy='' https_proxy='' musicbox"
