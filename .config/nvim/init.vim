@@ -489,3 +489,4 @@ au VimEnter * call AddCycleGroup(['var', 'const', 'let'])
 :hi DefxIconsDirectory guibg=NONE guifg=#569CD6
 :hi DefxIconsSymlinkDirectory guibg=NONE guifg=#569CD6
 
+" autocmd User TelescopePreviewerLoaded setlocal number

@@ -126,16 +126,14 @@ nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 
-" nnoremap <silent> <Space>] <cmd>Telescope coc definitions theme=cursor<cr><esc>
-" nnoremap <silent> <Space>[ <cmd>Telescope coc references theme=cursor<cr><esc>
 nnoremap <silent> <Space>] <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
 nnoremap <silent> <Space>[ <cmd>Telescope coc references layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
 " nnoremap <silent> <Space>sq <cmd>Telescope quickfix<cr><esc>
 nnoremap <silent> <Space>sq <cmd>botright copen<cr><esc>
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
-nnoremap <silent> <Space>sb <cmd>Telescope coc mru<cr><esc>
-nnoremap <silent> <Space>sr <cmd>Telescope resume<cr>
+nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95}<cr><esc>
+nnoremap <silent> <Space>sr <cmd>Telescope resume layout_strategy=vertical layout_config={width=0.9,height=0.95}<cr>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
