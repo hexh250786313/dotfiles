@@ -238,6 +238,8 @@ let g:coc_user_config =
       \   "coc.preferences.colorSupport": 0
       \ }
 
+      " \   "git.changedSign.text": "▌",
+      " \   "git.addedSign.text": "▌",
       " \   "typescript.inlayHints.parameterTypes.enabled": 1,
       " \   "javascript.inlayHints.parameterTypes.enabled": 1,
       " \   "typescript.inlayHints.propertyDeclarationTypes.enabled": 1,
