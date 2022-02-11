@@ -44,7 +44,7 @@ require('telescope').setup {
       layout_config={
         width=0.9,
         height=0.95,
-        preview_cutoff = 30,
+        preview_cutoff = 36,
         -- anchor="W",
         -- mirror=true,
         -- prompt_position = "top",
@@ -58,7 +58,7 @@ require('telescope').setup {
       layout_config={
         width=0.9,
         height=0.95,
-        preview_cutoff = 30,
+        preview_cutoff = 36,
         -- prompt_position = "bottom",
         -- height=0.7
         -- prompt_position = "top",

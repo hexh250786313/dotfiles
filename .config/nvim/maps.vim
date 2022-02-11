@@ -132,8 +132,8 @@ nnoremap <silent> <Space>[ <cmd>Telescope coc references layout_strategy=cursor 
 nnoremap <silent> <Space>sq <cmd>botright copen<cr><esc>
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
-nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95}<cr><esc>
-nnoremap <silent> <Space>sr <cmd>Telescope resume layout_strategy=vertical layout_config={width=0.9,height=0.95}<cr>
+nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
+nnoremap <silent> <Space>sr <cmd>Telescope resume layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
