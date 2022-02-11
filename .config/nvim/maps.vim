@@ -204,5 +204,7 @@ nnoremap `c 'C
 
 nmap <Down> <C-e>
 nmap <Up> <C-y>
+nmap <S-Up> <C-u>
+nmap <S-Down> <C-d>
 
-nmap <Space>wt :tabnew %<CR>
+nmap <Space>wt <C-w>v<C-w>T
