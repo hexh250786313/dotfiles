@@ -72,5 +72,7 @@ bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection c
 bind -T copy-mode-vi v send-keys Space
 set-option -g focus-events on
 set -g mouse on
+bind -n C-l send-keys C-l
+set -g history-limit 250000
 # set -g status off
 # set-option repeat-time 0
