@@ -490,3 +490,5 @@ au VimEnter * call AddCycleGroup(['var', 'const', 'let'])
 :hi DefxIconsSymlinkDirectory guibg=NONE guifg=#569CD6
 
 " autocmd User TelescopePreviewerLoaded setlocal number
+
+set foldlevel=99

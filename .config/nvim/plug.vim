@@ -18,7 +18,7 @@ if has("nvim")
   Plug 'rhysd/conflict-marker.vim'
   Plug 'junkblocker/git-time-lapse'
   Plug 'preservim/nerdcommenter'
-  Plug 'terryma/vim-multiple-cursors'
+  Plug 'mg979/vim-visual-multi'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'iamcco/markdown-preview.nvim'
   Plug 'phaazon/hop.nvim',

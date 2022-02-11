@@ -202,3 +202,5 @@ nnoremap mc mC
 nnoremap 'c 'C
 nnoremap `c 'C
 
+nmap <Down> <C-e>
+nmap <Up> <C-y>
