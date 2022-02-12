@@ -53,6 +53,7 @@ if has("nvim")
   Plug 'rlue/vim-barbaric'
   Plug 'github/copilot.vim'
   Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'svermeulen/vim-yoink'
 endif
 
 call plug#end()

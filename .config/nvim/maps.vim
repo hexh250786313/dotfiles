@@ -120,7 +120,8 @@ nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 " nnoremap <silent> <Space>sf :CocList files<CR>
 " nnoremap <silent> <Space>sg :CocList grep<CR>
 " nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
-nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
+" nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
+nnoremap <silent> <Space>sy :Yanks<CR>
 
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
@@ -221,3 +222,10 @@ nmap <Space>7 7gt
 nmap <Space>8 8gt
 nmap <Space>9 9gt
 nmap <Space>0 10gt
+
+nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
+nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
+nmap y <plug>(YoinkYankPreserveCursorPosition)
+xmap y <plug>(YoinkYankPreserveCursorPosition)
+nmap [y <plug>(YoinkRotateBack)
+nmap ]y <plug>(YoinkRotateForward)
