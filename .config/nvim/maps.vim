@@ -202,9 +202,11 @@ nnoremap mc mC
 nnoremap 'c 'C
 nnoremap `c 'C
 
-nmap <Down> <C-e>
-nmap <Up> <C-y>
-nmap <S-Up> <C-u>
-nmap <S-Down> <C-d>
+" nmap <Down> <C-e>
+" nmap <Up> <C-y>
+" nmap <S-Up> <C-u>
+" nmap <S-Down> <C-d>
+" nmap <S-Up> <Plug>(SmoothieUpwards)
+" nmap <S-Down> <Plug>(SmoothieDownwards)
 
 nmap <Space>wt <C-w>v<C-w>T

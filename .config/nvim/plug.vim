@@ -27,7 +27,7 @@ if has("nvim")
   " Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSInstall json lua typescript tsx javascript c markdown vim css scss' }
   Plug 'p00f/nvim-ts-rainbow'
   " Plug 'beauwilliams/focus.nvim'
-  Plug 'glepnir/indent-guides.nvim'
+  " Plug 'glepnir/indent-guides.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'fannheyward/telescope-coc.nvim'
@@ -48,10 +48,11 @@ if has("nvim")
   Plug 'anuvyklack/pretty-fold.nvim'
   " Plug 'petertriho/nvim-scrollbar'
   Plug 'dstein64/nvim-scrollview'
-  " Plug 'karb94/neoscroll.nvim'
+  Plug 'karb94/neoscroll.nvim'
   " Plug 'psliwka/vim-smoothie'
   Plug 'rlue/vim-barbaric'
   Plug 'github/copilot.vim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
 endif
 
 call plug#end()

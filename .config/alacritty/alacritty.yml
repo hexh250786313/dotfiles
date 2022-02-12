@@ -31,9 +31,10 @@ font:
     # family: agave Nerd Font Mono
     # family: CaskaydiaCove Nerd Font
     # style: Bold Italic
-  size: 12.5
+  # size: 12.5
+  size: 9
   offset:
-    x: -1
+    # x: -1
     y: 5
 mouse:
   hide_when_typing: true

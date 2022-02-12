@@ -195,8 +195,10 @@ bindsym $mod+r mode "resize"
 
 gaps inner 19
 # gaps outer 6 # 四周
-gaps left 6
-gaps right 6
+# gaps left 6
+# gaps right 6
+gaps left 7
+gaps right 8
 gaps top 9
 gaps bottom 9
 # gaps top 5
