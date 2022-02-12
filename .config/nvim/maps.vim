@@ -210,3 +210,14 @@ nnoremap `c 'C
 " nmap <S-Down> <Plug>(SmoothieDownwards)
 
 nmap <Space>wt <C-w>v<C-w>T
+
+nmap <Space>1 1gt
+nmap <Space>2 2gt
+nmap <Space>3 3gt
+nmap <Space>4 4gt
+nmap <Space>5 5gt
+nmap <Space>6 6gt
+nmap <Space>7 7gt
+nmap <Space>8 8gt
+nmap <Space>9 9gt
+nmap <Space>0 10gt
