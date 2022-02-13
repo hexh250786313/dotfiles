@@ -39,7 +39,6 @@ if has("nvim")
   Plug 'bronson/vim-visual-star-search'
   Plug 'zef/vim-cycle'
   Plug 'romainl/vim-cool'
-  " Plug 'github/copilot.vim'
   " Plug 'andymass/vim-matchup'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' } " html 的 <script> 标签执行 InlineEdit 可以打开一个 js 缓存
@@ -51,7 +50,7 @@ if has("nvim")
   Plug 'karb94/neoscroll.nvim'
   " Plug 'psliwka/vim-smoothie'
   Plug 'rlue/vim-barbaric'
-  Plug 'github/copilot.vim'
+  " Plug 'github/copilot.vim'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'svermeulen/vim-yoink'
 endif
