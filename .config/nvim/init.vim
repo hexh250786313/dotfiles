@@ -358,7 +358,6 @@ let g:NERDCustomDelimiters={
 	\ 'typescriptreact': { 'left': '//', 'right': '', 'leftAlt': '/**', 'rightAlt': '*/' },
 \}
 
-set updatetime=300
 set shortmess+=c
 
 colorscheme codedark

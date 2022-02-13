@@ -229,3 +229,5 @@ nmap y <plug>(YoinkYankPreserveCursorPosition)
 xmap y <plug>(YoinkYankPreserveCursorPosition)
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
+
+let g:VM_mouse_mappings = 1

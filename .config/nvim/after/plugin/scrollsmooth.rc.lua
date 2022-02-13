@@ -26,8 +26,8 @@ t['<S-Down>'] = {'scroll', { 'vim.wo.scroll', 'true', '100', [['sine']]}}
 t['<Up>'] = {'scroll', {'-3', 'true', '50', [['sine']]}}
 t['<Down>'] = {'scroll', { '3', 'true', '50', [['sine']]}}
 -- When no easing function is provided the default easing function (in this case "quadratic") will be used
-t['zt']    = {'zt', {'300'}}
-t['zz']    = {'zz', {'300'}}
-t['zb']    = {'zb', {'300'}}
+t['zt']    = {'zt', {'200'}}
+t['zz']    = {'zz', {'200'}}
+t['zb']    = {'zb', {'200'}}
 
 require('neoscroll.config').set_mappings(t)

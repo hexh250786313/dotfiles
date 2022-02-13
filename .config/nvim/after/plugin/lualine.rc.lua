@@ -103,7 +103,12 @@ lualine.setup {
       -- },
     -- },
     -- lualine_z = {'tabs'}
-    lualine_a = {'tabs'},
+    lualine_a = {
+      {
+        'tabs',
+        mode = 2,
+      }
+    },
     lualine_b = {
       {
         'filename',

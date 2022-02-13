@@ -8,6 +8,7 @@ require("scrollbar").setup({
     excluded_filetypes = {
         "prompt",
         "TelescopePrompt",
+        ""
     },
     excluded_buftypes = {
         "terminal"
