@@ -237,10 +237,10 @@ let g:coc_user_config =
       \   "coc.source.around.firstMatch": 0,
       \   "coc.preferences.colorSupport": 0,
       \   "tsserver.maxTsServerMemory": 16384,
-      \   "tsserver.log": "verbose",
-      \   "tsserver.trace.server": "verbose",
       \ }
 
+      " \   "tsserver.log": "verbose",
+      " \   "tsserver.trace.server": "verbose",
       " \   "git.changedSign.text": "▌",
       " \   "git.addedSign.text": "▌",
       " \   "typescript.inlayHints.parameterTypes.enabled": 1,
