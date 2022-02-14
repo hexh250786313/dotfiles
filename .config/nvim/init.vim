@@ -236,7 +236,9 @@ let g:coc_user_config =
       \   "coc.source.file.ignoreHidden": 0,
       \   "coc.source.around.firstMatch": 0,
       \   "coc.preferences.colorSupport": 0,
-      \   "tsserver.maxTsServerMemory": 16384
+      \   "tsserver.maxTsServerMemory": 16384,
+      \   "tsserver.log": "verbose",
+      \   "tsserver.trace.server": "verbose",
       \ }
 
       " \   "git.changedSign.text": "▌",
