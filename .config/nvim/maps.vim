@@ -190,3 +190,6 @@ nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 
 let g:VM_mouse_mappings = 1
+
+nnoremap <silent> <Space>bf :Format<cr>
+vnoremap <silent> <Space>bf :Format<cr>

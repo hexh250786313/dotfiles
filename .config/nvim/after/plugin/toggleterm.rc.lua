@@ -1,16 +1,19 @@
-require("toggleterm").setup{
+require("toggleterm").setup {
   -- open_mapping = [[<c-\>]],
   -- direction = 'float',
   float_opts = {
-    border = 'curved'
+    border = "curved"
   }
 }
 
-local Terminal  = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({
-  cmd = "lazygit",
-  direction = "float",
-})
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit =
+  Terminal:new(
+  {
+    cmd = "lazygit",
+    direction = "float"
+  }
+)
 
 function _lazygit_toggle()
   lazygit:toggle()

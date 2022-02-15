@@ -5,10 +5,10 @@ local lsp = vim.lsp
 function show_line_diagnostics()
   local opts = {
     focusable = false,
-    close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+    close_events = {"BufLeave", "CursorMoved", "InsertEnter", "FocusLost"},
     -- border = 'rounded',
-    source = 'always',
-    prefix = ' '
+    source = "always",
+    prefix = " "
   }
   vim.diagnostic.open_float(nil, opts)
 end
@@ -21,16 +21,9 @@ local custom_attach = function(client, bufnr)
   vim.cmd([[
     autocmd CursorHold <buffer> lua show_line_diagnostics()
   ]])
-
-  if client.resolved_capabilities.document_formatting then
-    -- buf_set_keymap("n", "<space>bf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
-  end
-  if client.resolved_capabilities.document_range_formatting then
-    -- buf_set_keymap("x", "<space>bf", "<cmd>lua vim.lsp.buf.range_formatting()<CR><ESC>", opts)
-  end
 end
 
-nvim_lsp.tsserver.setup{
+nvim_lsp.tsserver.setup {
   on_attach = custom_attach
 }
 
@@ -49,7 +42,7 @@ nvim_lsp.diagnosticls.setup {
         command = "./node_modules/.bin/eslint",
         rootPatterns = {
           ".eslitrc.js",
-          "package.json",
+          "package.json"
         },
         debounce = 100,
         args = {
@@ -78,11 +71,9 @@ nvim_lsp.diagnosticls.setup {
   }
 }
 
-vim.fn.sign_define("DiagnosticSignError", { text = "✗", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = "!", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+vim.fn.sign_define("DiagnosticSignError", {text = "✗", texthl = "DiagnosticSignError"})
+vim.fn.sign_define("DiagnosticSignWarn", {text = "!", texthl = "DiagnosticSignWarn"})
+vim.fn.sign_define("DiagnosticSignInformation", {text = "", texthl = "DiagnosticSignInfo"})
+vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint"})
 
-lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {
-  -- border = "rounded",
-})
+lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {})

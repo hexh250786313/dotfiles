@@ -63,6 +63,7 @@ if has("nvim")
   Plug 'tami5/sqlite.lua'
   Plug 'nvim-telescope/telescope-frecency.nvim'
   Plug 'arkav/lualine-lsp-progress'
+  Plug 'mhartington/formatter.nvim'
 endif
 
 call plug#end()

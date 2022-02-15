@@ -1,17 +1,16 @@
 require("nvim-treesitter.configs").setup {
   highlight = {
-    enable = true,
+    enable = true
   },
   incremental_selection = {
-    enable = false,
+    enable = false
   },
   indent = {
     -- enable = true
     enable = false
   },
-  rainbow = {enable = true, extended_mode = true, max_file_lines = 10000},
+  rainbow = {enable = true, extended_mode = true, max_file_lines = 10000}
   -- matchup = {
-    -- enable = true,
+  -- enable = true,
   -- },
 }
-
