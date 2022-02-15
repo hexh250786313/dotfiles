@@ -141,164 +141,6 @@ endif
 
 "}}}
 
-let g:coc_enable_locationlist = 0
-autocmd User CocLocationsChange CocList --normal --tab --auto-preview location
-
-let g:coc_user_config = 
-      \  {
-      \    "session.directory": "~/.vimsessions",
-      \    "emmet.includeLanguages": {
-      \     "vue-html": "html",
-      \     "javascript": "javascriptreact"
-      \   },
-      \   "diagnostic.virtualTextPrefix": " ▸ ",
-      \   "diagnostic.errorSign": "\uf65b",
-      \   "diagnostic.warningSign": "\uf525",
-      \   "diagnostic.infoSign": "\uf7fb",
-      \   "diagnostic.hintSign": "\uf7d6",
-      \   "snippets.extends": {
-      \     "javascriptreact": ["javascript"],
-      \     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
-      \     "typescript": ["javascript", "javascript-jasmine-arrow"]
-      \   },
-      \   "git.changedSign.text": "▌",
-      \   "git.addedSign.text": "▌",
-      \   "git.removedSign.text": "▁",
-      \   "git.changeRemovedSign.text": "▁",
-      \   "git.topRemovedSign.text": "▔",
-      \   "git.changedDecorator": " ",
-      \   "git.stagedDecorator": " ",
-      \   "git.untrackedDecorator": " ✩",
-      \   "git.conflictedDecorator": "⇡⇣",
-      \   "git.virtualTextPrefix": " \ue729 ",
-      \   "list.indicator": "❯",
-      \   "git.addGBlameToVirtualText": 1,
-      \   "list.source.grep.useLiteral": 0,
-      \   "suggest.snippetIndicator": " ✩",
-      \   "list.source.grep.command": "rg",
-      \   "list.source.grep.args": ["-i", "--hidden"],
-      \   "list.source.grep.excludePatterns": ["**/.git/**"],
-      \   "list.source.files.args": ["--files", "--hidden"],
-      \   "list.source.files.excludePatterns": ["**/.git/**"],
-      \   "diagnostic.virtualText": 1,
-      \   "diagnostic.virtualTextCurrentLineOnly": 0,
-      \   "coc.preferences.semanticTokensFiletypes": ["*"],
-      \   "suggest.completionItemKindLabels": {
-      \     "keyword": "\uf1de",
-      \     "variable": "\ue79b",
-      \     "value": "\uf89f",
-      \     "operator": "\u03a8",
-      \     "constructor": "\uf0ad",
-      \     "function": "\u0192",
-      \     "reference": "\ufa46",
-      \     "constant": "\uf8fe",
-      \     "method": "\uf09a",
-      \     "struct": "\ufb44",
-      \     "class": "\uf0e8",
-      \     "interface": "\uf417",
-      \     "text": "\ue612",
-      \     "enum": "\uf435",
-      \     "enumMember": "\uf02b",
-      \     "module": "\uf40d",
-      \     "color": "\ue22b",
-      \     "property": "\ue624",
-      \     "field": "\uf9be",
-      \     "unit": "\uf475",
-      \     "event": "\ufacd",
-      \     "file": "\uf723",
-      \     "folder": "\uf114",
-      \     "snippet": "\ue60b",
-      \     "typeParameter": "\uf728",
-      \     "default": "\uf29c"
-      \   },
-      \   "suggest.labelMaxLength": 30,
-      \   "suggest.numberSelect": 1,
-      \   "signature.floatConfig": {
-      \     "border": 1
-      \   },
-      \   "diagnostic.floatConfig": {
-      \     "border": 1
-      \   },
-      \   "hover.floatConfig": {
-      \     "border": 1
-      \   },
-      \   "suggest.floatConfig": {
-      \     "border": 1
-      \   },
-      \   "coc.preferences.extensionUpdateCheck": "daily",
-      \   "diagnostic.checkCurrentLine": 1,
-      \   "diagnostic.separateRelatedInformationAsDiagnostics": 1,
-      \   "eslint.packageManager": "yarn",
-      \   "git.semanticCommit.scope": 0,
-      \   "suggest.detailField": "abbr",
-      \   "suggest.defaultSortMethod": "none",
-      \   "suggest.enablePreselect": 1,
-      \   "coc.source.file.ignoreHidden": 0,
-      \   "coc.source.around.firstMatch": 0,
-      \   "coc.preferences.colorSupport": 0,
-      \   "tsserver.maxTsServerMemory": 16384,
-      \ }
-
-      " \   "tsserver.log": "verbose",
-      " \   "tsserver.trace.server": "verbose",
-      " \   "git.changedSign.text": "▌",
-      " \   "git.addedSign.text": "▌",
-      " \   "typescript.inlayHints.parameterTypes.enabled": 1,
-      " \   "javascript.inlayHints.parameterTypes.enabled": 1,
-      " \   "typescript.inlayHints.propertyDeclarationTypes.enabled": 1,
-      " \   "javascript.inlayHints.propertyDeclarationTypes.enabled": 1,
-      " \   "typescript.inlayHints.variableTypes.enabled": 1,
-      " \   "javascript.inlayHints.variableTypes.enabled": 1,
-      " \   "typescript.inlayHints.functionLikeReturnTypes.enabled": 1,
-      " \   "javascript.inlayHints.functionLikeReturnTypes.enabled": 1,
-      " \   "typescript.inlayHints.enumMemberValues.enabled": 1,
-      " \   "javascript.inlayHints.enumMemberValues.enabled": 1
-      " \   "codeLens.enable": 1,
-      " \   "codeLens.position": "eol",
-      " \   "signature.target": "echo",
-      " \   "git.addedSign.text": "░▓",
-      " \   "git.changedSign.text": "░▓",
-      " \   "git.removedSign.text": "░▓",
-      " \   "git.topRemovedSign.text": "░▓",
-      " \   "git.changeRemovedSign.text": "░▓",
-      " \   "typescript.inlayHints.parameterNames.enabled": "all",
-      " \   "typescript.inlayHints.parameterTypes.enabled": 1,
-      " \   "typescript.inlayHints.variableTypes.enabled": 1,
-      " \   "typescript.inlayHints.enumMemberValues.enabled": 1,
-      " \   "typescript.inlayHints.functionLikeReturnTypes.enabled": 1,
-      " \   "typescript.inlayHints.propertyDeclarationTypes.enabled": 1,
-      " \   "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": 1,
-      " \   "javascript.inlayHints.parameterNames.enabled": "all",
-      " \   "javascript.inlayHints.variableTypes.enabled": 1,
-      " \   "javascript.inlayHints.parameterTypes.enabled": 1,
-      " \   "javascript.inlayHints.enumMemberValues.enabled": 1,
-      " \   "javascript.inlayHints.functionLikeReturnTypes.enabled": 1,
-      " \   "javascript.inlayHints.propertyDeclarationTypes.enabled": 1,
-      " \   "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": 1
-
-let g:coc_global_extensions = 
-      \ [
-      \   'coc-css',
-      \   'coc-emmet',
-      \   'coc-eslint', 
-      \   'coc-git', 
-      \   'coc-highlight', 
-      \   'coc-html',
-      \   'coc-json',
-      \   'coc-lists',
-      \   'coc-pairs',
-      \   'coc-prettier',
-      \   'coc-snippets',
-      \   'coc-tsserver',
-      \   'coc-yank'
-      \ ]
-
-" coc 选择了 quickfix 打开后的回调
-let g:coc_quickfix_open_command = 'CocList --auto-preview --normal --tab --number-select quickfix'
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-
 let g:expand_region_text_objects = {
       \ 'iw'  :0,
       \ 'iW'  :0,
@@ -319,11 +161,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -335,17 +172,9 @@ let g:fugitive_pty = 0
 
 
 " let blacklist = ['vim', 'help']
-" autocmd CursorHold * if (index(blacklist, &ft) < 0 || !coc#rpc#ready()) | silent! call CocActionAsync('doHover')
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-autocmd CursorHold * if (coc#rpc#ready()) | silent call CocActionAsync('highlight')
-" autocmd CursorHold * if (coc#rpc#ready()) | silent call timer_start(2000, { tid -> execute("call CocActionAsync('highlight')") })
-" au VimEnter * call timer_start(2000, { tid -> execute('VGit toggle_live_blame') })
 
 set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h16
 let neovide_remember_window_size = v:true
-
-" autocmd User EasyMotionPromptBegin silent! CocDisable
-" autocmd User EasyMotionPromptEnd silent! CocEnable
 
 function! s:CtrlZ()
   " call writefile([getcwd(),''], '/tmp/cd_vim', 'b')
@@ -371,10 +200,6 @@ highlight! EndOfBuffer ctermbg=NONE guibg=NONE
 " highlight CursorLine guibg=#455a64
 highlight CursorLine guibg=#23272e
 " highlight CursorColumn guibg=#455a64
-highlight CocListPath guibg=#455a64
-highlight CocListMode guibg=#455a64
-
-highlight CocHighlightText cterm=underline guibg=#0f6073
 
 let g:defx_icons_column_length = 3
 let g:defx_mark_column_length = 3

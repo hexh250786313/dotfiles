@@ -7,14 +7,12 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 
 if has("nvim")
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'tpope/vim-surround'
-  Plug 'honza/vim-snippets'
+  " Plug 'honza/vim-snippets'
   Plug 'rhysd/conflict-marker.vim'
   Plug 'junkblocker/git-time-lapse'
   Plug 'preservim/nerdcommenter'
@@ -30,7 +28,6 @@ if has("nvim")
   " Plug 'glepnir/indent-guides.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'fannheyward/telescope-coc.nvim'
   Plug 'akinsho/toggleterm.nvim'
   Plug 'nvim-treesitter/playground'
   Plug 'SmiteshP/nvim-gps'
@@ -53,6 +50,19 @@ if has("nvim")
   " Plug 'github/copilot.vim'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'svermeulen/vim-yoink'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'onsails/lspkind-nvim'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'rafamadriz/friendly-snippets'
+  Plug 'tami5/sqlite.lua'
+  Plug 'nvim-telescope/telescope-frecency.nvim'
+  Plug 'arkav/lualine-lsp-progress'
 endif
 
 call plug#end()

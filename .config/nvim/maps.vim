@@ -21,24 +21,14 @@
 set clipboard=unnamedplus
 
 " nmap <silent> <Space>bf :Prettier<CR>
-xmap <silent> <Space>bf  <Plug>(coc-format-selected)
-nmap <silent> <Space>bf  <Plug>(coc-format)
 nnoremap <silent> <Space>bd :bd<CR>
 
-nnoremap <silent> <Space>gs :CocCommand git.chunkStage<CR>
-nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>
-nnoremap <silent> <Space>gI :CocCommand git.chunkInfo<CR>
+nnoremap <silent> <Space>gs :VGit buffer_hunk_stage<CR>
+nnoremap <silent> <Space>gu :VGit buffer_hunk_reset<CR>
 nnoremap <silent> <Space>gi :VGit buffer_hunk_preview<CR>
 nnoremap <silent> <Space>gt :GitTimeLapse<CR>
 nnoremap <silent> <Space>gT :VGit buffer_history_preview<CR>
-nnoremap <silent> <Space>gd :CocCommand git.diffCached<CR>
-nnoremap <silent> <Space>gl :CocCommand git.showCommit<CR>
 nnoremap <silent> <Space>gg :Git<CR>
-nmap <Space>g[ <Plug>(coc-git-prevchunk)
-nmap <Space>g] <Plug>(coc-git-nextchunk)
-
-nnoremap <silent> <Space>zs :CocCommand session.save<CR>
-nnoremap <silent> <Space>zl :CocCommand session.load<CR>
 
 nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 
@@ -102,38 +92,22 @@ nnoremap < <<_
 nnoremap <silent> <C-r> :silent redo<CR>
 nnoremap <silent> u :silent undo<CR>
 
-nnoremap <silent> gh :call <SID>show_documentation()<CR>
+" nnoremap <silent> gh :call <SID>show_documentation()<CR>
+nnoremap <silent> gh <cmd>lua vim.lsp.buf.hover()<cr>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
-nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
-" nnoremap <silent> <script> <Space>sq :CocList --auto-preview --normal --tab --number-select quickfix<CR>
-" nnoremap <silent> <Space>sf :CocList files<CR>
-" nnoremap <silent> <Space>sg :CocList grep<CR>
-" nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
-" nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
 nnoremap <silent> <Space>sy :Yanks<CR>
 
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 
-nnoremap <silent> <Space>] <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
-nnoremap <silent> <Space>[ <cmd>Telescope coc references layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
+nnoremap <silent> <Space>] <cmd>Telescope lsp_definitions layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
+nnoremap <silent> <Space>[ <cmd>Telescope lsp_references layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
 " nnoremap <silent> <Space>sq <cmd>Telescope quickfix<cr><esc>
 nnoremap <silent> <Space>sq <cmd>botright copen<cr><esc>
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
-nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
+nnoremap <silent> <Space>sb <cmd>Telescope frecency layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
 nnoremap <silent> <Space>sr <cmd>Telescope resume layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr>
 
 function! s:GrepFromSelected(type)
@@ -148,7 +122,6 @@ function! s:GrepFromSelected(type)
   let word = substitute(@@, '\n$', '', 'g')
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
-  " execute 'CocList grep '.word
   execute 'Telescope live_grep default_text='.word
 endfunction
 
@@ -164,25 +137,11 @@ function! s:FindFromSelected(type)
   let word = substitute(@@, '\n$', '', 'g')
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
-  " execute 'CocList grep '.word
   execute 'Telescope find_files find_command=rg,--hidden,--files default_text='.word
 endfunction
 
 " nnoremap <silent> <Space>w= :FocusToggle<CR>
 nnoremap <silent> <Space>' <cmd>ToggleTerm direction=float<cr>
-
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  " nmap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<Plug>(SmoothieForwards)"
-  " nmap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<Plug>(SmoothieBackwards)"
-  " vmap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<Plug>(SmoothieForwards)"
-  " vmap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<Plug>(SmoothieBackwards)"
-endif
 
 nnoremap ma mA
 nnoremap 'a 'A

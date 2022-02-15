@@ -75,7 +75,7 @@ lualine.setup {
       -- { gps.get_location, cond = gps.is_available },
     },
     lualine_x = {
-      'g:coc_status',
+      'lsp_progress',
       'encoding',
       'filetype'
     },
