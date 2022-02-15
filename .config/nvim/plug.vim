@@ -64,6 +64,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope-frecency.nvim'
   Plug 'arkav/lualine-lsp-progress'
   Plug 'mhartington/formatter.nvim'
+  Plug 'lewis6991/gitsigns.nvim'
 endif
 
 call plug#end()

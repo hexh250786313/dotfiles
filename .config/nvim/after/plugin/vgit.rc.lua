@@ -2,10 +2,10 @@ require("vgit").setup(
   {
     settings = {
       live_gutter = {
-        enabled = true
+        enabled = false
       },
       live_blame = {
-        enabled = true
+        enabled = false
       },
       authorship_code_lens = {
         enabled = false
