@@ -39,7 +39,8 @@ nvim_lsp.diagnosticls.setup {
     linters = {
       eslint = {
         sourceName = "eslint",
-        command = "./node_modules/.bin/eslint",
+        -- command = "./node_modules/.bin/eslint",
+        command = "eslint",
         rootPatterns = {
           ".eslitrc.js",
           "package.json"
