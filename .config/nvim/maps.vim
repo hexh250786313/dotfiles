@@ -101,14 +101,14 @@ nnoremap <silent> <Space>sy :Yanks<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 
-nnoremap <silent> <Space>] <cmd>Telescope lsp_definitions layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
-nnoremap <silent> <Space>[ <cmd>Telescope lsp_references layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
+nnoremap <silent> <Space>] <cmd>Telescope lsp_definitions layout_strategy=cursor layout_config={height=0.3,width=0.9} initial_mode=normal<cr>
+nnoremap <silent> <Space>[ <cmd>Telescope lsp_references layout_strategy=cursor layout_config={height=0.3,width=0.9} initial_mode=normal<cr>
 " nnoremap <silent> <Space>sq <cmd>Telescope quickfix<cr><esc>
-nnoremap <silent> <Space>sq <cmd>botright copen<cr><esc>
+nnoremap <silent> <Space>sq <cmd>botright copen<cr>
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
-nnoremap <silent> <Space>sb <cmd>Telescope frecency layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
-nnoremap <silent> <Space>sr <cmd>Telescope resume layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr>
+nnoremap <silent> <Space>sb <cmd>Telescope frecency layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr>
+nnoremap <silent> <Space>sr <cmd>Telescope resume<cr>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@

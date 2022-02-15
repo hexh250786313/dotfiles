@@ -64,6 +64,14 @@ require("telescope").setup {
         -- prompt_position = "top",
       }
       -- winblend = 90
+    },
+    resume = {
+      layout_strategy = "vertical",
+      layout_config = {
+        width = 0.9,
+        height = 0.95,
+        preview_cutoff = 36
+      }
     }
   }
 }
