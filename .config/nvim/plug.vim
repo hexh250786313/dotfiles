@@ -45,7 +45,7 @@ if has("nvim")
   Plug 'tanvirtin/vgit.nvim',
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'anuvyklack/pretty-fold.nvim'
-  Plug 'petertriho/nvim-scrollbar', { 'commit': 'ab8a66f2bc6848a9eaf43fddd5bd2dac128cdd38' }
+  Plug 'petertriho/nvim-scrollbar',
   " Plug 'dstein64/nvim-scrollview'
   Plug 'karb94/neoscroll.nvim'
   " Plug 'psliwka/vim-smoothie'
