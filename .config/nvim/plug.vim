@@ -65,6 +65,7 @@ if has("nvim")
   Plug 'arkav/lualine-lsp-progress'
   Plug 'mhartington/formatter.nvim'
   Plug 'lewis6991/gitsigns.nvim'
+  Plug 'rmagatti/auto-session'
 endif
 
 call plug#end()

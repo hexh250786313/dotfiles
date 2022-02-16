@@ -1,18 +1,11 @@
 function format_prettier()
   return {
-    exe = "prettier",
-    args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+    exe = "prettierd",
+    -- args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+    args = {vim.api.nvim_buf_get_name(0)},
     stdin = true
   }
 end
-
-require("formatter").setup {
-  logging = true,
-  filetype = {
-    typescript = {format_prettier},
-    typescriptreact = {format_prettier}
-  }
-}
 
 require("formatter").setup(
   {
