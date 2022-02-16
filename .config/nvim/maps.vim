@@ -21,6 +21,8 @@
 set clipboard=unnamedplus
 
 " nmap <silent> <Space>bf :Prettier<CR>
+" xmap <silent> <Space>bf  <Plug>(coc-format-selected)
+" nmap <silent> <Space>bf  <Plug>(coc-format)
 xmap <silent> <Space>bf  <Plug>(coc-format-selected)
 nmap <silent> <Space>bf  <Plug>(coc-format)
 nnoremap <silent> <Space>bd :bd<CR>
@@ -37,8 +39,8 @@ nnoremap <silent> <Space>gg :Git<CR>
 nmap <Space>g[ <Plug>(coc-git-prevchunk)
 nmap <Space>g] <Plug>(coc-git-nextchunk)
 
-nnoremap <silent> <Space>zs :CocCommand session.save<CR>
-nnoremap <silent> <Space>zl :CocCommand session.load<CR>
+" nnoremap <silent> <Space>zs :CocCommand session.save<CR>
+" nnoremap <silent> <Space>zl :CocCommand session.load<CR>
 
 nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 
@@ -130,11 +132,12 @@ vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 nnoremap <silent> <Space>] <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
 nnoremap <silent> <Space>[ <cmd>Telescope coc references layout_strategy=cursor layout_config={height=0.3,width=0.9}<cr><esc>
 " nnoremap <silent> <Space>sq <cmd>Telescope quickfix<cr><esc>
-nnoremap <silent> <Space>sq <cmd>botright copen<cr><esc>
+nnoremap <silent> <Space>sq <cmd>botright copen<cr>
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
-nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
-nnoremap <silent> <Space>sr <cmd>Telescope resume layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr>
+" nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
+nnoremap <silent> <Space>sb <cmd>Telescope oldfiles<cr><esc>
+nnoremap <silent> <Space>sr <cmd>Telescope resume<cr><esc>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
@@ -149,7 +152,7 @@ function! s:GrepFromSelected(type)
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
   " execute 'CocList grep '.word
-  execute 'Telescope live_grep default_text='.word
+  execute 'Telescope live_grep initial_mode=normal default_text='.word
 endfunction
 
 function! s:FindFromSelected(type)
@@ -165,7 +168,7 @@ function! s:FindFromSelected(type)
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
   " execute 'CocList grep '.word
-  execute 'Telescope find_files find_command=rg,--hidden,--files default_text='.word
+  execute 'Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text='.word
 endfunction
 
 " nnoremap <silent> <Space>w= :FocusToggle<CR>

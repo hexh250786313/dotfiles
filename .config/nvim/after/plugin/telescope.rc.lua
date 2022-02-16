@@ -1,7 +1,7 @@
 local actions = require "telescope.actions"
 local action_layout = require "telescope.actions.layout"
 
-require('telescope').setup {
+require("telescope").setup {
   defaults = {
     mappings = {
       i = {
@@ -31,20 +31,20 @@ require('telescope').setup {
         end
       }
     },
-    vimgrep_arguments = { 'rg', '--column', '--ignore-case', '--hidden', '--multiline' },
+    vimgrep_arguments = {"rg", "--column", "--ignore-case", "--hidden", "--multiline"},
     preview = {
-      timeout = false,
+      timeout = false
       -- hide_on_startup = true
-    },
+    }
   },
   pickers = {
     find_files = {
       -- theme = "center",
-      layout_strategy = 'vertical',
-      layout_config={
-        width=0.9,
-        height=0.95,
-        preview_cutoff = 36,
+      layout_strategy = "vertical",
+      layout_config = {
+        width = 0.9,
+        height = 0.95,
+        preview_cutoff = 36
         -- anchor="W",
         -- mirror=true,
         -- prompt_position = "top",
@@ -54,18 +54,35 @@ require('telescope').setup {
     },
     live_grep = {
       -- theme = "dropdown",
-      layout_strategy = 'vertical',
-      layout_config={
-        width=0.9,
-        height=0.95,
-        preview_cutoff = 36,
+      layout_strategy = "vertical",
+      layout_config = {
+        width = 0.9,
+        height = 0.95,
+        preview_cutoff = 36
         -- prompt_position = "bottom",
         -- height=0.7
         -- prompt_position = "top",
-      }
+      },
       -- winblend = 90
     },
+    resume = {
+      layout_strategy = "vertical",
+      layout_config = {
+        width = 0.9,
+        height = 0.95,
+        preview_cutoff = 36
+      },
+  initial_mode = "normal",
+    },
+oldfiles = {
+  layout_strategy = "vertical",
+  layout_config = {
+    width = 0.9,
+    height=0.95,
+    preview_cutoff=36
   },
+  initial_mode = "normal",
+}
+  }
 }
 
-require('telescope').load_extension('coc')
