@@ -60,12 +60,11 @@ if has("nvim")
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'rafamadriz/friendly-snippets'
-  Plug 'tami5/sqlite.lua'
-  Plug 'nvim-telescope/telescope-frecency.nvim'
   Plug 'arkav/lualine-lsp-progress'
   Plug 'mhartington/formatter.nvim'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'rmagatti/auto-session'
+  Plug 'glepnir/lspsaga.nvim'
 endif
 
 call plug#end()

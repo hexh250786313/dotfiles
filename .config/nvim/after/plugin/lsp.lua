@@ -77,3 +77,13 @@ vim.fn.sign_define("DiagnosticSignInformation", {text = "", texthl = "Diagnos
 vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint"})
 
 lsp.handlers["textDocument/hover"] = lsp.with(vim.lsp.handlers.hover, {})
+
+-- local saga = require 'lspsaga'
+
+-- saga.init_lsp_saga {
+  -- error_sign = '',
+  -- warn_sign = '',
+  -- hint_sign = '',
+  -- infor_sign = '',
+  -- border_style = "round",
+-- }

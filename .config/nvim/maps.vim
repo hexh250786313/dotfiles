@@ -107,8 +107,8 @@ nnoremap <silent> <Space>[ <cmd>Telescope lsp_references layout_strategy=cursor 
 nnoremap <silent> <Space>sq <cmd>botright copen<cr>
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
-nnoremap <silent> <Space>sb <cmd>Telescope frecency layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr>
-nnoremap <silent> <Space>sr <cmd>Telescope resume<cr>
+nnoremap <silent> <Space>sb <cmd>Telescope oldfiles layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
+nnoremap <silent> <Space>sr <cmd>Telescope resume<cr><esc>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
@@ -122,7 +122,7 @@ function! s:GrepFromSelected(type)
   let word = substitute(@@, '\n$', '', 'g')
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
-  execute 'Telescope live_grep default_text='.word
+  execute 'Telescope live_grep initial_mode=normal default_text='.word 
 endfunction
 
 function! s:FindFromSelected(type)
@@ -137,7 +137,7 @@ function! s:FindFromSelected(type)
   let word = substitute(@@, '\n$', '', 'g')
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
-  execute 'Telescope find_files find_command=rg,--hidden,--files default_text='.word
+  execute 'Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text='.word 
 endfunction
 
 " nnoremap <silent> <Space>w= :FocusToggle<CR>
