@@ -55,6 +55,7 @@ if has("nvim")
   Plug 'svermeulen/vim-yoink'
   Plug 'rmagatti/auto-session'
   Plug 'mhartington/formatter.nvim'
+  Plug 'akinsho/bufferline.nvim'
 endif
 
 call plug#end()

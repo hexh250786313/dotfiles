@@ -84,38 +84,38 @@ lualine.setup {
     lualine_y = {"progress"},
     lualine_z = {"location"}
   },
-  extensions = {"fugitive"},
-  tabline = {
-    -- lualine_a = {
-    -- {
-    -- 'buffers',
-    -- show_filename_only = true,
-    -- mode = 2,
-    -- max_length = vim.o.columns * 1 / 2,
-    -- -- max_length = vim.o.columns,
-    -- }
-    -- },
-    -- lualine_b = {},
-    -- lualine_c = {},
-    -- lualine_x = {},
-    -- lualine_y = {
-    -- {
-    -- 'filename',
-    -- path = 1
-    -- },
-    -- },
-    -- lualine_z = {'tabs'}
-    lualine_a = {
-      {
-        "tabs",
-        mode = 2
-      }
-    },
-    lualine_b = {
-      {
-        "filename",
-        path = 1
-      }
-    }
-  }
+  extensions = {"fugitive"}
+  -- tabline = {
+  -- -- lualine_a = {
+  -- -- {
+  -- -- 'buffers',
+  -- -- show_filename_only = true,
+  -- -- mode = 2,
+  -- -- max_length = vim.o.columns * 1 / 2,
+  -- -- -- max_length = vim.o.columns,
+  -- -- }
+  -- -- },
+  -- -- lualine_b = {},
+  -- -- lualine_c = {},
+  -- -- lualine_x = {},
+  -- -- lualine_y = {
+  -- -- {
+  -- -- 'filename',
+  -- -- path = 1
+  -- -- },
+  -- -- },
+  -- -- lualine_z = {'tabs'}
+  -- lualine_a = {
+  -- {
+  -- "tabs",
+  -- mode = 2
+  -- }
+  -- },
+  -- lualine_b = {
+  -- {
+  -- "filename",
+  -- path = 1
+  -- }
+  -- }
+  -- }
 }
