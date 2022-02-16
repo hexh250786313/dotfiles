@@ -54,6 +54,7 @@ if has("nvim")
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'svermeulen/vim-yoink'
   Plug 'rmagatti/auto-session'
+  Plug 'mhartington/formatter.nvim'
 endif
 
 call plug#end()

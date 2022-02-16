@@ -62,7 +62,7 @@ require("telescope").setup {
         -- prompt_position = "bottom",
         -- height=0.7
         -- prompt_position = "top",
-      },
+      }
       -- winblend = 90
     },
     resume = {
@@ -72,17 +72,16 @@ require("telescope").setup {
         height = 0.95,
         preview_cutoff = 36
       },
-  initial_mode = "normal",
+      initial_mode = "normal"
     },
-oldfiles = {
-  layout_strategy = "vertical",
-  layout_config = {
-    width = 0.9,
-    height=0.95,
-    preview_cutoff=36
-  },
-  initial_mode = "normal",
-}
+    oldfiles = {
+      layout_strategy = "vertical",
+      layout_config = {
+        width = 0.9,
+        height = 0.95,
+        preview_cutoff = 36
+      },
+      initial_mode = "normal"
+    }
   }
 }
-

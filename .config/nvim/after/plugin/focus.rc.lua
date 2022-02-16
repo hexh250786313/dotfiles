@@ -1,4 +1,4 @@
 -- require("focus").setup({
-  -- excluded_filetypes = { "qf" },
-  -- excluded_buftypes = { "quickfix", "nofile" }
+-- excluded_filetypes = { "qf" },
+-- excluded_buftypes = { "quickfix", "nofile" }
 -- })

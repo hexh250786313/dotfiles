@@ -23,8 +23,8 @@ set clipboard=unnamedplus
 " nmap <silent> <Space>bf :Prettier<CR>
 " xmap <silent> <Space>bf  <Plug>(coc-format-selected)
 " nmap <silent> <Space>bf  <Plug>(coc-format)
-xmap <silent> <Space>bf  <Plug>(coc-format-selected)
-nmap <silent> <Space>bf  <Plug>(coc-format)
+nnoremap <silent> <Space>bf :Format<cr>
+xnoremap <silent> <Space>bf :Format<cr>
 nnoremap <silent> <Space>bd :bd<CR>
 
 nnoremap <silent> <Space>gs :CocCommand git.chunkStage<CR>

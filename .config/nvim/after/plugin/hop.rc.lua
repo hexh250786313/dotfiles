@@ -1,1 +1,1 @@
-require('hop').setup({create_hl_autocmd = true})
+require("hop").setup({create_hl_autocmd = true})
