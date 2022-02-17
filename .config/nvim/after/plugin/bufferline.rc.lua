@@ -3,6 +3,38 @@ local fn = vim.fn
 local api = vim.api
 local utils = require("telescope.utils")
 
+local function max_split(s, pattern, maxsplit)
+  pattern = pattern or " "
+  maxsplit = maxsplit or -1
+
+  local t = {}
+
+  local curpos = 0
+  while maxsplit ~= 0 and curpos < #s do
+    local found, final = string.find(s, pattern, curpos, false)
+    if found ~= nil then
+      local val = string.sub(s, curpos, found - 1)
+
+      if #val > 0 then
+        maxsplit = maxsplit - 1
+        table.insert(t, val)
+      end
+
+      curpos = final + 1
+    else
+      -- curpos = curpos + 1
+      table.insert(t, string.sub(s, curpos))
+      break
+    end
+
+    if maxsplit == 0 then
+      table.insert(t, string.sub(s, curpos))
+    end
+  end
+
+  return t
+end
+
 local function is_coc_ready(feature)
   if vim.g.coc_service_initialized ~= 1 then
     print("Coc is not ready!")
@@ -32,11 +64,11 @@ require("bufferline").setup {
     -- end,
     -- indicator_icon = " ",
     custom_filter = function(buf_number, buf_numbers)
-      return true
-      -- 当前 buffer 返回 true
-      -- if vim.fn.bufname(buf_number) == vim.fn.expand("%") then
       -- return true
-      -- end
+      -- 当前 buffer 返回 true
+      if vim.fn.bufname(buf_number) == vim.fn.expand("%") then
+        return true
+      end
       -- print(vim.fn.expand('%'))
       -- print(vim.fn.bufname(buf_number) == vim.fn.expand('%:p'))
       -- print(vim.fn.bufname(buf_number))
@@ -47,9 +79,6 @@ require("bufferline").setup {
       -- -- filter out by buffer name:p
       -- if vim.fn.bufname(buf_number) == "qqk" then
       -- return true
-      -- end
-      -- if not is_coc_ready() then
-      -- return false
       -- end
       -- local qq = vim.b.coc_git_status
       -- print(qq);
@@ -64,26 +93,29 @@ require("bufferline").setup {
       -- pipe:flush()
       -- pipe:close()
       -- end, 1000)
-      -- local home = vim.call("coc#util#get_data_home")
-      -- local data = Path:new(home .. Path.path.sep .. "mru"):read()
-      -- local results = {}
-      -- if not data or #data == 0 then
-      -- return
-      -- end
-      -- local cwd = vim.loop.cwd() .. Path.path.sep
-      -- for index, val in ipairs(utils.max_split(data, "\n")) do
-      -- -- if index > 8 then
-      -- -- return
-      -- -- end
-      -- local p = Path:new(val)
-      -- local lowerPrefix = val:sub(1, #cwd):gsub(Path.path.sep, ""):lower()
-      -- local lowerCWD = cwd:gsub(Path.path.sep, ""):lower()
-      -- if lowerCWD == lowerPrefix and p:exists() and p:is_file() then
-      -- if vim.fn.bufname(buf_number) == val:sub(#cwd + 1) then
-      -- return true
-      -- end
-      -- end
-      -- end
+      if not is_coc_ready() then
+        return false
+      end
+      local home = vim.call("coc#util#get_data_home")
+      local data = Path:new(home .. Path.path.sep .. "mru"):read()
+      local results = {}
+      if not data or #data == 0 then
+        return
+      end
+      local cwd = vim.loop.cwd() .. Path.path.sep
+      for index, val in ipairs(max_split(data, "\n")) do
+        if index > 5 then
+          return
+        end
+        local p = Path:new(val)
+        local lowerPrefix = val:sub(1, #cwd):gsub(Path.path.sep, ""):lower()
+        local lowerCWD = cwd:gsub(Path.path.sep, ""):lower()
+        if lowerCWD == lowerPrefix and p:exists() and p:is_file() then
+          if vim.fn.bufname(buf_number) == val:sub(#cwd + 1) then
+            return true
+          end
+        end
+      end
       -- filter out based on arbitrary rules
       -- e.g. filter out vim wiki buffer from tabline in your work repo
       -- if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
