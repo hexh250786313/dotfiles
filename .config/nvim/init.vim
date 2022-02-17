@@ -239,7 +239,6 @@ let g:coc_user_config =
       \   "tsserver.maxTsServerMemory": 16384,
       \   "tsserver.locale": "zh-cn",
       \   "tsserver.ignoreLocalTsserver": 1,
-      \   "tsserver.tsdk": "/home/hexh/.nvm/versions/node/v16.5.0/lib/node_modules/typescript/lib"
       \ }
 
       " \   "tsserver.tsdk": "/home/hexh/.nvm/versions/node/v16.5.0/lib/node_modules/typescript/lib"
@@ -294,7 +293,8 @@ let g:coc_global_extensions =
       \   'coc-prettier',
       \   'coc-snippets',
       \   'coc-tsserver',
-      \   'coc-yank'
+      \   'coc-yank',
+      \   'coc-lua',
       \ ]
 
 " coc 选择了 quickfix 打开后的回调
