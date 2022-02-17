@@ -32,6 +32,7 @@ require("bufferline").setup {
     -- end,
     -- indicator_icon = " ",
     custom_filter = function(buf_number, buf_numbers)
+      return true
       -- 当前 buffer 返回 true
       -- if vim.fn.bufname(buf_number) == vim.fn.expand("%") then
       -- return true
