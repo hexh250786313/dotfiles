@@ -33,10 +33,9 @@ require("bufferline").setup {
     -- indicator_icon = " ",
     custom_filter = function(buf_number, buf_numbers)
       -- 当前 buffer 返回 true
-      if vim.fn.bufname(buf_number) == vim.fn.expand("%") then
-        return true
-      end
-
+      -- if vim.fn.bufname(buf_number) == vim.fn.expand("%") then
+      -- return true
+      -- end
       -- print(vim.fn.expand('%'))
       -- print(vim.fn.bufname(buf_number) == vim.fn.expand('%:p'))
       -- print(vim.fn.bufname(buf_number))
@@ -48,28 +47,22 @@ require("bufferline").setup {
       -- if vim.fn.bufname(buf_number) == "qqk" then
       -- return true
       -- end
-
-      if not is_coc_ready() then
-        return false
-      end
-
+      -- if not is_coc_ready() then
+      -- return false
+      -- end
       -- local qq = vim.b.coc_git_status
       -- print(qq);
-
       -- local result = vim.fn.systemlist("git diff-tree --no-commit-id --name-only -r HEAD")
       -- for k, v in pairs(result) do
       -- result[k] = "  " .. result[k]
       -- print(result[k])
       -- end
-
       -- api.nvim_buf_set_lines(buf, 0, -1, false, result)
-
       -- local pipe = io.popen('git status --porcelain -uall')
       -- vim.defer_fn(function()
       -- pipe:flush()
       -- pipe:close()
       -- end, 1000)
-
       -- local home = vim.call("coc#util#get_data_home")
       -- local data = Path:new(home .. Path.path.sep .. "mru"):read()
       -- local results = {}
@@ -90,7 +83,6 @@ require("bufferline").setup {
       -- end
       -- end
       -- end
-
       -- filter out based on arbitrary rules
       -- e.g. filter out vim wiki buffer from tabline in your work repo
       -- if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
