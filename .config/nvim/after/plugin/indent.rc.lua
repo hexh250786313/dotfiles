@@ -16,6 +16,7 @@ require("indent_blankline").setup {
     "defx",
     "prompt",
     "TelescopePrompt",
-    ""
+    "",
+    "toggleterm"
   }
 }
