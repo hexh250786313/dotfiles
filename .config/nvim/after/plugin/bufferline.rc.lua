@@ -1,42 +1,45 @@
 require("bufferline").setup {
   options = {
-    -- separator_style = { "▓░", "░▓" },
+    -- separator_style = "padded_slant",
+    separator_style = {"▓░", "░▓"},
     -- separator_style = {">", "<"},
-    separator_style = { 'y', 'y' },
+    -- separator_style = {"", ""},
+    -- separator_style = {"  ", "  "},
+    -- separator_style = {"░▓", "▓░"},
     diagnostics = "coc",
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local icon = level:match("error") and " " or " "
       return " " .. icon .. count
-    end
+    end,
+    indicator_icon = " "
   },
   highlights = {
-    -- fill = {
-    -- guifg = "#ffffff",
-    -- guibg = "#0a7aca"
-    -- },
-    -- background = {
-    -- guifg = "#ffffff",
-    -- guibg = "#0a7aca"
-    -- },
-    -- tab = {
-    -- guifg = "#ffffff",
-    -- guibg = "#0a7aca"
-    -- },
-    -- tab_selected = {
-    -- guifg = "#ffffff",
-    -- guibg = "#0a7aca"
-    -- },
-    -- tab_close = {
-    -- guifg = "#ffffff",
-    -- guibg = "#0a7aca"
-    -- },
-    -- close_button = {
-    -- guifg = "#ffffff",
-    -- guibg = "#0a7aca"
-    -- },
+    fill = {
+      guibg = "#282828"
+    },
+    background = {
+      guifg = "#ffffff",
+      guibg = "#373737"
+    },
+    tab = {
+      guifg = "#ffffff",
+      guibg = "#373737"
+    },
+    tab_selected = {
+      guifg = "#ffffff",
+      guibg = "#0a7aca"
+    },
+    tab_close = {
+      guifg = "#ffffff",
+      guibg = "#282828"
+    },
+    close_button = {
+      guifg = "#ffffff",
+      guibg = "#373737"
+    },
     -- close_button_visible = {
     -- guifg = "#ffffff",
-    -- guibg = "#0a7aca"
+    -- guibg = "#373737"
     -- },
     close_button_selected = {
       guifg = "#ffffff",
@@ -77,12 +80,12 @@ require("bufferline").setup {
     -- guibg = "#0a7aca",
     -- },
     -- info_selected = {
-      -- -- guifg = "<color-value-here>",
-      -- -- guibg = "<color-value-here>",
-      -- gui = "bold,italic",
-      -- guisp = "#0a7aca",
-      -- guifg = "#ffffff",
-      -- guibg = "#0a7aca"
+    -- -- guifg = "<color-value-here>",
+    -- -- guibg = "<color-value-here>",
+    -- gui = "bold,italic",
+    -- guisp = "#0a7aca",
+    -- guifg = "#ffffff",
+    -- guibg = "#0a7aca"
     -- }
     -- info_diagnostic = {
     -- guifg = "<color-value-here>",
@@ -159,18 +162,18 @@ require("bufferline").setup {
     -- gui = "bold,italic",
     -- guisp = "<color-value-here>"
     -- },
-    -- modified = {
-    -- guifg = "<color-value-here>",
-    -- guibg = "<color-value-here>"
-    -- },
+    modified = {
+      guifg = "#ffffff",
+      guibg = "#373737"
+    },
     -- modified_visible = {
     -- guifg = "<color-value-here>",
     -- guibg = "<color-value-here>"
     -- },
-    -- modified_selected = {
-    -- guifg = "<color-value-here>",
-    -- guibg = "<color-value-here>"
-    -- },
+    modified_selected = {
+      guifg = "#ffffff",
+      guibg = "#0a7aca"
+    },
     -- duplicate_selected = {
     -- guifg = "<color-value-here>",
     -- gui = "italic",
@@ -186,22 +189,35 @@ require("bufferline").setup {
     -- gui = "italic",
     -- guibg = "<color-value-here>"
     -- },
-    -- separator_selected = {
-      -- guifg = "#ffffff",
-      -- guibg = "#0a7aca",
-    -- },
     -- separator_visible = {
-    -- guifg = "<color-value-here>",
-    -- guibg = "<color-value-here>"
+    -- guifg = "#ffffff",
+    -- guibg = "#ffffff"
     -- },
     -- separator = {
-    -- guifg = "<color-value-here>",
-    -- guibg = "<color-value-here>"
+      -- guifg = "#ffffff",
+      -- guibg = "#f951a8"
     -- },
-    -- indicator_selected = {
-    -- guifg = "<color-value-here>",
-    -- guibg = "<color-value-here>"
+    separator = {
+      guifg = "#ffffff",
+      guibg = "#0a7aca"
+    },
+    separator_selected = {
+      guifg = "#ffffff",
+      guibg = "#0a7aca"
+    },
+    indicator_selected = {
+      guifg = "#0a7aca",
+      guibg = "#0a7aca"
+    }
+    -- separator_selected = {
+    -- guifg = "#282828"
     -- },
+    -- separator_visible = {
+    -- guifg = "#282828"
+    -- },
+    -- separator = {
+    -- guifg = "#282828"
+    -- }
     -- pick_selected = {
     -- guifg = "<color-value-here>",
     -- guibg = "<color-value-here>",
