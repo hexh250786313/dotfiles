@@ -5,7 +5,7 @@ local utils = require("telescope.utils")
 
 local function is_coc_ready(feature)
   if vim.g.coc_service_initialized ~= 1 then
-    print("Coc is not ready!")
+    -- print("Coc is not ready!")
     return
   end
 
