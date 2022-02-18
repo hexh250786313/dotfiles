@@ -235,7 +235,7 @@ nmap ]y <plug>(YoinkRotateForward)
 
 let g:VM_mouse_mappings = 1
 
-nnoremap gb :BufferLineCycleNext<cr>
-nnoremap gB :BufferLineCyclePrev<cr>
-nnoremap bs :BufferLineSortByDirectory<cr>
-nnoremap bp :BufferLinePick<cr>
+nnoremap <silent> gb :BufferLineCycleNext<cr>
+nnoremap <silent> gB :BufferLineCyclePrev<cr>
+nnoremap <silent> <space>bs :BufferLineSortByDirectory<cr>
+nnoremap <silent> <space>bp :BufferLinePick<cr>

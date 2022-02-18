@@ -345,9 +345,6 @@ autocmd CursorHold * if (coc#rpc#ready()) | silent call CocActionAsync('highligh
 " autocmd CursorHold * if (coc#rpc#ready()) | silent call timer_start(2000, { tid -> execute("call CocActionAsync('highlight')") })
 " au VimEnter * call timer_start(2000, { tid -> execute('VGit toggle_live_blame') })
 
-set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h16
-let neovide_remember_window_size = v:true
-
 " autocmd User EasyMotionPromptBegin silent! CocDisable
 " autocmd User EasyMotionPromptEnd silent! CocEnable
 
@@ -500,3 +497,8 @@ au VimEnter * call AddCycleGroup(['var', 'const', 'let'])
 " autocmd User TelescopePreviewerLoaded setlocal number
 
 set foldlevel=99
+
+" gui
+set guifont=CaskaydiaCove\ Nerd\ Font:h12.9
+let neovide_remember_window_size = v:true
+
