@@ -234,3 +234,6 @@ nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 
 let g:VM_mouse_mappings = 1
+
+nnoremap gb :BufferLineCycleNext<cr>
+nnoremap gB :BufferLineCyclePrev<cr>

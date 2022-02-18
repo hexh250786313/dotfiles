@@ -3,38 +3,6 @@ local fn = vim.fn
 local api = vim.api
 local utils = require("telescope.utils")
 
-local function max_split(s, pattern, maxsplit)
-  pattern = pattern or " "
-  maxsplit = maxsplit or -1
-
-  local t = {}
-
-  local curpos = 0
-  while maxsplit ~= 0 and curpos < #s do
-    local found, final = string.find(s, pattern, curpos, false)
-    if found ~= nil then
-      local val = string.sub(s, curpos, found - 1)
-
-      if #val > 0 then
-        maxsplit = maxsplit - 1
-        table.insert(t, val)
-      end
-
-      curpos = final + 1
-    else
-      -- curpos = curpos + 1
-      table.insert(t, string.sub(s, curpos))
-      break
-    end
-
-    if maxsplit == 0 then
-      table.insert(t, string.sub(s, curpos))
-    end
-  end
-
-  return t
-end
-
 local function is_coc_ready(feature)
   if vim.g.coc_service_initialized ~= 1 then
     print("Coc is not ready!")
@@ -94,7 +62,7 @@ require("bufferline").setup {
       -- pipe:close()
       -- end, 1000)
       if not is_coc_ready() then
-        return false
+        return true
       end
       local home = vim.call("coc#util#get_data_home")
       local data = Path:new(home .. Path.path.sep .. "mru"):read()
@@ -103,7 +71,7 @@ require("bufferline").setup {
         return
       end
       local cwd = vim.loop.cwd() .. Path.path.sep
-      for index, val in ipairs(max_split(data, "\n")) do
+      for index, val in ipairs(utils.max_split(data, "\n")) do
         if index > 5 then
           return
         end
