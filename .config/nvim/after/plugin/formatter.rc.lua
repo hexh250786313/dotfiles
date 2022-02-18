@@ -16,6 +16,9 @@ require("formatter").setup(
       javascript = {format_prettier},
       javascriptreact = {format_prettier},
       json = {format_prettier},
+      css = {format_prettier},
+      scss = {format_prettier},
+      less = {format_prettier},
       lua = {
         -- luafmt
         function()

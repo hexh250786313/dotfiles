@@ -279,14 +279,13 @@ let g:coc_user_config =
 let g:coc_global_extensions = 
       \ [
       \   'coc-css',
-      \   'coc-eslint', 
-      \   'coc-git', 
-      \   'coc-highlight', 
+      \   'coc-eslint',
+      \   'coc-git',
+      \   'coc-highlight',
       \   'coc-html',
       \   'coc-json',
       \   'coc-lists',
       \   'coc-pairs',
-      \   'coc-prettier',
       \   'coc-snippets',
       \   'coc-tsserver',
       \   'coc-yank',
@@ -296,7 +295,6 @@ let g:coc_global_extensions =
 " coc 选择了 quickfix 打开后的回调
 let g:coc_quickfix_open_command = 'CocList --auto-preview --normal --tab --number-select quickfix'
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 let g:expand_region_text_objects = {
