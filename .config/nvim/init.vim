@@ -147,10 +147,6 @@ autocmd User CocLocationsChange CocList --normal --tab --auto-preview location
 let g:coc_user_config = 
       \  {
       \    "session.directory": "~/.vimsessions",
-      \    "emmet.includeLanguages": {
-      \     "vue-html": "html",
-      \     "javascript": "javascriptreact"
-      \   },
       \   "diagnostic.virtualTextPrefix": " ▸ ",
       \   "diagnostic.errorSign": "\uf65b",
       \   "diagnostic.warningSign": "\uf525",
@@ -225,6 +221,7 @@ let g:coc_user_config =
       \   "suggest.floatConfig": {
       \     "border": 1
       \   },
+      \   "suggest.timeout": 10000,
       \   "coc.preferences.extensionUpdateCheck": "daily",
       \   "diagnostic.checkCurrentLine": 1,
       \   "diagnostic.separateRelatedInformationAsDiagnostics": 1,
@@ -282,7 +279,6 @@ let g:coc_user_config =
 let g:coc_global_extensions = 
       \ [
       \   'coc-css',
-      \   'coc-emmet',
       \   'coc-eslint', 
       \   'coc-git', 
       \   'coc-highlight', 
