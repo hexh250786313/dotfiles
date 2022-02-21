@@ -236,6 +236,7 @@ let g:coc_user_config =
       \   "tsserver.maxTsServerMemory": 16384,
       \   "tsserver.locale": "zh-cn",
       \   "tsserver.ignoreLocalTsserver": 1,
+      \   "git.conflict.enabled": 0,
       \ }
 
       " \   "tsserver.tsdk": "/home/hexh/.nvm/versions/node/v16.5.0/lib/node_modules/typescript/lib"
@@ -462,17 +463,6 @@ highlight TSTag gui=Bold guifg=#569CD6
 highlight TSTagAttribute gui=italic guifg=#9CDCFE
 " highlight TSTagDelimiter guifg=#FF00FF
 
-" 这段放最底下，不然会被覆盖
-" disable the default highlight group
-let g:conflict_marker_highlight_group = ''
-" Include text after begin and end markers
-let g:conflict_marker_begin = '^<<<<<<< .*$'
-let g:conflict_marker_end   = '^>>>>>>> .*$'
-highlight ConflictMarkerBegin guibg=#2f7366 guifg=#ffffff
-highlight ConflictMarkerOurs guibg=#2e5049 guifg=#ffffff
-highlight ConflictMarkerTheirs guibg=#344f69 guifg=#ffffff
-highlight ConflictMarkerEnd guibg=#2f628e guifg=#ffffff
-
 au VimEnter * call AddCycleGroup(['const', 'let'])
 au VimEnter * call AddCycleGroup(['prev', 'next'])
 au VimEnter * call AddCycleGroup(['var', 'const', 'let'])
@@ -495,4 +485,15 @@ set foldlevel=99
 " gui
 set guifont=CaskaydiaCove\ Nerd\ Font:h12.9
 let neovide_remember_window_size = v:true
+
+" 这段放最底下，不然会被覆盖
+" disable the default highlight group
+let g:conflict_marker_highlight_group = ''
+" Include text after begin and end markers
+let g:conflict_marker_begin = '^<<<<<<< .*$'
+let g:conflict_marker_end   = '^>>>>>>> .*$'
+highlight ConflictMarkerBegin guibg=#2f7366 guifg=#ffffff
+highlight ConflictMarkerOurs guibg=#2e5049 guifg=#ffffff
+highlight ConflictMarkerTheirs guibg=#344f69 guifg=#ffffff
+highlight ConflictMarkerEnd guibg=#2f628e guifg=#ffffff
 
