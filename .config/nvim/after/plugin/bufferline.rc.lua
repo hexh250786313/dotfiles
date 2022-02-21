@@ -31,6 +31,8 @@ require("bufferline").setup {
     -- return " " .. icon .. count
     -- end,
     -- indicator_icon = " ",
+    -- max_name_length = 18,
+    max_prefix_length = 100,
     custom_filter = function(buf_number, buf_numbers)
       -- return true
       -- 当前 buffer 返回 true
