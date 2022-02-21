@@ -72,6 +72,10 @@ lualine.setup {
         "diagnostics",
         sources = {"coc"},
         symbols = {error = "E:", warn = "W:", info = "I:"}
+      },
+      {
+        "filename",
+        path = 1
       }
       -- {treelocation}
       -- { gps.get_location, cond = gps.is_available },
