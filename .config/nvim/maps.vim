@@ -215,16 +215,12 @@ nnoremap `c 'C
 
 nmap <Space>wt <C-w>v<C-w>T
 
-nmap <Space>1 1gt
-nmap <Space>2 2gt
-nmap <Space>3 3gt
-nmap <Space>4 4gt
-nmap <Space>5 5gt
-nmap <Space>6 6gt
-nmap <Space>7 7gt
-nmap <Space>8 8gt
-nmap <Space>9 9gt
-nmap <Space>0 10gt
+nmap <silent> <Space>1 :BufferLineGoToBuffer 1<cr>
+nmap <silent> <Space>2 :BufferLineGoToBuffer 2<cr>
+nmap <silent> <Space>3 :BufferLineGoToBuffer 3<cr>
+nmap <silent> <Space>4 :BufferLineGoToBuffer 4<cr>
+nmap <silent> <Space>5 :BufferLineGoToBuffer 5<cr>
+nmap <silent> <Space>6 :BufferLineGoToBuffer 6<cr>
 
 nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
 nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
