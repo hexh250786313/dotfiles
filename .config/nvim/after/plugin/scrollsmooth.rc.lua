@@ -25,8 +25,10 @@ t["<S-Down>"] = {"scroll", {"vim.wo.scroll", "true", "100", [['sine']]}}
 -- t['<Down>'] = {'scroll', { '0.10', 'true', '10', nil}}
 -- t['<Up>'] = {'scroll', {'-0.10', 'true', '10', [['sine']]}}
 -- t['<Down>'] = {'scroll', { '0.10', 'true', '10', [['sine']]}}
-t["<Up>"] = {"scroll", {"-3", "true", "50", [['sine']]}}
-t["<Down>"] = {"scroll", {"3", "true", "50", [['sine']]}}
+-- t["<Up>"] = {"scroll", {"-3", "true", "50", [['sine']]}}
+-- t["<Down>"] = {"scroll", {"3", "true", "50", [['sine']]}}
+t["<Up>"] = {"scroll", {"-3", "false", "50", [['sine']]}}
+t["<Down>"] = {"scroll", {"3", "false", "50", [['sine']]}}
 -- When no easing function is provided the default easing function (in this case "quadratic") will be used
 t["zt"] = {"zt", {"200"}}
 t["zz"] = {"zz", {"200"}}
