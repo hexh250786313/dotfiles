@@ -143,11 +143,12 @@ call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
       \ 'listed': 1,
       \ 'columns': 'mark:git:indent:icons:filename:type',
-      \ 'split': 'floating',
+      \ 'split': 'vertical',
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'floating_preview': 1,
       \ 'vertical_preview': 1,
       \ })
+      " 'split': 'floating',
 
       " \ 'resume': 1,
       " \ 'wincol': &columns / 9,
