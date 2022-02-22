@@ -33,12 +33,12 @@ require("bufferline").setup {
     -- end,
     indicator_icon = "▌",
     -- max_name_length = 18,
-    max_prefix_length = 100,
-    sort_by = function(buffer_a, buffer_b)
-      local mod_a = vim.loop.fs_stat(buffer_a.path).mtime.sec
-      local mod_b = vim.loop.fs_stat(buffer_b.path).mtime.sec
-      return mod_a > mod_b
-    end
+    max_prefix_length = 100
+    -- sort_by = function(buffer_a, buffer_b)
+    -- local mod_a = vim.loop.fs_stat(buffer_a.path).mtime.sec
+    -- local mod_b = vim.loop.fs_stat(buffer_b.path).mtime.sec
+    -- return mod_a > mod_b
+    -- end
     -- custom_filter = function(buf_number, buf_numbers)
     -- if vim.fn.bufname(buf_number) == vim.fn.expand("%") then
     -- return true
