@@ -186,7 +186,8 @@ require("bufferline").setup {
       guibg = "#373737"
     },
     indicator_selected = {
-      guibg = "#0a7aca"
+      guibg = "#0a7aca",
+      guifg = "#ffffff"
     },
     pick = {
       guibg = "#373737",
