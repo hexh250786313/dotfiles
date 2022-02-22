@@ -477,6 +477,8 @@ au VimEnter * call AddCycleGroup(['var', 'const', 'let'])
 :hi DefxIconsClosedTreeIcon guibg=NONE guifg=#569CD6
 :hi DefxIconsDirectory guibg=NONE guifg=#569CD6
 :hi DefxIconsSymlinkDirectory guibg=NONE guifg=#569CD6
+:hi DefxIconsCopyIcon guibg=NONE guifg=#ce9178
+:hi DefxIconsMoveIcon guibg=NONE guifg=#f04747
 
 " autocmd User TelescopePreviewerLoaded setlocal number
 
