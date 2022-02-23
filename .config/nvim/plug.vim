@@ -25,7 +25,7 @@ if has("nvim")
   Plug 'tomasiser/vim-code-dark',
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   " Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSInstall json lua typescript tsx javascript c markdown vim css scss' }
-  " Plug 'p00f/nvim-ts-rainbow'
+  Plug 'p00f/nvim-ts-rainbow'
   " Plug 'beauwilliams/focus.nvim'
   " Plug 'glepnir/indent-guides.nvim'
   Plug 'nvim-lua/plenary.nvim'
