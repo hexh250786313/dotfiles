@@ -9,7 +9,7 @@ require("nvim-treesitter.configs").setup {
     -- enable = true
     enable = false
   },
-  rainbow = {enable = true, extended_mode = true, max_file_lines = 10000}
+  -- rainbow = {enable = true, extended_mode = true, max_file_lines = 10000}
   -- matchup = {
   -- enable = true,
   -- },
