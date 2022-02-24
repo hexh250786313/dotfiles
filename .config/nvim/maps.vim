@@ -215,12 +215,19 @@ nnoremap `c 'C
 
 nmap <Space>wt <C-w>v<C-w>T
 
-nmap <silent> <Space>1 :BufferLineGoToBuffer 1<cr>
-nmap <silent> <Space>2 :BufferLineGoToBuffer 2<cr>
-nmap <silent> <Space>3 :BufferLineGoToBuffer 3<cr>
-nmap <silent> <Space>4 :BufferLineGoToBuffer 4<cr>
-nmap <silent> <Space>5 :BufferLineGoToBuffer 5<cr>
-nmap <silent> <Space>6 :BufferLineGoToBuffer 6<cr>
+nnoremap <silent> <Space>1 :BufferLineGoToBuffer 1<cr>
+nnoremap <silent> <Space>2 :BufferLineGoToBuffer 2<cr>
+nnoremap <silent> <Space>3 :BufferLineGoToBuffer 3<cr>
+nnoremap <silent> <Space>4 :BufferLineGoToBuffer 4<cr>
+nnoremap <silent> <Space>5 :BufferLineGoToBuffer 5<cr>
+nnoremap <silent> <Space>6 :BufferLineGoToBuffer 6<cr>
+nnoremap <silent> gb :BufferLineCycleNext<cr>
+nnoremap <silent> gB :BufferLineCyclePrev<cr>
+nnoremap <silent> <space>bs :BufferLineSortByDirectory<cr>
+nnoremap <silent> <space>bp :BufferLinePick<cr>
+nnoremap <silent> <space>bp :BufferLinePick<cr>
+nnoremap <silent> <space>b> :BufferLineMoveNext<cr>
+nnoremap <silent> <space>b< :BufferLineMovePrev<cr>
 
 nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
 nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
@@ -231,7 +238,3 @@ nmap ]y <plug>(YoinkRotateForward)
 
 let g:VM_mouse_mappings = 1
 
-nnoremap <silent> gb :BufferLineCycleNext<cr>
-nnoremap <silent> gB :BufferLineCyclePrev<cr>
-nnoremap <silent> <space>bs :BufferLineSortByDirectory<cr>
-nnoremap <silent> <space>bp :BufferLinePick<cr>
