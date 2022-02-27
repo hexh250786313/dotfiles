@@ -229,8 +229,6 @@ nnoremap <silent> <space>bp :BufferLinePick<cr>
 nnoremap <silent> <space>b> :BufferLineMoveNext<cr>
 nnoremap <silent> <space>b< :BufferLineMovePrev<cr>
 
-nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
-nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
 nmap y <plug>(YoinkYankPreserveCursorPosition)
 xmap y <plug>(YoinkYankPreserveCursorPosition)
 nmap [y <plug>(YoinkRotateBack)

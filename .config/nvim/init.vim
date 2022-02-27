@@ -463,10 +463,6 @@ highlight TSTag gui=Bold guifg=#569CD6
 highlight TSTagAttribute gui=italic guifg=#9CDCFE
 " highlight TSTagDelimiter guifg=#FF00FF
 
-au VimEnter * call AddCycleGroup(['const', 'let'])
-au VimEnter * call AddCycleGroup(['prev', 'next'])
-au VimEnter * call AddCycleGroup(['var', 'const', 'let'])
-
 " let g:matchup_matchparen_offscreen = {}
 
 " autocmd FileType defx hi! Normal ctermbg=NONE guibg=NONE

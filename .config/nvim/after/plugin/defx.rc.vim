@@ -180,3 +180,9 @@ endfunction
 
 let g:defx_config_sid = s:SID_PREFIX()
 
+" no plugin 情况
+au VimEnter * call AddCycleGroup(['const', 'let'])
+au VimEnter * call AddCycleGroup(['prev', 'next'])
+
+nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
+nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
