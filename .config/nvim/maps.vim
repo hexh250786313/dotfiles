@@ -1,8 +1,7 @@
 " 复制/粘贴到系统剪贴板
-" noremap <C-c> "+y
+noremap <Space>y "+y
 " noremap <Space>y :OSCYank<CR>
-" noremap <C-v> "+p
-" noremap <C-x> "+d
+noremap <Space>p "+p
 
 " noremap p "0p
 " noremap x "0x
@@ -18,7 +17,7 @@
 " noremap d "+d
 " noremap c "+c
 " noremap C "+C
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 " nmap <silent> <Space>bf :Prettier<CR>
 " xmap <silent> <Space>bf  <Plug>(coc-format-selected)
@@ -122,8 +121,8 @@ nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 " nnoremap <silent> <Space>sf :CocList files<CR>
 " nnoremap <silent> <Space>sg :CocList grep<CR>
 " nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
-" nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
-nnoremap <silent> <Space>sy :Yanks<CR>
+nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
+" nnoremap <silent> <Space>sy :Yanks<CR>
 
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
@@ -228,11 +227,6 @@ nnoremap <silent> <space>bp :BufferLinePick<cr>
 nnoremap <silent> <space>bp :BufferLinePick<cr>
 nnoremap <silent> <space>b> :BufferLineMoveNext<cr>
 nnoremap <silent> <space>b< :BufferLineMovePrev<cr>
-
-nmap y <plug>(YoinkYankPreserveCursorPosition)
-xmap y <plug>(YoinkYankPreserveCursorPosition)
-nmap [y <plug>(YoinkRotateBack)
-nmap ]y <plug>(YoinkRotateForward)
 
 let g:VM_mouse_mappings = 1
 

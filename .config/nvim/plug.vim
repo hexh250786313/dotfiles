@@ -52,7 +52,6 @@ if has("nvim")
   Plug 'rlue/vim-barbaric'
   " Plug 'github/copilot.vim'
   Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'svermeulen/vim-yoink'
   Plug 'rmagatti/auto-session'
   Plug 'mhartington/formatter.nvim'
   Plug 'akinsho/bufferline.nvim'
