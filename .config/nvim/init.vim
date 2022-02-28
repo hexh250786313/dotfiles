@@ -361,7 +361,9 @@ set shortmess+=c
 
 colorscheme codedark
 
-" highlight! Normal ctermbg=NONE guibg=NONE
+highlight! Normal ctermbg=NONE guibg=NONE
+highlight! LineNr ctermbg=NONE guibg=NONE
+highlight! SignColumn ctermbg=NONE guibg=NONE
 highlight! EndOfBuffer ctermbg=NONE guibg=NONE
 
 " highlight CursorLine guibg=#455a64
