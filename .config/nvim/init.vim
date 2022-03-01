@@ -497,3 +497,4 @@ highlight ConflictMarkerOurs guibg=#2e5049 guifg=#ffffff
 highlight ConflictMarkerTheirs guibg=#344f69 guifg=#ffffff
 highlight ConflictMarkerEnd guibg=#2f628e guifg=#ffffff
 
+let g:mkdp_open_to_the_world = 1
