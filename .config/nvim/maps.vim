@@ -41,8 +41,6 @@ nmap <Space>g] <Plug>(coc-git-nextchunk)
 " nnoremap <silent> <Space>zs :CocCommand session.save<CR>
 " nnoremap <silent> <Space>zl :CocCommand session.load<CR>
 
-nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
-
 " xmap <silent> v :lua require'nvim-treesitter.incremental_selection'.node_incremental()<CR>
 " xmap <silent> V :lua require'nvim-treesitter.incremental_selection'.node_decremental()<CR>
 xmap v <Plug>(expand_region_expand)

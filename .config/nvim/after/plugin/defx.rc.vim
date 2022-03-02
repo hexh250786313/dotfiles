@@ -73,7 +73,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
         \ <SID>defx_toggle_tree_right()
   nnoremap <silent><buffer><expr> <2-LeftMouse>
-        \ <SID>defx_toggle_tree_right()
+        \ <SID>defx_toggle_tree_right_preview()
   nnoremap <silent><buffer><expr> l
         \ <SID>defx_toggle_tree_right_preview()
   nnoremap <silent><buffer><expr> o
@@ -98,7 +98,8 @@ function! s:defx_toggle_tree_right() abort
   endif
   " return defx#do_action('open')
   " return defx#do_action('drop')
-  return defx#do_action('multi', ['quit', 'drop'])
+  " return defx#do_action('multi', ['quit', 'drop'])
+  return defx#do_action('drop')
 endfunction
 
 function! s:defx_toggle_tree_right_preview() abort
@@ -145,10 +146,10 @@ call defx#custom#option('_', {
       \ 'columns': 'mark:git:indent:icons:filename:type',
       \ 'split': 'vertical',
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
-      \ 'floating_preview': 1,
       \ 'vertical_preview': 1,
       \ })
-      " 'split': 'floating',
+      " \ 'split': 'floating',
+      " \ 'floating_preview': 1,
 
       " \ 'resume': 1,
       " \ 'wincol': &columns / 9,
@@ -168,6 +169,9 @@ call defx#custom#column('git', 'indicators', {
       \ 'Deleted'   : '✖',
       \ 'Unknown'   : '?'
       \ })
+
+" nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
+nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
 
 function! s:trim_right(str, trim)
   return substitute(a:str, printf('%s$', a:trim), '', 'g')
