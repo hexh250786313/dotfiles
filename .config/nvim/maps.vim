@@ -1,8 +1,7 @@
 " 复制/粘贴到系统剪贴板
-" noremap <C-c> "+y
+noremap <Space>y "+y
 " noremap <Space>y :OSCYank<CR>
-" noremap <C-v> "+p
-" noremap <C-x> "+d
+noremap <Space>p "+p
 
 " noremap p "0p
 " noremap x "0x
@@ -18,7 +17,7 @@
 " noremap d "+d
 " noremap c "+c
 " noremap C "+C
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 " nmap <silent> <Space>bf :Prettier<CR>
 " xmap <silent> <Space>bf  <Plug>(coc-format-selected)
@@ -41,8 +40,6 @@ nmap <Space>g] <Plug>(coc-git-nextchunk)
 
 " nnoremap <silent> <Space>zs :CocCommand session.save<CR>
 " nnoremap <silent> <Space>zl :CocCommand session.load<CR>
-
-nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 
 " xmap <silent> v :lua require'nvim-treesitter.incremental_selection'.node_incremental()<CR>
 " xmap <silent> V :lua require'nvim-treesitter.incremental_selection'.node_decremental()<CR>
@@ -122,8 +119,8 @@ nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 " nnoremap <silent> <Space>sf :CocList files<CR>
 " nnoremap <silent> <Space>sg :CocList grep<CR>
 " nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
-" nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
-nnoremap <silent> <Space>sy :Yanks<CR>
+nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
+" nnoremap <silent> <Space>sy :Yanks<CR>
 
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
@@ -215,23 +212,19 @@ nnoremap `c 'C
 
 nmap <Space>wt <C-w>v<C-w>T
 
-nmap <silent> <Space>1 :BufferLineGoToBuffer 1<cr>
-nmap <silent> <Space>2 :BufferLineGoToBuffer 2<cr>
-nmap <silent> <Space>3 :BufferLineGoToBuffer 3<cr>
-nmap <silent> <Space>4 :BufferLineGoToBuffer 4<cr>
-nmap <silent> <Space>5 :BufferLineGoToBuffer 5<cr>
-nmap <silent> <Space>6 :BufferLineGoToBuffer 6<cr>
-
-nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
-nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
-nmap y <plug>(YoinkYankPreserveCursorPosition)
-xmap y <plug>(YoinkYankPreserveCursorPosition)
-nmap [y <plug>(YoinkRotateBack)
-nmap ]y <plug>(YoinkRotateForward)
-
-let g:VM_mouse_mappings = 1
-
+nnoremap <silent> <Space>1 :BufferLineGoToBuffer 1<cr>
+nnoremap <silent> <Space>2 :BufferLineGoToBuffer 2<cr>
+nnoremap <silent> <Space>3 :BufferLineGoToBuffer 3<cr>
+nnoremap <silent> <Space>4 :BufferLineGoToBuffer 4<cr>
+nnoremap <silent> <Space>5 :BufferLineGoToBuffer 5<cr>
+nnoremap <silent> <Space>6 :BufferLineGoToBuffer 6<cr>
 nnoremap <silent> gb :BufferLineCycleNext<cr>
 nnoremap <silent> gB :BufferLineCyclePrev<cr>
 nnoremap <silent> <space>bs :BufferLineSortByDirectory<cr>
 nnoremap <silent> <space>bp :BufferLinePick<cr>
+nnoremap <silent> <space>bp :BufferLinePick<cr>
+nnoremap <silent> <space>b> :BufferLineMoveNext<cr>
+nnoremap <silent> <space>b< :BufferLineMovePrev<cr>
+
+let g:VM_mouse_mappings = 1
+

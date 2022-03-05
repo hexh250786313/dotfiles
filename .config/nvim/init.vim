@@ -361,7 +361,9 @@ set shortmess+=c
 
 colorscheme codedark
 
-" highlight! Normal ctermbg=NONE guibg=NONE
+highlight! Normal ctermbg=NONE guibg=NONE
+highlight! LineNr ctermbg=NONE guibg=NONE
+highlight! SignColumn ctermbg=NONE guibg=NONE
 highlight! EndOfBuffer ctermbg=NONE guibg=NONE
 
 " highlight CursorLine guibg=#455a64
@@ -463,10 +465,6 @@ highlight TSTag gui=Bold guifg=#569CD6
 highlight TSTagAttribute gui=italic guifg=#9CDCFE
 " highlight TSTagDelimiter guifg=#FF00FF
 
-au VimEnter * call AddCycleGroup(['const', 'let'])
-au VimEnter * call AddCycleGroup(['prev', 'next'])
-au VimEnter * call AddCycleGroup(['var', 'const', 'let'])
-
 " let g:matchup_matchparen_offscreen = {}
 
 " autocmd FileType defx hi! Normal ctermbg=NONE guibg=NONE
@@ -499,3 +497,4 @@ highlight ConflictMarkerOurs guibg=#2e5049 guifg=#ffffff
 highlight ConflictMarkerTheirs guibg=#344f69 guifg=#ffffff
 highlight ConflictMarkerEnd guibg=#2f628e guifg=#ffffff
 
+let g:mkdp_open_to_the_world = 1

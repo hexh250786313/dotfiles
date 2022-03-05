@@ -1,6 +1,6 @@
 require("scrollbar").setup(
   {
-    show = true,
+    show = false,
     handle = {
       text = " ",
       color = "#344f69",
