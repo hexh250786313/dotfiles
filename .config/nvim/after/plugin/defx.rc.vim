@@ -73,11 +73,15 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
         \ <SID>defx_toggle_tree_right()
   nnoremap <silent><buffer><expr> <2-LeftMouse>
-        \ <SID>defx_toggle_tree_right_preview()
+        \ <SID>defx_toggle_tree_right()
   nnoremap <silent><buffer><expr> l
-        \ <SID>defx_toggle_tree_right_preview()
+        \ <SID>defx_toggle_tree_right()
   nnoremap <silent><buffer><expr> o
         \ <SID>defx_toggle_tree_right()
+  nnoremap <silent><buffer><expr> v
+        \ <SID>defx_toggle_tree_right_split("vsplit")
+  nnoremap <silent><buffer><expr> s
+        \ <SID>defx_toggle_tree_right_split("split")
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('call', g:defx_config_sid . 'defx_toggle_tree_left')
   nnoremap <silent><buffer><expr> C
@@ -98,8 +102,23 @@ function! s:defx_toggle_tree_right() abort
   endif
   " return defx#do_action('open')
   " return defx#do_action('drop')
-  " return defx#do_action('multi', ['quit', 'drop'])
-  return defx#do_action('drop')
+  return defx#do_action('multi', ['quit', 'drop'])
+  " return defx#do_action('drop')
+endfunction
+
+function! s:defx_toggle_tree_right_split(split) abort
+  " Open current file, or toggle directory expand/collapse
+  if defx#is_directory()
+    return defx#do_action('open_or_close_tree')
+  endif
+  if defx#is_binary()
+    return defx#do_action('execute_system')
+  endif
+  " return defx#do_action('open')
+  " return defx#do_action('drop')
+  " return defx#do_action('multi', ['quit', ['drop', 'vsplit']])
+  return defx#do_action('multi', ['quit', ['drop', a:split]])
+  " return defx#do_action('drop')
 endfunction
 
 function! s:defx_toggle_tree_right_preview() abort
