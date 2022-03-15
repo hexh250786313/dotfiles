@@ -2,6 +2,8 @@
 noremap <Space>y "+y
 " noremap <Space>y :OSCYank<CR>
 noremap <Space>p "+p
+noremap <C-c>y "+y
+noremap <C-v> "+p
 
 " noremap p "0p
 " noremap x "0x
