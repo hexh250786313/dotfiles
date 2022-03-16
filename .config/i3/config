@@ -197,16 +197,22 @@ gaps inner 19
 # gaps outer 6 # 四周
 # gaps left 6
 # gaps right 6
-gaps left 7
-gaps right 8
-gaps top 9
-gaps bottom 9
 # gaps top 5
 # gaps bottom 5
 # gaps bottom 11
 # gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
 # smart_gaps on # 一个程序时没有间隔边框
 # smart_borders on # 一个程序时没有边框
+# 1080 p
+# gaps left 7
+# gaps right 8
+# gaps top 9
+# gaps bottom 9
+# dpi 110 下
+gaps left 3
+gaps right 3
+gaps top 3
+gaps bottom 3
 
 # Theme colors
 # <colorclass> <border> <background> <text> <indicator> <child_border>
