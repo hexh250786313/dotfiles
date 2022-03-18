@@ -211,7 +211,7 @@ gaps inner 19
 # dpi 110 下
 gaps left 3
 gaps right 3
-gaps top 3
+gaps top 2
 gaps bottom 3
 
 # Theme colors
