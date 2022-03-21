@@ -209,10 +209,12 @@ gaps inner 19
 # gaps top 9
 # gaps bottom 9
 # dpi 110 下
-gaps left 3
-gaps right 3
-gaps top 2
-gaps bottom 3
+gaps left 2
+gaps right 2
+# gaps top -2
+# gaps bottom -2
+gaps top 9
+gaps bottom 9
 
 # Theme colors
 # <colorclass> <border> <background> <text> <indicator> <child_border>
