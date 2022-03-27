@@ -23,7 +23,7 @@ set hlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
-" set scrolloff=10
+set scrolloff=9
 set expandtab
 set relativenumber
 "let loaded_matchparen = 1
