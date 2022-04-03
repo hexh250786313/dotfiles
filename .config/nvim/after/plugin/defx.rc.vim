@@ -70,6 +70,8 @@ function! s:defx_my_settings() abort
         \ defx#do_action('change_vim_cwd')
 
   " Custom mappings
+  nnoremap <silent><buffer><expr> d
+        \ defx#do_action('remove_trash')
   nnoremap <silent><buffer><expr> <CR>
         \ <SID>defx_toggle_tree_right()
   nnoremap <silent><buffer><expr> <2-LeftMouse>
@@ -222,7 +224,7 @@ call defx#custom#column('git', 'indicators', {
       \ })
 
 " nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
-nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
+" nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
 nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 
 function! s:trim_right(str, trim)
