@@ -91,9 +91,9 @@ function! s:defx_my_settings() abort
         \ 'mark:indent:icon:filename:type:size:time')
   nnoremap <silent><buffer><expr> <C-n>
         \ defx#do_action('new_file')
-  nnoremap <buffer><expr> cd
+  nnoremap <silent><buffer><expr> cd
         \ <SID>lcd()
-  nnoremap <buffer><expr> ~
+  nnoremap <silent><buffer><expr> ~
         \ <SID>cdRoot()
 
 endfunction
@@ -166,10 +166,10 @@ endfunction
 
 function! s:lcd()
   let s:candidate = defx#get_candidate()
-  let s:parent = fnamemodify(s:candidate['action__path'], s:candidate['is_directory'] ? ':p:h' : ':p:h')
+  let s:current = fnamemodify(s:candidate['action__path'], ':p:h')
   let previous_win_id = win_getid(winnr('#'))
   call win_gotoid(previous_win_id)
-  execute 'lcd '.s:parent
+  execute 'lcd '.s:current
 endfunction
 
 function s:findRoot()
@@ -204,7 +204,6 @@ call defx#custom#option('_', {
       \ })
       " \ 'split': 'floating',
       " \ 'floating_preview': 1,
-
       " \ 'wincol': &columns / 9,
       " \ 'winwidth': &columns / 3,
       " \ 'preview_width': &columns / 2,
