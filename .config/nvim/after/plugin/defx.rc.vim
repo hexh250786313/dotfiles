@@ -201,6 +201,7 @@ call defx#custom#option('_', {
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'vertical_preview': 1,
       \ 'resume': 1,
+      \ 'direction': 'topleft',
       \ })
       " \ 'split': 'floating',
       " \ 'floating_preview': 1,
