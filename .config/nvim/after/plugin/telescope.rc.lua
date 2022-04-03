@@ -35,17 +35,22 @@ require("telescope").setup {
     preview = {
       timeout = false
       -- hide_on_startup = true
-    }
+    },
+    cache_picker = {
+      num_pickers = 20,
+      limit_entries = 100
+    },
   },
   pickers = {
     find_files = {
       -- theme = "center",
       layout_strategy = "vertical",
       layout_config = {
-        width = 0.9,
+        -- width = 0.9,
+        width = 0.5,
         height = 0.95,
-        preview_cutoff = 36
-        -- anchor="W",
+        preview_cutoff = 36,
+        anchor="E",
         -- mirror=true,
         -- prompt_position = "top",
         -- height=0.7
@@ -56,9 +61,11 @@ require("telescope").setup {
       -- theme = "dropdown",
       layout_strategy = "vertical",
       layout_config = {
-        width = 0.9,
+        -- width = 0.9,
+        width = 0.5,
         height = 0.95,
-        preview_cutoff = 36
+        preview_cutoff = 36,
+        anchor="E",
         -- prompt_position = "bottom",
         -- height=0.7
         -- prompt_position = "top",
@@ -68,18 +75,33 @@ require("telescope").setup {
     resume = {
       layout_strategy = "vertical",
       layout_config = {
-        width = 0.9,
+        -- width = 0.9,
+        width = 0.5,
         height = 0.95,
-        preview_cutoff = 36
+        preview_cutoff = 36,
+        anchor="E",
+      },
+      initial_mode = "normal"
+    },
+    pickers = {
+      layout_strategy = "vertical",
+      layout_config = {
+        -- width = 0.9,
+        width = 0.5,
+        height = 0.95,
+        preview_cutoff = 36,
+        anchor="E",
       },
       initial_mode = "normal"
     },
     oldfiles = {
       layout_strategy = "vertical",
       layout_config = {
-        width = 0.9,
+        -- width = 0.9,
+        width = 0.5,
         height = 0.95,
-        preview_cutoff = 36
+        preview_cutoff = 36,
+        anchor="E",
       },
       initial_mode = "normal"
     }

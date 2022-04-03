@@ -78,10 +78,10 @@ function! s:defx_my_settings() abort
         \ <SID>defx_toggle_tree_right()
   nnoremap <silent><buffer><expr> o
         \ <SID>defx_toggle_tree_right()
-  nnoremap <silent><buffer><expr> v
-        \ <SID>defx_toggle_tree_right_split("vsplit")
-  nnoremap <silent><buffer><expr> s
-        \ <SID>defx_toggle_tree_right_split("split")
+  " nnoremap <silent><buffer><expr> v
+        " \ <SID>defx_toggle_tree_right_split("vsplit")
+  " nnoremap <silent><buffer><expr> s
+        " \ <SID>defx_toggle_tree_right_split("split")
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('call', g:defx_config_sid . 'defx_toggle_tree_left')
   nnoremap <silent><buffer><expr> C
@@ -89,6 +89,10 @@ function! s:defx_my_settings() abort
         \ 'mark:indent:icon:filename:type:size:time')
   nnoremap <silent><buffer><expr> <C-n>
         \ defx#do_action('new_file')
+  nnoremap <buffer><expr> cd
+        \ <SID>lcd()
+  nnoremap <buffer><expr> ~
+        \ <SID>cdRoot()
 
 endfunction
 
@@ -101,9 +105,8 @@ function! s:defx_toggle_tree_right() abort
     return defx#do_action('execute_system')
   endif
   " return defx#do_action('open')
-  " return defx#do_action('drop')
-  return defx#do_action('multi', ['quit', 'drop'])
-  " return defx#do_action('drop')
+  return defx#do_action('drop')
+  " return defx#do_action('multi', ['quit', 'drop'])
 endfunction
 
 function! s:defx_toggle_tree_right_split(split) abort
@@ -159,6 +162,35 @@ function! s:defx_toggle_tree_left(_)
   call defx#call_action('close_tree')
 endfunction
 
+function! s:lcd()
+  let s:candidate = defx#get_candidate()
+  let s:parent = fnamemodify(s:candidate['action__path'], s:candidate['is_directory'] ? ':p:h' : ':p:h')
+  let previous_win_id = win_getid(winnr('#'))
+  call win_gotoid(previous_win_id)
+  execute 'lcd '.s:parent
+endfunction
+
+function s:findRoot()
+  " 获取 git 仓库根目录
+  let result = system('git rev-parse --show-toplevel')
+  if v:shell_error == 0
+    return substitute(result, '\n*$', '', 'g')
+  endif
+
+  return "."
+endfunction
+
+function! s:cdRoot()
+  " keepalt below 9 new
+  let root = s:findRoot()
+  if root != '.'
+    " 执行 lcd 只改变当前 buffer 的工作目录
+    let previous_win_id = win_getid(winnr('#'))
+    call win_gotoid(previous_win_id)
+    execute 'lcd '.root
+  endif
+endfunction
+
 call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
       \ 'listed': 1,
@@ -166,11 +198,11 @@ call defx#custom#option('_', {
       \ 'split': 'vertical',
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'vertical_preview': 1,
+      \ 'resume': 1,
       \ })
       " \ 'split': 'floating',
       " \ 'floating_preview': 1,
 
-      " \ 'resume': 1,
       " \ 'wincol': &columns / 9,
       " \ 'winwidth': &columns / 3,
       " \ 'preview_width': &columns / 2,
@@ -190,7 +222,8 @@ call defx#custom#column('git', 'indicators', {
       \ })
 
 " nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
-nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
+nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
+nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 
 function! s:trim_right(str, trim)
   return substitute(a:str, printf('%s$', a:trim), '', 'g')

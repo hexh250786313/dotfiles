@@ -120,7 +120,9 @@ nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 " nnoremap <silent> <script> <Space>sq :CocList --auto-preview --normal --tab --number-select quickfix<CR>
 " nnoremap <silent> <Space>sf :CocList files<CR>
 " nnoremap <silent> <Space>sg :CocList grep<CR>
-" nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
+nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
+nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
+nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
 nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
 " nnoremap <silent> <Space>sy :Yanks<CR>
 
@@ -135,8 +137,8 @@ nnoremap <silent> <Space>sq <cmd>botright copen<cr>
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 " nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
-nnoremap <silent> <Space>sb <cmd>Telescope oldfiles<cr><esc>
-nnoremap <silent> <Space>sr <cmd>Telescope resume<cr><esc>
+" nnoremap <silent> <Space>sb <cmd>Telescope oldfiles<cr><esc>
+nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
@@ -151,7 +153,8 @@ function! s:GrepFromSelected(type)
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
   " execute 'CocList grep '.word
-  execute 'Telescope live_grep initial_mode=normal default_text='.word
+  " execute 'Telescope live_grep initial_mode=normal default_text='.word
+  execute printf('Telescope live_grep initial_mode=normal default_text=%s', word)
 endfunction
 
 function! s:FindFromSelected(type)
@@ -167,7 +170,8 @@ function! s:FindFromSelected(type)
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
   " execute 'CocList grep '.word
-  execute 'Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text='.word
+  " execute 'Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text='.word
+  execute printf('Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text=%s', word)
 endfunction
 
 " nnoremap <silent> <Space>w= :FocusToggle<CR>
