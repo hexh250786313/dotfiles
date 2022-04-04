@@ -95,6 +95,12 @@ function! s:defx_my_settings() abort
         \ <SID>lcd()
   nnoremap <silent><buffer><expr> ~
         \ <SID>cdRoot()
+  nnoremap <silent><buffer><expr> >
+        \ defx#do_action('resize',
+        \ winwidth(0) + 2)
+  nnoremap <silent><buffer><expr> <
+        \ defx#do_action('resize',
+        \ winwidth(0) - 2)
 
 endfunction
 
@@ -200,8 +206,8 @@ call defx#custom#option('_', {
       \ 'split': 'vertical',
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'vertical_preview': 1,
-      \ 'resume': 1,
       \ 'direction': 'topleft',
+      \ 'resume': 0,
       \ })
       " \ 'split': 'floating',
       " \ 'floating_preview': 1,
