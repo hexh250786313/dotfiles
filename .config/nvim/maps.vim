@@ -35,7 +35,6 @@ nnoremap <silent> <Space>gi :VGit buffer_hunk_preview<CR>
 nnoremap <silent> <Space>gt :GitTimeLapse<CR>
 nnoremap <silent> <Space>gT :VGit buffer_history_preview<CR>
 nnoremap <silent> <Space>gd :CocCommand git.diffCached<CR>
-nnoremap <silent> <Space>gl :CocCommand git.showCommit<CR>
 nnoremap <silent> <Space>gg :Git<CR>
 nmap <Space>g[ <Plug>(coc-git-prevchunk)
 nmap <Space>g] <Plug>(coc-git-nextchunk)
