@@ -55,7 +55,7 @@ if has("nvim")
   Plug 'rmagatti/auto-session'
   Plug 'mhartington/formatter.nvim'
   Plug 'akinsho/bufferline.nvim'
-  Plug 'xiyaowong/nvim-transparent'
+  " Plug 'xiyaowong/nvim-transparent'
 endif
 
 call plug#end()
