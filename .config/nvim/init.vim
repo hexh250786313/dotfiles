@@ -229,15 +229,16 @@ let g:coc_user_config =
       \   "git.semanticCommit.scope": 0,
       \   "suggest.detailField": "abbr",
       \   "suggest.defaultSortMethod": "none",
-      \   "suggest.enablePreselect": 1,
       \   "coc.source.file.ignoreHidden": 0,
       \   "coc.source.around.firstMatch": 0,
       \   "coc.preferences.colorSupport": 0,
       \   "tsserver.maxTsServerMemory": 16384,
       \   "tsserver.locale": "zh-cn",
       \   "tsserver.ignoreLocalTsserver": 1,
-      \   "tsserver.tsdk": "/home/hexh/.nvm/versions/node/v16.5.0/lib/node_modules/typescript/lib",
       \   "git.conflict.enabled": 0,
+      \   "suggest.noselect": 0,
+      \   "suggest.selection": "recentlyUsedByPrefix",
+      \   "suggest.enablePreselect": 1,
       \ }
 
       " \   "tsserver.tsdk": "/home/hexh/.nvm/versions/node/v16.5.0/lib/node_modules/typescript/lib"
@@ -290,7 +291,6 @@ let g:coc_global_extensions =
       \   'coc-pairs',
       \   'coc-snippets',
       \   'coc-tsserver',
-      \   'coc-yank',
       \   'coc-lua',
       \ ]
 
