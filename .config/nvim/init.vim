@@ -221,7 +221,7 @@ let g:coc_user_config =
       \   "suggest.floatConfig": {
       \     "border": 1
       \   },
-      \   "suggest.timeout": 10000,
+      \   "suggest.timeout": 5000,
       \   "coc.preferences.extensionUpdateCheck": "daily",
       \   "diagnostic.checkCurrentLine": 1,
       \   "diagnostic.separateRelatedInformationAsDiagnostics": 1,
@@ -326,6 +326,7 @@ inoremap <silent><expr> <Tab>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <C-k> coc#refresh()
 
 if exists('*complete_info')
   inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
