@@ -236,6 +236,7 @@ let g:coc_user_config =
       \   "tsserver.maxTsServerMemory": 16384,
       \   "tsserver.locale": "zh-cn",
       \   "tsserver.ignoreLocalTsserver": 1,
+      \   "tsserver.tsdk": "/home/hexh/.nvm/versions/node/v16.5.0/lib/node_modules/typescript/lib",
       \   "git.conflict.enabled": 0,
       \ }
 
