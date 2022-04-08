@@ -238,9 +238,9 @@ let g:coc_user_config =
       \   "git.conflict.enabled": 0,
       \   "suggest.noselect": 0,
       \   "suggest.selection": "recentlyUsedByPrefix",
-      \   "suggest.enablePreselect": 1,
       \ }
 
+      " \   "suggest.enablePreselect": 1,
       " \   "tsserver.tsdk": "/home/hexh/.nvm/versions/node/v16.5.0/lib/node_modules/typescript/lib"
       " \   "tsserver.log": "verbose",
       " \   "tsserver.trace.server": "verbose",
