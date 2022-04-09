@@ -206,9 +206,9 @@ call defx#custom#option('_', {
       \ 'split': 'vertical',
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'vertical_preview': 1,
-      \ 'direction': 'topleft',
       \ 'resume': 0,
       \ })
+      " \ 'direction': 'topleft',
       " \ 'split': 'floating',
       " \ 'floating_preview': 1,
       " \ 'wincol': &columns / 9,

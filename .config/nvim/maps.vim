@@ -138,6 +138,7 @@ nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 " nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
 " nnoremap <silent> <Space>sb <cmd>Telescope oldfiles<cr><esc>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
+nmap <silent> <Space>sa <plug>(coc-codeaction-line)
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@

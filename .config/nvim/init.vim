@@ -147,7 +147,7 @@ autocmd User CocLocationsChange CocList --normal --tab --auto-preview location
 let g:coc_user_config = 
       \  {
       \    "session.directory": "~/.vimsessions",
-      \   "diagnostic.virtualTextPrefix": " ▸ ",
+      \   "diagnostic.virtualTextPrefix": "  ",
       \   "diagnostic.errorSign": "\uf65b",
       \   "diagnostic.warningSign": "\uf525",
       \   "diagnostic.infoSign": "\uf7fb",
@@ -238,6 +238,11 @@ let g:coc_user_config =
       \   "git.conflict.enabled": 0,
       \   "suggest.noselect": 0,
       \   "suggest.selection": "recentlyUsedByPrefix",
+      \   "yank.enableCompletion": 0,
+      \   "lightbulb.virtualText": "",
+      \   "lightbulb.signText": "",
+      \   "lightbulb.statusText": "",
+      \   "lightbulb.enableSign": 0,
       \ }
 
       " \   "suggest.enablePreselect": 1,
@@ -292,6 +297,9 @@ let g:coc_global_extensions =
       \   'coc-snippets',
       \   'coc-tsserver',
       \   'coc-lua',
+      \   'coc-yank',
+      \   'coc-marketplace',
+      \   'coc-lightbulb',
       \ ]
 
 " coc 选择了 quickfix 打开后的回调
@@ -370,6 +378,7 @@ highlight! EndOfBuffer ctermbg=NONE guibg=NONE
 
 " highlight CursorLine guibg=#455a64
 highlight CursorLine guibg=#23272e
+hi! LightBulbVirtualText guibg=#23272e guifg=#ffff00
 " highlight CursorColumn guibg=#455a64
 highlight CocListPath guibg=#455a64
 highlight CocListMode guibg=#455a64
