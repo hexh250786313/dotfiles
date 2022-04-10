@@ -238,6 +238,7 @@ let g:coc_user_config =
       \   "git.conflict.enabled": 0,
       \   "suggest.noselect": 0,
       \   "suggest.selection": "recentlyUsedByPrefix",
+      \   "suggest.enablePreselect": 1,
       \   "yank.enableCompletion": 0,
       \   "lightbulb.virtualText": "",
       \   "lightbulb.signText": "",
