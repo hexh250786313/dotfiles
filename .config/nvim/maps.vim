@@ -147,7 +147,7 @@ nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
 nmap <silent> <Space>sA <plug>(coc-codeaction)
-vmap <silent> <Space>sa <plug>(coc-codeaction-selected)
+xmap <silent> <Space>sa <plug>(coc-codeaction-selected)
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@

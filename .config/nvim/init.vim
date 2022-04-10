@@ -245,6 +245,7 @@ let g:coc_user_config =
       \   "hover.Target": "float",
       \   "diagnostic.messageTarget": "float",
       \   "signature.target": "float",
+      \   "suggest.enablePreselect": 1,
       \ }
 
       " \   "suggest.enablePreselect": 1,
@@ -302,6 +303,7 @@ let g:coc_global_extensions =
       \   'coc-yank',
       \   'coc-marketplace',
       \   'coc-lightbulb',
+      \   'coc-react-refactor',
       \ ]
 
 " coc 选择了 quickfix 打开后的回调
