@@ -146,7 +146,7 @@ nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 " nnoremap <silent> <Space>sb <cmd>Telescope oldfiles<cr><esc>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
-nmap <silent> <Space>sA <plug>(coc-codeaction)
+nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
 xmap <silent> <Space>sa <plug>(coc-codeaction-selected)
 
 function! s:GrepFromSelected(type)
