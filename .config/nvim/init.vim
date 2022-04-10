@@ -208,7 +208,6 @@ let g:coc_user_config =
       \     "default": "\uf29c"
       \   },
       \   "suggest.labelMaxLength": 30,
-      \   "suggest.numberSelect": 1,
       \   "signature.floatConfig": {
       \     "border": 1
       \   },
@@ -238,12 +237,14 @@ let g:coc_user_config =
       \   "git.conflict.enabled": 0,
       \   "suggest.noselect": 0,
       \   "suggest.selection": "recentlyUsedByPrefix",
-      \   "suggest.enablePreselect": 1,
       \   "yank.enableCompletion": 0,
       \   "lightbulb.virtualText": "",
       \   "lightbulb.signText": "",
       \   "lightbulb.statusText": "",
       \   "lightbulb.enableSign": 0,
+      \   "hover.Target": "float",
+      \   "diagnostic.messageTarget": "float",
+      \   "signature.target": "float",
       \ }
 
       " \   "suggest.enablePreselect": 1,

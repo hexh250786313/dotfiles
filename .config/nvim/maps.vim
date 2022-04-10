@@ -2,6 +2,7 @@
 noremap <Space>y "+y
 " noremap <Space>y :OSCYank<CR>
 noremap <Space>p "+p
+noremap <Space>o "+x
 noremap <C-c>y "+y
 noremap <C-v> "+p
 
@@ -27,6 +28,12 @@ noremap <C-v> "+p
 nnoremap <silent> <Space>bf :Format<cr>
 xnoremap <silent> <Space>bf :Format<cr>
 nnoremap <silent> <Space>bd :bd<CR>
+nnoremap <silent> <Space>bD :call DeleteAllBuffers()<CR>
+
+function DeleteAllBuffers ()
+  :BufferLineCloseLeft
+  :BufferLineCloseRight
+endfunction
 
 nnoremap <silent> <Space>gs :CocCommand git.chunkStage<CR>
 nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>
@@ -122,7 +129,7 @@ nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
 nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
 nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
-nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab yank<CR>
+nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab --number-select yank<CR>
 " nnoremap <silent> <Space>sy :Yanks<CR>
 
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
@@ -139,6 +146,8 @@ nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 " nnoremap <silent> <Space>sb <cmd>Telescope oldfiles<cr><esc>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
+nmap <silent> <Space>sA <plug>(coc-codeaction)
+vmap <silent> <Space>sa <plug>(coc-codeaction-selected)
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@

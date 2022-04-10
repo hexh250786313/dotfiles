@@ -8,7 +8,8 @@ Plug 'tpope/vim-fugitive'
 
 if has("nvim")
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+  " Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc.nvim', {'commit': '1626d02d16b30acb3fbf97dbf8c787e205d918f5'}
   Plug 'hoob3rt/lualine.nvim'
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
@@ -52,7 +53,7 @@ if has("nvim")
   Plug 'rlue/vim-barbaric'
   Plug 'github/copilot.vim'
   Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'rmagatti/auto-session'
+  " Plug 'rmagatti/auto-session'
   Plug 'mhartington/formatter.nvim'
   Plug 'akinsho/bufferline.nvim'
   " Plug 'xiyaowong/nvim-transparent'
