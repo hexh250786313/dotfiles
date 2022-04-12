@@ -145,6 +145,7 @@ nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 " nnoremap <silent> <Space>sb <cmd>Telescope coc mru layout_strategy=vertical layout_config={width=0.9,height=0.95,preview_cutoff=36}<cr><esc>
 " nnoremap <silent> <Space>sb <cmd>Telescope oldfiles<cr><esc>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
+nnoremap <silent> <Space>ss :CocList --no-sort --normal services<CR>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
 nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
 xmap <silent> <Space>sa <plug>(coc-codeaction-selected)
