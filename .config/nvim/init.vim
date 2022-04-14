@@ -230,7 +230,6 @@ let g:coc_user_config =
       \   "suggest.defaultSortMethod": "none",
       \   "coc.source.file.ignoreHidden": 0,
       \   "coc.source.around.firstMatch": 0,
-      \   "coc.preferences.colorSupport": 0,
       \   "tsserver.maxTsServerMemory": 16384,
       \   "tsserver.locale": "zh-cn",
       \   "tsserver.ignoreLocalTsserver": 1,
@@ -246,6 +245,8 @@ let g:coc_user_config =
       \   "diagnostic.messageTarget": "float",
       \   "signature.target": "float",
       \   "suggest.enablePreselect": 1,
+      \   "coc.preferences.colorSupport": 1,
+      \   "colors.filetypes": ["*"],
       \ }
 
       " \   "suggest.enablePreselect": 1,
