@@ -390,15 +390,19 @@ highlight CocListMode guibg=#455a64
 
 highlight CocHighlightText cterm=underline guibg=#0f6073
 
-let g:defx_icons_column_length = 3
-let g:defx_mark_column_length = 3
-call defx#custom#column('git', 'column_length', 3)
+" let g:defx_icons_column_length = 3
+let g:defx_icons_column_length = 2
+call defx#custom#column('git', 'column_length', 1)
 
 call defx#custom#column('filename', {
       \ 'min_width': 200,
       \ 'max_width': 1000,
       \ })
+call defx#custom#column('indent', {
+      \ 'indent': '  ',
+      \ })
 
+autocmd FileType defx setlocal shiftwidth=2
 
 " Misc
 " highlight TSError guifg=#F44747

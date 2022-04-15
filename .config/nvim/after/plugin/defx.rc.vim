@@ -27,8 +27,8 @@ function! s:defx_my_settings() abort
         \ defx#do_action('new_directory')
   " nnoremap <silent><buffer><expr> N
         " \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> M
-        \ defx#do_action('new_multiple_files')
+  " nnoremap <silent><buffer><expr> M
+        " \ defx#do_action('new_multiple_files')
   nnoremap <silent><buffer><expr> C
         \ defx#do_action('toggle_columns',
         \                'mark:indent:icon:filename:type:size:time')
@@ -202,12 +202,13 @@ endfunction
 call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
       \ 'listed': 1,
-      \ 'columns': 'mark:git:indent:icons:filename:type',
+      \ 'columns': 'mark:git:indent:icons:filename',
       \ 'split': 'vertical',
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'vertical_preview': 1,
       \ 'resume': 0,
       \ })
+      " \ 'columns': 'mark:git:indent:icons:filename:type',
       " \ 'direction': 'topleft',
       " \ 'split': 'floating',
       " \ 'floating_preview': 1,
@@ -219,7 +220,7 @@ call defx#custom#option('_', {
       " \ 'preview_height': &lines / 1.3,
 
 call defx#custom#column('git', 'indicators', {
-      \ 'Modified'  : 'M',
+      \ 'Modified'  : '',
       \ 'Staged'    : '✚',
       \ 'Untracked' : '✭',
       \ 'Renamed'   : '➜',
@@ -228,6 +229,16 @@ call defx#custom#column('git', 'indicators', {
       \ 'Deleted'   : '✖',
       \ 'Unknown'   : '?'
       \ })
+" call defx#custom#column('git', 'indicators', {
+      " \ 'Modified'  : 'M',
+      " \ 'Staged'    : '✚',
+      " \ 'Untracked' : '✭',
+      " \ 'Renamed'   : '➜',
+      " \ 'Unmerged'  : '═',
+      " \ 'Ignored'   : '☒',
+      " \ 'Deleted'   : '✖',
+      " \ 'Unknown'   : '?'
+      " \ })
 
 " nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
 " nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>

@@ -13,10 +13,15 @@ require("indent_blankline").setup {
     "NvimTree",
     "vista",
     "sagahover",
-    "defx",
+    -- "defx",
     "prompt",
     "TelescopePrompt",
     "",
     "toggleterm"
+  },
+  buftype_exclude = {
+    "terminal",
+    "quickfix",
+    -- "nofile",
   }
 }
