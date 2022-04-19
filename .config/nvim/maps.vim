@@ -37,12 +37,14 @@ endfunction
 
 nnoremap <silent> <Space>gs :CocCommand git.chunkStage<CR>
 nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>
-nnoremap <silent> <Space>gI :CocCommand git.chunkInfo<CR>
-nnoremap <silent> <Space>gi :VGit buffer_hunk_preview<CR>
-nnoremap <silent> <Space>gt :GitTimeLapse<CR>
-nnoremap <silent> <Space>gT :VGit buffer_history_preview<CR>
+nnoremap <silent> <Space>gi :CocCommand git.chunkInfo<CR>
+" nnoremap <silent> <Space>gi :VGit buffer_hunk_preview<CR>
+nnoremap <silent> <Space>gt :DiffviewFileHistory<CR>
+" nnoremap <silent> <Space>gT :VGit buffer_history_preview<CR>
 nnoremap <silent> <Space>gd :CocCommand git.diffCached<CR>
-nnoremap <silent> <Space>gg :Git<CR>
+nnoremap <silent> <Space>gg :DiffviewOpen<CR>
+nnoremap <silent> <Space>gG :Git<CR>
+nnoremap <silent> <Space>gc :Git commit<CR>
 nmap <Space>g[ <Plug>(coc-git-prevchunk)
 nmap <Space>g] <Plug>(coc-git-nextchunk)
 

@@ -17,7 +17,7 @@ if has("nvim")
   Plug 'tpope/vim-surround'
   Plug 'honza/vim-snippets'
   Plug 'rhysd/conflict-marker.vim'
-  Plug 'junkblocker/git-time-lapse'
+  " Plug 'junkblocker/git-time-lapse'
   Plug 'preservim/nerdcommenter'
   Plug 'mg979/vim-visual-multi'
   Plug 'kyazdani42/nvim-web-devicons'
@@ -43,7 +43,7 @@ if has("nvim")
   " Plug 'andymass/vim-matchup'
   Plug 'kevinhwang91/nvim-bqf'
   Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' } " html 的 <script> 标签执行 InlineEdit 可以打开一个 js 缓存
-  Plug 'tanvirtin/vgit.nvim',
+  " Plug 'tanvirtin/vgit.nvim',
   " Plug 'norcalli/nvim-colorizer.lua'
   Plug 'anuvyklack/pretty-fold.nvim'
   Plug 'petertriho/nvim-scrollbar',
@@ -56,6 +56,7 @@ if has("nvim")
   " Plug 'rmagatti/auto-session'
   Plug 'mhartington/formatter.nvim'
   Plug 'akinsho/bufferline.nvim'
+  Plug 'sindrets/diffview.nvim'
   " Plug 'xiyaowong/nvim-transparent'
 endif
 

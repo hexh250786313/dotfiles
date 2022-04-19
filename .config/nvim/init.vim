@@ -506,6 +506,18 @@ set foldlevel=99
 set guifont=CaskaydiaCove\ Nerd\ Font:h12.9
 let neovide_remember_window_size = v:true
 
+" material
+" highlight DiffAdd guibg=#23384c
+" highlight DiffDelete guibg=#341c28 guifg=#341c28
+" highlight DiffChange guibg=#232c4c
+" highlight DiffText guibg=#33406b
+
+" codedark
+highlight DiffAdd guibg=#235049
+highlight DiffDelete guibg=#341c28 guifg=#341c28
+highlight DiffChange guibg=#344f69
+highlight DiffText guibg=#2f628e
+
 " 这段放最底下，不然会被覆盖
 " disable the default highlight group
 let g:conflict_marker_highlight_group = ''
