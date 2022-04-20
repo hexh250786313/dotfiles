@@ -32,7 +32,8 @@ font:
     # family: CaskaydiaCove Nerd Font
     # style: Bold Italic
   # size: 12.5
-  size: 9
+  # size: 9
+  size: 12
   offset:
     # x: -1
     y: 5
