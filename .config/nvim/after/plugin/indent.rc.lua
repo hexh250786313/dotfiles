@@ -13,7 +13,7 @@ require("indent_blankline").setup {
     "NvimTree",
     "vista",
     "sagahover",
-    -- "defx",
+    "defx",
     "prompt",
     "TelescopePrompt",
     "",

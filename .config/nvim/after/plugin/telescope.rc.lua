@@ -49,7 +49,8 @@ require("telescope").setup {
         -- width = 0.9,
         width = 0.5,
         height = 0.95,
-        preview_cutoff = 36,
+        -- preview_cutoff = 36,
+        preview_cutoff = 0,
         anchor="E",
         -- mirror=true,
         -- prompt_position = "top",
@@ -64,12 +65,14 @@ require("telescope").setup {
         -- width = 0.9,
         width = 0.5,
         height = 0.95,
-        preview_cutoff = 36,
+        -- preview_cutoff = 36,
+        preview_cutoff = 0,
         anchor="E",
         -- prompt_position = "bottom",
         -- height=0.7
         -- prompt_position = "top",
-      }
+      },
+
       -- winblend = 90
     },
     resume = {
@@ -78,7 +81,8 @@ require("telescope").setup {
         -- width = 0.9,
         width = 0.5,
         height = 0.95,
-        preview_cutoff = 36,
+        -- preview_cutoff = 36,
+        preview_cutoff = 0,
         anchor="E",
       },
       initial_mode = "normal"
@@ -89,7 +93,8 @@ require("telescope").setup {
         -- width = 0.9,
         width = 0.5,
         height = 0.95,
-        preview_cutoff = 36,
+        -- preview_cutoff = 36,
+        preview_cutoff = 0,
         anchor="E",
       },
       initial_mode = "normal"
@@ -100,7 +105,8 @@ require("telescope").setup {
         -- width = 0.9,
         width = 0.5,
         height = 0.95,
-        preview_cutoff = 36,
+        -- preview_cutoff = 36,
+        preview_cutoff = 0,
         anchor="E",
       },
       initial_mode = "normal"

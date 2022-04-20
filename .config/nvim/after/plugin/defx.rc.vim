@@ -91,10 +91,10 @@ function! s:defx_my_settings() abort
         \ 'mark:indent:icon:filename:type:size:time')
   nnoremap <silent><buffer><expr> <C-n>
         \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> cd
-        \ <SID>lcd()
-  nnoremap <silent><buffer><expr> ~
-        \ <SID>cdRoot()
+  nnoremap <silent><buffer> cd :call LcdAndClose()<CR>
+        " \ <SID>lcd()
+  nnoremap <silent><buffer> ~ :call CdRootAndClose()<CR>
+        " \ <SID>cdRoot()
   nnoremap <silent><buffer><expr> >
         \ defx#do_action('resize',
         \ winwidth(0) + 2)
@@ -198,6 +198,17 @@ function! s:cdRoot()
     execute 'lcd '.root
   endif
 endfunction
+
+function LcdAndClose ()
+  :call <SID>lcd()
+  :Defx `getcwd()` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+endfunction
+
+function CdRootAndClose ()
+  :call <SID>cdRoot()
+  :Defx `getcwd()` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+endfunction
+
 
 call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
