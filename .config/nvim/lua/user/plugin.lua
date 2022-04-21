@@ -140,6 +140,8 @@ return packer.startup(
 
     use({"tpope/vim-fugitive", cmd = {"Git"}, config = [[require("plugin.vim-fugitive")]]})
 
+    use({ "dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]] })
+
     if PACKER_BOOTSTRAP then
       require("packer").sync()
     end
