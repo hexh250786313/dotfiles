@@ -211,7 +211,7 @@ return packer.startup(
       {
         "sindrets/diffview.nvim",
         cmd = {"DiffviewFileHistory", "DiffviewOpen"},
-        keys = {{"n", "<space>gt"}, {"n", "<space>gg"}},
+        keys = {{"n", "<space>gt"}, {"n", "<space>gG"}},
         config = [[require("plugin.diffview")]]
       }
     )
@@ -222,12 +222,12 @@ return packer.startup(
       {
         "tpope/vim-fugitive",
         cmd = {"Git"},
-        keys = {{"n", "<space>gG"}, {"n", "<space>gc"}},
+        keys = {{"n", "<space>gg"}, {"n", "<space>gc"}},
         config = [[require("plugin.vim-fugitive")]]
       }
     )
 
-    use({ "dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]] })
+    use({"dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]]})
 
     if PACKER_BOOTSTRAP then
       require("packer").sync()
