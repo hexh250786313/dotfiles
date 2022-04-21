@@ -1,4 +1,3 @@
-local au = require("util.au")
 local api = vim.api
 
 vim.g.coc_global_extensions = {

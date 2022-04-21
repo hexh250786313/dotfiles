@@ -77,7 +77,7 @@ return packer.startup(
         "nvim-treesitter/nvim-treesitter",
         event = "BufEnter",
         run = ":TSUpdate",
-        config = [[require("plugin.treesitter")]]
+        config = [[require("plugin.nvim-treesitter")]]
       }
     )
 
@@ -138,7 +138,7 @@ return packer.startup(
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 
-    use({"tpope/vim-fugitive", cmd = {"Git"}, config = [[require("plugin.fugitive")]]})
+    use({"tpope/vim-fugitive", cmd = {"Git"}, config = [[require("plugin.vim-fugitive")]]})
 
     if PACKER_BOOTSTRAP then
       require("packer").sync()
