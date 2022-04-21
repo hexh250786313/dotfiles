@@ -31,7 +31,3 @@ require("formatter").setup(
   }
 )
 
-vim.cmd([[
-nnoremap <silent> <Space>bf :Format<cr>
-xnoremap <silent> <Space>bf :Format<cr>
-]])

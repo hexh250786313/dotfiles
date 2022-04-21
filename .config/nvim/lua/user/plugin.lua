@@ -102,7 +102,7 @@ return packer.startup(
       }
     )
 
-    use({"phaazon/hop.nvim", config = [[require("plugin.hop")]]})
+    use({"phaazon/hop.nvim", cmd = {"HopChar1"}, config = [[require("plugin.hop")]]})
 
     use({"nvim-telescope/telescope.nvim", config = [[require("plugin.telescope")]]})
 
@@ -130,9 +130,11 @@ return packer.startup(
 
     use({"lukas-reineke/indent-blankline.nvim", config = [[require("plugin.indent-blankline")]]})
 
-    use({"mhartington/formatter.nvim", config = [[require("plugin.formatter")]]})
+    use({"mhartington/formatter.nvim", cmd = {"Formatter"}, config = [[require("plugin.formatter")]]})
 
-    use({"sindrets/diffview.nvim", config = [[require("plugin.diffview")]]})
+    use(
+      {"sindrets/diffview.nvim", cmd = {"DiffviewFileHistory", "DiffviewOpen"}, config = [[require("plugin.diffview")]]}
+    )
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 

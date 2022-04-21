@@ -41,5 +41,24 @@ nnoremap <silent> <Space>sq <cmd>botright copen<cr>
 
 nmap <Space>wt <C-w>v<C-w>T
 
+" 特殊 keymap, 如果需要按需加载的插件, 加载前是不会读 config 的内容的
+" 所以放到 config 无效, 只能在这里加载
+
+" vim-fugitive.lua
+nnoremap <silent> <Space>gG :Git<CR>
+nnoremap <silent> <Space>gc :Git commit<CR>
+
+" differview.lua
+nnoremap <silent> <Space>gt :DiffviewFileHistory<CR>
+nnoremap <silent> <Space>gg :DiffviewOpen<CR>
+
+" formatter.lua
+nnoremap <silent> <Space>bf :Format<cr>
+xnoremap <silent> <Space>bf :Format<cr>
+
+" hop.lua
+nmap f <cmd>:HopChar1<CR>
+vmap f <cmd>:HopChar1<CR>
+
 ]]
 )
