@@ -150,8 +150,10 @@ _G.packer_plugins = {
   },
   ["markdown-preview.nvim"] = {
     config = { 'require("plugin.markdown-preview")' },
-    loaded = true,
-    path = "/home/hexh/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/hexh/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["neoscroll.nvim"] = {
@@ -280,70 +282,66 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: pretty-fold.nvim
-time([[Config for pretty-fold.nvim]], true)
-require("plugin.pretty-fold")
-time([[Config for pretty-fold.nvim]], false)
--- Config for: defx.nvim
-time([[Config for defx.nvim]], true)
-require("plugin.defx")
-time([[Config for defx.nvim]], false)
--- Config for: coc.nvim
-time([[Config for coc.nvim]], true)
-require("plugin.coc")
-time([[Config for coc.nvim]], false)
--- Config for: markdown-preview.nvim
-time([[Config for markdown-preview.nvim]], true)
-require("plugin.markdown-preview")
-time([[Config for markdown-preview.nvim]], false)
--- Config for: diffview.nvim
-time([[Config for diffview.nvim]], true)
-require("plugin.diffview")
-time([[Config for diffview.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require("plugin.telescope")
-time([[Config for telescope.nvim]], false)
 -- Config for: vim-expand-region
 time([[Config for vim-expand-region]], true)
 require("plugin.vim-expand-region")
 time([[Config for vim-expand-region]], false)
--- Config for: formatter.nvim
-time([[Config for formatter.nvim]], true)
-require("plugin.formatter")
-time([[Config for formatter.nvim]], false)
--- Config for: toggleterm.nvim
-time([[Config for toggleterm.nvim]], true)
-require("plugin.toggleterm")
-time([[Config for toggleterm.nvim]], false)
--- Config for: nerdcommenter
-time([[Config for nerdcommenter]], true)
-require("plugin.nerdcommenter")
-time([[Config for nerdcommenter]], false)
 -- Config for: hop.nvim
 time([[Config for hop.nvim]], true)
 require("plugin.hop")
 time([[Config for hop.nvim]], false)
+-- Config for: nerdcommenter
+time([[Config for nerdcommenter]], true)
+require("plugin.nerdcommenter")
+time([[Config for nerdcommenter]], false)
 -- Config for: impatient.nvim
 time([[Config for impatient.nvim]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\19enable_profile\14impatient\frequire\0", "config", "impatient.nvim")
 time([[Config for impatient.nvim]], false)
--- Config for: neoscroll.nvim
-time([[Config for neoscroll.nvim]], true)
-require("plugin.neoscroll")
-time([[Config for neoscroll.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require("plugin.indent-blankline")
-time([[Config for indent-blankline.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("plugin.lualine")
-time([[Config for lualine.nvim]], false)
+-- Config for: diffview.nvim
+time([[Config for diffview.nvim]], true)
+require("plugin.diffview")
+time([[Config for diffview.nvim]], false)
 -- Config for: bufferline.nvim
 time([[Config for bufferline.nvim]], true)
 require("plugin.bufferline")
 time([[Config for bufferline.nvim]], false)
+-- Config for: defx.nvim
+time([[Config for defx.nvim]], true)
+require("plugin.defx")
+time([[Config for defx.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require("plugin.indent-blankline")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: coc.nvim
+time([[Config for coc.nvim]], true)
+require("plugin.coc")
+time([[Config for coc.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+require("plugin.toggleterm")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("plugin.lualine")
+time([[Config for lualine.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require("plugin.telescope")
+time([[Config for telescope.nvim]], false)
+-- Config for: pretty-fold.nvim
+time([[Config for pretty-fold.nvim]], true)
+require("plugin.pretty-fold")
+time([[Config for pretty-fold.nvim]], false)
+-- Config for: formatter.nvim
+time([[Config for formatter.nvim]], true)
+require("plugin.formatter")
+time([[Config for formatter.nvim]], false)
+-- Config for: neoscroll.nvim
+time([[Config for neoscroll.nvim]], true)
+require("plugin.neoscroll")
+time([[Config for neoscroll.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -352,6 +350,10 @@ time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufEnter *" }, _G.packer_plugins)]]
