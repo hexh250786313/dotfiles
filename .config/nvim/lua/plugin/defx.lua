@@ -1,6 +1,22 @@
-if !exists('g:loaded_defx') | finish | endif
+vim.g.defx_icons_column_length = 2
 
-" autocmd FileType defx call s:defx_my_settings()
+vim.cmd(
+  [[
+call defx#custom#column('git', 'column_length', 1)
+
+call defx#custom#column('filename', {
+      \ 'min_width': 200,
+      \ 'max_width': 1000,
+      \ })
+call defx#custom#column('indent', {
+      \ 'indent': '  ',
+      \ })
+function! s:SID_PREFIX() abort
+  return matchstr(expand('<sfile>'),
+        \ '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+let g:defx_config_sid = s:SID_PREFIX()
 
 autocmd FileType defx call s:defx_my_settings()
 
@@ -80,10 +96,6 @@ function! s:defx_my_settings() abort
         \ <SID>defx_toggle_tree_right()
   nnoremap <silent><buffer><expr> o
         \ <SID>defx_toggle_tree_right()
-  " nnoremap <silent><buffer><expr> v
-        " \ <SID>defx_toggle_tree_right_split("vsplit")
-  " nnoremap <silent><buffer><expr> s
-        " \ <SID>defx_toggle_tree_right_split("split")
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('call', g:defx_config_sid . 'defx_toggle_tree_left')
   nnoremap <silent><buffer><expr> C
@@ -92,9 +104,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> <C-n>
         \ defx#do_action('new_file')
   nnoremap <silent><buffer> cd :call LcdAndClose()<CR>
-        " \ <SID>lcd()
   nnoremap <silent><buffer> ~ :call CdRootAndClose()<CR>
-        " \ <SID>cdRoot()
   nnoremap <silent><buffer><expr> >
         \ defx#do_action('resize',
         \ winwidth(0) + 2)
@@ -115,21 +125,6 @@ function! s:defx_toggle_tree_right() abort
   " return defx#do_action('open')
   return defx#do_action('drop')
   " return defx#do_action('multi', ['quit', 'drop'])
-endfunction
-
-function! s:defx_toggle_tree_right_split(split) abort
-  " Open current file, or toggle directory expand/collapse
-  if defx#is_directory()
-    return defx#do_action('open_or_close_tree')
-  endif
-  if defx#is_binary()
-    return defx#do_action('execute_system')
-  endif
-  " return defx#do_action('open')
-  " return defx#do_action('drop')
-  " return defx#do_action('multi', ['quit', ['drop', 'vsplit']])
-  return defx#do_action('multi', ['quit', ['drop', a:split]])
-  " return defx#do_action('drop')
 endfunction
 
 function! s:defx_toggle_tree_right_preview() abort
@@ -219,16 +214,6 @@ call defx#custom#option('_', {
       \ 'vertical_preview': 1,
       \ 'resume': 0,
       \ })
-      " \ 'columns': 'mark:git:indent:icons:filename:type',
-      " \ 'direction': 'topleft',
-      " \ 'split': 'floating',
-      " \ 'floating_preview': 1,
-      " \ 'wincol': &columns / 9,
-      " \ 'winwidth': &columns / 3,
-      " \ 'preview_width': &columns / 2,
-      " \ 'winrow': &lines / 9,
-      " \ 'winheight': &lines / 1.5,
-      " \ 'preview_height': &lines / 1.3,
 
 call defx#custom#column('git', 'indicators', {
       \ 'Modified'  : '',
@@ -240,33 +225,10 @@ call defx#custom#column('git', 'indicators', {
       \ 'Deleted'   : '✖',
       \ 'Unknown'   : '?'
       \ })
-" call defx#custom#column('git', 'indicators', {
-      " \ 'Modified'  : 'M',
-      " \ 'Staged'    : '✚',
-      " \ 'Untracked' : '✭',
-      " \ 'Renamed'   : '➜',
-      " \ 'Unmerged'  : '═',
-      " \ 'Ignored'   : '☒',
-      " \ 'Deleted'   : '✖',
-      " \ 'Unknown'   : '?'
-      " \ })
-
-" nmap <silent> <Space>fo :Defx -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`&columns/3` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
-" nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1` -toggle<CR>
-nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 
 function! s:trim_right(str, trim)
   return substitute(a:str, printf('%s$', a:trim), '', 'g')
 endfunction
 
-function! s:SID_PREFIX() abort
-  return matchstr(expand('<sfile>'),
-        \ '<SNR>\d\+_\zeSID_PREFIX$')
-endfunction
-
-let g:defx_config_sid = s:SID_PREFIX()
-
-" no plugin 情况
-au VimEnter * call AddCycleGroup(['const', 'let'])
-au VimEnter * call AddCycleGroup(['prev', 'next'])
-
+]]
+)

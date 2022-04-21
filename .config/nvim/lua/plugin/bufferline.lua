@@ -1,73 +1,8 @@
-local Path = require("plenary.path")
-local fn = vim.fn
-local api = vim.api
-local utils = require("telescope.utils")
-
-local function is_coc_ready(feature)
-  if vim.g.coc_service_initialized ~= 1 then
-    -- print("Coc is not ready!")
-    return
-  end
-
-  if feature and not fn.CocHasProvider(feature) then
-    print("Coc: server does not support " .. feature)
-    return
-  end
-
-  return true
-end
-
 require("bufferline").setup {
   options = {
-    -- separator_style = "padded_slant",
-    -- separator_style = {"░", "░"},
-    -- separator_style = {">", "<"},
-    -- separator_style = {"", ""},
-    -- separator_style = {"  ", "  "},
-    -- separator_style = {"░▓", "▓░"},
     separator_style = {"", ""},
-    -- diagnostics = "coc",
-    -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
-    -- local icon = level:match("error") and " " or " "
-    -- return " " .. icon .. count
-    -- end,
     indicator_icon = "▌",
-    -- max_name_length = 18,
     max_prefix_length = 100
-    -- sort_by = function(buffer_a, buffer_b)
-    -- local mod_a = vim.loop.fs_stat(buffer_a.path).mtime.sec
-    -- local mod_b = vim.loop.fs_stat(buffer_b.path).mtime.sec
-    -- return mod_a > mod_b
-    -- end
-    -- custom_filter = function(buf_number, buf_numbers)
-    -- if vim.fn.bufname(buf_number) == vim.fn.expand("%") then
-    -- return true
-    -- end
-    -- if not is_coc_ready() then
-    -- return true
-    -- end
-    -- local home = vim.call("coc#util#get_data_home")
-    -- local data = Path:new(home .. Path.path.sep .. "mru"):read()
-    -- local results = {}
-    -- if not data or #data == 0 then
-    -- return
-    -- end
-    -- local cwd = vim.loop.cwd() .. Path.path.sep
-    -- for index, val in ipairs(utils.max_split(data, "\n")) do
-    -- -- print(index)
-    -- -- if index > 5 then
-    -- -- return
-    -- -- end
-    -- local p = Path:new(val)
-    -- local lowerPrefix = val:sub(1, #cwd):gsub(Path.path.sep, ""):lower()
-    -- local lowerCWD = cwd:gsub(Path.path.sep, ""):lower()
-    -- if lowerCWD == lowerPrefix and p:exists() and p:is_file() then
-    -- if vim.fn.bufname(buf_number) == val:sub(#cwd + 1) then
-    -- return true
-    -- end
-    -- end
-    -- end
-    -- end
   },
   highlights = {
     fill = {
@@ -179,7 +114,6 @@ require("bufferline").setup {
     },
     separator_visible = {
       guifg = "#373737"
-      -- guibg = visible_bg,
     },
     separator = {
       guifg = "#373737",

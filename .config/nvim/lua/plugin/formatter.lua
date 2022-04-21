@@ -1,7 +1,6 @@
 function format_prettier()
   return {
     exe = "prettierd",
-    -- args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
     args = {vim.api.nvim_buf_get_name(0)},
     stdin = true
   }
@@ -20,7 +19,6 @@ require("formatter").setup(
       scss = {format_prettier},
       less = {format_prettier},
       lua = {
-        -- luafmt
         function()
           return {
             exe = "luafmt",

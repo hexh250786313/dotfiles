@@ -1,3 +1,54 @@
+vim.cmd(
+  [[
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+function! s:GrepFromSelected(type)
+  let saved_unnamed_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  let word = substitute(@@, '\n$', '', 'g')
+  let word = escape(word, '| ')
+  let @@ = saved_unnamed_register
+  " execute 'CocList grep '.word
+  " execute 'Telescope live_grep initial_mode=normal default_text='.word
+  execute printf('Telescope live_grep initial_mode=normal default_text=%s', word)
+endfunction
+
+function! s:FindFromSelected(type)
+  let saved_unnamed_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  let word = substitute(@@, '\n$', '', 'g')
+  let word = escape(word, '| ')
+  let @@ = saved_unnamed_register
+  " execute 'CocList grep '.word
+  " execute 'Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text='.word
+  execute printf('Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text=%s', word)
+endfunction
+
+function DeleteAllBuffers ()
+  :BufferLineCloseLeft
+  :BufferLineCloseRight
+endfunction
+
 " 复制/粘贴到系统剪贴板
 noremap <Space>y "+y
 " noremap <Space>y :OSCYank<CR>
@@ -29,11 +80,6 @@ nnoremap <silent> <Space>bf :Format<cr>
 xnoremap <silent> <Space>bf :Format<cr>
 nnoremap <silent> <Space>bd :bd<CR>
 nnoremap <silent> <Space>bD :call DeleteAllBuffers()<CR>
-
-function DeleteAllBuffers ()
-  :BufferLineCloseLeft
-  :BufferLineCloseRight
-endfunction
 
 nnoremap <silent> <Space>gs :CocCommand git.chunkStage<CR>
 nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>
@@ -113,16 +159,6 @@ nnoremap <silent> u :silent undo<CR>
 
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
 nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 " nnoremap <silent> <script> <Space>sq :CocList --auto-preview --normal --tab --number-select quickfix<CR>
@@ -134,7 +170,6 @@ nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
 nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab --number-select yank<CR>
 " nnoremap <silent> <Space>sy :Yanks<CR>
 
-" vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 
@@ -151,40 +186,6 @@ nnoremap <silent> <Space>ss :CocList --no-sort --normal services<CR>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
 nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
 xmap <silent> <Space>sa <plug>(coc-codeaction-selected)
-
-function! s:GrepFromSelected(type)
-  let saved_unnamed_register = @@
-  if a:type ==# 'v'
-    normal! `<v`>y
-  elseif a:type ==# 'char'
-    normal! `[v`]y
-  else
-    return
-  endif
-  let word = substitute(@@, '\n$', '', 'g')
-  let word = escape(word, '| ')
-  let @@ = saved_unnamed_register
-  " execute 'CocList grep '.word
-  " execute 'Telescope live_grep initial_mode=normal default_text='.word
-  execute printf('Telescope live_grep initial_mode=normal default_text=%s', word)
-endfunction
-
-function! s:FindFromSelected(type)
-  let saved_unnamed_register = @@
-  if a:type ==# 'v'
-    normal! `<v`>y
-  elseif a:type ==# 'char'
-    normal! `[v`]y
-  else
-    return
-  endif
-  let word = substitute(@@, '\n$', '', 'g')
-  let word = escape(word, '| ')
-  let @@ = saved_unnamed_register
-  " execute 'CocList grep '.word
-  " execute 'Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text='.word
-  execute printf('Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text=%s', word)
-endfunction
 
 " nnoremap <silent> <Space>w= :FocusToggle<CR>
 nnoremap <silent> <Space>' <cmd>ToggleTerm direction=float<cr>
@@ -244,5 +245,9 @@ nnoremap <silent> <space>bp :BufferLinePick<cr>
 nnoremap <silent> <space>b> :BufferLineMoveNext<cr>
 nnoremap <silent> <space>b< :BufferLineMovePrev<cr>
 
-let g:VM_mouse_mappings = 1
+nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
+nmap <silent> <Space>fc :Defx -close<CR>
 
+let g:VM_mouse_mappings = 1
+]]
+)
