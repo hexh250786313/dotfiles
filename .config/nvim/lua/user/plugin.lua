@@ -81,15 +81,51 @@ return packer.startup(
       }
     )
 
-    use({"tpope/vim-surround"})
+    use(
+      {
+        "tpope/vim-surround",
+        keys = {
+          {"n", "vi"},
+          {"n", "va"},
+          {"n", "cs"},
+          {"n", "ds"}
+        }
+      }
+    )
 
     use({"honza/vim-snippets"})
 
     use({"rhysd/conflict-marker.vim"})
 
-    use({"preservim/nerdcommenter", config = [[require("plugin.nerdcommenter")]]})
+    use(
+      {
+        "preservim/nerdcommenter",
+        keys = {
+          {"n", "<space>cl"},
+          {"n", "<space>cy"},
+          {"n", "<space>cs"},
+          {"n", "<space>cu"},
+          {"v", "<space>cl"},
+          {"v", "<space>cy"},
+          {"v", "<space>cs"},
+          {"v", "<space>cu"}
+        },
+        config = [[require("plugin.nerdcommenter")]]
+      }
+    )
 
-    use({"mg979/vim-visual-multi", config = [[require("plugin.vim-visual-multi")]]})
+    use(
+      {
+        "mg979/vim-visual-multi",
+        keys = {
+          {"n", "<c-n>"},
+          {"n", "<c-up>"},
+          {"n", "<c-down>"},
+          {"v", "<c-n>"}
+        },
+        config = [[require("plugin.vim-visual-multi")]]
+      }
+    )
 
     use({"kyazdani42/nvim-web-devicons"})
 
@@ -102,21 +138,53 @@ return packer.startup(
       }
     )
 
-    use({"phaazon/hop.nvim", cmd = {"HopChar1"}, config = [[require("plugin.hop")]]})
+    use({"phaazon/hop.nvim", cmd = {"HopChar1"}, keys = {{"n", "f"}, {"v", "f"}}, config = [[require("plugin.hop")]]})
 
-    use({"nvim-telescope/telescope.nvim", config = [[require("plugin.telescope")]]})
+    use(
+      {
+        "nvim-telescope/telescope.nvim",
+        keys = {
+          {"n", "<space>sf"},
+          {"n", "<space>sg"},
+          {"n", "<space>sr"},
+          {"n", "<space>["},
+          {"n", "<space>]"},
+          {"v", "<space>sf"},
+          {"v", "<space>sg"}
+        },
+        config = [[require("plugin.telescope")]]
+      }
+    )
 
     use({"fannheyward/telescope-coc.nvim"})
 
-    use({"akinsho/toggleterm.nvim", config = [[require("plugin.toggleterm")]]})
+    use(
+      {
+        "akinsho/toggleterm.nvim",
+        keys = {
+          {"n", "<space>gl"},
+          {"n", "<space>'"}
+        },
+        config = [[require("plugin.toggleterm")]]
+      }
+    )
 
-    use({"nvim-treesitter/playground"})
+    use({"nvim-treesitter/playground", cmd = {"TSHighlightCapturesUnderCursor"}})
 
-    use({"terryma/vim-expand-region", config = [[require("plugin.vim-expand-region")]]})
+    use(
+      {
+        "terryma/vim-expand-region",
+        keys = {
+          {"x", "v"},
+          {"x", "V"}
+        },
+        config = [[require("plugin.vim-expand-region")]]
+      }
+    )
 
     use({"antoinemadec/FixCursorHold.nvim"})
 
-    use({"bronson/vim-visual-star-search"})
+    use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
 
     use({"romainl/vim-cool"})
 
@@ -130,15 +198,34 @@ return packer.startup(
 
     use({"lukas-reineke/indent-blankline.nvim", config = [[require("plugin.indent-blankline")]]})
 
-    use({"mhartington/formatter.nvim", cmd = {"Formatter"}, config = [[require("plugin.formatter")]]})
+    use(
+      {
+        "mhartington/formatter.nvim",
+        cmd = {"Formatter"},
+        keys = {{"n", "<space>bf"}, {"x", "<space>bf"}},
+        config = [[require("plugin.formatter")]]
+      }
+    )
 
     use(
-      {"sindrets/diffview.nvim", cmd = {"DiffviewFileHistory", "DiffviewOpen"}, config = [[require("plugin.diffview")]]}
+      {
+        "sindrets/diffview.nvim",
+        cmd = {"DiffviewFileHistory", "DiffviewOpen"},
+        keys = {{"n", "<space>gt"}, {"n", "<space>gg"}},
+        config = [[require("plugin.diffview")]]
+      }
     )
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 
-    use({"tpope/vim-fugitive", cmd = {"Git"}, config = [[require("plugin.vim-fugitive")]]})
+    use(
+      {
+        "tpope/vim-fugitive",
+        cmd = {"Git"},
+        keys = {{"n", "<space>gG"}, {"n", "<space>gc"}},
+        config = [[require("plugin.vim-fugitive")]]
+      }
+    )
 
     use({ "dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]] })
 

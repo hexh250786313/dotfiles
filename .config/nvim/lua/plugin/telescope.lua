@@ -123,6 +123,8 @@ endfunction
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
+nnoremap <silent> <Space>] <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.5,width=0.9}<cr><esc>
+nnoremap <silent> <Space>[ <cmd>Telescope coc references layout_strategy=cursor layout_config={height=0.5,width=0.9}<cr><esc>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 

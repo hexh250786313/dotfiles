@@ -73,8 +73,6 @@ nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
 nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
 nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
 nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab --number-select yank<CR>
-nnoremap <silent> <Space>] <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.5,width=0.9}<cr><esc>
-nnoremap <silent> <Space>[ <cmd>Telescope coc references layout_strategy=cursor layout_config={height=0.5,width=0.9}<cr><esc>
 nnoremap <silent> <Space>ss :CocList --no-sort --normal services<CR>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
 nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
