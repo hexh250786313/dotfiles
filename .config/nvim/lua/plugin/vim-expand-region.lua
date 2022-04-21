@@ -13,5 +13,9 @@ let g:expand_region_text_objects = {
       \ 'ip'  :0,
       \ 'ie'  :0,
       \ }
+
+xmap v <Plug>(expand_region_expand)
+xmap V <Plug>(expand_region_shrink)
+
 ]]
 )

@@ -89,7 +89,7 @@ return packer.startup(
 
     use({"preservim/nerdcommenter", config = [[require("plugin.nerdcommenter")]]})
 
-    use({"mg979/vim-visual-multi"})
+    use({"mg979/vim-visual-multi", config = [[require("plugin.vim-visual-multi")]]})
 
     use({"kyazdani42/nvim-web-devicons"})
 
@@ -125,8 +125,6 @@ return packer.startup(
     use({"anuvyklack/pretty-fold.nvim", config = [[require("plugin.pretty-fold")]]})
 
     use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
-
-    use({"rlue/vim-barbaric"})
 
     use({"github/copilot.vim"})
 

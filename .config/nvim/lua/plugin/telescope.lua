@@ -87,3 +87,44 @@ require("telescope").setup {
     }
   }
 }
+
+vim.cmd(
+  [[
+function! s:GrepFromSelected(type)
+  let saved_unnamed_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  let word = substitute(@@, '\n$', '', 'g')
+  let word = escape(word, '| ')
+  let @@ = saved_unnamed_register
+  execute printf('Telescope live_grep initial_mode=normal default_text=%s', word)
+endfunction
+
+function! s:FindFromSelected(type)
+  let saved_unnamed_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  let word = substitute(@@, '\n$', '', 'g')
+  let word = escape(word, '| ')
+  let @@ = saved_unnamed_register
+  execute printf('Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text=%s', word)
+endfunction
+
+nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
+nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
+nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
+vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
+
+]]
+)

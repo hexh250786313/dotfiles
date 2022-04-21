@@ -18,3 +18,7 @@ function _lazygit_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<space>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+
+vim.cmd([[
+nnoremap <silent> <Space>' <cmd>ToggleTerm direction=float<cr>
+]])

@@ -14,11 +14,6 @@ highlight! EndOfBuffer ctermbg=NONE guibg=NONE
 highlight CursorLine guibg=#23272e
 hi! LightBulbVirtualText guibg=#23272e guifg=#ffff00
 
-highlight CocListPath guibg=#455a64
-highlight CocListMode guibg=#455a64
-
-highlight CocHighlightText cterm=underline guibg=#0f6073
-
 highlight TSString gui=italic guifg=#CE9178
 highlight TSCharacter gui=italic guifg=#CE9178
 highlight TSNumber gui=italic guifg=#B5CEA8

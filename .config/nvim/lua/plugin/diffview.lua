@@ -3,3 +3,8 @@ require "diffview".setup {
     height = 1
   }
 }
+
+vim.cmd([[
+nnoremap <silent> <Space>gt :DiffviewFileHistory<CR>
+nnoremap <silent> <Space>gg :DiffviewOpen<CR>
+]])
