@@ -50,7 +50,8 @@ return packer.startup(
 
     use({"wbthomason/packer.nvim"})
 
-    use({"tomasiser/vim-code-dark"})
+    -- use({"tomasiser/vim-code-dark"})
+    use({"mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim"})
 
     use({"moll/vim-bbye", keys = {{"n", "<space>bd"}}, cmd = "Bdelete", config = [[require("plugin.vim-bbye")]]})
 
