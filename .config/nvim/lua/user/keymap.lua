@@ -6,8 +6,6 @@ noremap <Space>o "+x
 noremap <C-c>y "+y
 noremap <C-v> "+p
 
-nnoremap <silent> <Space>bd :bd<CR>
-
 nnoremap <silent> <C-s> :silent write<CR>
 nnoremap <silent> <Space>wq :q<CR>
 nnoremap <silent> <Space>wV :vsplit<CR>

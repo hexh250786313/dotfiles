@@ -52,6 +52,8 @@ return packer.startup(
 
     use({"tomasiser/vim-code-dark"})
 
+    use({"moll/vim-bbye", keys = {{"n", "<space>bd"}}, cmd = "Bdelete", config = [[require("plugin.vim-bbye")]]})
+
     use({"hoob3rt/lualine.nvim", config = [[require("plugin.lualine")]]})
 
     use({"akinsho/bufferline.nvim", config = [[require("plugin.bufferline")]]})
@@ -88,7 +90,8 @@ return packer.startup(
           {"n", "vi"},
           {"n", "va"},
           {"n", "cs"},
-          {"n", "ds"}
+          {"n", "ds"},
+          {"v", "S"}
         }
       }
     )
