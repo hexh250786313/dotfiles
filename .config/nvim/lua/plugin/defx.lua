@@ -194,14 +194,33 @@ function! s:cdRoot()
   endif
 endfunction
 
+fu! StartsWith(longer, shorter) abort
+  return a:longer[0:len(a:shorter)-1] ==# a:shorter
+endfunction
+
+fu! FileIsInDirectory(directory) abort
+  let l:fname = expand('%:p')
+  return StartsWith(l:fname, a:directory)
+endfunction
+
 function LcdAndClose ()
   :call <SID>lcd()
-  :Defx `getcwd()` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+  let directory = getcwd()
+  if FileIsInDirectory(directory)
+    :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+  else
+    :Defx `getcwd()` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+  end
 endfunction
 
 function CdRootAndClose ()
   :call <SID>cdRoot()
-  :Defx `getcwd()` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+  let directory = getcwd()
+  if FileIsInDirectory(directory)
+    :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+  else
+    :Defx `getcwd()` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+  end
 endfunction
 
 
