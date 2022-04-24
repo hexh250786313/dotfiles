@@ -222,6 +222,8 @@ return packer.startup(
       }
     )
 
+    use({"t9md/vim-choosewin", config = [[require("plugin.vim-choosewin")]]})
+
     use({"beauwilliams/focus.nvim", config = [[require("plugin.focus")]]})
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})

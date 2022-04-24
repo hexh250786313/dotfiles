@@ -89,13 +89,13 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> d
         \ defx#do_action('remove_trash')
   nnoremap <silent><buffer><expr> <CR>
-        \ <SID>defx_toggle_tree_right()
+        \ defx#do_action('call', g:defx_config_sid . 'DefxSmartL')
   nnoremap <silent><buffer><expr> <2-LeftMouse>
         \ <SID>defx_toggle_tree_right()
   nnoremap <silent><buffer><expr> l
-        \ <SID>defx_toggle_tree_right()
+        \ defx#do_action('call', g:defx_config_sid . 'DefxSmartL')
   nnoremap <silent><buffer><expr> o
-        \ <SID>defx_toggle_tree_right()
+        \ defx#do_action('call', g:defx_config_sid . 'DefxSmartL')
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('call', g:defx_config_sid . 'defx_toggle_tree_left')
   nnoremap <silent><buffer><expr> C
@@ -125,6 +125,30 @@ function! s:defx_toggle_tree_right() abort
   " return defx#do_action('open')
   return defx#do_action('drop')
   " return defx#do_action('multi', ['quit', 'drop'])
+endfunction
+
+function! s:DefxSmartL(_)
+  if defx#is_directory()
+    call defx#call_action('open_or_close_tree')
+  elseif defx#is_binary()
+    call defx#call_action('execute_system')
+  else
+    let filepath = defx#get_candidate()['action__path']
+    if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
+      if exists(':ChooseWin') == 2
+        ChooseWin
+      else
+        let input = input('ChooseWin No./Cancel(n): ')
+        if input ==# 'n' | return | endif
+        if input == winnr() | return | endif
+        exec input . 'wincmd w'
+      endif
+      exec 'e' filepath
+    else
+      exec 'wincmd w'
+      exec 'e' filepath
+    endif
+  endif
 endfunction
 
 function! s:defx_toggle_tree_right_preview() abort
