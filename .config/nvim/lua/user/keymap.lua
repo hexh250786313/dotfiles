@@ -19,8 +19,6 @@ nnoremap <silent> <Space>wH <C-w>H
 nnoremap <silent> <Space>wK <C-w>K
 nnoremap <silent> <Space>wL <C-w>L
 nnoremap <silent> <Space>wd :q<CR>
-nnoremap <silent> <Space>ww <C-w>w
-nnoremap <silent> <Space>wW <C-w>W
 
 nnoremap <silent> <Space>qq :qa<CR>
 nnoremap <silent> <Space>qt :tabclose<CR>
