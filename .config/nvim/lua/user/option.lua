@@ -1,5 +1,6 @@
 vim.cmd([[
 language en_US.UTF-8
+set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 ]])
 
 local optionList = {
