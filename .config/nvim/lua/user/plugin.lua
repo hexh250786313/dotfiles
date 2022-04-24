@@ -222,6 +222,21 @@ return packer.startup(
       }
     )
 
+    use(
+      {
+        "beauwilliams/focus.nvim",
+        config = function()
+          require("focus").setup(
+            {
+              enable = true
+            }
+          )
+          vim.api.nvim_set_keymap("n", "<space>wf", ":FocusToggle<CR>", {silent = true})
+          vim.api.nvim_create_autocmd({"VimEnter"}, {pattern = "*", command = "FocusDisable"})
+        end
+      }
+    )
+
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 
     use(
