@@ -200,6 +200,8 @@ return packer.startup(
 
     use({"github/copilot.vim"})
 
+    use({"gelguy/wilder.nvim", run = ":UpdateRemotePlugins", config = [[require("plugin.wilder")]]})
+
     use({"lukas-reineke/indent-blankline.nvim", config = [[require("plugin.indent-blankline")]]})
 
     use(
