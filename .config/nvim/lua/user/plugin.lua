@@ -224,6 +224,8 @@ return packer.startup(
 
     use({"t9md/vim-choosewin", config = [[require("plugin.vim-choosewin")]]})
 
+    use({"sindrets/winshift.nvim", keys = {{"n", "<space>ws"}}, config = [[require("plugin.winshift")]]})
+
     use({"beauwilliams/focus.nvim", config = [[require("plugin.focus")]]})
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
