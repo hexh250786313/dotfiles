@@ -143,7 +143,12 @@ function! s:DefxSmartL(_)
         if input == winnr() | return | endif
         exec input . 'wincmd w'
       endif
-      exec 'e' filepath
+      let current_file = &filetype
+      if current_file ==# 'defx'
+        " echo 'cancel'
+      else
+        exec 'e' filepath
+      endif
     else
       exec 'wincmd w'
       exec 'e' filepath
