@@ -20,6 +20,7 @@ local optionList = {
   swapfile = false, -- 是否使用交换文件
   signcolumn = "number", -- icon 展示在哪 "number" 为展示在行号上
   lazyredraw = true, -- 执行脚本时不刷新
+  wildignorecase = true, -- 弹窗忽略大小写
 
   -- 缩进相关
   expandtab = true,
