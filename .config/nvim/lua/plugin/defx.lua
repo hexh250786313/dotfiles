@@ -146,6 +146,8 @@ function! s:DefxSmartL(_)
       let current_file = &filetype
       if current_file ==# 'defx'
         " echo 'cancel'
+        exec 'wincmd p'
+        exec 'e' filepath
       else
         exec 'e' filepath
       endif
