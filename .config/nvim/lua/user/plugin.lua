@@ -73,7 +73,7 @@ return packer.startup(
 
     use({"kristijanhusak/defx-git"})
 
-    use({"p00f/nvim-ts-rainbow"})
+    use({"p00f/nvim-ts-rainbow", cmd = {"TSEnable rainbow"}})
 
     use(
       {
