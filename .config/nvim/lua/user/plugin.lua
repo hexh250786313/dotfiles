@@ -228,6 +228,8 @@ return packer.startup(
 
     use({"beauwilliams/focus.nvim", config = [[require("plugin.focus")]]})
 
+    use({"petertriho/nvim-scrollbar", config = [[require("plugin.nvim-scrollbar")]]})
+
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 
     use(
