@@ -33,7 +33,7 @@ nnoremap < <<_
 nnoremap <silent> <C-r> :silent redo<CR>
 nnoremap <silent> u :silent undo<CR>
 
-nnoremap <silent> <Space>sq <cmd>botright copen<cr>
+nnoremap <silent> <Space>sq :copen<cr>
 
 nmap <Space>wt <C-w>v<C-w>T
 

@@ -26,5 +26,5 @@ function DisabaleFocusAndWinShift ()
   :wincmd p
   :FocusEnable
 endfunction
-nnoremap <space>ws :call DisabaleFocusAndWinShift()<CR>
+nnoremap <silent> <space>ws :call DisabaleFocusAndWinShift()<CR>
 ]])

@@ -8,22 +8,22 @@ require("telescope").setup {
         ["<C-h>"] = action_layout.toggle_preview,
         ["<M-q>"] = function(res)
           actions.send_selected_to_qflist(res)
-          vim.cmd [[botright copen]]
+          vim.cmd [[copen]]
         end,
         ["<C-q>"] = function(res)
           actions.send_to_qflist(res)
-          vim.cmd [[botright copen]]
+          vim.cmd [[copen]]
         end
       },
       n = {
         ["<C-h>"] = action_layout.toggle_preview,
         ["<M-q>"] = function(res)
           actions.send_selected_to_qflist(res)
-          vim.cmd [[botright copen]]
+          vim.cmd [[copen]]
         end,
         ["<C-q>"] = function(res)
           actions.send_to_qflist(res)
-          vim.cmd [[botright copen]]
+          vim.cmd [[copen]]
         end
       }
     },
