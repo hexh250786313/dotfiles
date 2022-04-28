@@ -190,8 +190,6 @@ return packer.startup(
 
     use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
 
-    use({"romainl/vim-cool"})
-
     use({"kevinhwang91/nvim-bqf"})
 
     use({"anuvyklack/pretty-fold.nvim", config = [[require("plugin.pretty-fold")]]})
@@ -207,7 +205,7 @@ return packer.startup(
     use(
       {
         "mhartington/formatter.nvim",
-        cmd = {"Formatter"},
+        cmd = {"Format", "FormatWrite"},
         keys = {{"n", "<space>bf"}, {"x", "<space>bf"}},
         config = [[require("plugin.formatter")]]
       }
@@ -231,6 +229,8 @@ return packer.startup(
     use({"petertriho/nvim-scrollbar", config = [[require("plugin.nvim-scrollbar")]]})
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
+
+    use {"kevinhwang91/nvim-hlslens", config = [[require('plugin.nvim-hlslens')]]}
 
     use(
       {
