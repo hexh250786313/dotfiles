@@ -5,6 +5,16 @@ require "diffview".setup {
 }
 
 vim.cmd([[
-nnoremap <silent> <Space>gt :DiffviewFileHistory<CR>
-nnoremap <silent> <Space>gG :DiffviewOpen<CR>
+function DisabaleFocusAndDiffviewFileHistory ()
+  :FocusDisable
+  :DiffviewFileHistory
+endfunction
+
+function DisabaleFocusAndDiffviewOpen ()
+  :FocusDisable
+  :DiffviewOpen
+endfunction
+
+nnoremap <silent> <Space>gt :call DisabaleFocusAndDiffviewFileHistory()<CR>
+nnoremap <silent> <Space>gG :call DisabaleFocusAndDiffviewOpen()<CR>
 ]])
