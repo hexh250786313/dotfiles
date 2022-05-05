@@ -27,7 +27,7 @@ require("telescope").setup {
         end
       }
     },
-    vimgrep_arguments = {"rg", "--column", "--ignore-case", "--hidden", "--multiline"},
+    vimgrep_arguments = {"rg", "--column", "--ignore-case", "--hidden", "--multiline", "--vimgrep"},
     preview = {
       timeout = false
     },

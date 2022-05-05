@@ -1,7 +1,7 @@
 require("bqf").setup(
   {
     preview = {
-      win_vheight = 100
+      win_vheight = 25
     }
   }
 )
