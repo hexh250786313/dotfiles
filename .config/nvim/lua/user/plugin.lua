@@ -190,7 +190,7 @@ return packer.startup(
 
     use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
 
-    use({"kevinhwang91/nvim-bqf"})
+    use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]]})
 
     use(
       {
@@ -232,11 +232,9 @@ return packer.startup(
 
     use({"beauwilliams/focus.nvim", config = [[require("plugin.focus")]]})
 
-    use({"petertriho/nvim-scrollbar", config = [[require("plugin.nvim-scrollbar")]]})
+    use({"romainl/vim-cool"})
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
-
-    use {"kevinhwang91/nvim-hlslens", config = [[require('plugin.nvim-hlslens')]]}
 
     use(
       {
