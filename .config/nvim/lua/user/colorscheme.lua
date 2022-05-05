@@ -8,7 +8,7 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 "
-" highlight! Normal ctermbg=NONE guibg=NONE
+highlight! Normal ctermbg=NONE guibg=NONE
 " highlight! LineNr ctermbg=NONE guibg=NONE
 " highlight! SignColumn ctermbg=NONE guibg=NONE
 " highlight! EndOfBuffer ctermbg=NONE guibg=NONE
