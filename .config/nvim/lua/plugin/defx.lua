@@ -134,7 +134,27 @@ function! s:DefxSmartL(_)
     call defx#call_action('execute_system')
   else
     let filepath = defx#get_candidate()['action__path']
-    if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
+    " ========== 以下操作是用来过滤调非正常窗口
+    " 当前页面的所有窗口的 buffer 列表, 会有重复, 例如 [4, 1, 3, 3, 3] 代表 5 个窗口, 其中三个窗口是同一个 buffer
+    let current_page_buffers_list = tabpagebuflist(tabpagenr())
+    " 用来存放正常窗口的 buffer 列表, 正常窗口指的是非 popup/autocmd/loclist/preview/quickfix/unknown 等的窗口
+    let normal_wins_list = []
+    let list = []
+    for i in current_page_buffers_list
+      let buflist = win_findbuf(i)
+      for j in buflist
+        let bufkind = win_gettype(j)
+        if bufkind == '' " 空字符串代表正常的窗口
+					call add(list, i) " 将正常的窗口加入列表
+        endif
+      endfor
+    endfor
+    let unduplist=filter(copy(list), 'index(normal_wins_list, v:val, v:key+1)==-1') " 去重
+    call extend(normal_wins_list, unduplist)
+    " ==========
+    " 带上 '$' 参数会加上滚动条的 session
+    " if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
+    if len(normal_wins_list) >= 3    " if there are more than 2 normal windows
       if exists(':ChooseWin') == 2
         ChooseWin
       else

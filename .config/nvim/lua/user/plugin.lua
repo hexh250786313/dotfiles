@@ -234,6 +234,8 @@ return packer.startup(
 
     use({"romainl/vim-cool"})
 
+    use({"dstein64/nvim-scrollview", config = [[require("plugin.nvim-scrollview")]]})
+
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 
     use(
