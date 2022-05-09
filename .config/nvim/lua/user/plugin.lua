@@ -133,15 +133,6 @@ return packer.startup(
 
     use({"kyazdani42/nvim-web-devicons"})
 
-    use(
-      {
-        "iamcco/markdown-preview.nvim",
-        run = "cd app && yarn install",
-        ft = {"markdown"},
-        config = [[require("plugin.markdown-preview")]]
-      }
-    )
-
     use({"phaazon/hop.nvim", cmd = {"HopChar1"}, keys = {{"n", "f"}, {"v", "f"}}, config = [[require("plugin.hop")]]})
 
     use(
