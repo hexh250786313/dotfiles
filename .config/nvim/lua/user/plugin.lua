@@ -50,8 +50,8 @@ return packer.startup(
 
     use({"wbthomason/packer.nvim"})
 
-    -- use({"tomasiser/vim-code-dark"})
-    use({"mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim"})
+    use({"tomasiser/vim-code-dark"})
+    -- use({"mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim"})
 
     use({"moll/vim-bbye", keys = {{"n", "<space>bd"}}, cmd = "Bdelete", config = [[require("plugin.vim-bbye")]]})
 
@@ -73,7 +73,7 @@ return packer.startup(
 
     use({"kristijanhusak/defx-git"})
 
-    use({"p00f/nvim-ts-rainbow", cmd = {"TSEnable rainbow"}})
+    use({"p00f/nvim-ts-rainbow"})
 
     use(
       {
