@@ -151,7 +151,8 @@ return packer.startup(
       }
     )
 
-    use({"fannheyward/telescope-coc.nvim"})
+    -- use({"fannheyward/telescope-coc.nvim"})
+    use({"hexh250786313/telescope-coc.nvim"})
 
     use(
       {
