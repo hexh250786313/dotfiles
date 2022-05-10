@@ -134,7 +134,7 @@ function! s:DefxSmartL(_)
     call defx#call_action('execute_system')
   else
     let filepath = defx#get_candidate()['action__path']
-    " ========== 以下操作是用来过滤调非正常窗口
+    " ========== 以下操作是用来过滤掉非正常窗口
     " 当前页面的所有窗口的 buffer 列表, 会有重复, 例如 [4, 1, 3, 3, 3] 代表 5 个窗口, 其中三个窗口是同一个 buffer
     let current_page_buffers_list = tabpagebuflist(tabpagenr())
     " 用来存放正常窗口的 buffer 列表, 正常窗口指的是非 popup/autocmd/loclist/preview/quickfix/unknown 等的窗口
