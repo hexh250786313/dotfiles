@@ -34,9 +34,12 @@ lualine.setup {
         symbols = {error = "E:", warn = "W:", info = "I:"}
       },
       {
-        "filename",
-        path = 1
+        "b:coc_symbol_line"
       }
+      -- {
+        -- "filename",
+        -- path = 1
+      -- }
     },
     lualine_x = {
       "g:coc_status",

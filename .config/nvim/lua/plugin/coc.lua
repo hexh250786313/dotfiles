@@ -17,7 +17,9 @@ vim.g.coc_global_extensions = {
   "coc-lightbulb",
   "coc-react-refactor",
   "coc-webview",
-  "coc-markdown-preview-enhanced"
+  "coc-markdown-preview-enhanced",
+  -- "coc-symbol-line"
+  "@hexuhua/coc-symbol-line"
 }
 
 -- 如果要自定义跳转行为, 则把这个设置为 0

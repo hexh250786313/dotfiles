@@ -55,6 +55,8 @@ highlight DiffDelete guibg=#341c28 guifg=#341c28
 highlight DiffChange guibg=#344f69
 highlight DiffText guibg=#2f628e
 
+highlight CocSymbolLine guibg=#373737 guifg=#ffffff
+
 " 这段放最底下，不然会被覆盖
 let g:conflict_marker_highlight_group = ''
 let g:conflict_marker_begin = '^<<<<<<< .*$'
