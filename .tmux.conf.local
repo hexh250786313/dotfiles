@@ -1,6 +1,6 @@
 
 
-tmux_conf_24b_colour=tru
+tmux_conf_24b_colour=true
 nord0="#2e3440"
 nord1="#3b4252"
 nord2="#434c5e"
