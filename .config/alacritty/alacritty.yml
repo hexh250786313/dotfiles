@@ -41,6 +41,10 @@ mouse:
   hide_when_typing: true
 # background_opacity: 0.80
 # Colors (Solarized Dark)
+cursor:
+  style:
+    blinking: Always
+    blink_interval: 500
 colors:
   # Default colors
   primary:
