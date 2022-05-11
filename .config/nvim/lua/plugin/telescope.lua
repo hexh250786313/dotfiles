@@ -34,7 +34,9 @@ require("telescope").setup {
     cache_picker = {
       num_pickers = 20,
       limit_entries = 100
-    }
+    },
+    dynamic_preview_title = true,
+    path_display = {"truncate"}
   },
   pickers = {
     find_files = {
