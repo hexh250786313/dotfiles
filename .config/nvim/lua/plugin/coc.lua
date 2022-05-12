@@ -25,7 +25,8 @@ vim.g.coc_global_extensions = {
 -- 如果要自定义跳转行为, 则把这个设置为 0
 vim.g.coc_enable_locationlist = 0
 -- coc 选择了 quickfix 打开后的回调
-vim.g.coc_quickfix_open_command = "CocList --auto-preview --normal --tab --number-select quickfix"
+-- vim.g.coc_quickfix_open_command = "CocList --auto-preview --normal --tab --number-select quickfix"
+vim.g.coc_quickfix_open_command = "copen"
 
 api.nvim_create_autocmd(
   {"User"},
@@ -83,17 +84,20 @@ nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
 xmap <silent> <Space>sa <plug>(coc-codeaction-selected)
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
+nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
+nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
+
 if exists('*complete_info')
   inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 3)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 3)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<C-b>"
 endif
 
 ]]

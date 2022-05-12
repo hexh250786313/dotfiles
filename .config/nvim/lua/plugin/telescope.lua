@@ -5,7 +5,8 @@ require("telescope").setup {
   defaults = {
     mappings = {
       i = {
-        ["<C-h>"] = action_layout.toggle_preview,
+        ["<C-p>"] = action_layout.toggle_preview,
+        ["<C-n>"] = function () end,
         ["<M-q>"] = function(res)
           actions.send_selected_to_qflist(res)
           vim.cmd [[copen]]
@@ -13,10 +14,14 @@ require("telescope").setup {
         ["<C-q>"] = function(res)
           actions.send_to_qflist(res)
           vim.cmd [[copen]]
-        end
+        end,
+        ["<Up>"] = actions.preview_scrolling_up,
+        ["<Down>"] = actions.preview_scrolling_down,
       },
       n = {
-        ["<C-h>"] = action_layout.toggle_preview,
+        ["<C-p>"] = action_layout.toggle_preview,
+        ["<C-n>"] = function () end,
+        ["P"] = action_layout.toggle_preview,
         ["<M-q>"] = function(res)
           actions.send_selected_to_qflist(res)
           vim.cmd [[copen]]
@@ -24,7 +29,9 @@ require("telescope").setup {
         ["<C-q>"] = function(res)
           actions.send_to_qflist(res)
           vim.cmd [[copen]]
-        end
+        end,
+        ["<Up>"] = actions.preview_scrolling_up,
+        ["<Down>"] = actions.preview_scrolling_down,
       }
     },
     vimgrep_arguments = {"rg", "--column", "--ignore-case", "--hidden", "--multiline", "--vimgrep"},
@@ -36,7 +43,10 @@ require("telescope").setup {
       limit_entries = 100
     },
     dynamic_preview_title = true,
-    path_display = {"truncate"}
+    path_display = {"truncate"},
+    layout_config = {
+      scroll_speed = 3
+    }
   },
   pickers = {
     find_files = {
