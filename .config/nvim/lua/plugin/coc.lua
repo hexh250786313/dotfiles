@@ -19,7 +19,8 @@ vim.g.coc_global_extensions = {
   "coc-webview",
   "coc-markdown-preview-enhanced",
   -- "coc-symbol-line"
-  "@hexuhua/coc-symbol-line"
+  "@hexuhua/coc-symbol-line",
+  "@hexuhua/coc-replacement"
 }
 
 -- 如果要自定义跳转行为, 则把这个设置为 0
@@ -86,6 +87,8 @@ nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
+
+nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>
 
 if exists('*complete_info')
   inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
