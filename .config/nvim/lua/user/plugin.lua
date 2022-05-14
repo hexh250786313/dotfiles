@@ -182,7 +182,7 @@ return packer.startup(
 
     use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
 
-    use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]]})
+    use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
 
     use(
       {

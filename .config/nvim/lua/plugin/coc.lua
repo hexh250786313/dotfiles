@@ -3,7 +3,6 @@ local api = vim.api
 vim.g.coc_global_extensions = {
   "coc-css",
   "coc-eslint",
-  "coc-git",
   "coc-highlight",
   "coc-html",
   "coc-json",
@@ -18,9 +17,9 @@ vim.g.coc_global_extensions = {
   "coc-react-refactor",
   "coc-webview",
   "coc-markdown-preview-enhanced",
-  -- "coc-symbol-line"
   "@hexuhua/coc-symbol-line",
-  "@hexuhua/coc-replacement"
+  "@hexuhua/coc-replacement",
+  "@hexuhua/coc-git",
 }
 
 -- 如果要自定义跳转行为, 则把这个设置为 0

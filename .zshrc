@@ -13,6 +13,7 @@ export REACT_EDITOR=nvim
 setopt globdots
 
 plugins=(
+  auto-notify
   git
   wd
   zsh-autosuggestions
@@ -35,8 +36,6 @@ alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howa
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-source $ZSH/oh-my-zsh.sh
 
 export NODE_OPTIONS="--max-old-space-size=8192"
 
@@ -76,3 +75,6 @@ export OPENCV_LOG_LEVEL=ERROR
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+source $ZSH/oh-my-zsh.sh
+
