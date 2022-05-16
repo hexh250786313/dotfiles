@@ -3,11 +3,9 @@ vim.cmd(
 let g:hlnormalstate=0
 function ToggleBackground()
   if g:hlnormalstate == 1
-    echo "hello"
     let g:hlnormalstate=0
     highlight! Normal ctermbg=NONE guibg=NONE
   else
-    echo "qq"
     let g:hlnormalstate=1
     highlight! Normal ctermbg=NONE guibg=#1e1e1e
   endif

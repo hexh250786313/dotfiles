@@ -18,7 +18,7 @@ vim.g.coc_global_extensions = {
   "coc-webview",
   "coc-markdown-preview-enhanced",
   "@hexuhua/coc-symbol-line",
-  -- "@hexuhua/coc-replacement",
+  "@hexuhua/coc-replacement",
   "@hexuhua/coc-git",
 }
 
