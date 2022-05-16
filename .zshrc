@@ -37,7 +37,7 @@ plugins=(
   wd
   zsh-autosuggestions
   F-Sy-H
-  docker # docker 补全
+  docker         # docker 补全
   docker-compose # docker-compose 补全
 )
 
@@ -80,15 +80,14 @@ alias ll='colorls -l --sd'
 alias ls='colorls --sd'
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export OPENCV_LOG_LEVEL=ERROR
 export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 source $ZSH/oh-my-zsh.sh
-
