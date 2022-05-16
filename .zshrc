@@ -1,23 +1,42 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
+export LANG=en_US.UTF-8
 # ZSH_DISABLE_COMPFIX="true" # 如果报了 completion 的错就打开，否则注释掉
 export ZSH="/home/hexh/.oh-my-zsh"
 export EDITOR=nvim
 export REACT_EDITOR=nvim
+export ZSH_CUSTOM="/home/hexh/.oh-my-zsh/custom"
 
 setopt globdots
 
+if [[ ! -d ~/.zsh-autopair ]]; then
+  git clone https://github.com/hlissner/zsh-autopair ~/.zsh-autopair
+fi
+source ~/.zsh-autopair/autopair.zsh
+autopair-init
+
+if [[ ! -d $ZSH_CUSTOM/plugins/auto-notify ]]; then
+  git clone https://github.com/MichaelAquilina/zsh-auto-notify.git $ZSH_CUSTOM/plugins/auto-notify
+fi
+
+if [[ ! -d $ZSH_CUSTOM/plugins/alias-tips ]]; then
+  echo "hello"
+  git clone https://github.com/djui/alias-tips.git $ZSH_CUSTOM/plugins/alias-tips
+fi
+
+if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+fi
+
+if [[ ! -d $ZSH_CUSTOM/plugins/F-Sy-H ]]; then
+  git clone https://github.com/z-shell/F-Sy-H.git $ZSH_CUSTOM/plugins/F-Sy-H
+fi
+
 plugins=(
   auto-notify
+  alias-tips
   git
   wd
   zsh-autosuggestions
-  fast-syntax-highlighting
+  F-Sy-H
   docker # docker 补全
   docker-compose # docker-compose 补全
 )
@@ -35,7 +54,15 @@ alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howa
 
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 
+if [[ ! -d $ZSH_CUSTOM/themes/powerlevel10k ]]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+fi
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
+if [[ ! -f ~/.p10k.zsh ]]; then
+  ln -s ~/workspace/dotfiles/.p10k.zsh ~/.p10k.zsh
+fi
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export NODE_OPTIONS="--max-old-space-size=8192"
 
@@ -52,22 +79,9 @@ alias la='colorls -a --sd'
 alias ll='colorls -l --sd'
 alias ls='colorls --sd'
 
-# Ctrl + z
-function precmd()
-{
-  if [ -f /tmp/cd_vim ];then
-    echo $(cat /tmp/cd_vim | head -n 1)
-    cd $(cat /tmp/cd_vim | head -n 1)
-    rm -rf /tmp/cd_vim
-  fi
-}
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
