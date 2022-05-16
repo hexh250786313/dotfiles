@@ -6,20 +6,20 @@ vim.g.coc_global_extensions = {
   "coc-highlight",
   "coc-html",
   "coc-json",
+  "coc-lightbulb",
   "coc-lists",
+  "coc-lua",
+  "coc-markdown-preview-enhanced",
+  "coc-marketplace",
   "coc-pairs",
+  "coc-react-refactor",
   "coc-snippets",
   "coc-tsserver",
-  "coc-lua",
-  "coc-yank",
-  "coc-marketplace",
-  "coc-lightbulb",
-  "coc-react-refactor",
   "coc-webview",
-  "coc-markdown-preview-enhanced",
   "@hexuhua/coc-symbol-line",
   "@hexuhua/coc-replacement",
   "@hexuhua/coc-git",
+  "@hexuhua/coc-yank"
 }
 
 -- 如果要自定义跳转行为, 则把这个设置为 0
