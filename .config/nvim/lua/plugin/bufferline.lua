@@ -136,8 +136,11 @@ require("bufferline").setup {
 vim.cmd(
   [[
 function DeleteAllBuffers ()
-  :BufferLineCloseLeft
-  :BufferLineCloseRight
+  " :BufferLineCloseLeft
+  " :BufferLineCloseRight
+  :%bd
+  :e#
+  :bd#
 endfunction
 
 nnoremap <silent> <Space>bD :call DeleteAllBuffers()<CR>

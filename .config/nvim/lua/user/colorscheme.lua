@@ -55,6 +55,8 @@ highlight DiffDelete guibg=#341c28 guifg=#341c28
 highlight DiffChange guibg=#344f69
 highlight DiffText guibg=#2f628e
 
+highlight CocFloating guibg=Normal guifg=Normal
+
 highlight CocSymbolLine guibg=#373737 guifg=#ffffff
 ]]
 )
