@@ -225,18 +225,18 @@ gaps inner 19
 # 另一种 dpi 120 下, 大间隔
 gaps left 8
 gaps right 8
-gaps top 7
-gaps bottom 8
+gaps top 6
+gaps bottom 5
 
 # Theme colors
 # <colorclass> <border> <background> <text> <indicator> <child_border>
 client.focused            #0A7ACA      #0A7ACA     #ffffff     #ffffff       #ffffff
 client.focused_inactive   #0A7ACA      #0A7ACA     #373737     #ffffff       #ffffff
-client.unfocused          #373737      #373737     #373737     #ffffff       #373737
+client.unfocused          # ffffff     # ffffff    #373737     #ffffff       #373737
 client.urgent             #BF616A      #BF616A     #ffffff     #0A7ACA
 client.placeholder        #0A7ACA      #ffffff     #ffffff     #0A7ACA
 
-for_window [class="^.*"] border pixel 2px # 把所有的窗口边框设为 2 像素
+for_window [class="^.*"] border pixel 4px # 把所有的窗口边框设为 2 像素
 new_window 1pixel
 
 bindsym $sup+t exec --no-startup-id tilda 
