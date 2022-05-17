@@ -99,7 +99,7 @@ return packer.startup(
 
     use({"honza/vim-snippets"})
 
-    use({"rhysd/conflict-marker.vim"})
+    use({"akinsho/git-conflict.nvim", config = [[require("plugin.git-conflict")]]})
 
     use(
       {
@@ -182,7 +182,7 @@ return packer.startup(
 
     use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
 
-    use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]]})
+    use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
 
     use(
       {

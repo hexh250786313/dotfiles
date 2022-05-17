@@ -56,13 +56,8 @@ highlight DiffDelete guibg=#341c28 guifg=#341c28
 highlight DiffChange guibg=#344f69
 highlight DiffText guibg=#2f628e
 
-" 这段放最底下，不然会被覆盖
-let g:conflict_marker_highlight_group = ''
-let g:conflict_marker_begin = '^<<<<<<< .*$'
-let g:conflict_marker_end   = '^>>>>>>> .*$'
-highlight ConflictMarkerBegin guibg=#2f7366 guifg=#ffffff
-highlight ConflictMarkerOurs guibg=#2e5049 guifg=#ffffff
-highlight ConflictMarkerTheirs guibg=#344f69 guifg=#ffffff
-highlight ConflictMarkerEnd guibg=#2f628e guifg=#ffffff
+highlight CocFloating guibg=Normal guifg=Normal
+
+highlight CocSymbolLine guibg=#373737 guifg=#ffffff
 ]]
 )

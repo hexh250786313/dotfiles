@@ -1,5 +1,16 @@
 vim.cmd(
   [[
+let g:hlnormalstate=0
+function ToggleBackground()
+  if g:hlnormalstate == 1
+    let g:hlnormalstate=0
+    highlight! Normal ctermbg=NONE guibg=NONE
+  else
+    let g:hlnormalstate=1
+    highlight! Normal ctermbg=NONE guibg=#1e1e1e
+  endif
+endfunction
+
 noremap <Space>y "+y
 noremap <Space>p "+p
 noremap <Space>o "+x
@@ -37,7 +48,6 @@ nnoremap <silent> <Space>sq :copen<cr>
 
 nmap <Space>wt <C-w>v<C-w>T
 
-" 特殊 keymap, 如果需要按需加载的插件, 加载前是不会读 config 的内容的
-" 所以放到 config 无效, 只能在这里加载
+nnoremap <silent> <space>hn <cmd>call ToggleBackground()<cr>
 ]]
 )
