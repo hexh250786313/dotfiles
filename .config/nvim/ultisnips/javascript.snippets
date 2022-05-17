@@ -9,3 +9,28 @@ endsnippet
 snippet con "const = ;" b
 const ${1} = ${2};
 endsnippet
+
+snippet functor "class Functor" b
+class ${1:Functor} {
+  private val: ${2:any};
+  constructor(val: ${2}) {
+    this.val = val;
+  }
+
+  get value() {
+    return this.val;
+  }
+
+  static of(val: ${2}) {
+    return new ${1}(val);
+  }
+
+  map(fn: (val: ${2}) => ${2}) {
+    return new ${1}(fn(this.val));
+  }
+
+  ${3:handle}(${4:param}: ${5:any}) {
+    return new ${1}(this.val + ${4});
+  }
+}
+endsnippet
