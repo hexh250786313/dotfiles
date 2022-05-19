@@ -47,8 +47,9 @@ alias work="source ~/.config/my-config/sh/work.sh"
 alias hexh="source ~/.config/my-config/sh/hexh.sh"
 alias fluent-proxy="source ~/.config/my-config/sh/fluent_proxy.sh"
 alias server="source ~/.config/my-config/sh/server.sh"
+alias git-dude="source ~/.config/my-config/sh/git-dude/git-dude.sh"
 
-alias lock='source ~/.config/my-config/sh/lock.sh'
+alias lock="source ~/.config/my-config/sh/lock.sh"
 alias music="all_proxy='' http_proxy='' https_proxy='' musicbox"
 alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howard.ovpn"
 
@@ -70,14 +71,14 @@ export all_proxy="socks://127.0.0.1:4780"
 export http_proxy="http://127.0.0.1:4780"
 export https_proxy="http://127.0.0.1:4780"
 alias proxy_unset="unset all_proxy && unset http_proxy && unset https_proxy"
-alias proxy_set='export all_proxy="socks://127.0.0.1:4780" && export http_proxy="http://127.0.0.1:4780" && export https_proxy="http://127.0.0.1:4780"'
+alias proxy_set="export all_proxy="socks://127.0.0.1:4780" && export http_proxy="http://127.0.0.1:4780" && export https_proxy="http://127.0.0.1:4780""
 
 eval "$(rbenv init - zsh)"
 
-alias lc='colorls -lA --sd'
-alias la='colorls -a --sd'
-alias ll='colorls -l --sd'
-alias ls='colorls --sd'
+alias lc="colorls -lA --sd"
+alias la="colorls -a --sd"
+alias ll="colorls -l --sd"
+alias ls="colorls --sd"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm

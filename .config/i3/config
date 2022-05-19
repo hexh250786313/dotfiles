@@ -232,7 +232,7 @@ gaps bottom 5
 # class                 border  backgr. text    indicator child_border
 client.focused          #9c00e5 #9c00e5 #ffff00 #9c00e5   #9c00e5
 client.focused_inactive #0A7ACA #0A7ACA #ffff00 #373737   #373737
-client.unfocused        #373737 #373737 #ffff00 #ffff00   #373737
+client.unfocused        #373737 #373737 #ffff00 #373737   #373737
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
@@ -240,7 +240,7 @@ client.background       #ffffff
 for_window [class="^.*"] border pixel 4px
 new_window 1pixel
 
-bindsym $sup+t exec --no-startup-id tilda 
+bindsym $sup+t exec --no-startup-id tilda
 for_window [class="Tilda"] floating enable
 for_window [class="Tilda"] border pixel 0
 
@@ -263,12 +263,15 @@ for_window [class="flameshot"] floating enable
 exec_always --no-startup-id killall /usr/lib/xfce4/panel/wrapper-2.0
 exec_always --no-startup-id ~/.config/i3/scripts/i3-chrome-tab-dragging.py
 
-bindsym $mod+Tab move workspace to output right
-bindsym $mod+Shift+Tab move workspace to output left
+# bindsym $mod+Tab move workspace to output right
+# bindsym $mod+Shift+Tab move workspace to output left
 
 bindsym $mod+Right resize grow width 1 px or 1 ppt
 bindsym $mod+Up resize grow height 1 px or 1 ppt
 bindsym $mod+Left resize shrink width 1 px or 1 ppt
 bindsym $mod+Down resize shrink height 1 px or 1 ppt
 
-# bindsym $mod+Tab exec "./scripts/cycle-workspace.py"
+bindsym $sup+Tab exec "~/workspace/dotfiles/.config/i3/scripts/cycle-workspace.py"
+
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev

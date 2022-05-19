@@ -40,7 +40,8 @@ require("formatter").setup(
         end
       },
       zsh = {format_prettier},
-      yaml = {format_prettier}
+      yaml = {format_prettier},
+      sh = {format_prettier}
     }
   }
 )
