@@ -18,7 +18,7 @@ export LC_ALL=C # make sure git talks english
 if [[ $(git config dude.notify-command) ]]; then
   notify_cmd=$(git config dude.notify-command)
 elif [ $(which notify-send 2> /dev/null) ]; then
-  notify_cmd='notify-send -i ~/.config/my-config/sh/git-dude/git-svgrepo-com.svg "$TITLE" "$DESCRIPTION"'
+  notify_cmd='notify-send -i ~/.config/my-config/sh/git-dude/git-svgrepo-com.svg -t 2147483647 "$TITLE" "$DESCRIPTION"'
 elif [ $(which terminal-notifier 2> /dev/null) ]; then
   notify_cmd='terminal-notifier -title "$TITLE" -message "$DESCRIPTION"'
 elif [ $(which growlnotify 2> /dev/null) ]; then
