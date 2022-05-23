@@ -15,7 +15,8 @@ require("indent_blankline").setup {
     "prompt",
     "TelescopePrompt",
     "",
-    "toggleterm"
+    "toggleterm",
+    "list"
   },
   buftype_exclude = {
     "terminal",
