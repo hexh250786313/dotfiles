@@ -6,3 +6,28 @@ patch:
     - { when: has_menu, accept: bracketright, send: Page_Down }
   "punctuator":
     import_preset: luna_pinyin.custom.punctuator
+  "engine/translators/@before 1":
+    lua_translator@date_translator
+  "engine/translators/@before 2":
+    lua_translator@time_translator
+  "engine/translators/@before 3":
+    lua_translator@expand_translator
+  # "engine/filters/@before 0":
+    # lua_filter@single_char_first_filter
+  # "engine/processors/@before 0":
+    # lua_processor@switch_processor
+  "engine/filters/@before 1":
+    lua_filter@reverse_lookup_filter
+  "engine/filters/@before 2":
+    lua_filter@charset_filter
+  # "engine/filters/@before 1":
+    # lua_filter@charset_comment_filter
+__patch:
+# Rx: emoji:customize:schema=luna_pinyin_simp {
+  - patch/+:
+      __include: emoji_suggestion:/patch
+# }
+# Rx: lotem/rime-octagram-data:customize:schema=luna_pinyin_simp,model=hans {
+  - patch/+:
+      __include: grammar:/hans
+# }
