@@ -10,8 +10,8 @@ patch:
     lua_translator@date_translator
   "engine/translators/@before 2":
     lua_translator@time_translator
-  "engine/translators/@before 3":
-    lua_translator@expand_translator
+  # "engine/translators/@before 3":
+    # lua_translator@expand_translator
   # "engine/filters/@before 0":
     # lua_filter@single_char_first_filter
   # "engine/processors/@before 0":

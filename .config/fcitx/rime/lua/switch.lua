@@ -12,7 +12,6 @@ switch_processor: 通过选择自定义的候选项来切换开关（以简繁�
 〔繁〕	simp
 〔下一方案〕	next
 --]]
-
 -- 帮助函数，返回被选中的候选的索引
 local function select_index(key, env)
   local ch = key.keycode
@@ -20,7 +19,9 @@ local function select_index(key, env)
   local select_keys = env.engine.schema.select_keys
   if select_keys ~= nil and select_keys ~= "" and not key.ctrl() and ch >= 0x20 and ch < 0x7f then
     local pos = string.find(select_keys, string.char(ch))
-    if pos ~= nil then index = pos end
+    if pos ~= nil then
+      index = pos
+    end
   elseif ch >= 0x30 and ch <= 0x39 then
     index = (ch - 0x30 + 9) % 10
   elseif ch >= 0xffb0 and ch < 0xffb9 then
@@ -48,10 +49,16 @@ local kAccepted = 1
 local kNoop = 2
 
 local function selector(key, env)
-  if env.switcher == nil then return kNoop end
-  if key:release() or key:alt() then return kNoop end
-  local idx = select_index(key,env)
-  if idx < 0 then return kNoop end
+  if env.switcher == nil then
+    return kNoop
+  end
+  if key:release() or key:alt() then
+    return kNoop
+  end
+  local idx = select_index(key, env)
+  if idx < 0 then
+    return kNoop
+  end
   local ctx = env.engine.context
   if ctx.input == "simp" then -- 当输入为 "simp" 时响应选择
     local state = nil
@@ -77,8 +84,10 @@ end
 -- 初始化 switcher
 local function init(env)
   -- 若当前 librime-lua 版本未集成 Switcher 则无事发生
-  if Switcher == nil then return end
+  if Switcher == nil then
+    return
+  end
   env.switcher = Switcher(env.engine)
 end
 
-return { init = init, func = selector }
+return {init = init, func = selector}
