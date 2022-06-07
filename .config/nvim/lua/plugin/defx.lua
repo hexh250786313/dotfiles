@@ -1,4 +1,4 @@
-vim.g.defx_icons_column_length = 2
+vim.g.defx_icons_column_length = 3
 
 vim.cmd(
   [[
