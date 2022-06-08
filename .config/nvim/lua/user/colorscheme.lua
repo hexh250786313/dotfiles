@@ -45,6 +45,9 @@ highlight TSTagAttribute gui=italic guifg=#9CDCFE
 :hi DefxIconsCopyIcon guibg=NONE guifg=#ce9178
 :hi DefxIconsMoveIcon guibg=NONE guifg=#f04747
 
+exec 'hi Defx_filename_directory gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('PreProc')), 'fg', 'gui')
+
 highlight CocListPath guibg=#455a64
 highlight CocListMode guibg=#455a64
 highlight CocHighlightText cterm=underline guibg=#0f6073
