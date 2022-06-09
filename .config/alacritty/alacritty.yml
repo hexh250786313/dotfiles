@@ -46,37 +46,55 @@ cursor:
   style:
     blinking: Always
     blink_interval: 500
-colors:
-  # Default colors
-  primary:
-    # background: '#002b36' # base03
-    # foreground: '#839496' # base0
-    background: "#000000" # base03
-    foreground: "#ffffff" # base0
-
-  # Cursor colors
-  cursor:
-    text: "#002b36" # base03
-    cursor: "#839496" # base0
-
-  # Normal colors
-  normal:
-    black: "#073642" # base02
-    red: "#dc322f" # red
-    green: "#859900" # green
-    yellow: "#b58900" # yellow
-    blue: "#268bd2" # blue
-    magenta: "#d33682" # magenta
-    cyan: "#2aa198" # cyan
-    white: "#eee8d5" # base2
-
-  # Bright colors
-  bright:
-    black: "#002b36" # base03
-    red: "#cb4b16" # orange
-    green: "#586e75" # base01
-    yellow: "#657b83" # base00
-    blue: "#839496" # base0
-    magenta: "#6c71c4" # violet
-    cyan: "#93a1a1" # base1
-    white: "#fdf6e3" # base3
+schemes:
+  codelight: &light
+    primary:
+      background: '#ffffff'
+      foreground: '#1e1e1e'
+    cursor:
+      text: '#d4d4d4'
+      cursor: '#d4d4d4'
+    normal:
+      black:   '#1e1e1e'
+      red:     '#c72e0f'
+      green:   '#009000'
+      yellow:  '#795e25'
+      blue:    '#007acc'
+      magenta: '#af00db'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+    bright:
+      black:   '#1e1e1e'
+      red:     '#c72e0f'
+      green:   '#009000'
+      yellow:  '#795e25'
+      blue:    '#007acc'
+      magenta: '#af00db'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+  codedark: &dark
+    primary:
+      background: '#1e1e1e'
+      foreground: '#d4d4d4'
+    cursor:
+      text: '#d4d4d4'
+      cursor: '#d4d4d4'
+    normal:
+      black:   '#1e1e1e'
+      red:     '#f44747'
+      green:   '#608b4e'
+      yellow:  '#dcdcaa'
+      blue:    '#569cd6'
+      magenta: '#c678dd'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+    bright:
+      black:   '#545454'
+      red:     '#f44747'
+      green:   '#608b4e'
+      yellow:  '#dcdcaa'
+      blue:    '#569cd6'
+      magenta: '#c678dd'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+colors: *dark
