@@ -51,7 +51,6 @@ return packer.startup(
     use({"wbthomason/packer.nvim"})
 
     use({"hexh250786313/vscode.nvim"})
-    -- use({"mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim"})
 
     use({"moll/vim-bbye", keys = {{"n", "<space>bd"}}, cmd = "Bdelete", config = [[require("plugin.vim-bbye")]]})
 
