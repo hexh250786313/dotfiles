@@ -1,12 +1,4 @@
-local custom_codedark = require "lualine.themes.codedark"
-custom_codedark.normal.a.bg = "#0a7aca"
-custom_codedark.normal.a.fg = "#ffffff"
-custom_codedark.insert.a.bg = "#ffaf00"
-custom_codedark.insert.a.fg = "#1e1e1e"
-custom_codedark.visual.a.bg = "#3c3c3c"
-custom_codedark.visual.a.fg = "#5cb6f8"
-custom_codedark.normal.b.bg = "#373737"
-custom_codedark.normal.c.bg = "#373737"
+local vscode = require "lualine.themes.vscode"
 
 local status, lualine = pcall(require, "lualine")
 if (not status) then
@@ -15,7 +7,7 @@ end
 
 lualine.setup {
   options = {
-    theme = custom_codedark,
+    theme = vscode,
     section_separators = {left = "▓░", right = "░▓"},
     component_separators = {left = " ", right = " "}
   },
@@ -31,14 +23,14 @@ lualine.setup {
       {
         "diagnostics",
         sources = {"coc"},
-        symbols = {error = "E:", warn = "W:", info = "I:"}
+        symbols = {error = "E:", warn = "W:", info = "I:", hint = "H:", ok = "O:"}
       },
       {
         "b:coc_symbol_line"
       }
       -- {
-        -- "filename",
-        -- path = 1
+      -- "filename",
+      -- path = 1
       -- }
     },
     lualine_x = {

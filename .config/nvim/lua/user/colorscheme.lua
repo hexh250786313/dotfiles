@@ -1,65 +1,84 @@
 vim.cmd(
   [[
 try
-    colorscheme codedark
+    colorscheme vscode
+    " colorscheme codedark
     " colorscheme zenbones
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
 endtry
 
-"
-highlight! Normal ctermbg=NONE guibg=NONE
-highlight! LineNr ctermbg=NONE guibg=NONE
-highlight! SignColumn ctermbg=NONE guibg=NONE
-highlight! EndOfBuffer ctermbg=NONE guibg=NONE
+hi! Normal guibg=NONE
+hi! LineNr guibg=NONE
+hi! SignColumn guibg=NONE
+hi! EndOfBuffer guibg=NONE
 
-highlight CursorLine guibg=#23272e
-hi! LightBulbVirtualText guibg=#23272e guifg=#ffff00
+hi! link CocFloating Normal
+hi! link CocListPath StatusLine
+hi! link CocListMode StatusLine
 
-highlight TSString gui=italic guifg=#CE9178
-highlight TSCharacter gui=italic guifg=#CE9178
-highlight TSNumber gui=italic guifg=#B5CEA8
-highlight TSBoolean gui=italic guifg=#569CD6
-highlight TSFloat gui=italic guifg=#B5CEA8
+exec 'hi! TSString gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSString')), 'fg', 'gui')
+exec 'hi! TSCharacter gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSCharacter')), 'fg', 'gui')
+exec 'hi! TSNumber gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSNumber')), 'fg', 'gui')
+exec 'hi! TSBoolean gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSBoolean')), 'fg', 'gui')
+exec 'hi! TSFloat gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSFloat')), 'fg', 'gui')
+exec 'hi! TSParameter gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSParameter')), 'fg', 'gui')
+exec 'hi! TSFuncBuiltin gui=bold' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSFuncBuiltin')), 'fg', 'gui')
+exec 'hi! TSFunction gui=bold' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSFunction')), 'fg', 'gui')
+exec 'hi! TSFuncMacro gui=bold' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSFuncMacro')), 'fg', 'gui')
+exec 'hi! TSMethod gui=bold' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSMethod')), 'fg', 'gui')
+exec 'hi! TSConstructor gui=bold' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSConstructor')), 'fg', 'gui')
+exec 'hi! TSKeyword gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSKeyword')), 'fg', 'gui')
+exec 'hi! TSInclude gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSInclude')), 'fg', 'gui')
+exec 'hi! TSVariable gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSVariable')), 'fg', 'gui')
+exec 'hi! TSVariableBuiltin gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSVariableBuiltin')), 'fg', 'gui')
+exec 'hi! TSTag gui=bold' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSTag')), 'fg', 'gui')
+exec 'hi! TSTagAttribute gui=italic' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('TSVariableBuiltin')), 'fg', 'gui')
 
-highlight TSParameter gui=italic guifg=#9CDCFE
-
-highlight TSFuncBuiltin gui=Bold guifg=#DCDCAA
-highlight TSFunction gui=Bold guifg=#DCDCAA
-highlight TSFuncMacro gui=Bold guifg=#DCDCAA
-highlight TSMethod gui=Bold guifg=#DCDCAA
-highlight TSConstructor gui=Bold guifg=#4EC9B0
-highlight TSKeyword gui=italic guifg=#569CD6
-highlight TSInclude gui=italic guifg=#c586c0
-highlight TSVariable gui=italic guifg=#4ec9b0
-highlight TSVariableBuiltin gui=italic guifg=#9CDCFE
-highlight TSTag gui=Bold guifg=#569CD6
-highlight TSTagAttribute gui=italic guifg=#9CDCFE
-
-:hi DefxIconsNestedTreeIcon guibg=NONE guifg=#569CD6
-:hi DefxIconsParentDirectory guibg=NONE guifg=#569CD6
-:hi DefxIconsOpenedTreeIcon guibg=NONE guifg=#569CD6
-:hi DefxIconsClosedTreeIcon guibg=NONE guifg=#569CD6
-:hi DefxIconsDirectory guibg=NONE guifg=#569CD6
-:hi DefxIconsSymlinkDirectory guibg=NONE guifg=#569CD6
-:hi DefxIconsCopyIcon guibg=NONE guifg=#ce9178
-:hi DefxIconsMoveIcon guibg=NONE guifg=#f04747
-
-exec 'hi Defx_filename_directory gui=italic' .
+exec 'hi! DefxIconsNestedTreeIcon guibg=NONE' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('Directory')), 'fg', 'gui')
+exec 'hi! DefxIconsParentDirectory guibg=NONE' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('Directory')), 'fg', 'gui')
+exec 'hi! DefxIconsOpenedTreeIcon guibg=NONE' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('Directory')), 'fg', 'gui')
+exec 'hi! DefxIconsClosedTreeIcon guibg=NONE' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('Directory')), 'fg', 'gui')
+exec 'hi! DefxIconsDirectory guibg=NONE' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('Directory')), 'fg', 'gui')
+exec 'hi! DefxIconsSymlinkDirectory guibg=NONE' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('Directory')), 'fg', 'gui')
+exec 'hi! DefxIconsCopyIcon guibg=NONE' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('WarningMsg')), 'fg', 'gui')
+exec 'hi! DefxIconsMoveIcon guibg=NONE' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('ErrorMsg')), 'fg', 'gui')
+exec 'hi! Defx_filename_directory gui=bold,italic,underline' .
   \' guifg=' . synIDattr(synIDtrans(hlID('PreProc')), 'fg', 'gui')
 
-highlight CocListPath guibg=#455a64
-highlight CocListMode guibg=#455a64
-highlight CocHighlightText cterm=underline guibg=#0f6073
-hi! LightBulbVirtualText guibg=#23272e guifg=#ffff00
+exec 'hi! CocHighlightText' .
+  \' guibg=' . synIDattr(synIDtrans(hlID('LspReferenceText')), 'bg', 'gui')
+exec 'hi! CocSymbolLine gui=bold' .
+  \' guifg=' . synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui') .
+  \' guibg=' . synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui')
+exec 'hi! LightBulbVirtualText' .
+  \' guibg=' . synIDattr(synIDtrans(hlID('CursorLine')), 'bg', 'gui') .
+  \' guifg=' . synIDattr(synIDtrans(hlID('Special')), 'fg', 'gui')
 
-highlight DiffAdd guibg=#235049
-highlight DiffDelete guibg=#341c28 guifg=#341c28
-highlight DiffChange guibg=#344f69
-highlight DiffText guibg=#2f628e
-
-highlight CocFloating guibg=Normal guifg=Normal
-
-highlight CocSymbolLine guibg=#373737 guifg=#ffffff
 ]]
 )

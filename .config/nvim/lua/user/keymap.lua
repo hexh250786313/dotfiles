@@ -4,10 +4,11 @@ let g:hlnormalstate=0
 function ToggleBackground()
   if g:hlnormalstate == 1
     let g:hlnormalstate=0
-    highlight! Normal ctermbg=NONE guibg=NONE
+    highlight! Normal guibg=NONE
   else
     let g:hlnormalstate=1
-    highlight! Normal ctermbg=NONE guibg=#1e1e1e
+    exec 'hi! Normal' .
+      \' guibg=' . synIDattr(synIDtrans(hlID('Directory')), 'bg', 'gui')
   endif
 endfunction
 
