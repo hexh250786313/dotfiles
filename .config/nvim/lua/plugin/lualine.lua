@@ -1,13 +1,11 @@
-local vscode = require "lualine.themes.vscode"
-
 local status, lualine = pcall(require, "lualine")
 if (not status) then
   return
 end
 
-lualine.setup {
+local config = {
   options = {
-    theme = vscode,
+    -- theme = theme,
     section_separators = {left = "▓░", right = "░▓"},
     component_separators = {left = " ", right = " "}
   },
@@ -43,3 +41,19 @@ lualine.setup {
   },
   extensions = {"fugitive"}
 }
+
+local function can_require(path)
+  local ok, err = pcall(require, path)
+  if ok then
+    return true
+  end
+  return false
+end
+
+local colorscheme = vim.g.colors_name
+
+if can_require("lualine.themes" .. colorscheme) then
+  config.options.theme = require("lualine.themes" .. colorscheme)
+end
+
+lualine.setup(config)

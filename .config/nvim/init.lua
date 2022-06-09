@@ -1,3 +1,4 @@
+require("util.colorscheme")
 require("user.global")
 require("user.option")
 require("user.abbr")

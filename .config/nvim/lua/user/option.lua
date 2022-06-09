@@ -13,7 +13,6 @@ local optionList = {
   updatetime = 300, -- 更新时间
   cursorline = true, -- 光标行
   termguicolors = true, -- 终端
-  background = "dark", -- 背景 "light" | "dark"
   ignorecase = true, -- 命令模式忽略大小写
   foldlevel = 99, -- 折叠级别
   wrap = false, -- 是否折行

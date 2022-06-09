@@ -1,17 +1,5 @@
 vim.cmd(
   [[
-let g:hlnormalstate=0
-function ToggleBackground()
-  if g:hlnormalstate == 1
-    let g:hlnormalstate=0
-    highlight! Normal guibg=NONE
-  else
-    let g:hlnormalstate=1
-    exec 'hi! Normal' .
-      \' guibg=' . synIDattr(synIDtrans(hlID('Directory')), 'bg', 'gui')
-  endif
-endfunction
-
 noremap <Space>y "+y
 noremap <Space>p "+p
 noremap <Space>o "+x

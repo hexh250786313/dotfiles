@@ -6,6 +6,3 @@ require("scrollview").setup(
   }
 )
 
-vim.cmd([[
-highlight ScrollView guibg=#2f628e guifg=NONE
-]])
