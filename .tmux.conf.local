@@ -1,23 +1,23 @@
 
 
 tmux_conf_24b_colour=true
-nord0="#2e3440"
-nord1="#3b4252"
-nord2="#434c5e"
-nord3="#4c566a"
-nord4="#d8dee9"
-nord5="#e5e9f0"
-nord6="#eceff4"
-nord7="#8fbcbb"
-nord8="#88c0d0"
-nord9="#81a1c1"
-nord10="#5e81ac"
-nord11="#bf616a"
-nord12="#d08770"
-nord13="#ebcb8b"
-nord14="#a3be8c"
-nord15="#b48ead"
-tmux_conf_theme_focused_pane_bg='#0087d7'
+nord0="#8da101" # leftest bar bg
+nord1="#f3efda" # status bg
+nord2="#93b259" # time bg
+nord3="#8da101" # hexh bg
+nord4="#96a293" # status fg
+nord5="#fdf6e3" # leftest bar fg
+nord6="#fdf6e3" # selected fg
+nord7="#f44336"
+nord8="#f44336"
+nord9="#f44336"
+nord10="#93b259" # selected bg
+nord11="#f44336"
+nord12="#f44336"
+nord13="#ffffff" # command bg
+nord14="#f44336"
+nord15="#f44336"
+tmux_conf_theme_focused_pane_bg="#f44336"
 tmux_conf_theme_pane_border=$nord0
 tmux_conf_theme_pane_active_border=$nord10
 tmux_conf_theme_pane_indicator=$nord10
@@ -34,8 +34,8 @@ tmux_conf_theme_window_status_fg=$nord4
 tmux_conf_theme_window_status_bg=$nord1
 tmux_conf_theme_window_status_current_fg=$nord6
 tmux_conf_theme_window_status_current_bg=$nord10
-tmux_conf_theme_window_status_current_format=' #W '
-tmux_conf_theme_window_status_bell_fg="#ffff00"
+tmux_conf_theme_window_status_current_format='  #W '
+tmux_conf_theme_window_status_bell_fg="#f44336"
 tmux_conf_theme_window_status_last_fg="default"
 tmux_conf_theme_window_status_last_bg="default"
 tmux_conf_theme_window_status_last_format="#I #W-"
@@ -48,7 +48,7 @@ tmux_conf_theme_left_separator_sub=" "
 tmux_conf_theme_right_separator_main=" "
 tmux_conf_theme_right_separator_sub=" "
 # tmux_conf_theme_status_left="  #S "
-tmux_conf_theme_status_left=" 🥵 #S "
+tmux_conf_theme_status_left="   #S "
 # tmux_conf_theme_status_right="#{prefix}#{pairing}#{synchronized}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} | #(curl wttr.in?format="%%c%%20%%t") |  %R |  #{username}#{root} | ﯅ #{hostname} "
 # tmux_conf_theme_status_right="#{prefix}  #{pairing}| 深圳 #(curl wttr.in/Shenzhen?format="%%c%%20%%t") |  %R |  #{username}#{root} | ﯅ #{hostname} "
 tmux_conf_theme_status_right="#{prefix}  #{pairing}|  %R |  #{username}#{root} | ﯅ #{hostname} "
@@ -56,10 +56,9 @@ tmux_conf_theme_status_left_fg=$nord5
 tmux_conf_theme_status_left_bg=$nord0
 tmux_conf_theme_status_right_fg=$nord0,$nord6,$nord5,$nord4,$nord4
 tmux_conf_theme_status_right_bg=$nord1,$nord2,$nord3,$nord1,$nord0
-# tmux_conf_theme_terminal_title="🤤 #S - #W"
-tmux_conf_theme_terminal_title="🥵 #S - #W"
-tmux_conf_theme_prefix_fg="#ffffff"
-tmux_conf_theme_pairing_fg="#ffffff"
+tmux_conf_theme_terminal_title="#S - #W"
+tmux_conf_theme_prefix_fg=$nord1
+tmux_conf_theme_pairing_fg=$nord1
 
 set-option -g prefix M-b
 set -g prefix2 M-b

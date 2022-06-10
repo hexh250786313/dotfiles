@@ -1,9 +1,10 @@
-vim.opt.background = "dark" -- 背景 "light" | "dark"
+vim.opt.background = "light" -- 背景 "light" | "dark"
 
 vim.cmd(
   [[
 try
-    colorscheme vscode
+    colorscheme everforest
+    let g:everforest_background = 'medium'
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
 endtry
