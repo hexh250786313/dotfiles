@@ -164,6 +164,9 @@ schemes:
       cyan:    '#83c092'
       white:   '#d3c6aa'
   everforest_light_hard: &everforest_light_hard
+    cursor:
+      text: '#d4d4d4'
+      cursor: '#d4d4d4'
     primary:
       background: '#fff9e8'
       foreground: '#5c6a72'
