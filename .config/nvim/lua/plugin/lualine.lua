@@ -22,10 +22,10 @@ local config = {
         "diagnostics",
         sources = {"coc"},
         symbols = {error = "E:", warn = "W:", info = "I:", hint = "H:", ok = "O:"}
-      },
-      {
-        "b:coc_symbol_line"
       }
+      -- {
+      -- "b:coc_symbol_line"
+      -- }
       -- {
       -- "filename",
       -- path = 1

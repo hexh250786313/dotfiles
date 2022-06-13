@@ -179,6 +179,8 @@ return packer.startup(
 
     use({"antoinemadec/FixCursorHold.nvim"})
 
+    use({"AndrewRadev/linediff.vim", cmd = {"Linediff"}})
+
     use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
 
     use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
