@@ -217,7 +217,7 @@ return packer.startup(
       {
         "sindrets/diffview.nvim",
         cmd = {"DiffviewFileHistory", "DiffviewOpen"},
-        keys = {{"n", "<space>gt"}, {"n", "<space>gG"}},
+        keys = {{"n", "<space>gt"}, {"n", "<space>gG"}, {"n", "<space>gT"}},
         config = [[require("plugin.diffview")]]
       }
     )
