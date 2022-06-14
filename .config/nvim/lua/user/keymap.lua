@@ -37,6 +37,7 @@ nnoremap <silent> <Space>sq :copen<cr>
 
 nmap <Space>wt <C-w>v<C-w>T
 
-nnoremap <silent> <space>hn <cmd>call ToggleBackground()<cr>
+nnoremap <silent> <space>hn <cmd>call ToggleNormalBackground()<cr>
+nnoremap <silent> <space>hc <cmd>call ToggleCursorLineBackground()<cr>
 ]]
 )

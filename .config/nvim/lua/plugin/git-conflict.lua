@@ -1,15 +1,13 @@
-require('git-conflict').setup({
-  -- default_mappings = true,
-  -- disable_diagnostics = false,
-  -- highlights = {
-    -- incoming = 'DiffText',
-    -- current = 'DiffAdd',
-  -- }
-})
+require("git-conflict").setup({})
 
-vim.keymap.set('n', 'co', '<Plug>(git-conflict-ours)')
-vim.keymap.set('n', 'ct', '<Plug>(git-conflict-theirs)')
-vim.keymap.set('n', 'cb', '<Plug>(git-conflict-both)')
-vim.keymap.set('n', 'c0', '<Plug>(git-conflict-none)')
-vim.keymap.set('n', ']x', '<Plug>(git-conflict-prev-conflict)')
-vim.keymap.set('n', '[x', '<Plug>(git-conflict-next-conflict)')
+vim.keymap.set("n", "<space>sc", ":GitConflictListQf<cr>", {silent = true})
+
+-- vim.api.nvim_create_autocmd("User", {pattern = "GitConflictDetected", command = "hi! CursorLine guibg=NONE"})
+
+-- vim.api.nvim_create_autocmd(
+-- "User",
+-- {
+-- pattern = "GitConflictResolved",
+-- command = "exec 'hi! CursorLine' . ' guibg=' . g:defaultnormalgb . ' gui=' . g:defaultcursorlinegui"
+-- }
+-- )

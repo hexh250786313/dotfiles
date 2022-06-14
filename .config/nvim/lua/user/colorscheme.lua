@@ -10,6 +10,8 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 let g:defaultnormalgb=HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
+let g:defaultcursorlinegb=HandleColorNONE(synIDattr(synIDtrans(hlID('CursorLine')), 'bg', 'gui'))
+let g:defaultcursorlinegui=HandleColorNONE(synIDattr(synIDtrans(hlID('CursorLine')), 'gui', 'gui'))
 
 hi! Normal guibg=NONE
 hi! LineNr guibg=NONE

@@ -1,11 +1,19 @@
 require "diffview".setup {
   file_history_panel = {
-    height = 1
+    win_config = {
+      height = 9
+    }
   }
 }
 
-vim.cmd([[
+vim.cmd(
+  [[
 function DisabaleFocusAndDiffviewFileHistory ()
+  :FocusDisable
+  :DiffviewFileHistory %
+endfunction
+
+function DisabaleFocusAndDiffviewHistory ()
   :FocusDisable
   :DiffviewFileHistory
 endfunction
@@ -16,5 +24,7 @@ function DisabaleFocusAndDiffviewOpen ()
 endfunction
 
 nnoremap <silent> <Space>gt :call DisabaleFocusAndDiffviewFileHistory()<CR>
+nnoremap <silent> <Space>gT :call DisabaleFocusAndDiffviewHistory()<CR>
 nnoremap <silent> <Space>gG :call DisabaleFocusAndDiffviewOpen()<CR>
-]])
+]]
+)

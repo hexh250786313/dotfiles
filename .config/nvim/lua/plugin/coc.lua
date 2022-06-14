@@ -3,11 +3,11 @@ local api = vim.api
 function _G.symbol_line()
   local curwin = vim.g.statusline_winid or 0
   local curbuf = vim.api.nvim_win_get_buf(curwin)
-  local ok, line = pcall(vim.api.nvim_buf_get_var, curbuf, 'coc_symbol_line')
-  return ok and line or ''
+  local ok, line = pcall(vim.api.nvim_buf_get_var, curbuf, "coc_symbol_line")
+  return ok and line or ""
 end
 
-vim.o.winbar = '%!v:lua.symbol_line()'
+vim.o.winbar = "%!v:lua.symbol_line()"
 
 vim.g.coc_global_extensions = {
   "coc-css",
@@ -42,10 +42,11 @@ api.nvim_create_autocmd(
   {pattern = "CocLocationsChange", command = "CocList --normal --tab --auto-preview location"}
 )
 
-api.nvim_create_autocmd(
-  {"CursorHold"},
-  {pattern = "*", command = "if (coc#rpc#ready()) | silent call CocActionAsync('highlight')"}
-)
+-- 移动光标根据算法高亮词语以及 buffer 中的相关词语, 有点烦人, 关掉
+-- api.nvim_create_autocmd(
+-- {"CursorHold"},
+-- {pattern = "*", command = "if (coc#rpc#ready()) | silent call CocActionAsync('highlight')"}
+-- )
 
 vim.cmd(
   [[
@@ -113,3 +114,7 @@ endif
 
 ]]
 )
+
+vim.keymap.set("n", "<space>td", ':call CocAction("diagnosticToggle")<cr>', {silent = true})
+vim.keymap.set("n", "<space>tt", ':call CocAction("toggleService", "tsserver")<cr>', {silent = true})
+vim.keymap.set("n", "<space>tl", ':call CocAction("toggleService", "lua")<cr>', {silent = true})
