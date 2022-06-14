@@ -8,7 +8,6 @@ function! HandleColorNONE(color)
   end
 endfunction
 
-let g:hlnormalstate=0
 function ToggleNormalBackground()
   if g:hlnormalstate == 1
     let g:hlnormalstate=0
@@ -20,7 +19,6 @@ function ToggleNormalBackground()
   endif
 endfunction
 
-let g:hlcursorlinestate=1
 function ToggleCursorLineBackground()
   if g:hlcursorlinestate == 1
     let g:hlcursorlinestate=0

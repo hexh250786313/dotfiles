@@ -17,5 +17,8 @@ let g:choosewin_color_overlay = {
 let g:choosewin_color_land = {
     \ 'gui': ['none', 'none'],
     \ }
+let g:choosewin_color_other = {
+    \ 'gui': [HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui')), HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui'))],
+    \ }
 ]]
 )
