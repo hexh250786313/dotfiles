@@ -1,6 +1,5 @@
 export LANG=en_US.UTF-8
-# ZSH_DISABLE_COMPFIX="true" # 如果报了 completion 的错就打开，否则注释掉
-export ZSH="/home/hexh/.oh-my-zsh"
+# ZSH_DISABLE_COMPFIX="true" # 如果报了 completion 的错就打开，否则注释掉 export ZSH="/home/hexh/.oh-my-zsh"
 export EDITOR=nvim
 export REACT_EDITOR=nvim
 export ZSH_CUSTOM="/home/hexh/.oh-my-zsh/custom"
@@ -28,6 +27,10 @@ fi
 
 if [[ ! -d $ZSH_CUSTOM/plugins/F-Sy-H ]]; then
   git clone https://github.com/z-shell/F-Sy-H.git $ZSH_CUSTOM/plugins/F-Sy-H
+fi
+
+if [[ ! -d ~/.git-webui ]]; then
+  wget -O - https://raw.githubusercontent.com/alberthier/git-webui/master/install/installer.sh | zsh
 fi
 
 plugins=(

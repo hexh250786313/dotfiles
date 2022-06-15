@@ -161,6 +161,7 @@ return packer.startup(
         "akinsho/toggleterm.nvim",
         keys = {
           {"n", "<space>gl"},
+          {"n", "<space>gw"},
           {"n", "<space>'"}
         },
         config = [[require("plugin.toggleterm")]]

@@ -12,12 +12,24 @@ local lazygit =
     direction = "float"
   }
 )
+local gitwebui =
+  Terminal:new(
+  {
+    cmd = "git webui --port=9989",
+    direction = "float"
+  }
+)
 
 function _lazygit_toggle()
   lazygit:toggle()
 end
 
+function _gitwebui_toggle()
+  gitwebui:toggle()
+end
+
 vim.api.nvim_set_keymap("n", "<space>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<space>gw", "<cmd>lua _gitwebui_toggle()<CR>", {noremap = true, silent = true})
 
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
