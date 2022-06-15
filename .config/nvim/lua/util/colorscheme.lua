@@ -12,10 +12,16 @@ function ToggleNormalBackground()
   if g:hlnormalstate == 1
     let g:hlnormalstate=0
     hi! Normal guibg=NONE
+    exec 'hi! NormalStrongFont gui=italic,bold' .
+      \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
+      \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
   else
     let g:hlnormalstate=1
     exec 'hi! Normal' .
       \' guibg=' . g:defaultnormalgb
+    exec 'hi! NormalStrongFont gui=italic,bold' .
+      \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
+      \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
   endif
 endfunction
 
@@ -26,8 +32,7 @@ function ToggleCursorLineBackground()
   else
     let g:hlcursorlinestate=1
     exec 'hi! CursorLine' .
-      \' guibg=' . g:defaultnormalgb .
-      \' gui=' . g:defaultcursorlinegui
+      \' guibg=' . g:defaultcursorlinegb
   endif
 endfunction
 

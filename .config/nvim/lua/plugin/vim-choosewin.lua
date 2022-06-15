@@ -1,6 +1,14 @@
 vim.cmd(
   [[
-nnoremap <space>ww :ChooseWin<CR>
+function ChooseWinShowingStatusLine()
+  let current = &laststatus
+  set laststatus=2
+  ChooseWin
+  exec 'echo "' . current . '"'
+  exec 'set laststatus=' . current
+endfunction
+
+nnoremap <space>ww <cmd>call ChooseWinShowingStatusLine()<CR>
 
 let g:choosewin_color_label = {
     \ 'gui': ['none', 'none', 'bold'],

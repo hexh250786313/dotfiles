@@ -11,6 +11,13 @@ call defx#custom#column('filename', {
 call defx#custom#column('indent', {
       \ 'indent': '  ',
       \ })
+call defx#custom#column('icon', {
+      \ 'directory_icon': '   ',
+      \ 'opened_icon': '   ',
+      \ 'file_icon': '    ',
+      \ 'root_icon': '',
+      \ })
+
 function! s:SID_PREFIX() abort
   return matchstr(expand('<sfile>'),
         \ '<SNR>\d\+_\zeSID_PREFIX$')
@@ -21,6 +28,9 @@ let g:defx_config_sid = s:SID_PREFIX()
 autocmd FileType defx call s:defx_my_settings()
 
 function! s:defx_my_settings() abort
+  setlocal winhighlight=Normal:NormalStrongFont " 非活动时不变回 Normal
+  " setlocal winhighlight=Normal:NormalStrongFont,NormalNC:Normal " 非活动时会变回 Normal
+
   setlocal cursorline
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
@@ -70,7 +80,7 @@ function! s:defx_my_settings() abort
         \ defx#do_action('cd')
   nnoremap <silent><buffer><expr> q
         \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <Space>
+  nnoremap <silent><buffer><expr> <tab>
         \ defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr> *
         \ defx#do_action('toggle_select_all')
@@ -156,7 +166,7 @@ function! s:DefxSmartL(_)
     " if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
     if len(normal_wins_list) >= 3    " if there are more than 2 normal windows
       if exists(':ChooseWin') == 2
-        ChooseWin
+        call ChooseWinShowingStatusLine()
       else
         let input = input('ChooseWin No./Cancel(n): ')
         if input ==# 'n' | return | endif
@@ -278,7 +288,7 @@ endfunction
 call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
       \ 'listed': 1,
-      \ 'columns': 'mark:git:indent:icons:filename',
+      \ 'columns': 'mark:git:indent:icon:icons:filename',
       \ 'split': 'vertical',
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'vertical_preview': 1,

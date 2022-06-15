@@ -26,7 +26,8 @@ local optionList = {
   expandtab = true,
   shiftwidth = 2,
   tabstop = 2,
-  softtabstop = 2
+  softtabstop = 2,
+  laststatus = 3 -- 状态栏全局只展示一个
 }
 
 for k, v in pairs(optionList) do
