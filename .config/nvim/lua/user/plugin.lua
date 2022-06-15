@@ -162,7 +162,7 @@ return packer.startup(
         keys = {
           {"n", "<space>gl"},
           {"n", "<space>gw"},
-          {"n", "<space>'"}
+          {"n", "<c-t>"}
         },
         config = [[require("plugin.toggleterm")]]
       }
