@@ -1,6 +1,6 @@
 vim.g.defx_icons_column_length = 3
 
--- @todo: 如果当前窗口已经存在相同的buffer, 则直接跳到那个窗口去, (单个和多个窗口都是一样的逻辑)
+-- @todo: 如果当前窗口已经存在相同的buffer, 则直接跳到那个窗口去, (单个和多个窗口都是一样的逻辑), 考虑 tab 的情况
 
 vim.cmd(
   [[
