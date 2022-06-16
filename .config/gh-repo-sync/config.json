@@ -13,6 +13,7 @@
     "hexh250786313/rime-easy-en",
     "hexh250786313/rime-octagram-data",
     "hexh250786313/vscode.nvim",
-    "hexh250786313/git-conflict.nvim"
+    "hexh250786313/git-conflict.nvim",
+    "hexh250786313/create-coc-extension"
   ]
 }

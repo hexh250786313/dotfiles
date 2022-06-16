@@ -235,6 +235,8 @@ return packer.startup(
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 
+    use({"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async", config = [[require("plugin.nvim-ufo")]]})
+
     use(
       {
         "tpope/vim-fugitive",
