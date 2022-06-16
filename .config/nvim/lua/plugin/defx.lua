@@ -1,5 +1,7 @@
 vim.g.defx_icons_column_length = 3
 
+-- @todo: 如果当前窗口已经存在相同的buffer, 则直接跳到那个窗口去, (单个和多个窗口都是一样的逻辑)
+
 vim.cmd(
   [[
 call defx#custom#column('git', 'column_length', 1)
