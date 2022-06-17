@@ -1,5 +1,6 @@
 vim.cmd(
   [[
+" 这种方式和 link 不同, 可以单独设置 gui / guibg / guifg, 但是确无法像 link 同步修改, 也就是只能初始化
 function! HandleColorNONE(color)
   if a:color != ''
     return a:color
