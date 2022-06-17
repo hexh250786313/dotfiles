@@ -3,11 +3,11 @@ env:
 window:
   opacity: 0.80
   dimensions:
-    columns: 110
-    lines: 23
+    columns: 138
+    lines: 22
   position:
-    x: 820
-    y: 436
+    x: 850
+    y: 500
   padding:
     x: 0
     y: 0

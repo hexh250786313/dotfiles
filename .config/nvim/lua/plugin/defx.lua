@@ -1,7 +1,5 @@
 vim.g.defx_icons_column_length = 3
 
--- @todo: 如果已经存在相同的buffer, 则直接跳到那个窗口去, (单个和多个窗口都是一样的逻辑), 考虑 tab 的情况
-
 vim.cmd(
   [[
 call defx#custom#column('git', 'column_length', 1)
@@ -167,25 +165,27 @@ function! s:DefxSmartL(_)
     " 带上 '$' 参数会加上滚动条的 session
     " if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
     if len(normal_wins_list) >= 3    " if there are more than 2 normal windows
-      if exists(':ChooseWin') == 2
-        call ChooseWinShowingStatusLine()
-      else
-        let input = input('ChooseWin No./Cancel(n): ')
-        if input ==# 'n' | return | endif
-        if input == winnr() | return | endif
-        exec input . 'wincmd w'
-      endif
+      lua require('nvim-window').pick()
       let current_file = &filetype
       if current_file ==# 'defx'
         " echo 'cancel'
         exec 'wincmd p'
-        exec 'e' filepath
+        let current_file_path = expand('%:p')
+        if current_file_path != filepath
+          exec 'e' filepath
+        endif
       else
-        exec 'e' filepath
+        let current_file_path = expand('%:p')
+        if current_file_path != filepath
+          exec 'e' filepath
+        endif
       endif
     else
       exec 'wincmd w'
-      exec 'e' filepath
+      let current_file_path = expand('%:p')
+      if current_file_path != filepath
+        exec 'e' filepath
+      endif
     endif
   endif
 endfunction

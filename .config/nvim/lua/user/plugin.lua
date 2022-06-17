@@ -223,7 +223,12 @@ return packer.startup(
       }
     )
 
-    use({"t9md/vim-choosewin", config = [[require("plugin.vim-choosewin")]]})
+    use(
+      {
+        "https://gitlab.com/yorickpeterse/nvim-window.git",
+        config = [[require("plugin.nvim-window")]]
+      }
+    )
 
     use({"sindrets/winshift.nvim", keys = {{"n", "<space>ws"}}, config = [[require("plugin.winshift")]]})
 
