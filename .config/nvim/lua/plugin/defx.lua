@@ -159,8 +159,9 @@ function! s:DefxSmartL(_)
         endif
       endfor
     endfor
-    let unduplist=filter(copy(list), 'index(normal_wins_list, v:val, v:key+1)==-1') " 去重
+    let unduplist=filter(copy(list), 'index(list, v:val, v:key+1)==-1') " 去重
     call extend(normal_wins_list, unduplist)
+    echo normal_wins_list
     " ==========
     " 带上 '$' 参数会加上滚动条的 session
     " if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
