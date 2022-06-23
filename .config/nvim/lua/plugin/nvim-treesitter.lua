@@ -14,3 +14,5 @@ require("nvim-treesitter.configs").setup {
     max_file_lines = 10000
   }
 }
+
+vim.keymap.set("n", "<space>tr", ":TSToggle rainbow<cr>", {silent = true})
