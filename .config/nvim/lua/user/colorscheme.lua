@@ -83,14 +83,14 @@ exec 'hi! LightBulbVirtualText' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CursorLine')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Special')), 'fg', 'gui'))
 exec 'hi! CocGitSignChange' .
-  \' guibg=None' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffChange')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffChange')), 'bg', 'gui'))
 exec 'hi! CocGitSignAdd' .
-  \' guibg=None' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
 exec 'hi! CocGitSignDelete' .
-  \' guibg=None' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffDelete')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffDelete')), 'bg', 'gui'))
 
 exec 'hi! ScrollView guifg=NONE' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))

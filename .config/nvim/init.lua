@@ -10,5 +10,5 @@ require("user.plugin")
 require("user.colorscheme")
 
 vim.cmd([[
-" set runtimepath^=/home/hexh/workspace/coc-replace-globally
+" set runtimepath^=/home/hexh/workspace/coc-git
 ]])
