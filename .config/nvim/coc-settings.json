@@ -27,7 +27,7 @@
   "git.conflictedDecorator": "⇡⇣",
   "git.virtualTextPrefix": "  ",
   "list.indicator": "❯",
-  "git.addGBlameToVirtualText": true,
+  "git.addGBlameToVirtualText": false,
   "list.source.grep.useLiteral": false,
   "suggest.snippetIndicator": " ✩",
   "list.source.grep.command": "rg",

@@ -1,6 +1,6 @@
 tilda_config_version="1.5.4"
 command=""
-font="CaskaydiaCove Nerd Font 12"
+font="CaskaydiaCove Nerd Font 11.5"
 key="<Shift>F12"
 addtab_key="<Shift><Control>t"
 fullscreen_key="F11"
@@ -67,7 +67,7 @@ cursor_red=54484
 cursor_green=54484
 cursor_blue=54484
 width_percentage=2147483647
-height_percentage=1077822042
+height_percentage=1038093594
 scroll_history_infinite=true
 scroll_on_output=false
 notebook_border=false
