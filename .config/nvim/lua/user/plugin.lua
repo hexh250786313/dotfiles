@@ -238,6 +238,14 @@ return packer.startup(
 
     use({"dstein64/nvim-scrollview", config = [[require("plugin.nvim-scrollview")]]})
 
+    use(
+      {
+        "RRethy/vim-hexokinase",
+        config = [[require("plugin.vim-hexokinase")]],
+        run = "make hexokinase"
+      }
+    )
+
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 
     use({"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async", config = [[require("plugin.nvim-ufo")]]})
