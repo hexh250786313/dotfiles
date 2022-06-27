@@ -11,6 +11,7 @@
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
     "typescript": ["javascript", "javascript-jasmine-arrow"]
   },
+  "git.addGBlameToBufferVar": true,
   "git.changedSign.hlGroup": "CocGitSignChange",
   "git.addedSign.hlGroup": "CocGitSignAdd",
   "git.removedSign.hlGroup": "CocGitSignDelete",

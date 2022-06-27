@@ -33,6 +33,7 @@ local config = {
     },
     lualine_x = {
       "g:coc_status",
+      "b:coc_git_blame",
       "encoding",
       "filetype"
     },
