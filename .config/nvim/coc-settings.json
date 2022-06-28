@@ -90,7 +90,7 @@
   "coc.source.file.ignoreHidden": false,
   "tsserver.maxTsServerMemory": 16384,
   "tsserver.locale": "zh-cn",
-  "tsserver.ignoreLocalTsserver": false,
+  "tsserver.ignoreLocalTsserver": true,
   "git.conflict.enabled": false,
   "suggest.noselect": false,
   "suggest.selection": "recentlyUsedByPrefix",
