@@ -73,8 +73,8 @@ exec 'hi! Defx_filename_directory gui=bold,italic,underline' .
 exec 'hi! CocHighlightText' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('LspReferenceText')), 'bg', 'gui'))
 exec 'hi! WinBar' .
-  \' guifg='. HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui')) .
-  \' guibg='. HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui')) .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
   \' gui=bold'
 exec 'hi! CocSymbolLine gui=bold' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui')) .
