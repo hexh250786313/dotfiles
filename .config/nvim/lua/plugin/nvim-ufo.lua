@@ -20,7 +20,7 @@ local handler = function(virtText, lnum, endLnum, width)
     end
     pos = nextPos
   end
-  table.insert(newVirtText, {endText, "MoreMsg"})
+  table.insert(newVirtText, {endText, "Folded"})
   return newVirtText
 end
 
