@@ -73,6 +73,10 @@ if [[ ! -f ~/.warprc ]]; then
   ln -s ~/workspace/dotfiles/.warprc ~/.warprc
 fi
 
+if [[ ! -f ~/.config/my-config ]]; then
+  ln -s ~/workspace/dotfiles/.config/my-config ~/.config/my-config
+fi
+
 export NODE_OPTIONS="--max-old-space-size=8192"
 
 export all_proxy="socks://127.0.0.1:4780"
