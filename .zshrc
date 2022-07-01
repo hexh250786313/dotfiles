@@ -69,6 +69,10 @@ if [[ ! -f ~/.p10k.zsh ]]; then
 fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+if [[ ! -f ~/.warprc ]]; then
+  ln -s ~/workspace/dotfiles/.warprc ~/.warprc
+fi
+
 export NODE_OPTIONS="--max-old-space-size=8192"
 
 export all_proxy="socks://127.0.0.1:4780"
@@ -79,11 +83,6 @@ alias proxy_set="export all_proxy="socks://127.0.0.1:4780" && export http_proxy=
 
 eval "$(rbenv init - zsh)"
 
-alias lc="colorls -lA --sd"
-alias la="colorls -a --sd"
-alias ll="colorls -l --sd"
-alias ls="colorls --sd"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
@@ -93,3 +92,9 @@ export NVM_DIR="$HOME/.nvm"
 export OPENCV_LOG_LEVEL=ERROR
 
 source $ZSH/oh-my-zsh.sh
+
+alias lc="colorls -lA --sd"
+alias la="colorls -a --sd"
+alias ll="colorls -l --sd"
+alias ls="colorls --sd"
+
