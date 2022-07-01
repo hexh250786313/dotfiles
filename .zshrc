@@ -4,6 +4,7 @@ export ZSH="/home/hexh/.oh-my-zsh"
 export EDITOR=nvim
 export REACT_EDITOR=nvim
 export ZSH_CUSTOM="/home/hexh/.oh-my-zsh/custom"
+export CONFIG_DIR="/home/hexh/.config"
 
 setopt globdots
 
@@ -32,6 +33,10 @@ fi
 
 if [[ ! -d ~/.git-webui ]]; then
   wget -O - https://raw.githubusercontent.com/alberthier/git-webui/master/install/installer.sh | zsh
+fi
+
+if [[ ! -d $CONFIG_DIR/my-config ]]; then
+  ln -s ~/workspace/dotfiles/.config/my-config ~/.config/my-config
 fi
 
 plugins=(
@@ -71,10 +76,6 @@ fi
 
 if [[ ! -f ~/.warprc ]]; then
   ln -s ~/workspace/dotfiles/.warprc ~/.warprc
-fi
-
-if [[ ! -f ~/.config/my-config ]]; then
-  ln -s ~/workspace/dotfiles/.config/my-config ~/.config/my-config
 fi
 
 export NODE_OPTIONS="--max-old-space-size=8192"
