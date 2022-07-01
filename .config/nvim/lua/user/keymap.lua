@@ -3,7 +3,8 @@ vim.cmd(
 noremap <Space>y "+y
 noremap <Space>p "+p
 noremap <Space>o "+x
-noremap <C-c>y "+y
+" noremap <C-c>y "+y
+vnoremap <silent> <C-c> :<C-u>call ClipboardYank(visualmode())<cr>
 noremap <C-v> "+p
 
 nnoremap <silent> <C-s> :silent write<CR>
