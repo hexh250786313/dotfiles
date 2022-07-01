@@ -1,0 +1,23 @@
+{
+    "version": "1.5.0",
+    "autoload": {
+        "AT Translated Set 2 keyboard": "new preset",
+        "Lenovo TrackPoint Keyboard II": "new preset",
+        "USB Keyboard USB Keyboard": "new preset",
+        "TrackPoint Keyboard II Mouse": "new preset",
+        "USB-HID Keyboard": "new preset"
+    },
+    "macros": {
+        "keystroke_sleep_ms": 10
+    },
+    "gamepad": {
+        "joystick": {
+            "non_linearity": 4,
+            "pointer_speed": 80,
+            "left_purpose": "none",
+            "right_purpose": "none",
+            "x_scroll_speed": 2,
+            "y_scroll_speed": 0.5
+        }
+    }
+}
