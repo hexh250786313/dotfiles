@@ -13,7 +13,7 @@ function! ClipboardYank(type)
   let word = substitute(@@, '\n$', '', 'g')
   let word = escape(word, '| ')
   let @@ = saved_unnamed_register
-  call system("echo '" . word . "' | xsel -i -b")
+  call system("echo -n '" . word . "' | xsel -i -b") " -n for not including newline, i.e. \n
 endfunction
 ]]
 )
