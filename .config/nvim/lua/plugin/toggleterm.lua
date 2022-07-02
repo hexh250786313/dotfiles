@@ -8,7 +8,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit =
   Terminal:new(
   {
-    cmd = "lazygit",
+    cmd = "lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml",
     direction = "float"
   }
 )
