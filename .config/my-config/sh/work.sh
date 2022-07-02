@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-SESSIONNAME_0="I fixed it!"
+SESSIONNAME_0="I_fixed_it!"
 tmux has-session -t $SESSIONNAME_0
 
 if [ "$?" != 0 ]; then
