@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="panels" type="uint" value="1">
+    <property name="panel-0" type="empty">
+      <property name="position" type="string" value="p=6;x=960;y=25"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="2"/>
+        <value type="int" value="1"/>
+        <value type="int" value="7"/>
+        <value type="int" value="3"/>
+        <value type="int" value="10"/>
+        <value type="int" value="11"/>
+        <value type="int" value="12"/>
+        <value type="int" value="13"/>
+        <value type="int" value="16"/>
+        <value type="int" value="14"/>
+        <value type="int" value="15"/>
+        <value type="int" value="6"/>
+        <value type="int" value="9"/>
+        <value type="int" value="5"/>
+        <value type="int" value="18"/>
+        <value type="int" value="17"/>
+        <value type="int" value="4"/>
+      </property>
+      <property name="role" type="string" value="xfce4-panel-12965750720"/>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="background-style" type="uint" value="2"/>
+      <property name="size" type="uint" value="35"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="background-image" type="string" value="/home/hexh/桌面/share/图片/无标题.png"/>
+      <property name="output-name" type="string" value="Primary"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-2" type="string" value="actions">
+      <property name="appearance" type="uint" value="1"/>
+      <property name="invert-orientation" type="bool" value="false"/>
+      <property name="items" type="array">
+        <value type="string" value="+lock-screen"/>
+        <value type="string" value="+suspend"/>
+        <value type="string" value="+shutdown"/>
+        <value type="string" value="+restart"/>
+        <value type="string" value="+logout-dialog"/>
+        <value type="string" value="-logout"/>
+        <value type="string" value="-switch-user"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-hybrid-sleep"/>
+      </property>
+      <property name="button-title" type="uint" value="3"/>
+      <property name="custom-title" type="string" value="「非常に蚌埠住です ln😅 = 💧ln😄」"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="names-visible" type="array">
+        <value type="string" value="pnmixer"/>
+        <value type="string" value="manjaro-settings-manager-daemon"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="orage"/>
+        <value type="string" value="pamac-tray"/>
+        <value type="string" value="blueman-applet"/>
+        <value type="string" value="clipman"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="xnoise"/>
+      </property>
+      <property name="show-frame" type="bool" value="false"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (71%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (77%)"/>
+        <value type="string" value="网络已禁用"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (80%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (83%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (82%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (78%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (81%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (79%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (75%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (73%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (76%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (59%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (69%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (67%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (74%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (72%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (66%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (68%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (71%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (72%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (70%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (65%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (56%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (58%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (62%)"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;1 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (63%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (61%)"/>
+        <value type="string" value="wi-fi 网络连接“yxb”已激活：yxb (60%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (53%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (59%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (55%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (50%)"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;1 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (57%)"/>
+        <value type="string" value="wi-fi 网络连接“user_32d587_5g”已激活：user_32d587_5g (57%)"/>
+        <value type="string" value="wi-fi 网络连接“user_32d587_5g”已激活：user_32d587_5g (58%)"/>
+        <value type="string" value="wi-fi 网络连接“user_32d587_5g”已激活：user_32d587_5g (62%)"/>
+        <value type="string" value="wi-fi 网络连接“user_32d587_5g”已激活：user_32d587_5g (61%)"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;1 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (61%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (62%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (58%)"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;1 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (60%)"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;1 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (70%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (63%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (65%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (69%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (68%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (66%)"/>
+        <value type="string" value="wi-fi 网络连接“hiwifi_59a876”已激活：hiwifi_59a876 (67%)"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;1 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;1 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;2 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="dingtalk-notifier"/>
+        <value type="string" value="蓝牙开启 &lt;b&gt;1 个活跃的连接&lt;/b&gt;"/>
+        <value type="string" value="javaembeddedframe"/>
+        <value type="string" value="蓝牙已启用"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="utools"/>
+        <value type="string" value="蓝牙已停用"/>
+        <value type="string" value="nutstore-pydaemon.py"/>
+        <value type="string" value="vmware-tray"/>
+        <value type="string" value="thunder"/>
+        <value type="string" value="网络管理器小程序"/>
+        <value type="string" value="clipman 剪贴板管理器"/>
+        <value type="string" value="pamac-tray"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="join?action=join&amp;confno=88001387969&amp;pwd=RFdDSWJBekpjOUw0V2tTZzViNXlTUT09&amp;confid=dXRpZD1VVElEXzJlMWU1MjUwN2I0MjQ1YTc4ZDk4OGYwODM3OTYwZDczJnVzcz1IalBBcHVsVGRxaDRaZlA3dVc4ZlBCaDRHS2U1bndfQzktNjRLTjh4QlVrdjBUQUJKLWpzbl9GTWRQYmtET19mZEI4V3Y1TE5vck14eGdlWTM4TkE0UVZ5MEZXek5aSS5JYU5HWVRoNW1NTmRHeWhmJnRpZD02OTRhYWFjNTkyMzE0NTdmYjUzODQ0ODRjZDgwNzc5OQ%3D%3D&amp;browser=chrome"/>
+        <value type="string" value="Screenkey"/>
+        <value type="string" value="baidunetdisk1"/>
+        <value type="string" value="SimpleScreenRecorder"/>
+        <value type="string" value="electron-lark1"/>
+        <value type="string" value="lark_status_icon_1"/>
+        <value type="string" value="zoom"/>
+        <value type="string" value="vlc"/>
+        <value type="string" value="dingtalk-notifier1"/>
+        <value type="string" value="flameshot"/>
+        <value type="string" value="Barrier"/>
+        <value type="string" value="listen11"/>
+        <value type="string" value="TelegramDesktop"/>
+        <value type="string" value="uTools1"/>
+        <value type="string" value="LANDrop"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="Nutstore"/>
+        <value type="string" value="Fcitx"/>
+        <value type="string" value="MSM Notifier"/>
+        <value type="string" value="blueman"/>
+      </property>
+      <property name="icon-size" type="int" value="16"/>
+      <property name="single-row" type="bool" value="true"/>
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="symbolic-icons" type="bool" value="true"/>
+    </property>
+    <property name="plugin-3" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="0"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="middle-click" type="uint" value="1"/>
+      <property name="include-all-workspaces" type="bool" value="true"/>
+      <property name="show-labels" type="bool" value="false"/>
+      <property name="flat-buttons" type="bool" value="false"/>
+    </property>
+    <property name="plugin-7" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-9" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="audacious;chromium.instance10103;chromium.instance10170;chromium.instance10319;chromium.instance10341;chromium.instance104063;chromium.instance104805;chromium.instance10496;chromium.instance107962;chromium.instance10882;chromium.instance11105;chromium.instance111112;chromium.instance11126;chromium.instance111583;chromium.instance11446;chromium.instance11460;chromium.instance12130;chromium.instance126042;chromium.instance12664;chromium.instance13357;chromium.instance13388;chromium.instance134937;chromium.instance13599;chromium.instance13742;chromium.instance14015;chromium.instance14227;chromium.instance142797;chromium.instance146751;chromium.instance146915;chromium.instance148087;chromium.instance15618;chromium.instance15792;chromium.instance15824;chromium.instance16446;chromium.instance16825;chromium.instance17143;chromium.instance17185;chromium.instance17859;chromium.instance17953;chromium.instance18095;chromium.instance18694;chromium.instance190336;chromium.instance19184;chromium.instance20619;chromium.instance21097;chromium.instance21139;chromium.instance212033;chromium.instance2150798;chromium.instance2152708;chromium.instance22263;chromium.instance22521;chromium.instance24206;chromium.instance25061;chromium.instance256761;chromium.instance27560;chromium.instance27588;chromium.instance277552;chromium.instance28142;chromium.instance28805;chromium.instance28977;chromium.instance28990;chromium.instance30494;chromium.instance30551;chromium.instance30632;chromium.instance3188;chromium.instance32064;chromium.instance33314;chromium.instance3625;chromium.instance39474;chromium.instance4495;chromium.instance466300;chromium.instance4734;chromium.instance4784;chromium.instance4798;chromium.instance4890;chromium.instance4894;chromium.instance4961;chromium.instance507457;chromium.instance5094;chromium.instance51559;chromium.instance519834;chromium.instance5204;chromium.instance5213;chromium.instance5301;chromium.instance5308;chromium.instance5323;chromium.instance5346;chromium.instance5452;chromium.instance54695;chromium.instance5542;chromium.instance56212;chromium.instance5622;chromium.instance5653;chromium.instance566774;chromium.instance5800;chromium.instance5872;chromium.instance59253;chromium.instance59859;chromium.instance5993;chromium.instance6060;chromium.instance6342;chromium.instance6399;chromium.instance6400;chromium.instance6413;chromium.instance6459;chromium.instance6478;chromium.instance6483;chromium.instance6572;chromium.instance6617;chromium.instance6659;chromium.instance6689;chromium.instance6719;chromium.instance67758;chromium.instance6867;chromium.instance6963;chromium.instance6978;chromium.instance7156;chromium.instance7177;chromium.instance7243;chromium.instance725167;chromium.instance7341;chromium.instance7351;chromium.instance7412;chromium.instance743143;chromium.instance7546;chromium.instance7573;chromium.instance7609;chromium.instance7824;chromium.instance7899;chromium.instance79894;chromium.instance8028;chromium.instance8104;chromium.instance8251;chromium.instance8269;chromium.instance8421;chromium.instance8448;chromium.instance8449;chromium.instance8494;chromium.instance8502;chromium.instance8898;chromium.instance894387;chromium.instance8965;chromium.instance9001;chromium.instance904787;chromium.instance9140;chromium.instance9367;chromium.instance9427;chromium.instance9463;chromium.instance9623;chromium.instance9905;mpdevil;vlc"/>
+      <property name="blacklisted-players" type="string" value="audacious;mpdevil;vlc"/>
+    </property>
+    <property name="plugin-5" type="string" value="clock">
+      <property name="digital-format" type="string" value="%b%d日 星期%a %R"/>
+      <property name="tooltip-format" type="string" value="%b%d日 星期%a %R"/>
+    </property>
+    <property name="plugin-11" type="string" value="cpugraph"/>
+    <property name="plugin-12" type="string" value="fsguard"/>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-14" type="string" value="directorymenu">
+      <property name="base-directory" type="string" value="/home/hexh"/>
+      <property name="hidden-files" type="bool" value="true"/>
+      <property name="icon-name" type="string" value="user-blue-home"/>
+    </property>
+    <property name="plugin-15" type="string" value="directorymenu">
+      <property name="base-directory" type="string" value="/home/hexh/下载"/>
+      <property name="open-in-terminal" type="bool" value="false"/>
+      <property name="new-folder" type="bool" value="false"/>
+      <property name="new-document" type="bool" value="false"/>
+      <property name="hidden-files" type="bool" value="true"/>
+      <property name="icon-name" type="string" value="folder-teal-download"/>
+    </property>
+    <property name="plugin-1" type="string" value="i3-workspaces"/>
+    <property name="plugin-4" type="string" value="power-manager-plugin"/>
+    <property name="plugin-10" type="string" value="xfce4-mpc-plugin"/>
+    <property name="plugin-17" type="string" value="weather">
+      <property name="location" type="empty">
+        <property name="name" type="string" value="深圳市, 广东省"/>
+        <property name="latitude" type="string" value="22.560871"/>
+        <property name="longitude" type="string" value="113.945522"/>
+      </property>
+      <property name="msl" type="int" value="10"/>
+      <property name="timezone" type="string" value="Asia/Shanghai"/>
+      <property name="offset" type="string" value="+08:00"/>
+      <property name="cache-max-age" type="int" value="172800"/>
+      <property name="power-saving" type="bool" value="true"/>
+      <property name="units" type="empty">
+        <property name="temperature" type="int" value="0"/>
+        <property name="pressure" type="int" value="0"/>
+        <property name="windspeed" type="int" value="0"/>
+        <property name="precipitation" type="int" value="0"/>
+        <property name="altitude" type="int" value="0"/>
+        <property name="apparent-temperature" type="int" value="0"/>
+      </property>
+      <property name="round" type="bool" value="true"/>
+      <property name="single-row" type="bool" value="true"/>
+      <property name="tooltip-style" type="int" value="0"/>
+      <property name="forecast" type="empty">
+        <property name="layout" type="int" value="1"/>
+        <property name="days" type="int" value="3"/>
+      </property>
+      <property name="theme-dir" type="string" value="/usr/share/xfce4/weather/icons/simplistic"/>
+      <property name="scrollbox" type="empty">
+        <property name="show" type="bool" value="true"/>
+        <property name="animate" type="bool" value="true"/>
+        <property name="lines" type="int" value="1"/>
+        <property name="color" type="string" value="rgba(0,0,0,0)"/>
+        <property name="use-color" type="bool" value="false"/>
+      </property>
+      <property name="labels" type="empty">
+        <property name="label0" type="int" value="3"/>
+      </property>
+    </property>
+    <property name="plugin-18" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-16" type="string" value="whiskermenu"/>
+  </property>
+  <property name="configver" type="int" value="2"/>
+</channel>

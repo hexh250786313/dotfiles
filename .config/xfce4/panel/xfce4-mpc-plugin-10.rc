@@ -1,0 +1,9 @@
+[Settings]
+mpd_host=localhost
+mpd_port=6600
+mpd_password=
+show_frame=false
+client_appl=mpdevil
+tooltip_format=Volume : %vol%% - Mpd %status%%newline%%file%
+playlist_format=%artist% - %album% -/- (#%track%) %title%
+

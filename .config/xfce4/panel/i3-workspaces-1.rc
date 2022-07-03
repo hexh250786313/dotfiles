@@ -1,0 +1,11 @@
+normal_color=rgba(0,0,0,0)
+focused_color=rgba(0,0,0,0)
+urgent_color=rgba(0,0,0,0)
+mode_color=rgba(0,0,0,0)
+visible_color=rgba(0,0,0,0)
+strip_workspace_numbers=false
+auto_detect_outputs=false
+output=
+use_css=true
+css=.workspace { color: orange; font-weight: bold }\n.workspace.visible { }\n.workspace.focused { font-weight: bold; color: yellow }\n.workspace.urgent { color: red; }\n.binding-mode { }\n
+
