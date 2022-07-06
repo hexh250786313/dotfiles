@@ -9,5 +9,6 @@
   </property>
   <property name="interface" type="empty">
     <property name="show-filter" type="bool" value="true"/>
+    <property name="show-all-processes" type="bool" value="true"/>
   </property>
 </channel>

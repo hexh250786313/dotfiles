@@ -244,6 +244,10 @@ bindsym $sup+t exec --no-startup-id tilda
 for_window [class="Tilda"] floating enable
 for_window [class="Tilda"] border pixel 0
 
+for_window [class="Rofi"] border pixel 0
+for_window [class="Rofi"] floating enable
+
+for_window [class="xfce4-taskmanager"] floating enable
 for_window [class="pcmanfm-qt"] floating enable
 for_window [class="uTools"] floating enable
 for_window [class="Thunar"] floating enable
