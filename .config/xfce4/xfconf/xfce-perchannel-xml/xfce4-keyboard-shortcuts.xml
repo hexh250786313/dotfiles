@@ -43,13 +43,13 @@
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;x" type="string" value="xkill"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;m" type="string" value="xfce4-taskmanager"/>
-      <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-whiskermenu"/>
       <property name="&lt;Super&gt;q" type="string" value="sh -c &quot;pkill xfce4-notifyd &amp;&amp; /usr/lib/xfce4/notifyd/xfce4-notifyd&quot;"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;colon" type="string" value="xfce4-clipman-history"/>
       <property name="&lt;Super&gt;e" type="string" value="pcmanfm-qt"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;n" type="string" value="alacritty --command sh -c &quot;sleep 0.5; nvim /home/hexh/桌面/share/clipboard.txt&quot;"/>
       <property name="&lt;Super&gt;n" type="string" value="mousepad /home/hexh/桌面/share/clipboard.txt"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;a" type="string" value="flameshot gui"/>
+      <property name="&lt;Alt&gt;F1" type="string" value="rofi -combi-modi window,drun,ssh,run,combi -show combi -run-shell-command &apos;{terminal} -e zsh -ic &quot;{cmd} &amp;&amp; read&quot;&apos;"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
