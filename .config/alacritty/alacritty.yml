@@ -15,8 +15,8 @@ window:
   decorations: none
 font:
   normal:
-    # family: CaskaydiaCove Nerd Font
-    family: Sarasa Mono SC Nerd
+    family: CaskaydiaCove Nerd Font
+    # family: Sarasa Mono SC Nerd
     # family: agave Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
     style: r
@@ -34,11 +34,11 @@ font:
   # style: Bold Italic
   # size: 12.5
   # size: 12
-  size: 8.9
+  size: 9
   # size: 11
   offset:
     # x: -1
-    y: 5
+    y: 6
 mouse:
   hide_when_typing: true
 cursor:

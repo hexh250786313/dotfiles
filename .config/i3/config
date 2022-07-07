@@ -277,5 +277,6 @@ bindsym $mod+Down resize shrink height 1 px or 1 ppt
 
 bindsym $sup+Tab exec "~/workspace/dotfiles/.config/i3/scripts/cycle-workspace.py"
 
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+# bindsym $mod+Tab workspace next
+# bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Tab workspace back_and_forth
