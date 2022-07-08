@@ -35,9 +35,13 @@ for ws in ${ALL_WS[@]}; do
   if ! containsElement $ws "${WS_ARRAY[@]}"; then
     if "$moveContainer"; then
       # if -m flag is passed, move current container to new workspace
-      ACTIVE_WIN=$(xprop -id $(xdotool getactivewindow) | grep 'WM_NAME(STRING)' | cut -d'"' -f2)
+      # ACTIVE_WIN=$(xprop -id $(xdotool getactivewindow) | grep 'WM_NAME(STRING)' | cut -d'"' -f2)
+      # i3-msg move container to workspace $ws
+      # wmctrl -r $ACTIVE_WIN -b add,demands_attention
+
+      ACTIVE_WIN=$(xdotool getactivewindow)
       i3-msg move container to workspace $ws
-      wmctrl -r $ACTIVE_WIN -b add,demands_attention
+      wmctrl -i -r $ACTIVE_WIN -b add,demands_attention
     else
       # otherwise, switch to new empty workspace
       i3-msg workspace $ws
