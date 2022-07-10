@@ -41,6 +41,7 @@ for ws in ${ALL_WS[@]}; do
 
       ACTIVE_WIN=$(xdotool getactivewindow)
       i3-msg move container to workspace $ws
+      i3-msg workspace $ws
       wmctrl -i -r $ACTIVE_WIN -b add,demands_attention
     else
       # otherwise, switch to new empty workspace
