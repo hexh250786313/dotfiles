@@ -2,13 +2,8 @@ vim.opt.background = "dark" -- 背景 "light" | "dark"
 
 vim.cmd(
   [[
-try
-    " colorscheme everforest
-    colorscheme vscode
-    let g:everforest_background = 'medium'
-catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme default
-endtry
+colorscheme vscode
+let g:everforest_background = 'medium'
 
 let g:defaultnormalgb=HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
 let g:defaultcursorlinegb=HandleColorNONE(synIDattr(synIDtrans(hlID('CursorLine')), 'bg', 'gui'))

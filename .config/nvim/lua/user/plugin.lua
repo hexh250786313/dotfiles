@@ -50,8 +50,14 @@ return packer.startup(
 
     use({"wbthomason/packer.nvim"})
 
-    -- use({"sainnhe/everforest"})
-    use({"hexh250786313/vscode.nvim"})
+    -- Theme
+    use(
+      {
+        "hexh250786313/vscode.nvim"
+        -- "sainnhe/everforest"
+      }
+    )
+    -- Theme End
 
     use({"moll/vim-bbye", keys = {{"n", "<space>bd"}}, cmd = "Bdelete", config = [[require("plugin.vim-bbye")]]})
 
