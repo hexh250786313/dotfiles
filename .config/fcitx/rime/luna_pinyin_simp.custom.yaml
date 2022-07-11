@@ -1,11 +1,14 @@
+# 这是补丁写法, 也就是从默认配置中修改某项, 例如: switches/@3/reset: 1 意思就是
+# 把 switches 的第四个 @3 (ascii_punct), 全半角设置
+# 的 reset 值 (默认全角还是半角) 改为 1 (1 为半角, 0 为全角)
 patch:
+  switches/@3/reset: 1
   translator/dictionary: luna_pinyin_simp.custom
   "menu/page_size": 9
   "key_binder/bindings":
     - { when: paging, accept: bracketleft, send: Page_Up }
     - { when: has_menu, accept: bracketright, send: Page_Down }
-  "punctuator":
-    import_preset: luna_pinyin_simp.custom.punctuator
+    - { when: always, accept: Control+period, toggle: ascii_punct } # 全半角转换快捷键, C-.
   "engine/translators/@before 1":
     lua_translator@date_translator
   "engine/translators/@before 2":
