@@ -3,7 +3,7 @@ vim.opt.background = "dark" -- 背景 "light" | "dark"
 vim.cmd(
   [[
 let g:everforest_background = 'medium'
-let g:everforest_better_performance = 1
+let g:everforest_better_performance = 0
 
 colorscheme vscode
 
