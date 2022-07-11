@@ -12,9 +12,9 @@ call defx#custom#column('indent', {
       \ 'indent': '  ',
       \ })
 call defx#custom#column('icon', {
-      \ 'directory_icon': '   ',
-      \ 'opened_icon': '   ',
-      \ 'file_icon': '    ',
+      \ 'directory_icon': '  ',
+      \ 'opened_icon': '  ',
+      \ 'file_icon': '   ',
       \ 'root_icon': '',
       \ })
 
