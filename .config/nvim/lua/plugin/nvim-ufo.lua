@@ -1,5 +1,7 @@
-vim.wo.foldcolumn = "0"
-vim.wo.foldlevel = 99
+-- hack foldsign
+vim.o.fillchars = [[eob: ,fold: ,foldopen: ,foldsep: ,foldclose:]]
+vim.o.foldcolumn = '1'
+vim.o.foldlevelstart = -1
 vim.wo.foldenable = true
 
 local handler = function(virtText, lnum, endLnum, width)
