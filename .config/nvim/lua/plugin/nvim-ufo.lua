@@ -1,6 +1,6 @@
 -- hack foldsign
 vim.o.fillchars = [[eob: ,fold: ,foldopen: ,foldsep: ,foldclose:]]
-vim.o.foldcolumn = '1'
+vim.o.foldcolumn = '2'
 vim.o.foldlevelstart = -1
 vim.wo.foldenable = true
 
