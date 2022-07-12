@@ -234,4 +234,4 @@ schemes:
       magenta: "#df69ba"
       cyan: "#35a77c"
       white: "#dfddc8"
-colors: *code_dark
+colors: *everforest_light_medium

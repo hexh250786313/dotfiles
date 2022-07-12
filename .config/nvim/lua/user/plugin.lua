@@ -53,8 +53,8 @@ return packer.startup(
     -- Theme
     use(
       {
-        "hexh250786313/vscode.nvim"
-        -- "sainnhe/everforest"
+        -- "hexh250786313/vscode.nvim"
+        "sainnhe/everforest"
       }
     )
     -- Theme End
