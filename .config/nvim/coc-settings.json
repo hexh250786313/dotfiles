@@ -104,5 +104,6 @@
   "signature.target": "float",
   "suggest.enablePreselect": true,
   "colors.filetypes": ["*"],
-  "symbol-line.separator": " ❯ "
+  "symbol-line.separator": " ❯ ",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css"
 }
