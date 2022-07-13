@@ -10,5 +10,5 @@ Max_In=4096
 Max_Out=4096
 Auto_Max=true
 Update_Interval=250
-Values_As_Bits=true
+Values_As_Bits=false
 
