@@ -5,7 +5,8 @@
         "Lenovo TrackPoint Keyboard II": "new preset",
         "USB Keyboard USB Keyboard": "new preset",
         "TrackPoint Keyboard II Mouse": "new preset",
-        "USB-HID Keyboard": "new preset"
+        "USB-HID Keyboard": "new preset",
+        "TEX-BLE-KB-1 Mouse": "new preset"
     },
     "macros": {
         "keystroke_sleep_ms": 10
