@@ -32,6 +32,8 @@ function! s:defx_my_settings() abort
   " setlocal winhighlight=Normal:NormalStrongFont,NormalNC:Normal " 非活动时会变回 Normal
 
   setlocal cursorline
+  setlocal nornu
+  setlocal nonu
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
         \ defx#do_action('open')
