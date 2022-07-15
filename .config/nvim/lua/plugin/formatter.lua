@@ -3,7 +3,10 @@ local util = require "formatter.util"
 local function format_prettierd()
   return {
     exe = "prettierd",
-    args = {vim.api.nvim_buf_get_name(0)},
+    args = {
+      -- vim.api.nvim_buf_get_name(0)
+      util.escape_path(util.get_current_buffer_file_path()) -- util.escape_path 对路径进行字符转义
+    },
     stdin = true
   }
 end
