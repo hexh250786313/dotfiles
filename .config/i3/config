@@ -249,6 +249,7 @@ for_window [class="Rofi"] floating enable
 
 for_window [class="Xfce4-taskmanager"] floating enable
 for_window [class="Xfce4-display-settings"] floating enable
+for_window [class="Xfce4-keyboard-settings"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="pcmanfm-qt"] floating enable
 for_window [class="uTools"] floating enable
