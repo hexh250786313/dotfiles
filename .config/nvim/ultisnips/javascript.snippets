@@ -34,3 +34,34 @@ class ${1:Functor} {
   }
 }
 endsnippet
+
+snippet fetch "mock fetch" b
+const mock = function (url) {
+  if (!url) {
+    throw new Error("Url required!");
+  }
+
+  const _fetch = async (${1:args}) => {
+    const rawBody = { ...${1} };
+    const opts = {
+      method: "${2:post}",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json, text/plain, */*",
+      },
+      credentials: "include",
+      mode: "cors",
+      cache: "no-cache",
+      body: JSON.stringify(rawBody),
+    };
+
+    return fetch(url, opts).then((res) => {
+      ${3:console.log(res);}
+    });
+  };
+
+  return _fetch;
+};
+
+mock("${4:http://127.0.0.1}:${5:8080}/${6:test}")(${7:\{ a: 1 \}});
+endsnippet
