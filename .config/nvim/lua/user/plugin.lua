@@ -195,13 +195,11 @@ return packer.startup(
 
     use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
 
-    use(
-      {
-        "anuvyklack/pretty-fold.nvim",
-        config = [[require("plugin.pretty-fold")]],
-        requires = "anuvyklack/nvim-keymap-amend"
-      }
-    )
+    use ({
+      "anuvyklack/fold-preview.nvim",
+      config = [[require("plugin.fold-preview")]],
+      requires = "anuvyklack/keymap-amend.nvim"
+    })
 
     use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
 
