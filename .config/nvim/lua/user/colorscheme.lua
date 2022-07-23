@@ -4,8 +4,9 @@ vim.cmd(
   [[
 let g:everforest_background = 'medium'
 let g:everforest_better_performance = 0
+let g:gruvbox_material_foreground = 'original'
 
-colorscheme vscode
+colorscheme gruvbox-material
 
 let g:defaultnormalgb=HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
 let g:defaultcursorlinegb=HandleColorNONE(synIDattr(synIDtrans(hlID('CursorLine')), 'bg', 'gui'))

@@ -33,3 +33,21 @@ color12="#f44336"
 color13="#ffffff" # command bg
 color14="#f44336"
 color15="#f44336"
+
+# gruvbox_dark
+color0="#a89984" # leftest bar bg
+color1="#32302f" # status bg
+color2="#504945" # time bg
+color3="#a89984" # hexh bg
+color4="#ebdbb2" # status fg
+color5="#2a2a29" # leftest bar fg
+color6="#2a2a29" # selected fg
+color7="#f44336"
+color8="#f44336"
+color9="#f44336"
+color10="#504945" # selected bg
+color11="#f44336"
+color12="#f44336"
+color13="#ffffff" # command bg
+color14="#f44336"
+color15="#f44336"

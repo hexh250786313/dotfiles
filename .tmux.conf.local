@@ -1,16 +1,16 @@
 tmux_conf_24b_colour=true
 
-color0="#0a7aca" # leftest bar bg
-color1="#373737" # status bg
-color2="#569cd6" # time bg
-color3="#1569a6" # hexh bg
-color4="#d4d4d4" # status fg
-color5="#d4d4d4" # leftest bar fg
-color6="#d4d4d4" # selected fg
+color0="#a89984" # leftest bar bg
+color1="#32302f" # status bg
+color2="#504945" # time bg
+color3="#a89984" # hexh bg
+color4="#ebdbb2" # status fg
+color5="#2a2a29" # leftest bar fg
+color6="#2a2a29" # selected fg
 color7="#f44336"
 color8="#f44336"
 color9="#f44336"
-color10="#1569a6" # selected bg
+color10="#504945" # selected bg
 color11="#f44336"
 color12="#f44336"
 color13="#ffffff" # command bg
@@ -65,6 +65,7 @@ set -g prefix2 M-b
 tmux_conf_copy_to_os_clipboard=true
 set -g default-terminal "tmux-256color"
 set-option -ga terminal-overrides ",*256col*:Tc" # 这句是关键
+set -ag terminal-overrides ",alacritty:RGB"
 set-option -sg escape-time 50 # esc 键延迟，设置 0 的话 Ubuntu 20.04 会出现奇怪字符
 set-window-option -g mode-keys vi
 bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
