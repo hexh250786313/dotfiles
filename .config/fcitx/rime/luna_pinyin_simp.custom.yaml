@@ -19,8 +19,8 @@ patch:
     # lua_filter@single_char_first_filter
   # "engine/processors/@before 0":
     # lua_processor@switch_processor
-  "engine/filters/@before 1":
-    lua_filter@reverse_lookup_filter
+  # "engine/filters/@before 1":
+    # lua_filter@reverse_lookup_filter # 拼音注释
   "engine/filters/@before 2":
     lua_filter@charset_filter
   # "engine/filters/@before 1":
