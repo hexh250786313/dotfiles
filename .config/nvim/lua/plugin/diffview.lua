@@ -10,6 +10,6 @@ vim.cmd(
   [[
 nnoremap <silent> <Space>gt :DiffviewFileHistory %<CR>
 nnoremap <silent> <Space>gT :DiffviewFileHistory<CR>
-nnoremap <silent> <Space>gG :DiffviewOpen<CR>
+nnoremap <silent> <Space>gg :DiffviewOpen<CR>
 ]]
 )

@@ -225,7 +225,7 @@ return packer.startup(
       {
         "sindrets/diffview.nvim",
         cmd = {"DiffviewFileHistory", "DiffviewOpen"},
-        keys = {{"n", "<space>gt"}, {"n", "<space>gG"}, {"n", "<space>gT"}},
+        keys = {{"n", "<space>gt"}, {"n", "<space>gg"}, {"n", "<space>gT"}},
         config = [[require("plugin.diffview")]]
       }
     )
@@ -264,7 +264,7 @@ return packer.startup(
       {
         "tpope/vim-fugitive",
         cmd = {"Git"},
-        keys = {{"n", "<space>gg"}, {"n", "<space>gc"}},
+        keys = {{"n", "<space>gc"}},
         config = [[require("plugin.vim-fugitive")]]
       }
     )
