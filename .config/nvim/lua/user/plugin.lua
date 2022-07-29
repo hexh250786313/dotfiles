@@ -237,10 +237,6 @@ return packer.startup(
       }
     )
 
-    use({"sindrets/winshift.nvim", keys = {{"n", "<space>ws"}}, config = [[require("plugin.winshift")]]})
-
-    use({"beauwilliams/focus.nvim", config = [[require("plugin.focus")]]})
-
     use({"romainl/vim-cool"})
 
     use({"dstein64/nvim-scrollview", config = [[require("plugin.nvim-scrollview")]]})
@@ -255,7 +251,14 @@ return packer.startup(
 
     use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
 
-    use({"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async", config = [[require("plugin.nvim-ufo")]]})
+    use(
+      {
+        "kevinhwang91/nvim-ufo",
+        requires = "kevinhwang91/promise-async",
+        config = [[require("plugin.nvim-ufo")]],
+        cmd = "UfoEnable"
+      }
+    )
 
     use(
       {
