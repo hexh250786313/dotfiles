@@ -137,6 +137,7 @@ nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
 nnoremap <silent> <Space>] <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 nnoremap <silent> <Space>[ <cmd>Telescope coc references layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
+nnoremap <C-LeftMouse> <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 

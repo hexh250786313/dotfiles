@@ -154,6 +154,7 @@ return packer.startup(
           {"n", "<space>sr"},
           {"n", "<space>["},
           {"n", "<space>]"},
+          {"n", "<C-LeftMouse>"},
           {"v", "<space>sf"},
           {"v", "<space>sg"}
         },
