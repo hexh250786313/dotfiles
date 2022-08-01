@@ -70,10 +70,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-    \ coc#pum#visible() ? coc#pum#next(1):
-    \ <SID>check_back_space() ? "\<Tab>" :
-    \ copilot#Accept("\<CR>")
+inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1): copilot#Accept("\<CR>")
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
