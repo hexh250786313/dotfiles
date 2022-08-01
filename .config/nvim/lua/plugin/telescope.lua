@@ -6,7 +6,8 @@ require("telescope").setup {
     mappings = {
       i = {
         ["<C-p>"] = action_layout.toggle_preview,
-        ["<C-n>"] = function () end,
+        ["<C-n>"] = function()
+        end,
         ["<M-q>"] = function(res)
           actions.send_selected_to_qflist(res)
           vim.cmd [[copen]]
@@ -16,11 +17,12 @@ require("telescope").setup {
           vim.cmd [[copen]]
         end,
         ["<Up>"] = actions.preview_scrolling_up,
-        ["<Down>"] = actions.preview_scrolling_down,
+        ["<Down>"] = actions.preview_scrolling_down
       },
       n = {
         ["<C-p>"] = action_layout.toggle_preview,
-        ["<C-n>"] = function () end,
+        ["<C-n>"] = function()
+        end,
         ["P"] = action_layout.toggle_preview,
         ["<M-q>"] = function(res)
           actions.send_selected_to_qflist(res)
@@ -31,7 +33,7 @@ require("telescope").setup {
           vim.cmd [[copen]]
         end,
         ["<Up>"] = actions.preview_scrolling_up,
-        ["<Down>"] = actions.preview_scrolling_down,
+        ["<Down>"] = actions.preview_scrolling_down
       }
     },
     vimgrep_arguments = {"rg", "--column", "--ignore-case", "--hidden", "--multiline", "--vimgrep"},
