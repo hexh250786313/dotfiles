@@ -44,9 +44,12 @@ wilder.set_option(
         min_height = 0, -- set to the same as 'max_height' for a fixed height window
         prompt_position = "top", -- 'top' or 'bottom' to set the location of the prompt
         reverse = 0, -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
-        pumblend = 15,
+        -- pumblend = 15, -- once it sets, it will override the hilight group
         left = {" ", wilder.popupmenu_devicons(), " "},
         right = {" ", wilder.popupmenu_scrollbar(), " "},
+        highlights = {
+          selected = "DiffAdd"
+        }
       }
     )
   )

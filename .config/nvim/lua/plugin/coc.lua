@@ -33,16 +33,22 @@ vim.g.coc_global_extensions = {
   "@hexuhua/coc-yank"
 }
 
--- 如果要自定义跳转行为, 则把这个设置为 0
-vim.g.coc_enable_locationlist = 0
 -- coc 选择了 quickfix 打开后的回调
 -- vim.g.coc_quickfix_open_command = "CocList --auto-preview --normal --tab --number-select quickfix"
 vim.g.coc_quickfix_open_command = "copen"
 
+-- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
+vim.g.coc_enable_locationlist = 0
 api.nvim_create_autocmd(
   {"User"},
-  {pattern = "CocLocationsChange", command = "CocList --normal --tab --auto-preview location"}
+  -- {pattern = "CocLocationsChange", command = "CocList --normal --tab --auto-preview  location"}
+  {pattern = "CocLocationsChange", command = "CocList --normal --tab --auto-preview --number-select location"}
 )
+
+-- api.nvim_create_autocmd(
+-- {"User"},
+-- {pattern = "CocOpenFloat", command = 'call setwinvar(g:coc_last_float_win, "&winblend", 20)'}
+-- )
 
 -- 移动光标根据算法高亮词语以及 buffer 中的相关词语, 有点烦人, 关掉
 -- api.nvim_create_autocmd(

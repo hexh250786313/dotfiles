@@ -122,6 +122,10 @@ exec 'hi! CocGitSignAdd' .
 exec 'hi! CocGitSignDelete' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffDelete')), 'bg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffDelete')), 'bg', 'gui'))
+exec 'hi! CocMenuSel' .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
+exec 'hi! CocListLine' .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
 
 exec 'hi! ScrollView guifg=NONE' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
