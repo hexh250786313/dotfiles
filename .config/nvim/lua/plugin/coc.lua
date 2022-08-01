@@ -71,12 +71,14 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <Tab>
-    \ pumvisible() ? "\<C-n>" :
+    \ coc#pum#visible() ? coc#pum#next(1):
     \ <SID>check_back_space() ? "\<Tab>" :
-    \ coc#refresh()
+    \ copilot#Accept("\<CR>")
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
+  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 inoremap <silent><expr> <C-k> coc#refresh()
 nnoremap <silent> <Space>gs :CocCommand git.chunkStage<CR>
 nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>
@@ -100,10 +102,6 @@ nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 
 nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>
-
-if exists('*complete_info')
-  inoremap <silent><expr> <cr> complete_info(['selected'])['selected'] != -1 ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<C-f>"
