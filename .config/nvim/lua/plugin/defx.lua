@@ -296,7 +296,7 @@ call defx#custom#option('_', {
       \ 'split': 'vertical',
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'vertical_preview': 1,
-      \ 'resume': 0,
+      \ 'resume': 1,
       \ })
 
 call defx#custom#column('git', 'indicators', {
