@@ -266,7 +266,7 @@ return packer.startup(
       {
         "tpope/vim-fugitive",
         cmd = {"Git"},
-        keys = {{"n", "<space>gc"}, {"n", "<space>gg"}},
+        keys = {{"n", "<space>gg"}, {"n", "<space>gc"}},
         config = [[require("plugin.vim-fugitive")]]
       }
     )
