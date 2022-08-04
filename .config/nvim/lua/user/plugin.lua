@@ -150,13 +150,13 @@ return packer.startup(
         "nvim-telescope/telescope.nvim",
         keys = {
           {"n", "<space>sf"},
-          {"n", "<space>sg"},
+          -- {"n", "<space>sg"},
           {"n", "<space>sr"},
           {"n", "<space>["},
           {"n", "<space>]"},
           {"n", "<C-LeftMouse>"},
-          {"v", "<space>sf"},
-          {"v", "<space>sg"}
+          {"v", "<space>sf"}
+          -- {"v", "<space>sg"}
         },
         config = [[require("plugin.telescope")]]
       }
@@ -268,6 +268,15 @@ return packer.startup(
         cmd = {"Git"},
         keys = {{"n", "<space>gg"}, {"n", "<space>gc"}},
         config = [[require("plugin.vim-fugitive")]]
+      }
+    )
+
+    use(
+      {
+        "nvim-pack/nvim-spectre",
+        keys = {{"n", "<space>sg"}, {"v", "<space>sg"}},
+        config = [[require("plugin.nvim-spectre")]],
+        run = "sh -c 'build.sh'"
       }
     )
 
