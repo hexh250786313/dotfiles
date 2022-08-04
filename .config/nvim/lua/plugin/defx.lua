@@ -34,6 +34,7 @@ function! s:defx_my_settings() abort
   setlocal cursorline
   setlocal nornu
   setlocal nonu
+  setlocal shiftwidth=2
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
         \ defx#do_action('open')
