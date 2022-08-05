@@ -15,7 +15,7 @@ const mock = function (url: string) {
       credentials: "include",
       mode: "cors",
       cache: "no-cache",
-      body: JSON.stringify(rawBody),
+      body: JSON.parse(JSON.stringify(rawBody)),
     };
 
     return fetch(url, opts).then((res) => {
