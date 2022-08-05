@@ -76,7 +76,9 @@ return packer.startup(
       }
     )
 
-    use({"kristijanhusak/defx-icons"})
+    -- use({"kristijanhusak/defx-icons"})
+    -- use({"~/workspace/defx-icons"})
+    use({"hexh250786313/defx-icons"})
 
     use({"kristijanhusak/defx-git"})
 
@@ -275,7 +277,7 @@ return packer.startup(
       {
         "nvim-pack/nvim-spectre",
         keys = {{"n", "<space>sg"}, {"v", "<space>sg"}},
-        config = [[require("plugin.nvim-spectre")]],
+        config = [[require("plugin.nvim-spectre")]]
       }
     )
 
