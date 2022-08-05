@@ -276,7 +276,6 @@ return packer.startup(
         "nvim-pack/nvim-spectre",
         keys = {{"n", "<space>sg"}, {"v", "<space>sg"}},
         config = [[require("plugin.nvim-spectre")]],
-        run = "sh -c 'build.sh'"
       }
     )
 
