@@ -33,7 +33,7 @@ require("spectre").setup(
 
 vim.cmd(
   [[
-nnoremap <silent> <Space>sg <esc>:lua require('spectre').open()<CR>
+nnoremap <silent> <Space>sg <esc>:lua require('spectre').open()<CR>i
 vnoremap <silent> <Space>sg <esc>:lua require('spectre').open_visual()<CR>
   ]]
 )
