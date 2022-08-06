@@ -29,6 +29,7 @@ require("formatter").setup(
       typescript = {format_prettierd},
       javascript = {format_prettierd},
       javascriptreact = {format_prettierd},
+      markdown = {format_prettierd},
       json = {format_prettierd},
       css = {format_prettierd},
       scss = {format_prettierd},

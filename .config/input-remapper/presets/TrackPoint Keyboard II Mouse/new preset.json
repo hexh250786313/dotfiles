@@ -23,6 +23,14 @@
         "1,57,1": [
             "set(space, 1).h().ifeq(space, 1, h(space))",
             "keyboard"
+        ],
+        "1,57,1+1,52,1": [
+            "set(space, 0).h(KEY_FORWARD)",
+            "keyboard"
+        ],
+        "1,57,1+1,51,1": [
+            "set(space, 0).h(KEY_BACK)",
+            "keyboard"
         ]
     }
 }

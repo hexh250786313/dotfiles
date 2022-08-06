@@ -35,6 +35,14 @@
         "1,57,1+1,61,1": [
             "set(space, 0).h(KEY_VOLUMEUP)",
             "keyboard"
+        ],
+        "1,57,1+1,52,1": [
+            "set(space, 0).h(KEY_FORWARD)",
+            "keyboard"
+        ],
+        "1,57,1+1,51,1": [
+            "set(space, 0).h(KEY_BACK)",
+            "keyboard"
         ]
     }
 }
