@@ -10,6 +10,7 @@
         <value type="int" value="2"/>
         <value type="int" value="1"/>
         <value type="int" value="7"/>
+        <value type="int" value="3"/>
         <value type="int" value="8"/>
         <value type="int" value="10"/>
         <value type="int" value="11"/>
@@ -54,7 +55,7 @@
         <value type="string" value="-hybrid-sleep"/>
       </property>
       <property name="button-title" type="uint" value="3"/>
-      <property name="custom-title" type="string" value="「非常に蚌埠住です ln😅 = 💧ln😄」"/>
+      <property name="custom-title" type="string" value="「蚌埠 😅」"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="names-visible" type="array">
@@ -147,6 +148,17 @@
     </property>
     <property name="plugin-16" type="string" value="whiskermenu"/>
     <property name="plugin-8" type="string" value="netload"/>
+    <property name="plugin-3" type="string" value="tasklist">
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="sort-order" type="uint" value="1"/>
+      <property name="flat-buttons" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="true"/>
+      <property name="grouping" type="uint" value="1"/>
+      <property name="middle-click" type="uint" value="1"/>
+      <property name="switch-workspace-on-unminimize" type="bool" value="true"/>
+      <property name="show-wireframes" type="bool" value="false"/>
+      <property name="include-all-workspaces" type="bool" value="true"/>
+    </property>
   </property>
   <property name="configver" type="int" value="2"/>
 </channel>
