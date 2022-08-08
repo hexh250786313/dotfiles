@@ -281,6 +281,8 @@ return packer.startup(
       }
     )
 
+    use({"gpanders/editorconfig.nvim"})
+
     use({"dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]]})
 
     if PACKER_BOOTSTRAP then
