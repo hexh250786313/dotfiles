@@ -3,6 +3,8 @@ vim.g.copilot_filetypes = {
   [""] = false,
   ["spectre_panel"] = false,
   ["qf"] = false,
-  ["fugitive"] = false
+  ["fugitive"] = false,
+  ["list"] = false,
+  ["defx"] = false
 }
 vim.g.copilot_no_tab_map = true
