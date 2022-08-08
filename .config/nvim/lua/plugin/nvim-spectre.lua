@@ -23,7 +23,7 @@ require("spectre").setup(
           "--ignore-case",
           "--hidden",
           "--multiline",
-          "--vimgrep"
+          -- "--vimgrep" -- for result in same line, usually, it is not useful for searching but useful for replacing
         }
       }
     },
