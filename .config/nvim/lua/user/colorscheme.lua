@@ -82,6 +82,7 @@ exec 'hi! TSTagAttribute gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSTagAttribute')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSVariableBuiltin')), 'fg', 'gui'))
 
+exec 'hi! DefxIconsDefaultIcon guibg=NONE guifg=#6d8086'
 exec 'hi! DefxIconsNestedTreeIcon guibg=NONE' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Directory')), 'fg', 'gui'))
 exec 'hi! DefxIconsParentDirectory guibg=NONE' .
