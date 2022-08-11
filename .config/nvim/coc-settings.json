@@ -77,8 +77,7 @@
     "border": true
   },
   "suggest.floatConfig": {
-    "border": true,
-    "rounded": true
+    "highlight": "StatusLine"
   },
   "suggest.timeout": 5000,
   "coc.preferences.extensionUpdateCheck": "daily",

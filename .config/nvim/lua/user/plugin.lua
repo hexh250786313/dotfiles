@@ -210,7 +210,7 @@ return packer.startup(
 
     use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
 
-    use({"github/copilot.vim", config = [[require("plugin.copilot")]]})
+    use({"github/copilot.vim", config = [[require("plugin.copilot")]], cmd = {"Copilot"}})
 
     use({"gelguy/wilder.nvim", run = ":UpdateRemotePlugins", config = [[require("plugin.wilder")]]})
 
