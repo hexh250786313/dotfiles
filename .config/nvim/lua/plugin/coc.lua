@@ -12,7 +12,8 @@ vim.o.winbar = "%!v:lua.symbol_line()"
 
 vim.g.coc_global_extensions = {
   "coc-css",
-  "coc-eslint",
+  -- "coc-eslint",
+  "coc-diagnostic",
   -- "coc-highlight",
   "coc-html",
   "coc-json",

@@ -38,7 +38,6 @@
   "list.source.files.excludePatterns": ["**/.git/**"],
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.autoRefresh": true,
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",
@@ -93,7 +92,6 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "diagnostic.checkCurrentLine": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
-  "eslint.packageManager": "yarn",
   "git.semanticCommit.scope": false,
   "suggest.detailField": "abbr",
   "suggest.defaultSortMethod": "none",
@@ -114,5 +112,41 @@
   "markdown-preview-enhanced.liveUpdate": true,
   "markdown-preview-enhanced.scrollSync": false,
   "markdown-preview-enhanced.singlePreview": true,
-  "markdown-preview-enhanced.mathRenderingOption": "None"
+  "markdown-preview-enhanced.mathRenderingOption": "None",
+  "diagnostic.autoRefresh": true,
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.messageDelay": 500,
+  "diagnostic.refreshAfterSave": false,
+  "diagnostic-languageserver.enable": true,
+  "diagnostic-languageserver.filetypes": {
+    "typescriptreact": "eslint_d",
+    "typescript": "eslint_d",
+    "javascript": "eslint_d",
+    "javascriptreact": "eslint_d",
+    "javascript.jsx": "eslint_d",
+    "typescript.tsx": "eslint_d"
+  },
+  "diagnostic-languageserver.linters": {
+    "eslint_d": {
+      "command": "eslint_d",
+      "rootPatterns": [],
+      "debounce": 100,
+      "args": ["--stdin", "--stdin-filename", "%filepath", "--format", "json"],
+      "sourceName": "eslint_d",
+      "parseJson": {
+        "errorsRoot": "[0].messages",
+        "line": "line",
+        "column": "column",
+        "endLine": "endLine",
+        "endColumn": "endColumn",
+        "message": "${message} [${ruleId}]",
+        "security": "severity"
+      },
+      "securities": {
+        // "0": "info",
+        "1": "warning",
+        "2": "error"
+      }
+    }
+  }
 }
