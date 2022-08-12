@@ -38,6 +38,7 @@
   "list.source.files.excludePatterns": ["**/.git/**"],
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.autoRefresh": false,
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",
