@@ -1,6 +1,10 @@
 local util = require "formatter.util"
 
 local function format_prettierd()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+
   return {
     exe = "prettierd",
     args = {
@@ -12,6 +16,10 @@ local function format_prettierd()
 end
 
 local function format_prettier()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+
   return {
     exe = "prettier",
     args = {
@@ -36,6 +44,9 @@ require("formatter").setup(
       less = {format_prettierd},
       lua = {
         function()
+          if vim.api.nvim_buf_line_count(0) < 1 then
+            return {}
+          end
           return {
             exe = "luafmt",
             args = {"--indent-count", 2, "--stdin"},
