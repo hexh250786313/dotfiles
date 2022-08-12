@@ -1,6 +1,7 @@
 vim.cmd(
   [[
-noremap <Space>y "+y
+" noremap <Space>y "+y
+noremap <silent> <Space>y :<C-u>call ClipboardYank(visualmode())<cr>
 noremap <Space>p "+p
 noremap <Space>o "+x
 " noremap <C-c>y "+y
