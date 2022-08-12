@@ -57,7 +57,7 @@ api.nvim_create_autocmd(
 -- )
 
 -- 与 coc-settings 的 diagnosticRefresh 对应, false 相当于禁用自动刷新, 自定义刷新行为
-api.nvim_create_autocmd({"CursorHold"}, {pattern = "*", command = "silent call CocActionAsync('diagnosticRefresh')"})
+-- api.nvim_create_autocmd({"CursorHold"}, {pattern = "*", command = "silent call CocActionAsync('diagnosticRefresh')"})
 
 vim.cmd(
   [[
