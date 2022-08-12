@@ -127,6 +127,8 @@ exec 'hi! CocMenuSel' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
 exec 'hi! CocListLine' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
+exec 'hi! CocFloating' .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
 
 exec 'hi! ScrollView guifg=NONE' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))

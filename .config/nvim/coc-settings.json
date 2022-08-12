@@ -68,17 +68,25 @@
   },
   "suggest.labelMaxLength": 30,
   "signature.floatConfig": {
-    "border": true
+    "border": false,
+    "winblend": 20
+  },
+  "suggest.pumFloatConfig": {
+    "border": false,
+    "winblend": 20
   },
   "diagnostic.floatConfig": {
-    "border": true
+    "border": false,
+    "winblend": 20
   },
   "hover.floatConfig": {
-    "border": true
+    "border": false,
+    "winblend": 20
   },
   "suggest.floatConfig": {
+    "border": false,
     "highlight": "StatusLine",
-    "winblend": 15
+    "winblend": 20
   },
   "suggest.timeout": 5000,
   "coc.preferences.extensionUpdateCheck": "daily",
