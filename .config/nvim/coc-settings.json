@@ -124,12 +124,15 @@
     "javascript": "eslint_d",
     "javascriptreact": "eslint_d",
     "javascript.jsx": "eslint_d",
-    "typescript.tsx": "eslint_d"
+    "typescript.tsx": "eslint_d",
+    "css": "stylelint",
+    "less": "stylelint",
+    "scss": "stylelint"
   },
   "diagnostic-languageserver.linters": {
     "eslint_d": {
       "command": "eslint_d",
-      "rootPatterns": [],
+      "rootPatterns": [".git"], // For cwd
       "debounce": 100,
       "args": ["--stdin", "--stdin-filename", "%filepath", "--format", "json"],
       "sourceName": "eslint_d",
@@ -146,6 +149,36 @@
         // "0": "info",
         "1": "warning",
         "2": "error"
+      }
+    },
+    "stylelint": {
+      "command": "stylelint",
+      "rootPatterns": [".git"], // For cwd
+      "debounce": 100,
+      "args": [
+        "-f",
+        "compact",
+        "--config",
+        "/home/hexh/workspace/dotfiles/.config/nvim/stylelint.config.js"
+      ],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "stylelint",
+      "isStderr": false,
+      "isStdout": true,
+      "formatLines": 1,
+      "formatPattern": [
+        "^[^:]+:\\D+(\\d+)\\D+(\\d+)\\W+(\\w+)\\s-\\s(.*)$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 4,
+          "security": 3
+        }
+      ],
+      "securities": {
+        "error": "error",
+        "warning": "warning"
       }
     }
   }

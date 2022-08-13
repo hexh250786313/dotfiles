@@ -104,3 +104,4 @@ alias la="colorls -a --sd"
 alias ll="colorls -l --sd"
 alias ls="colorls --sd"
 
+export NODE_PATH="$(npm root --global)"
