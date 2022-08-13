@@ -113,8 +113,8 @@
   "markdown-preview-enhanced.scrollSync": false,
   "markdown-preview-enhanced.singlePreview": true,
   "markdown-preview-enhanced.mathRenderingOption": "None",
-  "diagnostic.autoRefresh": true,
-  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.autoRefresh": false,
+  "diagnostic.refreshOnInsertMode": false,
   "diagnostic.messageDelay": 500,
   "diagnostic.refreshAfterSave": false,
   "diagnostic-languageserver.enable": true,
@@ -133,7 +133,7 @@
     "eslint_d": {
       "command": "eslint_d",
       "rootPatterns": [".git"], // For cwd
-      "debounce": 100,
+      "debounce": 500,
       "args": ["--stdin", "--stdin-filename", "%filepath", "--format", "json"],
       "sourceName": "eslint_d",
       "parseJson": {
@@ -154,7 +154,7 @@
     "stylelint": {
       "command": "stylelint",
       "rootPatterns": [".git"], // For cwd
-      "debounce": 100,
+      "debounce": 500,
       "args": [
         "-f",
         "compact",

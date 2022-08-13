@@ -193,7 +193,6 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 # }
 
-gaps inner 19
 # gaps outer 6 # 四周
 # gaps left 6
 # gaps right 6
@@ -223,10 +222,12 @@ gaps inner 19
 # gaps bottom 3
 
 # 另一种 dpi 120 下, 大间隔
-gaps left 8
-gaps right 8
-gaps top 6
-gaps bottom 5
+# gaps left 8
+# gaps right 8
+# gaps top 6
+# gaps bottom 5
+# for_window [class="^.*"] border pixel 4px
+# gaps inner 19
 
 # Theme colors
 # class                 border  backgr. text    indicator child_border
@@ -237,7 +238,6 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
-for_window [class="^.*"] border pixel 4px
 new_window 1pixel
 
 bindsym $sup+t exec --no-startup-id tilda
