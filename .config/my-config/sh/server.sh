@@ -11,12 +11,9 @@ if [ "$?" != 0 ]; then
   # Sample
   # tmux send-keys -t $SESSIONNAME_0:1 "" C-m
 
-  tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:1 'wd workspace management_information_frontend' C-m" C-m
-  # tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:1 'wd workspace && cd MOBILE' C-m" C-m
-  # tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:1 'gl && yarn && yarn start' C-m" C-m
-  # tmux send-keys -t $SESSIONNAME_0:1 "tmux split-window -h -t $SESSIONNAME_0:1" C-m
-  # tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:1 'wd workspace && cd MANAGEMENT' C-m" C-m
-  # tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:1 'gl && yarn && yarn start' C-m" C-m
+  tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:1 'wd workspace mpd-web-ui && yarn start' C-m" C-m
+  tmux send-keys -t $SESSIONNAME_0:1 "tmux split-window -h -t $SESSIONNAME_0:1" C-m
+  tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:1 'wd workspace mpd-web-api && yarn start' C-m" C-m
 
   tmux send-keys -t $SESSIONNAME_0:1 "tmux set-option repeat-time 0" C-m
   tmux send-keys -t $SESSIONNAME_0:1 "clear" C-m
