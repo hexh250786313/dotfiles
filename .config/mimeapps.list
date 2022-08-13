@@ -42,6 +42,8 @@ application/rtf=visual-studio-code.desktop
 image/jpeg=viewnior.desktop
 image/png=viewnior.desktop
 audio/x-wav=mpv.desktop
+audio/flac=mpv.desktop
+text/html=google-chrome.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-KN32O1.desktop;
@@ -84,3 +86,4 @@ image/jpeg=viewnior.desktop;
 image/png=viewnior.desktop;
 audio/x-wav=mpv.desktop;
 audio/flac=mpv.desktop;
+text/html=google-chrome.desktop;

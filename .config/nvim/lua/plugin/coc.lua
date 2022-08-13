@@ -28,6 +28,7 @@ vim.g.coc_global_extensions = {
   "coc-tsserver",
   "coc-webview",
   "coc-yaml",
+  "coc-markmap",
   "@hexuhua/coc-symbol-line",
   "@hexuhua/coc-replacement",
   "@hexuhua/coc-git",
