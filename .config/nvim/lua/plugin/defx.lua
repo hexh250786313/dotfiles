@@ -298,6 +298,7 @@ call defx#custom#option('_', {
       \ 'winborder': ['╭', '─', '╮', '│', '╯', '─', '╰', '│'],
       \ 'vertical_preview': 1,
       \ 'resume': 1,
+      \ 'direction': 'topleft',
       \ })
 
 call defx#custom#column('git', 'indicators', {

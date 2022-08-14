@@ -4,19 +4,21 @@ vim.cmd(
   [[
 let g:everforest_background = 'medium'
 let g:everforest_better_performance = 0
-" let g:gruvbox_material_foreground = 'original'
+let g:gruvbox_material_foreground = 'original'
 
 colorscheme gruvbox-material
 
 let g:defaultnormalgb=HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
-let g:defaultcursorlinegb=HandleColorNONE(synIDattr(synIDtrans(hlID('CursorLine')), 'bg', 'gui'))
 
 " 全局 Normal 不能设置 gui, 但是 winhighlight 可以
-let g:hlnormalstate=1
-" hi! Normal guibg=NONE
+" 不透明
+" let g:hlnormalstate=1
+" set cursorline
 
-let g:hlcursorlinestate=1
-" hi! CursorLine guibg=NONE
+" 透明
+let g:hlnormalstate=0
+hi! Normal guibg=NONE
+set nocursorline
 
 hi! LineNr guibg=NONE
 hi! SignColumn guibg=NONE
@@ -106,11 +108,11 @@ exec 'hi! CocHighlightText' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('LspReferenceText')), 'bg', 'gui'))
 exec 'hi! WinBar' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui')) .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('BufferLineBufferSelected')), 'bg', 'gui'))
   \' gui=bold'
 exec 'hi! CocSymbolLine gui=bold' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui')) .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('BufferLineBufferSelected')), 'bg', 'gui'))
 exec 'hi! LightBulbVirtualText' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CursorLine')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Special')), 'fg', 'gui'))

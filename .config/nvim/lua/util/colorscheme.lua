@@ -26,14 +26,12 @@ function ToggleNormalBackground()
   endif
 endfunction
 
-function ToggleCursorLineBackground()
-  if g:hlcursorlinestate == 1
-    let g:hlcursorlinestate=0
-    hi! CursorLine guibg=NONE
+function ToggleCursorLine()
+  echo &cursorline
+  if &cursorline == 1
+    set nocursorline
   else
-    let g:hlcursorlinestate=1
-    exec 'hi! CursorLine' .
-      \' guibg=' . g:defaultcursorlinegb
+    set cursorline
   endif
 endfunction
 
