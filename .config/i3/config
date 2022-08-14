@@ -222,6 +222,7 @@ bindsym $mod+r mode "resize"
 # gaps bottom 3
 
 # 另一种 dpi 120 下, 大间隔
+for_window [class="^.*"] border pixel 0px
 # gaps left 8
 # gaps right 8
 # gaps top 6
