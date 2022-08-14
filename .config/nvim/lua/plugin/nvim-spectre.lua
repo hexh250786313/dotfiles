@@ -1,8 +1,12 @@
+local M = {}
+
 require("spectre").setup(
   {
-    line_sep_start = "┌─────────────────────────────────────────",
+    is_insert_mode = true,
+    live_update = true,
+    line_sep_start = "┌───────────────────────────────────────",
     result_padding = "│  ",
-    line_sep = "└─────────────────────────────────────────",
+    line_sep = "└───────────────────────────────────────",
     mapping = {
       ["send_to_qf"] = {
         map = "<c-q>",
@@ -22,7 +26,7 @@ require("spectre").setup(
           "--column",
           "--ignore-case",
           "--hidden",
-          "--multiline",
+          "--multiline"
           -- "--vimgrep" -- for result in same line, usually, it is not useful for searching but useful for replacing
         }
       }
@@ -31,9 +35,32 @@ require("spectre").setup(
   }
 )
 
+M.spectre_state = require("spectre.actions").get_state()
+M.is_file = M.spectre_state.query.is_file
+M.path = M.spectre_state.query.path
+M.replace_query = M.spectre_state.query.replace_query
+M.search_query = M.spectre_state.query.search_query
+M.search_resume = function()
+  M.spectre_state = require("spectre.actions").get_state()
+  M.is_file = M.spectre_state.query.is_file
+  M.path = M.spectre_state.query.path
+  M.replace_query = M.spectre_state.query.replace_query
+  M.search_query = M.spectre_state.query.search_query
+  require("spectre").open(
+    {
+      search_text = M.search_query,
+      replace_text = M.replace_query,
+      path = M.path
+    }
+  )
+end
+
 vim.cmd(
   [[
-nnoremap <silent> <Space>sg <esc>:lua require('spectre').open()<CR>i
+" nnoremap <silent> <Space>sg <esc>:lua require('spectre').open()<CR>
+nnoremap <silent> <Space>sg <esc>:lua require('plugin.nvim-spectre').search_resume()<CR>
 vnoremap <silent> <Space>sg <esc>:lua require('spectre').open_visual()<CR>
   ]]
 )
+
+return M

@@ -41,5 +41,6 @@ nmap <Space>wt <C-w>v<C-w>T
 
 nnoremap <silent> <space>hn <cmd>call ToggleNormalBackground()<cr>
 nnoremap <silent> <space>hc <cmd>call ToggleCursorLineBackground()<cr>
+nnoremap <silent> <space>sc <cmd>call CloseSQAndSG()<cr>
 ]]
 )

@@ -51,13 +51,28 @@ require("telescope").setup {
     }
   },
   pickers = {
+    -- layout right
+    -- find_files = {
+    -- layout_strategy = "vertical",
+    -- layout_config = {
+    -- width = 0.5,
+    -- height = 0.95,
+    -- preview_cutoff = 0,
+    -- anchor = "E" -- 右边
+    -- }
+    -- },
     find_files = {
       layout_strategy = "vertical",
+      previewer = false,
+      sorting_strategy = "ascending", -- 结果从上到下
       layout_config = {
-        width = 0.5,
-        height = 0.95,
+        prompt_position = "top", -- 输入框相对于列表的位置
+        width = 0.75,
+        height = 0.80,
         preview_cutoff = 0,
-        anchor = "E"
+        mirror = false,
+        -- anchor = "N" -- 置顶居中
+        anchor = "" -- 居中
       }
     },
     live_grep = {
@@ -137,9 +152,9 @@ endfunction
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 " nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
-nnoremap <silent> <Space>] <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
-nnoremap <silent> <Space>[ <cmd>Telescope coc references layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
-nnoremap <C-LeftMouse> <cmd>Telescope coc definitions layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
+nnoremap <silent> <Space>] <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
+nnoremap <silent> <Space>[ <cmd>Telescope coc references sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
+nnoremap <C-LeftMouse> <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
 

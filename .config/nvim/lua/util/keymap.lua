@@ -21,5 +21,10 @@ function! ClipboardYank(type)
   let @@ = saved_unnamed_register
   call system("echo -n '" . word . "' | xsel -i -b") " -n for not including newline, i.e. \n
 endfunction
+
+function! CloseSQAndSG()
+  :lua require('spectre').close()
+  :ccl
+endfunction
 ]]
 )
