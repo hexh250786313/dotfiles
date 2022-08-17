@@ -288,11 +288,12 @@ bindsym $mod+Up resize shrink height 20 px or 1 ppt
 # bindsym  exec "~/workspace/dotfiles/.config/i3/scripts/cycle-workspace.py"
 bindsym $sup+Tab move workspace to output next
 
-# bindsym $mod+Tab workspace next
-# bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Tab workspace back_and_forth
-# bindsym $mod+Shift+Tab workspace next
-bindsym $mod+Shift+Tab exec --no-startup-id zsh ~/workspace/dotfiles/.config/i3/scripts/cycle-windows.sh
+# 1
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+# 2
+# bindsym $mod+Tab workspace back_and_forth
+# bindsym $mod+Shift+Tab exec --no-startup-id zsh ~/workspace/dotfiles/.config/i3/scripts/cycle-windows.sh
 
 bindsym $mod+n exec --no-startup-id "bash ~/workspace/dotfiles/.config/i3/scripts/next-available-ws.sh"
 bindsym $mod+Shift+n exec --no-startup-id bash ~/workspace/dotfiles/.config/i3/scripts/next-available-ws.sh -m # move container to new window
