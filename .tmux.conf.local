@@ -64,8 +64,11 @@ set-option -g prefix M-b
 set -g prefix2 M-b
 tmux_conf_copy_to_os_clipboard=true
 set -g default-terminal "tmux-256color"
-set-option -ga terminal-overrides ",*256col*:Tc" # 这句是关键
-set -ag terminal-overrides ",alacritty:RGB"
+# set -g default-terminal "alacritty"
+set-option -ga terminal-overrides ",*256col*:Tc"
+set -as terminal-overrides ',alacritty:RGB'
+set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'                                                        # Undercurl support
+set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m' # Underscore colors
 set-option -sg escape-time 50 # esc 键延迟，设置 0 的话 Ubuntu 20.04 会出现奇怪字符
 set-window-option -g mode-keys vi
 bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
