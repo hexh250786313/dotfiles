@@ -36,7 +36,7 @@
   "list.source.grep.excludePatterns": ["**/.git/**"],
   "list.source.files.args": ["--files", "--hidden"],
   "list.source.files.excludePatterns": ["**/.git/**"],
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "suggest.completionItemKindLabels": {
     "keyword": "",
@@ -90,7 +90,7 @@
   },
   "suggest.timeout": 5000,
   "coc.preferences.extensionUpdateCheck": "daily",
-  "diagnostic.checkCurrentLine": true,
+  "diagnostic.checkCurrentLine": false,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "git.semanticCommit.scope": false,
   "suggest.detailField": "abbr",
