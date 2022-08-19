@@ -289,7 +289,7 @@ bindsym $mod+Up resize shrink height 20 px or 1 ppt
 bindsym $sup+Tab move workspace to output next
 
 # 1
-bindsym $mod+Tab workspace next
+bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+Tab workspace prev
 # 2
 # bindsym $mod+Tab workspace back_and_forth
