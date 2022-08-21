@@ -9,7 +9,8 @@
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
-    "typescript": ["javascript", "javascript-jasmine-arrow"]
+    "typescript": ["javascript", "javascript-jasmine-arrow"],
+    "vue": ["vue", "javascript"]
   },
   "git.addGBlameToBufferVar": true,
   "git.changedSign.hlGroup": "CocGitSignChange",
@@ -116,7 +117,6 @@
   "diagnostic.autoRefresh": false,
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.messageDelay": 500,
-  "diagnostic.refreshAfterSave": false,
   "diagnostic-languageserver.enable": true,
   "diagnostic-languageserver.filetypes": {
     "typescriptreact": "eslint_d",
@@ -125,6 +125,7 @@
     "javascriptreact": "eslint_d",
     "javascript.jsx": "eslint_d",
     "typescript.tsx": "eslint_d",
+    "vue": "eslint_d",
     "css": "stylelint",
     "less": "stylelint",
     "scss": "stylelint"

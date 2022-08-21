@@ -32,7 +32,8 @@ vim.g.coc_global_extensions = {
   "@hexuhua/coc-symbol-line",
   "@hexuhua/coc-replacement",
   "@hexuhua/coc-git",
-  "@hexuhua/coc-yank"
+  "@hexuhua/coc-yank",
+  "@yaegassy/coc-volar"
 }
 
 -- coc 选择了 quickfix 打开后的回调

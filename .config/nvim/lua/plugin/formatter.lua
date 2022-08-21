@@ -42,6 +42,7 @@ require("formatter").setup(
       css = {format_prettierd},
       scss = {format_prettierd},
       less = {format_prettierd},
+      vue = {format_prettierd},
       lua = {
         function()
           if vim.api.nvim_buf_line_count(0) < 1 then
