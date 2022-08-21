@@ -37,7 +37,7 @@
   "list.source.grep.excludePatterns": ["**/.git/**"],
   "list.source.files.args": ["--files", "--hidden"],
   "list.source.files.excludePatterns": ["**/.git/**"],
-  "diagnostic.virtualText": false,
+  "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "suggest.completionItemKindLabels": {
     "keyword": "",
@@ -125,7 +125,7 @@
     "javascriptreact": "eslint_d",
     "javascript.jsx": "eslint_d",
     "typescript.tsx": "eslint_d",
-    "vue": "eslint_d",
+    "vue": ["eslint_d", "stylelint"],
     "css": "stylelint",
     "less": "stylelint",
     "scss": "stylelint"
@@ -153,7 +153,7 @@
       }
     },
     "stylelint": {
-      "command": "stylelint",
+      "command": "./node_modules/.bin/stylelint", // if no local stylelint, will use the global
       "rootPatterns": [".git"], // For cwd
       "debounce": 500,
       "args": [
