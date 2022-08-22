@@ -290,8 +290,8 @@ bindsym $sup+Tab move workspace to output next
 
 # 1
 # bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Tab exec --no-startup-id "bash ~/workspace/dotfiles/.config/my-config/sh/rofi-toggle.sh"
-bindsym $mod+Shift+Tab workspace prev
+# bindsym $mod+Tab exec --no-startup-id "bash ~/workspace/dotfiles/.config/i3/scripts/rofi-switch.sh"
+# bindsym $mod+Shift+Tab workspace prev
 # 2
 # bindsym $mod+Tab workspace back_and_forth
 # bindsym $mod+Shift+Tab exec --no-startup-id zsh ~/workspace/dotfiles/.config/i3/scripts/cycle-windows.sh

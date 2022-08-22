@@ -4,14 +4,6 @@ if pgrep -x rofi; then
   killall rofi
 else
   # notify-send "hello" -t 5
-  rofi -normal-window -combi-modi window,drun,ssh,run,combi -show combi -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+  # rofi -combi-modi drun,ssh,run,combi -show combi -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+  rofi -normal-window -combi-modi window,drun,ssh,run,combi -show combi -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"' # normal-window 是为了检测有无启动 rofi 以便 toggle, 不是 normal 检测不了
 fi
-
-# rofi \
-    # -show window  \
-    # -kb-cancel "Alt+Escape,Escape" \
-    # -kb-accept-entry "!Alt-Tab,Return"\
-    # -kb-row-down "Alt+Tab,Alt+Down" \
-    # -kb-row-up "Alt+Shift+Tab,Alt+Up"&
-# xdotool keyup Tab
-# xdotool keydown Tab
