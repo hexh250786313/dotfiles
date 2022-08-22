@@ -36,7 +36,7 @@ configuration {
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
-/*	filter: ;*/
+    filter: "-combi ";
 /*	dpi: -1;*/
 /*	threads: 0;*/
 /*	scroll-method: 0;*/
