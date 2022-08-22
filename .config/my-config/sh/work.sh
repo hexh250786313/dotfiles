@@ -7,7 +7,7 @@ if [ "$?" != 0 ]; then
   # 创建 session 和 window
   tmux new-session -s $SESSIONNAME_0 -n main -d
   # tmux send-keys -t $SESSIONNAME_0:1 "tmux set-option repeat-time 50" C-m
-  tmux send-keys -t $SESSIONNAME_0:1 "tmux new-window -n code" C-m
+  # tmux send-keys -t $SESSIONNAME_0:1 "tmux new-window -n code" C-m
   # tmux send-keys -t $SESSIONNAME_0:1 "tmux new-window -n server" C-m
   # tmux send-keys -t $SESSIONNAME_0:1 "tmux new-window -n 10.10.5.28" C-m
   # tmux send-keys -t $SESSIONNAME_0:1 "tmux new-window -n music" C-m
