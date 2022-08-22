@@ -14,12 +14,13 @@ function! ClipboardYank(type)
     return
   endif
   " echo @@
-  let word1 = substitute(@@, '\n$', '', 'g')
-  " let word = escape(word, '| ') " escape ' ' to '\ '
+  " let word0 = substitute(@@, '\n$', '', 'g')
+  " let word0 = escape(word, '| ') " escape ' ' to '\ '
+  let word1 = substitute(@@, '\\', '\\\\', 'g') " For shell xsel
   let word2 = substitute(word1, "\\'", "'\\\\''", 'g') " For shell "echo" command: ' to '\'' --- Example: [echo 'It's me'] should be [echo 'It'\''s me']
   let word = word2
   let @@ = saved_unnamed_register
-  call system("echo -n '" . word . "' | xsel -i -b") " -n for not including newline, i.e. \n
+  call system("echo -n '" . word . "' | xsel -i -b") " -n for not including newline, i.e. \n .
 endfunction
 
 function! CloseSQAndSG()
