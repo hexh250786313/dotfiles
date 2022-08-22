@@ -1,7 +1,9 @@
 require("bufferline").setup {
   options = {
     separator_style = {"", ""},
-    indicator_icon = "▌",
+    indicator = {
+      icon = "▌"
+    },
     max_prefix_length = 100,
     -- modified_icon = "",
     modified_icon = ""
