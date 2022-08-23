@@ -152,7 +152,7 @@
       <property name="show-handle" type="bool" value="false"/>
       <property name="sort-order" type="uint" value="1"/>
       <property name="flat-buttons" type="bool" value="false"/>
-      <property name="show-labels" type="bool" value="true"/>
+      <property name="show-labels" type="bool" value="false"/>
       <property name="grouping" type="uint" value="1"/>
       <property name="middle-click" type="uint" value="1"/>
       <property name="switch-workspace-on-unminimize" type="bool" value="true"/>
