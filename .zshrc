@@ -105,3 +105,5 @@ alias ll="colorls -l --sd"
 alias ls="colorls --sd"
 
 export NODE_PATH="$(npm root --global)"
+alias yarn="~/.nvm/versions/node/v16.10.0/bin/yarn"
+alias http-server="~/.nvm/versions/node/v16.10.0/bin/http-server"
