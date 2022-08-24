@@ -70,12 +70,10 @@
   "suggest.labelMaxLength": 30,
   "suggest.floatConfig": {
     "border": false,
-    "highlight": "StatusLine",
     "winblend": 20
   },
   "floatFactory.floatConfig": {
-    "border": [0, 0, 0, 0],
-    "highlight": "StatusLine",
+    "border": [0, 0, 0, 0], // or bool
     "winblend": 20
   },
   "suggest.timeout": 5000,
