@@ -68,24 +68,13 @@
     "default": ""
   },
   "suggest.labelMaxLength": 30,
-  "signature.floatConfig": {
-    "border": false,
-    "winblend": 20
-  },
-  "suggest.pumFloatConfig": {
-    "border": false,
-    "winblend": 20
-  },
-  "diagnostic.floatConfig": {
-    "border": false,
-    "winblend": 20
-  },
-  "hover.floatConfig": {
-    "border": false,
-    "winblend": 20
-  },
   "suggest.floatConfig": {
     "border": false,
+    "highlight": "StatusLine",
+    "winblend": 20
+  },
+  "floatFactory.floatConfig": {
+    "border": [0, 0, 0, 0],
     "highlight": "StatusLine",
     "winblend": 20
   },
