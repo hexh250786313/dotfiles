@@ -93,9 +93,12 @@
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-14" type="string" value="directorymenu">
-      <property name="base-directory" type="string" value="/home/hexh"/>
+      <property name="base-directory" type="string" value="/home/hexh/桌面"/>
+      <property name="open-in-terminal" type="bool" value="false"/>
+      <property name="new-folder" type="bool" value="false"/>
+      <property name="new-document" type="bool" value="false"/>
       <property name="hidden-files" type="bool" value="true"/>
-      <property name="icon-name" type="string" value="user-blue-home"/>
+      <property name="icon-name" type="string" value="user-blue-desktop"/>
     </property>
     <property name="plugin-15" type="string" value="directorymenu">
       <property name="base-directory" type="string" value="/home/hexh/下载"/>
