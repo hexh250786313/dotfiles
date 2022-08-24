@@ -44,6 +44,8 @@ image/png=viewnior.desktop
 audio/x-wav=mpv.desktop
 audio/flac=mpv.desktop
 text/html=google-chrome.desktop
+application/x-md=org.xfce.mousepad.desktop
+text/markdown=org.xfce.mousepad.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-KN32O1.desktop;
@@ -87,3 +89,5 @@ image/png=viewnior.desktop;
 audio/x-wav=mpv.desktop;
 audio/flac=mpv.desktop;
 text/html=google-chrome.desktop;
+application/x-md=org.xfce.mousepad.desktop;
+text/markdown=org.xfce.mousepad.desktop;
