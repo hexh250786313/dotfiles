@@ -63,6 +63,7 @@ alias music="all_proxy='' http_proxy='' https_proxy='' musicbox"
 alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howard.ovpn"
 
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
+alias editor=nvim
 
 if [[ ! -d $ZSH_CUSTOM/themes/powerlevel10k ]]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
