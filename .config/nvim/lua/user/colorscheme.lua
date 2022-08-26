@@ -28,11 +28,6 @@ hi! link CocFloating Normal
 hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
 
-hi! link CocErrorVirtualText DiagnosticError
-hi! link CocWarningVirtualText DiagnosticWarn
-hi! link CocInfoVirtualText DiagnosticInfo
-hi! link CocHintVirtualText DiagnosticHint
-
 exec 'hi! NormalStrongFont gui=italic,bold' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
@@ -137,6 +132,14 @@ exec 'hi! CocFloating' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+exec 'hi! CocErrorVirtualText' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocErrorFloat')), 'fg', 'gui'))
+exec 'hi! CocWarningVirtualText' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocWarningFloat')), 'fg', 'gui'))
+exec 'hi! CocInfoVirtualText' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocInfoFloat')), 'fg', 'gui'))
+exec 'hi! CocHintVirtualText' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintFloat')), 'fg', 'gui'))
 
 exec 'hi! ScrollView guifg=NONE' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
