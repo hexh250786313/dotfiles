@@ -133,12 +133,6 @@ return packer.startup(
     use(
       {
         "mg979/vim-visual-multi",
-        keys = {
-          {"n", "<c-n>"},
-          {"n", "<c-up>"},
-          {"n", "<c-down>"},
-          {"v", "<c-n>"}
-        },
         config = [[require("plugin.vim-visual-multi")]]
       }
     )

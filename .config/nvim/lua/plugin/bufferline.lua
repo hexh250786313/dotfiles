@@ -12,15 +12,6 @@ require("bufferline").setup {
 
 vim.cmd(
   [[
-function DeleteAllBuffers ()
-  " :BufferLineCloseLeft
-  " :BufferLineCloseRight
-  :%bd
-  :e#
-  :bd#
-endfunction
-
-nnoremap <silent> <Space>bD :call DeleteAllBuffers()<CR>
 nnoremap <silent> <Space>1 :BufferLineGoToBuffer 1<cr>
 nnoremap <silent> <Space>2 :BufferLineGoToBuffer 2<cr>
 nnoremap <silent> <Space>3 :BufferLineGoToBuffer 3<cr>
