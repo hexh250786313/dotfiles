@@ -116,13 +116,12 @@ exec 'hi! Defx_filename_directory gui=bold,italic,underline' .
 
 exec 'hi! CocHighlightText' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('LspReferenceText')), 'bg', 'gui'))
-exec 'hi! WinBar' .
+exec 'hi! WinBar gui=bold' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui')) .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('BufferLineBufferSelected')), 'bg', 'gui'))
-  \' gui=bold'
+  \' guibg=none'
 exec 'hi! CocSymbolLine gui=bold' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'fg', 'gui')) .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('BufferLineBufferSelected')), 'bg', 'gui'))
+  \' guibg=none'
 exec 'hi! LightBulbVirtualText' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CursorLine')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Special')), 'fg', 'gui'))
@@ -140,7 +139,9 @@ exec 'hi! CocMenuSel' .
 exec 'hi! CocListLine' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
 exec 'hi! CocFloating' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+exec 'hi! CocFloatDividingLine' .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
 
 exec 'hi! ScrollView guifg=NONE' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
