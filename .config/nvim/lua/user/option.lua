@@ -3,6 +3,9 @@ language en_US.UTF-8
 set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 ]])
 
+local myNodePath = os.getenv("MY_NODE_PATH")
+vim.cmd("let $PATH = '" .. myNodePath .. "/bin:' . $PATH")
+
 local optionList = {
   mouse = "a", -- 使用鼠标
   -- number = true, -- 显示行号, 如果开了, 则出现丑的要命的右 padding
