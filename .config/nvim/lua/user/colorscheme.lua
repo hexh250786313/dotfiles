@@ -28,15 +28,10 @@ hi! link CocFloating Normal
 hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
 
-" hi! link CocInfoVirtualText LspDiagnosticsFloatingInformation
-" hi! link CocErrorVirtualText LspDiagnosticsFloatingError
-" hi! link CocWarningVirtualText LspDiagnosticsFloatingWarning
-" hi! link CocHintVirtualText LspDiagnosticsFloatingHint
-
-hi! link CocInfoVirtualText LspDiagnosticsSignInformation
-hi! link CocErrorVirtualText LspDiagnosticsSignError
-hi! link CocWarningVirtualText LspDiagnosticsSignWarning
-hi! link CocHintVirtualText LspDiagnosticsSignHint
+hi! link CocErrorVirtualText DiagnosticError
+hi! link CocWarningVirtualText DiagnosticWarn
+hi! link CocInfoVirtualText DiagnosticInfo
+hi! link CocHintVirtualText DiagnosticHint
 
 exec 'hi! NormalStrongFont gui=italic,bold' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
