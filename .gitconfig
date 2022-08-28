@@ -1,9 +1,0 @@
-[user]
-	name = hexh
-	email = 250786313@qq.com
-[core]
-	quotepath = false
-[webui]
-	autoupdate = true
-[alias]
-	webui = !/home/hexh/.git-webui/release/libexec/git-core/git-webui

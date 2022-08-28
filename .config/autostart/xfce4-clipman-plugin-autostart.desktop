@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Name=Clipman
-Exec=sh -c "sleep 30; /usr/bin/xfce4-clipman"
-OnlyShowIn=XFCE;
-StartupNotify=false
-Hidden=false
-
