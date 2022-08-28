@@ -109,3 +109,5 @@ export MY_NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
 export NODE_PATH_PATH="$(npm root --global)"
 alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE/bin/http-server"
+
+alias vm-set="sudo sh -c 'echo 0 > /proc/sys/vm/compaction_proactiveness' && cat /proc/sys/vm/compaction_proactiveness"

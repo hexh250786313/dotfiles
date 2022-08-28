@@ -4,11 +4,13 @@ window:
   # opacity: 0.90
   opacity: 0.67
   dimensions:
-    columns: 138
-    lines: 22
-  position:
-    x: 850
-    y: 500
+    # columns: 138
+    # lines: 22
+    columns: 123
+    lines: 30
+  # position:
+    # x: 850
+    # y: 500
   padding:
     x: 0
     y: 0

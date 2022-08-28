@@ -46,6 +46,9 @@ audio/flac=mpv.desktop
 text/html=google-chrome.desktop
 application/x-md=org.xfce.mousepad.desktop
 text/markdown=org.xfce.mousepad.desktop
+application/rdf+xml=google-chrome.desktop
+application/rss+xml=google-chrome.desktop
+image/webp=google-chrome.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-KN32O1.desktop;
@@ -91,3 +94,6 @@ audio/flac=mpv.desktop;
 text/html=google-chrome.desktop;
 application/x-md=org.xfce.mousepad.desktop;
 text/markdown=org.xfce.mousepad.desktop;
+application/rdf+xml=google-chrome.desktop;
+application/rss+xml=google-chrome.desktop;
+image/webp=google-chrome.desktop;
