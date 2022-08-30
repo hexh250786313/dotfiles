@@ -6,7 +6,7 @@ window:
   dimensions:
     # columns: 138
     # lines: 22
-    columns: 123
+    columns: 163
     lines: 30
   # position:
     # x: 850

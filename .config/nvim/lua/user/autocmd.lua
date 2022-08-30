@@ -9,7 +9,7 @@ function OpenQF ()
 endfunction
 
 function OpenSpectrePanel ()
-  :vertical resize 90
+  :vertical resize 80
   :set winfixwidth
   :set winfixheight
 endfunction
