@@ -202,7 +202,7 @@ return packer.startup(
       }
     )
 
-    use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
+    -- use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
 
     use({"github/copilot.vim", config = [[require("plugin.copilot")]], cmd = {"Copilot"}})
 
