@@ -41,5 +41,14 @@ function! DeleteAllBuffers() abort
     endfor
   endif
 endfunction
+
+function! CocPrint(str)
+  let lines = split(a:str, '\n')
+  call coc#notify#create(lines, {
+    \ 'borderhighlight': 'CocInfoSign',
+    \ 'timeout': 30000,
+    \ 'kind': 'warning',
+    \ })
+endfunction
 ]]
 )

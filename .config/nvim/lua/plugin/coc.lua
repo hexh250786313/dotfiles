@@ -59,9 +59,6 @@ api.nvim_create_autocmd(
 -- {pattern = "*", command = "if (coc#rpc#ready()) | silent call CocActionAsync('highlight')"}
 -- )
 
--- 与 coc-settings 的 diagnosticRefresh 对应, false 相当于禁用自动刷新, 自定义刷新行为
-api.nvim_create_autocmd({"CursorHold"}, {pattern = "*", command = "silent call CocActionAsync('diagnosticRefresh')"})
-
 vim.cmd(
   [[
 function! s:show_documentation()
@@ -76,13 +73,16 @@ endfunction
 
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1): copilot#Accept("\<CR>")
+" inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1): copilot#Accept("\<CR>")
+inoremap <silent><expr> <Tab>
+  \ coc#pum#visible() ? coc#pum#next(1) :
+  \ CheckBackspace() ? "\<Tab>" :
+  \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
@@ -123,6 +123,27 @@ endif
 
 ]]
 )
+
+-- 与 coc-settings 的 diagnosticRefresh 对应, false 相当于禁用自动刷新, 自定义刷新行为
+-- silent! 可以无视报错
+api.nvim_create_autocmd(
+  {"CursorHold"},
+  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticRefresh')"}
+)
+api.nvim_create_autocmd(
+  {"InsertLeave"},
+  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocAction('diagnosticRefresh')"}
+)
+api.nvim_create_autocmd(
+  {"InsertEnter"},
+  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocAction('diagnosticToggle', 0)"}
+)
+api.nvim_create_autocmd(
+  {"InsertCharPre"},
+  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocAction('diagnosticToggle', 0)"}
+)
+-- diagnosticToggleBuffer 看起来不太行, 提个 pr
+-- api.nvim_create_autocmd({"InsertLeavePre"}, {pattern = "*", command = "silent call CocAction('diagnosticToggleBuffer', 1)"})
 
 vim.keymap.set("n", "<space>td", ':call CocAction("diagnosticToggle")<cr>', {silent = true})
 vim.keymap.set("n", "<space>tt", ':call CocAction("toggleService", "tsserver")<cr>', {silent = true})
