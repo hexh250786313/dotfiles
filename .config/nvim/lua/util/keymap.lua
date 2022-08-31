@@ -46,7 +46,7 @@ function! CocPrint(str)
   let lines = split(a:str, '\n')
   call coc#notify#create(lines, {
     \ 'borderhighlight': 'CocInfoSign',
-    \ 'timeout': 30000,
+    \ 'timeout': 2000,
     \ 'kind': 'warning',
     \ })
 endfunction

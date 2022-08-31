@@ -120,7 +120,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<C-b>"
 endif
-
 ]]
 )
 
@@ -131,20 +130,26 @@ api.nvim_create_autocmd(
   {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticRefresh')"}
 )
 api.nvim_create_autocmd(
+  {"CursorMoved"},
+  {pattern = "*", command = "silent! call timer_start(1000, { -> CocActionAsync('diagnosticRefresh')})"}
+)
+api.nvim_create_autocmd(
   {"InsertLeave"},
-  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocAction('diagnosticRefresh')"}
+  {
+    pattern = "*",
+    command = "if (coc#rpc#ready()) | silent! call timer_start(1000, { -> CocActionAsync('diagnosticRefresh')})"
+  }
 )
 api.nvim_create_autocmd(
   {"InsertEnter"},
-  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocAction('diagnosticToggle', 0)"}
+  {
+    pattern = "*",
+    command = "if (coc#rpc#ready()) |  silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 0)})"
+  }
 )
 api.nvim_create_autocmd(
   {"InsertCharPre"},
-  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocAction('diagnosticToggle', 0)"}
+  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticToggle', 0)"}
 )
 -- diagnosticToggleBuffer 看起来不太行, 提个 pr
--- api.nvim_create_autocmd({"InsertLeavePre"}, {pattern = "*", command = "silent call CocAction('diagnosticToggleBuffer', 1)"})
-
-vim.keymap.set("n", "<space>td", ':call CocAction("diagnosticToggle")<cr>', {silent = true})
-vim.keymap.set("n", "<space>tt", ':call CocAction("toggleService", "tsserver")<cr>', {silent = true})
-vim.keymap.set("n", "<space>tl", ':call CocAction("toggleService", "lua")<cr>', {silent = true})
+-- api.nvim_create_autocmd({"InsertLeavePre"}, {pattern = "*", command = "silent call CocActionAsync('diagnosticToggleBuffer', 1)"})

@@ -67,12 +67,12 @@ nnoremap <silent> <Space>bf :Format<cr>
 xnoremap <silent> <Space>bf :Format<cr>
 ]])
 
-vim.api.nvim_exec(
-  [[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx,*.json,*.less,*.scss,*.sass,*.lua,*.vue FormatWrite
-augroup END
-]],
-  true
-)
+-- vim.api.nvim_exec(
+--   [[
+-- augroup FormatAutogroup
+--   autocmd!
+--   autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx,*.json,*.less,*.scss,*.sass,*.lua,*.vue FormatWrite
+-- augroup END
+-- ]],
+--   true
+-- )
