@@ -1,3 +1,12 @@
+vim.keymap.set("n", "<ScrollWheelUp>", "<C-y>")
+vim.keymap.set("n", "<ScrollWheelDown>", "<C-e>")
+vim.keymap.set("n", "<S-Up>", "3<C-y>")
+vim.keymap.set("n", "<S-Down>", "3<C-e>")
+-- vim.keymap.set('i', '<ScrollWheelUp>', '<C-y>')
+-- vim.keymap.set('i', '<ScrollWheelDown>', '<C-e>')
+-- vim.keymap.set('v', '<ScrollWheelUp>', '<C-y>')
+-- vim.keymap.set('v', '<ScrollWheelDown>', '<C-e>')
+
 vim.cmd(
   [[
 " noremap <Space>y "+y
