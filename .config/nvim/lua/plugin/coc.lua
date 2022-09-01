@@ -29,6 +29,7 @@ vim.g.coc_global_extensions = {
   "coc-webview",
   "coc-yaml",
   "coc-markmap",
+  "coc-angular",
   "@hexuhua/coc-symbol-line",
   "@hexuhua/coc-replacement",
   "@hexuhua/coc-git",
