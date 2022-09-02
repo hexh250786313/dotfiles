@@ -172,6 +172,19 @@ exec 'hi! ScrollbarHintHandle' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintFloat')), 'fg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
 
+exec 'hi! DiagnosticError' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocErrorVirtualText')), 'fg', 'gui')) .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+exec 'hi! DiagnosticWarn' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocWarningVirtualText')), 'fg', 'gui')) .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+exec 'hi! DiagnosticInfo' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocInfoVirtualText')), 'fg', 'gui')) .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+exec 'hi! DiagnosticHint' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintVirtualText')), 'fg', 'gui')) .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+
 " disable the default highlight group
 let g:conflict_marker_highlight_group = ''
 

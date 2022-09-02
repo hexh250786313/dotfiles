@@ -21,6 +21,12 @@ local config = {
       {
         "diagnostics",
         sources = {"coc"},
+        diagnostics_color = {
+          error = "DiagnosticError",
+          warn = "DiagnosticWarn",
+          info = "DiagnosticInfo",
+          hint = "DiagnosticHint"
+        },
         symbols = {error = "E:", warn = "W:", info = "I:", hint = "H:", ok = "O:"}
       }
       -- {
