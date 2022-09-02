@@ -32,7 +32,7 @@
   "git.addGBlameToVirtualText": false,
   "list.source.grep.useLiteral": false,
   "suggest.snippetIndicator": " ✩",
-  "suggest.autoTrigger": "trigger",
+  "suggest.autoTrigger": "none",
   "list.source.grep.command": "rg",
   "list.source.grep.args": ["-i", "--hidden"],
   "list.source.grep.excludePatterns": ["**/.git/**"],

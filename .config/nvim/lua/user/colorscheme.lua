@@ -132,16 +132,44 @@ exec 'hi! CocFloating' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+
 exec 'hi! CocErrorVirtualText' .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocErrorFloat')), 'fg', 'gui'))
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocErrorFloat')), 'fg', 'gui')) .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('CocErrorFloat')), 'fg', 'gui'))
 exec 'hi! CocWarningVirtualText' .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocWarningFloat')), 'fg', 'gui'))
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocWarningFloat')), 'fg', 'gui')) .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('CocWarningFloat')), 'fg', 'gui'))
 exec 'hi! CocInfoVirtualText' .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocInfoFloat')), 'fg', 'gui'))
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocInfoFloat')), 'fg', 'gui')) .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('CocInfoFloat')), 'fg', 'gui'))
 exec 'hi! CocHintVirtualText' .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintFloat')), 'fg', 'gui'))
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintFloat')), 'fg', 'gui')) .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('CocHintFloat')), 'fg', 'gui'))
 
 exec 'hi! ScrollView guifg=NONE' .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+
+exec 'hi! ScrollbarHandle guifg=NONE' .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+exec 'hi! ScrollbarError guibg=NONE' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocErrorFloat')), 'fg', 'gui'))
+exec 'hi! ScrollbarErrorHandle' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocErrorFloat')), 'fg', 'gui')) .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+exec 'hi! ScrollbarWarn guibg=NONE' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocWarningFloat')), 'fg', 'gui'))
+exec 'hi! ScrollbarWarnHandle' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocWarningFloat')), 'fg', 'gui')) .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+exec 'hi! ScrollbarInfo guibg=NONE' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocInfoFloat')), 'fg', 'gui'))
+exec 'hi! ScrollbarInfoHandle' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocInfoFloat')), 'fg', 'gui')) .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+exec 'hi! ScrollbarHint guibg=NONE' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintFloat')), 'fg', 'gui'))
+exec 'hi! ScrollbarHintHandle' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintFloat')), 'fg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
 
 " disable the default highlight group

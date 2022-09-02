@@ -35,5 +35,21 @@ function ToggleCursorLine()
   endif
 endfunction
 
+" 把颜色明度变为 19%, 相当于变暗处理
+function Darken (color)
+  if a:color != ''
+    let l:hsl = ConvertColorTo('hsl', a:color)
+    " let l:bright = matchstr(l:hsl, '\v, \zs(\d*)\ze\%\)') " {{TEXT}}\zs{{MATCH}} -- 前面为{{TEXT}}的{{MATCH}} ; {{MATCT}}\ze{{TEXT}} -- 后面为{{TEXT}}的{{MATCH}} ; \v: 魔法字符 :help magic
+    let l:bright = match(l:hsl, '\v, \zs(\d*)\ze\%\)') " {{TEXT}}\zs{{MATCH}} -- 前面为{{TEXT}}的{{MATCH}} ; {{MATCT}}\ze{{TEXT}} -- 后面为{{TEXT}}的{{MATCH}} ; \v: 魔法字符 :help magic
+    let l:nextHsl = substitute(l:hsl, '\v, \zs(\d*)\ze\%\)', '19', 'g') " Converted hsl(42, 95%, 58%) -> hsl(42, 95%, 19%)
+    if l:nextHsl != -1
+      return ConvertColorTo('hex', l:nextHsl)
+    else
+      return a:color
+    end
+  else
+    return "NONE"
+  end
+endfunction
 ]]
 )

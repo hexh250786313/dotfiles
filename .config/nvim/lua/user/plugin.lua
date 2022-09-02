@@ -237,7 +237,41 @@ return packer.startup(
 
     use({"romainl/vim-cool"})
 
-    use({"dstein64/nvim-scrollview", config = [[require("plugin.nvim-scrollview")]]})
+    -- use({"dstein64/nvim-scrollview", config = [[require("plugin.nvim-scrollview")]]})
+    use(
+      {
+        "petertriho/nvim-scrollbar",
+        config = function()
+          require("scrollbar").setup(
+            {
+              set_highlights = false,
+              marks = {
+                Error = {
+                  text = {"∎", "∎"},
+                  priority = 1,
+                },
+                Warn = {
+                  text = {"∎", "∎"},
+                  priority = 2,
+                },
+                Info = {
+                  text = {"∎", "∎"},
+                  priority = 3,
+                },
+                Hint = {
+                  text = {"∎", "∎"},
+                  priority = 4,
+                },
+                Misc = {
+                  text = {"∎", "∎"},
+                  priority = 5,
+                }
+              }
+            }
+          )
+        end
+      }
+    )
 
     use(
       {

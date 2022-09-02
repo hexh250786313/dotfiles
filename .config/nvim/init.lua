@@ -1,3 +1,4 @@
+require("util.colors")
 require("util.colorscheme")
 require("util.keymap")
 require("user.global")

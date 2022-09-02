@@ -20,6 +20,11 @@ function OpenSpectrePanel ()
   :set winfixheight
   :call CloseDefx()
 endfunction
+
+function Test1 ()
+  let l:hsl = Darken('#fabd2f')
+ :call CocPrint(l:hsl)
+endfunction
 ]]
 )
 
@@ -28,3 +33,8 @@ vim.api.nvim_create_autocmd(
   {"FileType, BufferEnter"},
   {pattern = "spectre_panel", command = "silent call OpenSpectrePanel()"}
 )
+-- vim.api.nvim_create_autocmd({"BufferEnter"}, {pattern = "*", command = "call Test1()"})
+-- vim.api.nvim_create_autocmd(
+-- {"CursorHold"},
+-- {pattern = "*", command = "call Test1()"}
+-- )
