@@ -8,7 +8,8 @@ function _G.symbol_line()
   return ok and line or vim.fn.bufname(curbuf)
 end
 
-vim.o.winbar = "%!v:lua.symbol_line()"
+-- @todo: winbar
+-- vim.o.winbar = "%!v:lua.symbol_line()"
 
 vim.g.coc_global_extensions = {
   "coc-css",

@@ -7,6 +7,7 @@ export ZSH_CUSTOM="/home/hexh/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/hexh/.config"
 
 setopt globdots
+setopt rm_starsilent
 
 if [[ ! -d ~/.zsh-autopair ]]; then
   git clone https://github.com/hlissner/zsh-autopair ~/.zsh-autopair
