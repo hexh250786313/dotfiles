@@ -52,5 +52,9 @@ nnoremap <silent> <space>hn <cmd>call ToggleNormalBackground()<cr>
 nnoremap <silent> <space>hc <cmd>call ToggleCursorLine()<cr>
 nnoremap <silent> <space>sc <cmd>call CloseSQAndSG()<cr>
 nnoremap <silent> <Space>bD :call DeleteAllBuffers()<CR>
+
+xnoremap a' 2i'
+xnoremap a" 2i"
+xnoremap a` 2i`
 ]]
 )
