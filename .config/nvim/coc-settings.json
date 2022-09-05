@@ -102,6 +102,13 @@
   "markdown-preview-enhanced.scrollSync": false,
   "markdown-preview-enhanced.singlePreview": true,
   "markdown-preview-enhanced.mathRenderingOption": "None",
+  "list.insertMappings": {
+    "<CR>": "action:drop"
+  },
+  "list.normalMappings": {
+    "<CR>": "action:drop"
+  },
+  "list.source.symbols.defaultAction": "tabe", // @todo: not work for nvim nightly
   "diagnostic.autoRefresh": false,
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.messageDelay": 200, // default 200

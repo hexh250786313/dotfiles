@@ -48,7 +48,7 @@ vim.g.coc_enable_locationlist = 0
 api.nvim_create_autocmd(
   {"User"},
   -- {pattern = "CocLocationsChange", command = "CocList --normal --tab --auto-preview  location"}
-  {pattern = "CocLocationsChange", command = "CocList --normal --tab --auto-preview --number-select location"}
+  {pattern = "CocLocationsChange", command = "CocList --normal --tab --number-select location"}
 )
 
 -- api.nvim_create_autocmd(

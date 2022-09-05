@@ -246,6 +246,12 @@ return packer.startup(
         config = function()
           require("scrollbar").setup(
             {
+              excluded_filetypes = {
+                "spectre_panel",
+                "defx",
+                "prompt",
+                "TelescopePrompt",
+              },
               set_highlights = false,
               marks = {
                 Error = {
