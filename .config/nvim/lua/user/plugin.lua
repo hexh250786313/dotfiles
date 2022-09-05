@@ -19,14 +19,14 @@ if fn.empty(fn.glob(packer_install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd(
-  [[
-    augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost plugin.lua source <afile> | PackerSync
-    augroup end
-]]
-)
+-- vim.cmd(
+-- [[
+-- augroup packer_user_config
+-- autocmd!
+-- autocmd BufWritePost plugin.lua source <afile> | PackerSync
+-- augroup end
+-- ]]
+-- )
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -151,8 +151,9 @@ return packer.startup(
           {"n", "<space>["},
           {"n", "<space>]"},
           {"n", "<C-LeftMouse>"},
-          {"v", "<space>sf"}
+          {"v", "<space>sf"},
           -- {"v", "<space>sg"}
+          {"n", "<space>sb"}
         },
         config = [[require("plugin.telescope")]]
       }
@@ -160,6 +161,7 @@ return packer.startup(
 
     -- use({"fannheyward/telescope-coc.nvim"})
     use({"hexh250786313/telescope-coc.nvim"})
+    -- use({"~/workspace/telescope-coc.nvim"})
 
     use(
       {
@@ -248,23 +250,23 @@ return packer.startup(
               marks = {
                 Error = {
                   text = {"∎", "∎"},
-                  priority = 1,
+                  priority = 1
                 },
                 Warn = {
                   text = {"∎", "∎"},
-                  priority = 2,
+                  priority = 2
                 },
                 Info = {
                   text = {"∎", "∎"},
-                  priority = 3,
+                  priority = 3
                 },
                 Hint = {
                   text = {"∎", "∎"},
-                  priority = 4,
+                  priority = 4
                 },
                 Misc = {
                   text = {"∎", "∎"},
-                  priority = 5,
+                  priority = 5
                 }
               }
             }

@@ -99,7 +99,7 @@ nmap <Space>g[ <Plug>(coc-git-prevchunk)
 nmap <Space>g] <Plug>(coc-git-nextchunk)
 nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
-nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
+" nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
 nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
 nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
 nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab --number-select yank<CR>
