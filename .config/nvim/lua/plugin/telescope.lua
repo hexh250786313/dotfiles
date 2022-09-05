@@ -149,12 +149,26 @@ function! s:FindFromSelected(type)
   execute printf('Telescope find_files find_command=rg,--hidden,--files initial_mode=normal default_text=%s', word)
 endfunction
 
+function! s:MRU()
+  :Telescope coc mru sorting_strategy=ascending layout_strategy=vertical previewer=false layout_config={prompt_position='top',height=0.8,width=0.75,preview_cutoff=0,mirror=false,anchor=''} initial_mode=normal
+endfunction
+
+let s:coc_r = 0
+function! s:delay_coc_mru()
+  if s:coc_r == 1
+    :call <SID>MRU()
+  else
+    :call timer_start(500, { -> <SID>MRU()})
+    let s:coc_r = 1
+  endif
+endfunction
+
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 " nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
 nnoremap <silent> <Space>] <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 nnoremap <silent> <Space>[ <cmd>Telescope coc references sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
-nnoremap <silent> <Space>sb <cmd>Telescope coc mru sorting_strategy=ascending layout_strategy=vertical previewer=false layout_config={prompt_position='top',height=0.8,width=0.75,preview_cutoff=0,mirror=false,anchor=''} initial_mode=normal<CR>
+nnoremap <silent> <Space>sb :call <SID>delay_coc_mru()<CR>
 " nnoremap <C-LeftMouse> <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>

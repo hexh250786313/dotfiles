@@ -8,8 +8,9 @@ function _G.symbol_line()
   return ok and line or vim.fn.bufname(curbuf)
 end
 
--- @todo: winbar
--- vim.o.winbar = "%!v:lua.symbol_line()"
+if vim.fn.exists("&winbar") ~= 0 then
+  vim.o.winbar = "%!v:lua.symbol_line()"
+end
 
 vim.g.coc_global_extensions = {
   "coc-css",
