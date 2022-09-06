@@ -117,6 +117,9 @@ require("telescope").setup {
   }
 }
 
+require("telescope").load_extension("yank_history")
+require('telescope').load_extension('coc')
+
 vim.cmd(
   [[
 function! s:GrepFromSelected(type)
@@ -172,6 +175,7 @@ nnoremap <silent> <Space>sb :call <SID>delay_coc_mru()<CR>
 " nnoremap <C-LeftMouse> <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
+nnoremap <silent> <Space>sy :Telescope yank_history sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.5} initial_mode=normal<CR>
 
 ]]
 )

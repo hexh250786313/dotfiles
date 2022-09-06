@@ -32,10 +32,11 @@ vim.g.coc_global_extensions = {
   "coc-yaml",
   "coc-markmap",
   "coc-angular",
+  "coc-git",
   "@hexuhua/coc-symbol-line",
   "@hexuhua/coc-replacement",
-  "@hexuhua/coc-git",
-  "@hexuhua/coc-yank",
+  -- "@hexuhua/coc-git",
+  -- "@hexuhua/coc-yank",
   "@yaegassy/coc-volar"
 }
 
@@ -47,8 +48,7 @@ vim.g.coc_quickfix_open_command = "copen"
 vim.g.coc_enable_locationlist = 0
 api.nvim_create_autocmd(
   {"User"},
-  -- {pattern = "CocLocationsChange", command = "CocList --normal --tab --auto-preview  location"}
-  {pattern = "CocLocationsChange", command = "CocList --normal --tab --number-select location"}
+  {pattern = "CocLocationsChange", command = "CocList --normal --tab --number-select --auto-preview location"}
 )
 
 -- api.nvim_create_autocmd(
@@ -103,15 +103,12 @@ nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 " nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
 nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
 nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
-nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab --number-select yank<CR>
+" nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab --number-select yank<CR>
 nnoremap <silent> <Space>ss :CocList --no-sort --normal services<CR>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
 nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
 xmap <silent> <Space>sa <plug>(coc-codeaction-selected)
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
-
-nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
-nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
 
 nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>
 

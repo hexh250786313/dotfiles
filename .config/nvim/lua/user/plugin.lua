@@ -153,7 +153,8 @@ return packer.startup(
           {"n", "<C-LeftMouse>"},
           {"v", "<space>sf"},
           -- {"v", "<space>sg"}
-          {"n", "<space>sb"}
+          {"n", "<space>sb"},
+          {"n", "<space>sy"}
         },
         config = [[require("plugin.telescope")]]
       }
@@ -251,7 +252,7 @@ return packer.startup(
                 "spectre_panel",
                 "defx",
                 "prompt",
-                "TelescopePrompt",
+                "TelescopePrompt"
               },
               set_highlights = false,
               marks = {
@@ -290,7 +291,14 @@ return packer.startup(
       }
     )
 
-    use({"neoclide/coc.nvim", branch = "release", config = [[require("plugin.coc")]]})
+    use(
+      {
+        "neoclide/coc.nvim",
+        branch = "release",
+        config = [[require("plugin.coc")]],
+        run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<20\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
+      }
+    )
 
     use(
       {
@@ -315,6 +323,22 @@ return packer.startup(
         "nvim-pack/nvim-spectre",
         keys = {{"n", "<space>sg"}, {"v", "<space>sg"}},
         config = [[require("plugin.nvim-spectre")]]
+      }
+    )
+
+    use(
+      {
+        "gbprod/yanky.nvim",
+        config = function()
+          require("yanky").setup({})
+          vim.keymap.set({"n", "x"}, "y", "<Plug>(YankyYank)")
+          vim.keymap.set({"n", "x"}, "p", "<Plug>(YankyPutAfter)")
+          vim.keymap.set({"n", "x"}, "P", "<Plug>(YankyPutBefore)")
+          -- vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+          -- vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+          -- vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
+          -- vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+        end
       }
     )
 
