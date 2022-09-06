@@ -247,6 +247,7 @@ return packer.startup(
           require("scrollbar").setup(
             {
               excluded_filetypes = {
+                "list",
                 "spectre_panel",
                 "defx",
                 "prompt",
