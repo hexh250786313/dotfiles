@@ -105,10 +105,24 @@
   "markdown-preview-enhanced.scrollSync": false,
   "markdown-preview-enhanced.singlePreview": true,
   "markdown-preview-enhanced.mathRenderingOption": "None",
-  "diagnostic.autoRefresh": false,
+  "diagnostic.autoRefresh": true,
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.messageDelay": 200, // default 200
   "diagnostic-languageserver.enable": true,
+  "list.normalMappings": {
+    "P": "do:previewtoggle",
+    "<c-a>": "do:selectall",
+    // "<c-q>": "feedkeys:\\<tab>",
+    "<c-q>": "do:selectall",
+    "<a-q>": "action:quickfix",
+    "<tab>": "do:toggle",
+    "<space>": "do:chooseaction",
+    "<down>": "do:previewdown",
+    "<up>": "do:previewup"
+  },
+  "list.insertMappings": {
+    "<tab>": "do:togglemode" // 等于是 <c-i> 的行为, 终端无法区分 <tab> 和 <c-i>
+  },
   "diagnostic-languageserver.filetypes": {
     "typescriptreact": "eslint_d",
     "typescript": "eslint_d",

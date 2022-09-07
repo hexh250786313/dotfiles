@@ -113,31 +113,32 @@ nnoremap <silent> gh :call <SID>show_documentation()<CR>
 nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 3)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 3)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<C-b>"
+  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<down>"
+  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<up>"
+  inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 3)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 3)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "\<down>"
+  vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "\<up>"
 endif
 ]]
 )
 
 -- 与 coc-settings 的 diagnosticRefresh 对应, false 相当于禁用自动刷新, 自定义刷新行为
 -- silent! 可以无视报错
-api.nvim_create_autocmd(
-  {"CursorHold"},
-  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticRefresh')"}
-)
-api.nvim_create_autocmd(
-  {"CursorMoved"},
-  {pattern = "*", command = "silent! call timer_start(1000, { -> CocActionAsync('diagnosticRefresh')})"}
-)
+-- 下面两个会导致性能问题并且可能会导致 nvim core dump 崩溃
+-- api.nvim_create_autocmd(
+  -- {"CursorHold"},
+  -- {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticRefresh')"}
+-- )
+-- api.nvim_create_autocmd(
+  -- {"CursorMoved"},
+  -- {pattern = "*", command = "silent! call timer_start(1000, { -> CocActionAsync('diagnosticRefresh')})"}
+-- )
 api.nvim_create_autocmd(
   {"InsertLeave"},
   {
     pattern = "*",
-    command = "if (coc#rpc#ready()) | silent! call timer_start(1000, { -> CocActionAsync('diagnosticRefresh')})"
+    command = "if (coc#rpc#ready()) | silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 1)})"
   }
 )
 api.nvim_create_autocmd(
