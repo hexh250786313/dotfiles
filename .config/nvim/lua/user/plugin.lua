@@ -35,7 +35,17 @@ if not status_ok then
 end
 
 -- Have packer use a popup window
-packer.init({display = {open_cmd = "tabedit"}})
+packer.init(
+  {
+    display = {open_cmd = "tabedit"},
+    git = {
+      subcommands = {
+        -- default: "checkout %s --", 强行切分支, 无视本地修改, 为了 hack coc
+        checkout = "checkout -f %s --"
+      }
+    }
+  }
+)
 
 return packer.startup(
   function(use)
@@ -297,7 +307,7 @@ return packer.startup(
         branch = "release",
         config = [[require("plugin.coc")]],
         -- run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<50\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
-        run = "sh -c /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/preinstall/coc.sh"
+        run = "sh -c /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh"
       }
     )
 

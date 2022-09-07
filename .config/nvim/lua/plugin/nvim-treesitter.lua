@@ -1,6 +1,6 @@
 local util = require "formatter.util"
 
-function file_exists(name)
+local file_exists = function(name)
   local f = io.open(name, "r")
   if f ~= nil then
     io.close(f)
