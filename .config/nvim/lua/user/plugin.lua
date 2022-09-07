@@ -296,7 +296,7 @@ return packer.startup(
         "neoclide/coc.nvim",
         branch = "release",
         config = [[require("plugin.coc")]],
-        run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<20\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
+        run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<50\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
       }
     )
 
