@@ -355,6 +355,15 @@ return packer.startup(
 
     use({"gpanders/editorconfig.nvim"})
 
+    -- use(
+    -- {
+    -- "levouh/tint.nvim",
+    -- config = function()
+    -- require("tint").setup()
+    -- end
+    -- }
+    -- )
+
     -- use({"https://git.sr.ht/~whynothugo/lsp_lines.nvim"})
 
     use({"dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]]})
