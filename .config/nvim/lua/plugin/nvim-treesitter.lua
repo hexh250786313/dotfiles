@@ -10,6 +10,7 @@ local file_exists = function(name)
   end
 end
 
+-- 除了 autocmd 处对大文件进行处理, 这里也不能省略
 local disabler = function(lang, bufnr)
   local rowCount = vim.api.nvim_buf_line_count(bufnr)
   if rowCount > 5000 then

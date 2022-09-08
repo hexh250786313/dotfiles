@@ -21,6 +21,8 @@ function OpenSpectrePanel ()
   :call CloseDefx()
 endfunction
 
+autocmd BufEnter * if line2byte(line("$") + 1) > 5000 | syntax clear | endif
+
 function Test1 ()
   let l:hsl = Darken('#fabd2f')
  :call CocPrint(l:hsl)
