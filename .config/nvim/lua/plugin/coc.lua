@@ -120,6 +120,13 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "3\<C-e>"
   vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "3\<C-y>"
 endif
+
+function! DiaRefresh()
+  if (coc#rpc#ready())
+    silent! call timer_start(500, { -> CocActionAsync('diagnosticToggle', 1)})
+    silent! call timer_start(550, { -> CocActionAsync('diagnosticRefresh')})
+  endif
+endfunction
 ]]
 )
 
@@ -127,18 +134,25 @@ endif
 -- silent! 可以无视报错
 -- 下面两个会导致性能问题并且可能会导致 nvim core dump 崩溃
 -- api.nvim_create_autocmd(
-  -- {"CursorHold"},
-  -- {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticRefresh')"}
+-- {"CursorHold"},
+-- {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticRefresh')"}
 -- )
 -- api.nvim_create_autocmd(
-  -- {"CursorMoved"},
-  -- {pattern = "*", command = "silent! call timer_start(1000, { -> CocActionAsync('diagnosticRefresh')})"}
+-- {"CursorMoved"},
+-- {pattern = "*", command = "silent! call timer_start(1000, { -> CocActionAsync('diagnosticRefresh')})"}
+-- )
+-- api.nvim_create_autocmd(
+-- {"InsertLeave"},
+-- {
+-- pattern = "*",
+-- command = "if (coc#rpc#ready()) | silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 1)})"
+-- }
 -- )
 api.nvim_create_autocmd(
   {"InsertLeave"},
   {
     pattern = "*",
-    command = "if (coc#rpc#ready()) | silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 1)})"
+    command = "silent! call DiaRefresh()"
   }
 )
 api.nvim_create_autocmd(
