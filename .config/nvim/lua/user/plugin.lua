@@ -343,6 +343,7 @@ return packer.startup(
       {
         "gbprod/yanky.nvim",
         config = function()
+          vim.cmd([[ let g:yankring_clipboard_monitor=0 ]])
           require("yanky").setup({})
           vim.keymap.set({"n", "x"}, "y", "<Plug>(YankyYank)")
           vim.keymap.set({"n", "x"}, "p", "<Plug>(YankyPutAfter)")
