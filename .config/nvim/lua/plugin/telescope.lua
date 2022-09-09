@@ -118,7 +118,7 @@ require("telescope").setup {
 }
 
 require("telescope").load_extension("yank_history")
-require('telescope').load_extension('coc')
+-- require('telescope').load_extension('coc')
 
 vim.cmd(
   [[
@@ -169,9 +169,9 @@ endfunction
 nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 " nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
 nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
-nnoremap <silent> <Space>] <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
-nnoremap <silent> <Space>[ <cmd>Telescope coc references sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
-nnoremap <silent> <Space>sb :call <SID>delay_coc_mru()<CR>
+" nnoremap <silent> <Space>] <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
+" nnoremap <silent> <Space>[ <cmd>Telescope coc references sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
+" nnoremap <silent> <Space>sb :call <SID>delay_coc_mru()<CR>
 " nnoremap <C-LeftMouse> <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>

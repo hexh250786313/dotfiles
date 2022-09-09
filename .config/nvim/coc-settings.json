@@ -31,7 +31,6 @@
   "list.indicator": "❯",
   "list.menuAction": true,
   "list.source.location.defaultAction": "drop",
-  // "coc.preferences.jumpCommand": "open",
   "git.addGBlameToVirtualText": false,
   "list.source.grep.useLiteral": false,
   "suggest.snippetIndicator": " ✩",

@@ -90,14 +90,13 @@ return packer.startup(
     -- use({"~/workspace/defx-icons"})
     use({"hexh250786313/defx-icons"})
 
-    use({"kristijanhusak/defx-git"})
+    -- use({"kristijanhusak/defx-git"})
 
     use({"p00f/nvim-ts-rainbow"})
 
     use(
       {
         "nvim-treesitter/nvim-treesitter",
-        commit = "2a63ea5665a6de96acd31a045d9d4d73272ff5a9",
         event = "BufEnter",
         run = ":TSUpdate",
         config = [[require("plugin.nvim-treesitter")]]
@@ -159,12 +158,12 @@ return packer.startup(
           {"n", "<space>sf"},
           -- {"n", "<space>sg"},
           {"n", "<space>sr"},
-          {"n", "<space>["},
-          {"n", "<space>]"},
-          {"n", "<C-LeftMouse>"},
+          -- {"n", "<space>["},
+          -- {"n", "<space>]"},
+          -- {"n", "<C-LeftMouse>"},
           {"v", "<space>sf"},
           -- {"v", "<space>sg"}
-          {"n", "<space>sb"},
+          -- {"n", "<space>sb"},
           {"n", "<space>sy"}
         },
         config = [[require("plugin.telescope")]]
@@ -172,7 +171,7 @@ return packer.startup(
     )
 
     -- use({"fannheyward/telescope-coc.nvim"})
-    use({"hexh250786313/telescope-coc.nvim"})
+    -- use({"hexh250786313/telescope-coc.nvim"})
     -- use({"~/workspace/telescope-coc.nvim"})
 
     use(
@@ -208,17 +207,17 @@ return packer.startup(
 
     use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
 
-    use(
-      {
-        "anuvyklack/fold-preview.nvim",
-        config = [[require("plugin.fold-preview")]],
-        requires = "anuvyklack/keymap-amend.nvim"
-      }
-    )
+    -- use(
+    -- {
+    -- "anuvyklack/fold-preview.nvim",
+    -- config = [[require("plugin.fold-preview")]],
+    -- requires = "anuvyklack/keymap-amend.nvim"
+    -- }
+    -- )
 
     -- use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
 
-    use({"github/copilot.vim", config = [[require("plugin.copilot")]], cmd = {"Copilot"}})
+    -- use({"github/copilot.vim", config = [[require("plugin.copilot")]], cmd = {"Copilot"}})
 
     use({"gelguy/wilder.nvim", run = ":UpdateRemotePlugins", config = [[require("plugin.wilder")]]})
 

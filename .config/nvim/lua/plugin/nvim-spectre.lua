@@ -24,7 +24,7 @@ require("spectre").setup(
         cmd = "rg",
         args = {
           "--column",
-          "--ignore-case",
+          -- "--ignore-case",
           "--hidden",
           "--multiline"
           -- "--vimgrep" -- for result in same line, usually, it is not useful for searching but useful for replacing
