@@ -17,6 +17,7 @@ call SetupCommandAbbrs('ch', 'checkhealth')
 call SetupCommandAbbrs('cl', 'CocList')
 call SetupCommandAbbrs('cr', 'CocRestart')
 call SetupCommandAbbrs('pu', 'PackerUpdate')
+call SetupCommandAbbrs('pc', 'PackerCompile')
 call SetupCommandAbbrs('cu', 'CocUpdate')
 call SetupCommandAbbrs('tu', 'TSUpdate')
 ]]

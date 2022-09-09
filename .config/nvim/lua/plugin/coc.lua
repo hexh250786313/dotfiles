@@ -123,8 +123,8 @@ endif
 
 function! DiaRefresh()
   if (coc#rpc#ready())
-    silent! call timer_start(500, { -> CocActionAsync('diagnosticToggle', 1)})
-    silent! call timer_start(550, { -> CocActionAsync('diagnosticRefresh')})
+    silent! call timer_start(1100, { -> CocActionAsync('diagnosticToggle', 1)})
+    silent! call timer_start(1150, { -> CocActionAsync('diagnosticRefresh')})
   endif
 endfunction
 ]]
