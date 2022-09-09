@@ -127,6 +127,13 @@ function! DiaRefresh()
     silent! call timer_start(1150, { -> CocActionAsync('diagnosticRefresh')})
   endif
 endfunction
+
+function! DiaDisable()
+  if (coc#rpc#ready())
+    silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 0)})
+    silent! call timer_start(1050, { -> CocActionAsync('diagnosticToggle', 0)})
+  endif
+endfunction
 ]]
 )
 
@@ -148,23 +155,24 @@ endfunction
 -- command = "if (coc#rpc#ready()) | silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 1)})"
 -- }
 -- )
-api.nvim_create_autocmd(
-  {"InsertLeave"},
-  {
-    pattern = "*",
-    command = "silent! call DiaRefresh()"
-  }
-)
-api.nvim_create_autocmd(
-  {"InsertEnter"},
-  {
-    pattern = "*",
-    command = "if (coc#rpc#ready()) |  silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 0)})"
-  }
-)
-api.nvim_create_autocmd(
-  {"InsertCharPre"},
-  {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticToggle', 0)"}
-)
+-- 影响性能
+-- api.nvim_create_autocmd(
+-- {"InsertLeave"},
+-- {
+-- pattern = "*",
+-- command = "silent! call DiaRefresh()"
+-- }
+-- )
+-- api.nvim_create_autocmd(
+-- {"InsertEnter"},
+-- {
+-- pattern = "*",
+-- command = "silent! call DiaDisable()"
+-- }
+-- )
+-- api.nvim_create_autocmd(
+-- {"InsertCharPre"},
+-- {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticToggle', 0)"}
+-- )
 -- diagnosticToggleBuffer 看起来不太行, 提个 pr
 -- api.nvim_create_autocmd({"InsertLeavePre"}, {pattern = "*", command = "silent call CocActionAsync('diagnosticToggleBuffer', 1)"})
