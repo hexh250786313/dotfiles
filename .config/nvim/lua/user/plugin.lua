@@ -151,24 +151,24 @@ return packer.startup(
 
     use({"phaazon/hop.nvim", cmd = {"HopChar1"}, keys = {{"n", "f"}, {"v", "f"}}, config = [[require("plugin.hop")]]})
 
-    use(
-      {
-        "nvim-telescope/telescope.nvim",
-        keys = {
-          {"n", "<space>sf"},
-          -- {"n", "<space>sg"},
-          {"n", "<space>sr"},
-          -- {"n", "<space>["},
-          -- {"n", "<space>]"},
-          -- {"n", "<C-LeftMouse>"},
-          {"v", "<space>sf"},
-          -- {"v", "<space>sg"}
-          -- {"n", "<space>sb"},
-          {"n", "<space>sy"}
-        },
-        config = [[require("plugin.telescope")]]
-      }
-    )
+    -- use(
+    -- {
+    -- "nvim-telescope/telescope.nvim",
+    -- -- keys = {
+    -- -- {"n", "<space>sf"},
+    -- -- {"n", "<space>sg"},
+    -- -- {"n", "<space>sr"},
+    -- -- {"n", "<space>["},
+    -- -- {"n", "<space>]"},
+    -- -- {"n", "<C-LeftMouse>"},
+    -- -- {"v", "<space>sf"},
+    -- -- {"v", "<space>sg"}
+    -- -- {"n", "<space>sb"},
+    -- -- {"n", "<space>sy"}
+    -- -- },
+    -- config = [[require("plugin.telescope")]]
+    -- }
+    -- )
 
     -- use({"fannheyward/telescope-coc.nvim"})
     -- use({"hexh250786313/telescope-coc.nvim"})
@@ -342,7 +342,6 @@ return packer.startup(
       {
         "gbprod/yanky.nvim",
         config = function()
-          vim.cmd([[ let g:yankring_clipboard_monitor=0 ]])
           require("yanky").setup({})
           vim.keymap.set({"n", "x"}, "y", "<Plug>(YankyYank)")
           vim.keymap.set({"n", "x"}, "p", "<Plug>(YankyPutAfter)")

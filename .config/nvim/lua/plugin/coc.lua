@@ -13,6 +13,7 @@ if vim.fn.exists("&winbar") ~= 0 then
 end
 
 vim.g.coc_global_extensions = {
+  "coc-list-yanky",
   "coc-css",
   -- "coc-eslint",
   "coc-diagnostic",
@@ -105,7 +106,8 @@ nnoremap <silent> <Space>[ :call CocAction('jumpReferences', v:false)<CR>
 nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
 nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
 nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
-" nnoremap <silent> <Space>sy :CocList --auto-preview --normal --tab --number-select yank<CR>
+nnoremap <silent> <Space>sf :CocList files<CR>
+nnoremap <silent> <Space>sy :CocList --auto-preview --normal --number-select yanky<CR>
 nnoremap <silent> <Space>ss :CocList --no-sort --normal services<CR>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
 nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
