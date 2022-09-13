@@ -154,18 +154,18 @@ return packer.startup(
     -- use(
     -- {
     -- "nvim-telescope/telescope.nvim",
-    -- -- keys = {
-    -- -- {"n", "<space>sf"},
-    -- -- {"n", "<space>sg"},
-    -- -- {"n", "<space>sr"},
-    -- -- {"n", "<space>["},
-    -- -- {"n", "<space>]"},
-    -- -- {"n", "<C-LeftMouse>"},
-    -- -- {"v", "<space>sf"},
-    -- -- {"v", "<space>sg"}
-    -- -- {"n", "<space>sb"},
-    -- -- {"n", "<space>sy"}
-    -- -- },
+    -- keys = {
+    -- {"n", "<space>sf"},
+    -- {"n", "<space>sg"},
+    -- {"n", "<space>sr"},
+    -- {"n", "<space>["},
+    -- {"n", "<space>]"},
+    -- {"n", "<C-LeftMouse>"},
+    -- {"v", "<space>sf"},
+    -- {"v", "<space>sg"}
+    -- {"n", "<space>sb"},
+    -- {"n", "<space>sy"}
+    -- },
     -- config = [[require("plugin.telescope")]]
     -- }
     -- )
