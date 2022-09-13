@@ -34,7 +34,7 @@ vim.g.coc_global_extensions = {
   "coc-markmap",
   "coc-angular",
   "coc-git",
-  "@hexuhua/coc-symbol-line",
+  -- "@hexuhua/coc-symbol-line",
   "@hexuhua/coc-replacement",
   -- "@hexuhua/coc-git",
   -- "@hexuhua/coc-yank",
