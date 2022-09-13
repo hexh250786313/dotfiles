@@ -75,7 +75,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
+command! -nargs=? Fold :call CocActionAsync('fold', <f-args>)
 
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -99,10 +99,10 @@ nnoremap <silent> <Space>gi :CocCommand git.chunkInfo<CR>
 nnoremap <silent> <Space>gd :CocCommand git.diffCached<CR>
 nmap <Space>g[ <Plug>(coc-git-prevchunk)
 nmap <Space>g] <Plug>(coc-git-nextchunk)
-nnoremap <silent> <Space>} :call CocAction('jumpDefinition', v:false)<CR>
-nnoremap <silent> <Space>{ :call CocAction('jumpReferences', v:false)<CR>
-nnoremap <silent> <Space>] :call CocAction('jumpDefinition', v:false)<CR>
-nnoremap <silent> <Space>[ :call CocAction('jumpReferences', v:false)<CR>
+nnoremap <silent> <Space>} :call CocActionAsync('jumpDefinition', v:false)<CR>
+nnoremap <silent> <Space>{ :call CocActionAsync('jumpReferences', v:false)<CR>
+nnoremap <silent> <Space>] :call CocActionAsync('jumpDefinition', v:false)<CR>
+nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences', v:false)<CR>
 nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
 nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
 nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
