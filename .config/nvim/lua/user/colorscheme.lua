@@ -28,6 +28,8 @@ hi! link CocFloating Normal
 hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
 
+hi! CursorWord gui=underline
+
 exec 'hi! NormalStrongFont gui=italic,bold' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))

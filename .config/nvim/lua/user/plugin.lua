@@ -356,6 +356,8 @@ return packer.startup(
 
     use({"gpanders/editorconfig.nvim"})
 
+    use({"xiyaowong/nvim-cursorword"})
+
     -- use(
     -- {
     -- "levouh/tint.nvim",
