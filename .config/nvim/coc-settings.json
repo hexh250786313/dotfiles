@@ -12,6 +12,10 @@
     "typescript": ["javascript", "javascript-jasmine-arrow"],
     "vue": ["vue", "javascript"]
   },
+  "outline.autoPreview": true,
+  "outline.sortBy": "position",
+  "outline.togglePreviewKey": "p",
+  "outline.showLineNumber": true,
   "git.addGBlameToBufferVar": true,
   "git.changedSign.hlGroup": "CocGitSignChange",
   "git.addedSign.hlGroup": "CocGitSignAdd",
