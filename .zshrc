@@ -107,7 +107,7 @@ alias ll="colorls -l --sd"
 alias ls="colorls --sd"
 
 export MY_NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
-export NODE_PATH_PATH="$(npm root --global)"
+export NODE_PATH="$(npm root --global)"
 alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
 

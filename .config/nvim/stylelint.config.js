@@ -1,4 +1,4 @@
-const NODE_PATH = process.env.NODE_PATH;
+const NODE_PATH = process.env.MY_NODE_PATH + "/lib/node_modules";
 
 const { existsSync } = require(`node:fs`);
 const { rcFile } = require(`${NODE_PATH}/rc-config-loader`);

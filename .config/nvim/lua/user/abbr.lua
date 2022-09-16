@@ -20,5 +20,6 @@ call SetupCommandAbbrs('pu', 'PackerUpdate')
 call SetupCommandAbbrs('pc', 'PackerCompile')
 call SetupCommandAbbrs('cu', 'CocUpdate')
 call SetupCommandAbbrs('tu', 'TSUpdate')
+call SetupCommandAbbrs('ol', 'CocOutline')
 ]]
 )
