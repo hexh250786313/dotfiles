@@ -128,6 +128,9 @@ exec 'hi! CocGitSignDelete' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffDelete')), 'bg', 'gui'))
 exec 'hi! CocMenuSel' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
+exec 'hi! WilderBorder' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui')) .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
 exec 'hi! CocListLine' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
 exec 'hi! CocFloating' .
