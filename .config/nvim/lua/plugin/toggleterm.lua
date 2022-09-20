@@ -1,6 +1,30 @@
+local fn = vim.fn
+
+local function get_color(group, attr)
+  return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr)
+end
+
 require("toggleterm").setup {
+  size = function(term)
+      if term.direction == "horizontal" then
+        return 9
+      elseif term.direction == "vertical" then
+        return vim.o.columns * 0.4
+      end
+    end,
   float_opts = {
-    border = "curved"
+    border = {"▃", "▃", "▃", "█", "▀", "▀", "▀", "█"}
+    -- border = {"", "", "", "█", "", "", "", "█"}
+    -- border = {"", "", "", "", "", "", "", ""}
+  },
+  highlights = {
+    NormalFloat = {
+      link = "StatusLine"
+    },
+    FloatBorder = {
+      guifg = get_color("StatusLine", "bg")
+      -- guibg = get_color("", "fg"),
+    }
   }
 }
 
@@ -46,6 +70,7 @@ vim.cmd(
   [[
 autocmd! TermOpen term://* lua set_terminal_keymaps()
 
-nnoremap <c-t> <cmd>ToggleTerm direction=float<cr>
+" nnoremap <c-t> <cmd>ToggleTerm direction=float<cr>
+nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
 ]]
 )
