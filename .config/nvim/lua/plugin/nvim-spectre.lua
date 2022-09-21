@@ -26,7 +26,8 @@ require("spectre").setup(
           "--column",
           -- "--ignore-case",
           "--hidden",
-          "--multiline"
+          "--multiline",
+          "--sort-files"
           -- "--vimgrep" -- for result in same line, usually, it is not useful for searching but useful for replacing
         }
       }

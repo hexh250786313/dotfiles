@@ -42,7 +42,7 @@
   "list.interactiveDebounceTime": 100, // only for interactive supported list
   "list.source.grep.command": "rg",
   "list.source.files.command": "rg",
-  "list.source.grep.args": ["-i", "--hidden"],
+  "list.source.grep.args": ["-i", "--hidden", "--sort-files"],
   "list.source.grep.excludePatterns": ["**/.git/**"],
   "list.source.files.args": ["--files", "--hidden"],
   "list.source.files.excludePatterns": ["**/.git/**"],
