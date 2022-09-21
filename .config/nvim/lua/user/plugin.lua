@@ -207,6 +207,8 @@ return packer.startup(
 
     use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
 
+    use({"junegunn/fzf", config = [[require("plugin.fzf")]]})
+
     -- use(
     -- {
     -- "anuvyklack/fold-preview.nvim",
