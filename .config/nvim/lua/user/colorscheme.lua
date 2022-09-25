@@ -4,7 +4,7 @@ vim.cmd(
   [[
 let g:everforest_background = 'medium'
 let g:everforest_better_performance = 0
-let g:gruvbox_material_foreground = 'original'
+" let g:gruvbox_material_foreground = 'original'
 
 colorscheme gruvbox-material
 
