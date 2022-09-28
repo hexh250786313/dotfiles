@@ -34,6 +34,9 @@ exec 'hi! NormalStrongFont gui=italic,bold' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
 
+exec 'hi! DefxCursorLine' .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
+
 exec 'hi! TSString gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSString')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSString')), 'fg', 'gui'))
