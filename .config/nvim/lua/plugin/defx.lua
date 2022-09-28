@@ -27,6 +27,26 @@ let g:defx_config_sid = s:SID_PREFIX()
 
 autocmd FileType defx call s:defx_my_settings()
 
+function! s:AutoSelect()
+  let current_file_path = expand('%:p')
+  if filereadable(current_file_path) == 0
+    return
+  endif
+  let current_page_buffers_list = tabpagebuflist(tabpagenr())
+  for i in current_page_buffers_list
+    let buftype = getbufvar(i, '&filetype')
+    if buftype == 'defx'
+      :Defx `getcwd()` -no-focus -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
+      return
+    endif
+  endfor
+endfunction
+
+augroup user_plugin_defx
+  autocmd!
+  autocmd BufEnter,BufRead * :call <SID>AutoSelect()
+augroup END
+
 function! s:defx_my_settings() abort
   setlocal winhighlight=Normal:NormalStrongFont " 非活动时不变回 Normal
   setlocal winhighlight=CursorLine:DefxCursorLine
@@ -142,6 +162,9 @@ function! s:defx_toggle_tree_right() abort
 endfunction
 
 function! s:DefxSmartL(_)
+  augroup user_plugin_defx
+    autocmd!
+  augroup END
   if defx#is_directory()
     call defx#call_action('open_or_close_tree')
   elseif defx#is_binary()
@@ -192,6 +215,10 @@ function! s:DefxSmartL(_)
       endif
     endif
   endif
+  augroup user_plugin_defx
+    autocmd!
+    autocmd BufEnter,BufRead * :call <SID>AutoSelect()
+  augroup END
 endfunction
 
 function! s:defx_toggle_tree_right_preview() abort
@@ -321,24 +348,5 @@ nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -winc
 nmap <silent> <Space>fr :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 nmap <silent> <Space>fc :Defx -close<CR>
 
-function! s:AutoSelect()
-  let current_file_path = expand('%:p')
-  if filereadable(current_file_path) == 0
-    return
-  endif
-  let current_page_buffers_list = tabpagebuflist(tabpagenr())
-  for i in current_page_buffers_list
-    let buftype = getbufvar(i, '&filetype')
-    if buftype == 'defx'
-      :Defx `getcwd()` -no-focus -search-recursive=`expand('%:p')` -wincol=`&columns/9` -winwidth=`40` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`
-      return
-    endif
-  endfor
-endfunction
-
-augroup user_plugin_defx
-  autocmd!
-  autocmd BufEnter,BufRead * :call <SID>AutoSelect()
-augroup END
 ]]
 )
