@@ -21,7 +21,6 @@ if [[ ! -d $ZSH_CUSTOM/plugins/auto-notify ]]; then
 fi
 
 if [[ ! -d $ZSH_CUSTOM/plugins/alias-tips ]]; then
-  echo "hello"
   git clone https://github.com/djui/alias-tips.git $ZSH_CUSTOM/plugins/alias-tips
 fi
 
