@@ -102,6 +102,8 @@
   "suggest.selection": "recentlyUsedByPrefix",
   "yank.enableCompletion": false,
   "lightbulb.enableSign": false,
+  "lightbulb.virtualTextPosition": "eol",
+  "notification.statusLineProgress": false,
   "hover.target": "float",
   "diagnostic.messageTarget": "float",
   "signature.target": "float",
