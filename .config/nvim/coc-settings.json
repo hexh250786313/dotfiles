@@ -118,6 +118,8 @@
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.messageDelay": 200, // default 200
   "diagnostic-languageserver.enable": true,
+  "list.source.tags.command": "ctags -R --options=$HOME/.ctags .",
+  // "list.source.tags.command": "find \\( -name '*.js' -or -name '*.ts' -or -name '*.tsx' -or -name '*.jsx' \\) ! -path './node_modules/*' ! -path './lib/*' ! -path './build/*' ! -path './dist/*' -exec ctags --langmap=typescript:.tsx.ts {} +",
   "list.normalMappings": {
     "P": "do:previewtoggle",
     "<c-a>": "do:selectall",

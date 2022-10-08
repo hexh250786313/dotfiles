@@ -42,9 +42,23 @@ function! s:AutoSelect()
   endfor
 endfunction
 
-augroup user_plugin_defx
+function! s:SetScrolloff()
+  let current_file_type = &filetype
+  if current_file_type == 'defx'
+    setlocal scrolloff=99
+    return
+  endif
+  " call CocPrint("no defx")
+endfunction
+
+augroup set_auto_select
   autocmd!
   autocmd BufEnter,BufRead * :call <SID>AutoSelect()
+augroup END
+
+augroup set_scroll_off
+  autocmd!
+  autocmd BufEnter * :call <SID>SetScrolloff()
 augroup END
 
 function! s:defx_my_settings() abort
@@ -56,6 +70,7 @@ function! s:defx_my_settings() abort
   setlocal nornu
   setlocal nonu
   setlocal shiftwidth=2
+  setlocal scrolloff=99
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
         \ defx#do_action('open')
@@ -162,7 +177,7 @@ function! s:defx_toggle_tree_right() abort
 endfunction
 
 function! s:DefxSmartL(_)
-  augroup user_plugin_defx
+  augroup set_auto_select
     autocmd!
   augroup END
   if defx#is_directory()
@@ -215,7 +230,7 @@ function! s:DefxSmartL(_)
       endif
     endif
   endif
-  augroup user_plugin_defx
+  augroup set_auto_select
     autocmd!
     autocmd BufEnter,BufRead * :call <SID>AutoSelect()
   augroup END

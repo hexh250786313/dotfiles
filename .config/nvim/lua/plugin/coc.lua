@@ -106,6 +106,7 @@ nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences', v:false)<CR>
 nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
 nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
 nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
+nnoremap <silent> <Space>st :CocList --auto-preview tags<CR>
 " nnoremap <silent> <Space>sf :CocList files<CR>
 nnoremap <silent> <Space>sy :CocList --auto-preview --normal yanky<CR>
 nnoremap <silent> <Space>ss :CocList --no-sort --normal services<CR>
