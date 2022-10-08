@@ -45,7 +45,7 @@ endfunction
 function! s:SetScrolloff()
   let current_file_type = &filetype
   if current_file_type == 'defx'
-    setlocal scrolloff=99
+    setlocal scrolloff=3
     return
   endif
   " call CocPrint("no defx")
@@ -70,7 +70,7 @@ function! s:defx_my_settings() abort
   setlocal nornu
   setlocal nonu
   setlocal shiftwidth=2
-  setlocal scrolloff=99
+  setlocal scrolloff=3
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
         \ defx#do_action('open')
