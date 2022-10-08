@@ -8,8 +8,23 @@ function _G.symbol_line()
   return ok and line or vim.fn.bufname(curbuf)
 end
 
-if vim.fn.exists("&winbar") ~= 0 then
-  vim.o.winbar = "%!v:lua.symbol_line()"
+if vim.fn.exists "&winbar" then
+  api.nvim_create_autocmd(
+    {"CursorHold", "WinEnter", "BufWinEnter"},
+    {
+      pattern = "*",
+      callback = function()
+        if vim.b.coc_symbol_line and vim.bo.buftype == "" then
+          if vim.opt_local.winbar:get() == "" then
+            -- coclist heighht
+            -- vim.opt_local.winbar = "%!v:lua.symbol_line()"
+          end
+        else
+          vim.opt_local.winbar = ""
+        end
+      end
+    }
+  )
 end
 
 vim.g.coc_global_extensions = {

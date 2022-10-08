@@ -112,3 +112,5 @@ alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
 
 alias vm-set="sudo sh -c 'echo 0 > /proc/sys/vm/compaction_proactiveness' && cat /proc/sys/vm/compaction_proactiveness"
+
+alias makepkg-without-check="makepkg -si --nocheck"
