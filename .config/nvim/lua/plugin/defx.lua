@@ -46,6 +46,7 @@ function! s:SetScrolloff()
   let current_file_type = &filetype
   if current_file_type == 'defx'
     setlocal scrolloff=3
+    setlocal nowrap
     return
   endif
   " call CocPrint("no defx")
@@ -66,6 +67,7 @@ function! s:defx_my_settings() abort
   setlocal winhighlight=CursorLine:DefxCursorLine
   " setlocal winhighlight=Normal:NormalStrongFont,NormalNC:Normal " 非活动时会变回 Normal
 
+  setlocal nowrap
   setlocal cursorline
   setlocal nornu
   setlocal nonu
