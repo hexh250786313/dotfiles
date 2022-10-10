@@ -6,12 +6,12 @@ end
 
 require("toggleterm").setup {
   size = function(term)
-      if term.direction == "horizontal" then
-        return 9
-      elseif term.direction == "vertical" then
-        return vim.o.columns * 0.4
-      end
-    end,
+    if term.direction == "horizontal" then
+      return 9
+    elseif term.direction == "vertical" then
+      return vim.o.columns * 0.4
+    end
+  end,
   float_opts = {
     border = {"▃", "▃", "▃", "█", "▀", "▀", "▀", "█"}
     -- border = {"", "", "", "█", "", "", "", "█"}
@@ -33,14 +33,16 @@ local lazygit =
   Terminal:new(
   {
     cmd = "lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml",
-    direction = "float"
+    direction = "float",
+    count = 7
   }
 )
 local gitwebui =
   Terminal:new(
   {
     cmd = "git webui --port=9989",
-    direction = "float"
+    direction = "float",
+    count = 6
   }
 )
 
@@ -74,3 +76,28 @@ autocmd! TermOpen term://* lua set_terminal_keymaps()
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
 ]]
 )
+
+local M = {}
+
+function M.watch_term(opts)
+  local termnr = 9
+  if opts.option then
+    local next_termnr = vim.json.decode(opts.option).termnr
+    if next_termnr then
+      termnr = next_termnr
+    end
+  end
+
+  local _watch_term =
+    Terminal:new(
+    {
+      cmd = opts.cmd,
+      dir = opts.cwd,
+      direction = "float",
+      count = termnr
+    }
+  )
+  _watch_term:toggle(opts)
+end
+
+return M

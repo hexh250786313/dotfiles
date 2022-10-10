@@ -177,11 +177,11 @@ return packer.startup(
     use(
       {
         "akinsho/toggleterm.nvim",
-        keys = {
-          {"n", "<space>gl"},
-          {"n", "<space>gw"},
-          {"n", "<c-t>"}
-        },
+        -- keys = {
+        -- {"n", "<space>gl"},
+        -- {"n", "<space>gw"},
+        -- {"n", "<c-t>"}
+        -- },
         config = [[require("plugin.toggleterm")]]
       }
     )
@@ -359,6 +359,17 @@ return packer.startup(
     use({"gpanders/editorconfig.nvim"})
 
     use({"xiyaowong/nvim-cursorword"})
+
+    use(
+      {
+        "skywind3000/asynctasks.vim",
+        requires = "skywind3000/asyncrun.vim",
+        config = function()
+          vim.g.asyncrun_open = 6
+          -- vim.g.asynctasks_term_pos = 'TAB'
+        end
+      }
+    )
 
     -- use(
     -- {
