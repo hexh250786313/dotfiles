@@ -21,5 +21,6 @@ call SetupCommandAbbrs('pc', 'PackerCompile')
 call SetupCommandAbbrs('cu', 'CocUpdate')
 call SetupCommandAbbrs('tu', 'TSUpdate')
 call SetupCommandAbbrs('ol', 'CocOutline')
+call SetupCommandAbbrs('tt', 'CocCommand coc-todo-tree.showTree')
 ]]
 )

@@ -306,6 +306,7 @@ return packer.startup(
     use(
       {
         "neoclide/coc.nvim",
+        -- "~/workspace/coc.nvim",
         -- branch = "release",
         config = [[require("plugin.coc")]],
         -- run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<50\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
@@ -366,6 +367,7 @@ return packer.startup(
         requires = "skywind3000/asyncrun.vim",
         config = function()
           vim.g.asyncrun_open = 6
+          vim.g.asynctasks_config_name = {".tasks", ".vim/.tasks"}
           -- vim.g.asynctasks_term_pos = 'TAB'
         end
       }
