@@ -7,7 +7,8 @@ window:
     # columns: 138
     # lines: 22
     columns: 163
-    lines: 30
+    # lines: 30
+    lines: 37
   # position:
     # x: 850
     # y: 500
@@ -18,7 +19,8 @@ window:
   decorations: none
 font:
   normal:
-    family: CaskaydiaCove Nerd Font
+    # family: CaskaydiaCove Nerd Font
+    family: FiraCode Nerd Font
     # family: Sarasa Mono SC Nerd
     # family: agave Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono
@@ -39,9 +41,9 @@ font:
   # size: 12
   size: 9
   # size: 11
-  offset:
+  # offset:
     # x: -1
-    y: 6
+    # y: 6
 mouse:
   hide_when_typing: true
 cursor:
