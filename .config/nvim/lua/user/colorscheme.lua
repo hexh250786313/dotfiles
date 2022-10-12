@@ -4,7 +4,7 @@ vim.cmd(
   [[
 let g:everforest_background = 'medium'
 let g:everforest_better_performance = 0
-" let g:gruvbox_material_foreground = 'original'
+let g:gruvbox_material_foreground = 'original'
 
 colorscheme gruvbox-material
 
@@ -30,7 +30,8 @@ hi! link CocListMode StatusLine
 
 hi! CursorWord gui=underline
 
-exec 'hi! NormalStrongFont gui=italic,bold' .
+" exec 'hi! NormalStrongFont gui=italic,bold' .
+exec 'hi! NormalStrongFont gui=italic' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
 
@@ -55,21 +56,24 @@ exec 'hi! TSFloat gui=italic' .
 exec 'hi! TSParameter gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSParameter')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSParameter')), 'fg', 'gui'))
-exec 'hi! TSFuncBuiltin gui=bold' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncBuiltin')), 'bg', 'gui')) .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncBuiltin')), 'fg', 'gui'))
-exec 'hi! TSFunction gui=bold' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFunction')), 'bg', 'gui')) .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFunction')), 'fg', 'gui'))
-exec 'hi! TSFuncMacro gui=bold' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncMacro')), 'bg', 'gui')) .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncMacro')), 'fg', 'gui'))
-exec 'hi! TSMethod gui=bold' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSMethod')), 'bg', 'gui')) .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSMethod')), 'fg', 'gui'))
-exec 'hi! TSConstructor gui=bold' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSConstructor')), 'bg', 'gui')) .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSConstructor')), 'fg', 'gui'))
+" exec 'hi! TSFuncBuiltin gui=bold' .
+"   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncBuiltin')), 'bg', 'gui')) .
+"   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncBuiltin')), 'fg', 'gui'))
+" exec 'hi! TSFunction gui=bold' .
+"   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFunction')), 'bg', 'gui')) .
+"   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFunction')), 'fg', 'gui'))
+" exec 'hi! TSFuncMacro gui=bold' .
+"   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncMacro')), 'bg', 'gui')) .
+"   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncMacro')), 'fg', 'gui'))
+" exec 'hi! TSMethod gui=bold' .
+"   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSMethod')), 'bg', 'gui')) .
+"   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSMethod')), 'fg', 'gui'))
+" exec 'hi! TSConstructor gui=bold' .
+"   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSConstructor')), 'bg', 'gui')) .
+"   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSConstructor')), 'fg', 'gui'))
+" exec 'hi! TSTag gui=bold' .
+"   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSTag')), 'bg', 'gui')) .
+"   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSTag')), 'fg', 'gui'))
 exec 'hi! TSKeyword gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSKeyword')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSKeyword')), 'fg', 'gui'))
@@ -82,9 +86,6 @@ exec 'hi! TSVariable gui=italic' .
 exec 'hi! TSVariableBuiltin gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSVariableBuiltin')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSVariableBuiltin')), 'fg', 'gui'))
-exec 'hi! TSTag gui=bold' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSTag')), 'bg', 'gui')) .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSTag')), 'fg', 'gui'))
 exec 'hi! TSTagAttribute gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSTagAttribute')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSVariableBuiltin')), 'fg', 'gui'))
@@ -106,7 +107,8 @@ exec 'hi! DefxIconsCopyIcon guibg=NONE' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('WarningMsg')), 'fg', 'gui'))
 exec 'hi! DefxIconsMoveIcon guibg=NONE' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('ErrorMsg')), 'fg', 'gui'))
-exec 'hi! Defx_filename_directory gui=bold,italic,underline' .
+" exec 'hi! Defx_filename_directory gui=bold,italic,underline' .
+exec 'hi! Defx_filename_directory gui=italic,underline' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('PreProc')), 'fg', 'gui'))
 
 exec 'hi! CocHighlightText' .
