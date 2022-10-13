@@ -199,8 +199,6 @@ return packer.startup(
       }
     )
 
-    use({"antoinemadec/FixCursorHold.nvim"})
-
     use({"AndrewRadev/linediff.vim", cmd = {"Linediff"}})
 
     use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
