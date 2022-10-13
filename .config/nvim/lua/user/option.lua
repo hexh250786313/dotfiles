@@ -7,6 +7,19 @@ let g:loaded_matchparen = 1 " 关闭括弧配对高亮
 local myNodePath = os.getenv("MY_NODE_PATH")
 vim.cmd("let $PATH = '" .. myNodePath .. "/bin:' . $PATH")
 
+vim.g.clipboard = {
+  name = "xsel_override",
+  copy = {
+    ["+"] = "xsel --input --clipboard",
+    ["*"] = "xsel --input --primary"
+  },
+  paste = {
+    ["+"] = "xsel --output --clipboard",
+    ["*"] = "xsel --output --primary"
+  },
+  cache_enabled = 1
+}
+
 local optionList = {
   mouse = "a", -- 使用鼠标
   -- number = true, -- 显示行号, 如果开了, 则出现丑的要命的右 padding

@@ -1,8 +1,8 @@
 env:
   TERM: alacritty
 window:
-  # opacity: 0.90
-  opacity: 0.67 # for 一般情况
+  opacity: 0.90
+  # opacity: 0.67 # for 一般情况
   dimensions:
     # columns: 138
     # lines: 22
