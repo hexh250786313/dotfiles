@@ -118,11 +118,6 @@ return packer.startup(
 
     use({"honza/vim-snippets"})
 
-    -- use({"akinsho/git-conflict.nvim", config = [[require("plugin.git-conflict")]]})
-    -- use({"hexh250786313/git-conflict.nvim", config = [[require("plugin.git-conflict")]]})
-    use({"rhysd/conflict-marker.vim"})
-    -- use({"~/workspace/git-conflict.nvim", config = [[require("plugin.git-conflict")]]})
-
     use(
       {
         "preservim/nerdcommenter",

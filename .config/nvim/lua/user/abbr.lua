@@ -22,5 +22,7 @@ call SetupCommandAbbrs('cu', 'CocUpdate')
 call SetupCommandAbbrs('tu', 'TSUpdate')
 call SetupCommandAbbrs('ol', 'CocOutline')
 call SetupCommandAbbrs('tt', 'CocCommand coc-todo-tree.showTree')
+call SetupCommandAbbrs('dg2', 'diffget //2')
+call SetupCommandAbbrs('dg3', 'diffget //3')
 ]]
 )
