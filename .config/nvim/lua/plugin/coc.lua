@@ -58,14 +58,14 @@ vim.g.coc_global_extensions = {
 }
 
 -- coc 选择了 quickfix 打开后的回调
--- vim.g.coc_quickfix_open_command = "CocList --auto-preview --normal --tab --number-select quickfix"
+-- vim.g.coc_quickfix_open_command = "CocList --auto-preview --tab --number-select quickfix"
 vim.g.coc_quickfix_open_command = "copen"
 
 -- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
 vim.g.coc_enable_locationlist = 0
 api.nvim_create_autocmd(
   {"User"},
-  {pattern = "CocLocationsChange", command = "CocList --normal --number-select --auto-preview location"}
+  {pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location"}
 )
 
 -- api.nvim_create_autocmd(
@@ -119,14 +119,14 @@ nnoremap <silent> <Space>} :call CocActionAsync('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>{ :call CocActionAsync('jumpReferences', v:false)<CR>
 nnoremap <silent> <Space>] :call CocActionAsync('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences', v:false)<CR>
-nnoremap <silent> <Space>sb :CocList --no-sort --normal mru<CR>
-nnoremap <silent> <Space>sw :CocList --no-sort --normal windows<CR>
-nnoremap <silent> <Space>sd :CocList --no-sort --normal diagnostics<CR>
+nnoremap <silent> <Space>sb :CocList --no-sort mru<CR>
+nnoremap <silent> <Space>sw :CocList --no-sort windows<CR>
+nnoremap <silent> <Space>sd :CocList --no-sort diagnostics<CR>
 " nnoremap <silent> <Space>st :CocList --auto-preview tags<CR>
-nnoremap <silent> <Space>st :CocList --normal tasks<CR>
+nnoremap <silent> <Space>st :CocList tasks<CR>
 " nnoremap <silent> <Space>sf :CocList files<CR>
-nnoremap <silent> <Space>sy :CocList --auto-preview --normal yanky<CR>
-nnoremap <silent> <Space>ss :CocList --no-sort --normal services<CR>
+nnoremap <silent> <Space>sy :CocList --auto-preview yanky<CR>
+nnoremap <silent> <Space>ss :CocList --no-sort services<CR>
 nmap <silent> <Space>sa <plug>(coc-codeaction-line)
 nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
 xmap <silent> <Space>sa <plug>(coc-codeaction-selected)
