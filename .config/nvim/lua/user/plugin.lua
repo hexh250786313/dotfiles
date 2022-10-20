@@ -97,7 +97,6 @@ return packer.startup(
     use(
       {
         "nvim-treesitter/nvim-treesitter",
-        event = "BufEnter",
         run = ":TSUpdate",
         config = [[require("plugin.nvim-treesitter")]]
       }
