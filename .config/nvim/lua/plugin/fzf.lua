@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<space>sf", ":FZF<cr>", {silent = true})
+vim.keymap.set("n", "<space>sf", ":FZF --reverse<cr>", {silent = true})
 
 vim.cmd(
   [[
