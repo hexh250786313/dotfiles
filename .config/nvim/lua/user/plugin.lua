@@ -220,7 +220,7 @@ return packer.startup(
     use(
       {
         "mhartington/formatter.nvim",
-        cmd = {"Format", "FormatWrite"},
+        -- cmd = {"Format", "FormatWrite"},
         keys = {{"n", "<space>bf"}, {"x", "<space>bf"}},
         config = [[require("plugin.formatter")]]
       }
