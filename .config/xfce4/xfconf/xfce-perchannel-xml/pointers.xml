@@ -78,4 +78,9 @@
     <property name="Threshold" type="int" value="1"/>
     <property name="Acceleration" type="double" value="10.000000"/>
   </property>
+  <property name="bluez-hog-device_Mouse" type="empty">
+    <property name="RightHanded" type="bool" value="false"/>
+    <property name="Threshold" type="int" value="1"/>
+    <property name="Acceleration" type="double" value="10.000000"/>
+  </property>
 </channel>
