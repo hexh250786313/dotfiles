@@ -366,6 +366,15 @@ return packer.startup(
       }
     )
 
+    use(
+      {
+        "windwp/nvim-autopairs",
+        config = function()
+          require("nvim-autopairs").setup {}
+        end
+      }
+    )
+
     -- use(
     -- {
     -- "levouh/tint.nvim",

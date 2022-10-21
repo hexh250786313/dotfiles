@@ -40,7 +40,7 @@ vim.g.coc_global_extensions = {
   "coc-lua",
   "coc-markdown-preview-enhanced",
   "coc-marketplace",
-  "coc-pairs",
+  -- "coc-pairs",
   "coc-react-refactor",
   "coc-snippets",
   "coc-tsserver",
