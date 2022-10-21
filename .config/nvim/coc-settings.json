@@ -42,8 +42,7 @@
   "git.addGBlameToVirtualText": false,
   "list.source.grep.useLiteral": false,
   "suggest.snippetIndicator": " ✩",
-  // "suggest.autoTrigger": "none",
-  "suggest.autoTrigger": "always",
+  "suggest.autoTrigger": "none",
   "list.interactiveDebounceTime": 100, // only for interactive supported list
   "list.source.grep.command": "rg",
   "list.source.files.command": "rg",
@@ -137,7 +136,13 @@
     "<up>": "do:previewup"
   },
   "list.insertMappings": {
-    "<tab>": "do:togglemode" // 等于是 <c-i> 的行为, 终端无法区分 <tab> 和 <c-i>
+    "<c-p>": "do:previewtoggle",
+    "<c-a>": "do:selectall",
+    "<c-q>": "do:selectall",
+    "<a-q>": "action:quickfix",
+    // "<tab>": "do:togglemode", // 等于是 <c-i> 的行为, 终端无法区分 <tab> 和 <c-i>
+    "<down>": "do:previewdown",
+    "<up>": "do:previewup"
   },
   "diagnostic-languageserver.filetypes": {
     "typescriptreact": "eslint_d",
