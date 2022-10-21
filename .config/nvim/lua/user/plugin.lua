@@ -87,11 +87,7 @@ return packer.startup(
       }
     )
 
-    -- use({"kristijanhusak/defx-icons"})
-    -- use({"~/workspace/defx-icons"})
     use({"hexh250786313/defx-icons"})
-
-    -- use({"kristijanhusak/defx-git"})
 
     use({"p00f/nvim-ts-rainbow"})
 
@@ -120,25 +116,16 @@ return packer.startup(
 
     use(
       {
-        "preservim/nerdcommenter",
+        "numToStr/Comment.nvim",
         keys = {
           {"n", "<space>cl"},
           {"n", "<space>cy"},
           {"n", "<space>cs"},
-          {"n", "<space>cu"},
           {"v", "<space>cl"},
           {"v", "<space>cy"},
-          {"v", "<space>cs"},
-          {"v", "<space>cu"}
+          {"v", "<space>cs"}
         },
-        config = [[require("plugin.nerdcommenter")]]
-      }
-    )
-
-    use(
-      {
-        "mg979/vim-visual-multi",
-        config = [[require("plugin.vim-visual-multi")]]
+        config = [[require("plugin.Comment")]]
       }
     )
 
@@ -146,37 +133,9 @@ return packer.startup(
 
     use({"phaazon/hop.nvim", cmd = {"HopChar1"}, keys = {{"n", "f"}, {"v", "f"}}, config = [[require("plugin.hop")]]})
 
-    -- use(
-    -- {
-    -- "nvim-telescope/telescope.nvim",
-    -- keys = {
-    -- {"n", "<space>sf"},
-    -- {"n", "<space>sg"},
-    -- {"n", "<space>sr"},
-    -- {"n", "<space>["},
-    -- {"n", "<space>]"},
-    -- {"n", "<C-LeftMouse>"},
-    -- {"v", "<space>sf"},
-    -- {"v", "<space>sg"}
-    -- {"n", "<space>sb"},
-    -- {"n", "<space>sy"}
-    -- },
-    -- config = [[require("plugin.telescope")]]
-    -- }
-    -- )
-
-    -- use({"fannheyward/telescope-coc.nvim"})
-    -- use({"hexh250786313/telescope-coc.nvim"})
-    -- use({"~/workspace/telescope-coc.nvim"})
-
     use(
       {
         "akinsho/toggleterm.nvim",
-        -- keys = {
-        -- {"n", "<space>gl"},
-        -- {"n", "<space>gw"},
-        -- {"n", "<c-t>"}
-        -- },
         config = [[require("plugin.toggleterm")]]
       }
     )
@@ -202,18 +161,6 @@ return packer.startup(
 
     use({"junegunn/fzf", config = [[require("plugin.fzf")]]})
 
-    -- use(
-    -- {
-    -- "anuvyklack/fold-preview.nvim",
-    -- config = [[require("plugin.fold-preview")]],
-    -- requires = "anuvyklack/keymap-amend.nvim"
-    -- }
-    -- )
-
-    -- use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
-
-    -- use({"github/copilot.vim", config = [[require("plugin.copilot")]], cmd = {"Copilot"}})
-
     use({"gelguy/wilder.nvim", run = ":UpdateRemotePlugins", config = [[require("plugin.wilder")]]})
 
     use({"lukas-reineke/indent-blankline.nvim", config = [[require("plugin.indent-blankline")]]})
@@ -221,8 +168,6 @@ return packer.startup(
     use(
       {
         "mhartington/formatter.nvim",
-        -- cmd = {"Format", "FormatWrite"},
-        keys = {{"n", "<space>bf"}, {"x", "<space>bf"}},
         config = [[require("plugin.formatter")]]
       }
     )
@@ -245,46 +190,10 @@ return packer.startup(
 
     use({"romainl/vim-cool"})
 
-    -- use({"dstein64/nvim-scrollview", config = [[require("plugin.nvim-scrollview")]]})
     use(
       {
         "petertriho/nvim-scrollbar",
-        config = function()
-          require("scrollbar").setup(
-            {
-              excluded_filetypes = {
-                "list",
-                "spectre_panel",
-                "defx",
-                "prompt",
-                "TelescopePrompt"
-              },
-              set_highlights = false,
-              marks = {
-                Error = {
-                  text = {"∎", "∎"},
-                  priority = 1
-                },
-                Warn = {
-                  text = {"∎", "∎"},
-                  priority = 2
-                },
-                Info = {
-                  text = {"∎", "∎"},
-                  priority = 3
-                },
-                Hint = {
-                  text = {"∎", "∎"},
-                  priority = 4
-                },
-                Misc = {
-                  text = {"∎", "∎"},
-                  priority = 5
-                }
-              }
-            }
-          )
-        end
+        config = [[require("plugin.nvim-scrollbar")]]
       }
     )
 
@@ -337,16 +246,7 @@ return packer.startup(
     use(
       {
         "gbprod/yanky.nvim",
-        config = function()
-          require("yanky").setup({})
-          vim.keymap.set({"n", "x"}, "y", "<Plug>(YankyYank)")
-          vim.keymap.set({"n", "x"}, "p", "<Plug>(YankyPutAfter)")
-          vim.keymap.set({"n", "x"}, "P", "<Plug>(YankyPutBefore)")
-          -- vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-          -- vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
-          -- vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
-          -- vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
-        end
+        config = [[require("plugin.yanky")]]
       }
     )
 
@@ -358,11 +258,7 @@ return packer.startup(
       {
         "skywind3000/asynctasks.vim",
         requires = "skywind3000/asyncrun.vim",
-        config = function()
-          vim.g.asyncrun_open = 6
-          vim.g.asynctasks_config_name = {".tasks", ".vim/.tasks"}
-          -- vim.g.asynctasks_term_pos = 'TAB'
-        end
+        config = [[require("plugin.asynctasks")]]
       }
     )
 
@@ -374,17 +270,6 @@ return packer.startup(
         end
       }
     )
-
-    -- use(
-    -- {
-    -- "levouh/tint.nvim",
-    -- config = function()
-    -- require("tint").setup()
-    -- end
-    -- }
-    -- )
-
-    -- use({"https://git.sr.ht/~whynothugo/lsp_lines.nvim"})
 
     use({"dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]]})
 
