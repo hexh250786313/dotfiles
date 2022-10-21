@@ -66,6 +66,7 @@ return packer.startup(
         -- "hexh250786313/vscode.nvim"
         "sainnhe/gruvbox-material"
         -- "sainnhe/everforest"
+        -- "wuelnerdotexe/vim-enfocado"
       }
     )
     -- Theme End
