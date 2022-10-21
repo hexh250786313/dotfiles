@@ -42,7 +42,8 @@
   "git.addGBlameToVirtualText": false,
   "list.source.grep.useLiteral": false,
   "suggest.snippetIndicator": " ✩",
-  "suggest.autoTrigger": "none",
+  // "suggest.autoTrigger": "none",
+  "suggest.autoTrigger": "always",
   "list.interactiveDebounceTime": 100, // only for interactive supported list
   "list.source.grep.command": "rg",
   "list.source.files.command": "rg",

@@ -119,17 +119,17 @@ nnoremap <silent> <Space>} :call CocActionAsync('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>{ :call CocActionAsync('jumpReferences', v:false)<CR>
 nnoremap <silent> <Space>] :call CocActionAsync('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences', v:false)<CR>
-nnoremap <silent> <Space>sb :CocList --no-sort mru<CR>
-nnoremap <silent> <Space>sw :CocList --no-sort windows<CR>
-nnoremap <silent> <Space>sd :CocList --no-sort diagnostics<CR>
-" nnoremap <silent> <Space>st :CocList --auto-preview tags<CR>
-nnoremap <silent> <Space>st :CocList tasks<CR>
+nnoremap <silent> <Space>lm :CocList --no-sort mru<CR>
+nnoremap <silent> <Space>ld :CocList --no-sort diagnostics<CR>
+" nnoremap <silent> <Space>lt :CocList --auto-preview tags<CR>
+nnoremap <silent> <Space>lt :CocList tasks<CR>
 " nnoremap <silent> <Space>sf :CocList files<CR>
-nnoremap <silent> <Space>sy :CocList --auto-preview yanky<CR>
-nnoremap <silent> <Space>ss :CocList --no-sort services<CR>
-nmap <silent> <Space>sa <plug>(coc-codeaction-line)
-nmap <silent> <Space>sA <plug>(coc-codeaction-cursor)
-xmap <silent> <Space>sa <plug>(coc-codeaction-selected)
+nnoremap <silent> <Space>ly :CocList --auto-preview yanky<CR>
+nnoremap <silent> <Space>ls :CocList --no-sort services<CR>
+nnoremap <silent> <Space>lb :CocList --no-sort buffers<CR>
+nmap <silent> <Space>la <plug>(coc-codeaction-line)
+nmap <silent> <Space>lA <plug>(coc-codeaction-cursor)
+xmap <silent> <Space>la <plug>(coc-codeaction-selected)
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>

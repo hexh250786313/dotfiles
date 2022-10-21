@@ -75,7 +75,7 @@ return packer.startup(
 
     use({"hoob3rt/lualine.nvim", config = [[require("plugin.lualine")]]})
 
-    use({"akinsho/bufferline.nvim", config = [[require("plugin.bufferline")]]})
+    -- use({"akinsho/bufferline.nvim", config = [[require("plugin.bufferline")]]})
 
     use({"nvim-lua/plenary.nvim"})
 

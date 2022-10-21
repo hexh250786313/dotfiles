@@ -168,14 +168,14 @@ endfunction
 
 " nnoremap <silent> <Space>sf <cmd>Telescope find_files find_command=rg,--hidden,--files<cr>
 " nnoremap <silent> <Space>sg <cmd>Telescope live_grep<cr>
-" nnoremap <silent> <Space>sr <cmd>Telescope pickers<cr><esc>
+" nnoremap <silent> <Space>lr <cmd>Telescope pickers<cr><esc>
 " nnoremap <silent> <Space>] <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 " nnoremap <silent> <Space>[ <cmd>Telescope coc references sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
-" nnoremap <silent> <Space>sb :call <SID>delay_coc_mru()<CR>
+" nnoremap <silent> <Space>lm :call <SID>delay_coc_mru()<CR>
 " nnoremap <C-LeftMouse> <cmd>Telescope coc definitions sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.9} initial_mode=normal<CR>
 " vnoremap <silent> <Space>sg :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 " vnoremap <silent> <Space>sf :<C-u>call <SID>FindFromSelected(visualmode())<CR>
-" nnoremap <silent> <Space>sy :Telescope yank_history sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.5} initial_mode=normal<CR>
+" nnoremap <silent> <Space>ly :Telescope yank_history sorting_strategy=ascending layout_strategy=cursor layout_config={height=0.5,width=0.5} initial_mode=normal<CR>
 
 ]]
 )
