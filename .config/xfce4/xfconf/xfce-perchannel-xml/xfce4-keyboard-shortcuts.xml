@@ -47,9 +47,10 @@
       <property name="&lt;Primary&gt;&lt;Shift&gt;colon" type="string" value="xfce4-clipman-history"/>
       <property name="&lt;Super&gt;e" type="string" value="pcmanfm-qt"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;n" type="string" value="alacritty --command sh -c &quot;sleep 0.5; nvim /home/hexh/桌面/share/clipboard.txt&quot;"/>
-      <property name="&lt;Super&gt;n" type="string" value="xdg-open 'obsidian://open?vault=%E7%8B%97%E5%B1%8E&file=%E7%A2%8E%E7%89%87'"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;a" type="string" value="flameshot gui"/>
       <property name="&lt;Alt&gt;F1" type="string" value="sh -c &quot;source /home/hexh/workspace/dotfiles/.config/my-config/sh/rofi-toggle.sh&quot;"/>
+      <property name="&lt;Super&gt;n" type="string" value="xdg-open &apos;obsidian://open?vault=%E7%8B%97%E5%B1%8E&amp;file=%E7%A2%8E%E7%89%87&apos;"/>
+      <property name="&lt;Shift&gt;F11" type="string" value="tdrop -am -w 100% -h 90% -x 0 -y 36 alacritty"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -215,4 +216,3 @@
     <value type="string" value="commands"/>
   </property>
 </channel>
-
