@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export LANG=en_US.UTF-8
 # ZSH_DISABLE_COMPFIX="true" # 如果报了 completion 的错就打开，否则注释掉
 export ZSH="/home/hexh/.oh-my-zsh"
@@ -101,10 +108,10 @@ export OPENCV_LOG_LEVEL=ERROR
 
 source $ZSH/oh-my-zsh.sh
 
-alias lc="colorls -lA --sd"
-alias la="colorls -a --sd"
-alias ll="colorls -l --sd"
-alias ls="colorls --sd"
+alias l="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
+alias la="colorls -A --sd"
+alias ll="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
+alias ls="colorls -A --sd"
 
 export MY_NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
 export NODE_PATH="$(npm root --global)"

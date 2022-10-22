@@ -6,9 +6,10 @@ window:
   dimensions:
     # columns: 138
     # lines: 22
-    columns: 163
-    # lines: 30
-    lines: 37
+    # columns: 163
+    # lines: 37
+    columns: 123
+    lines: 28
   # position:
     # x: 850
     # y: 500
@@ -38,13 +39,13 @@ font:
   # family: CaskaydiaCove Nerd Font
   # style: Bold Italic
   # size: 12.5
-  # size: 12
-  size: 9
+  size: 12
+  # size: 9
   # size: 11
-  offset:
+  # offset:
     # x: -1
     # y: 6
-    y: 3
+    # y: 3
 mouse:
   hide_when_typing: true
 cursor:
