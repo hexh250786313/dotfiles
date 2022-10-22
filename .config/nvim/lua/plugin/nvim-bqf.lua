@@ -7,5 +7,10 @@ require("bqf").setup(
       pscrollup = "<Up>",
       pscrolldown = "<Down>"
     },
+    filter = {
+      fzf = {
+        extra_opts = {'--bind', 'ctrl-a:toggle-all'}
+      }
+    }
   }
 )

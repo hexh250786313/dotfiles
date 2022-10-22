@@ -127,9 +127,8 @@
   "list.normalMappings": {
     "P": "do:previewtoggle",
     "<c-a>": "do:selectall",
+    "<c-q>": "action:quickfix",
     // "<c-q>": "feedkeys:\\<tab>",
-    "<c-q>": "do:selectall",
-    "<a-q>": "action:quickfix",
     "<tab>": "do:toggle",
     "<space>": "do:chooseaction",
     "<down>": "do:previewdown",
@@ -138,8 +137,8 @@
   "list.insertMappings": {
     "<c-p>": "do:previewtoggle",
     "<c-a>": "do:selectall",
-    "<c-q>": "do:selectall",
-    "<a-q>": "action:quickfix",
+    "<c-q>": "action:quickfix",
+    "<tab>": "do:toggle",
     // "<tab>": "do:togglemode", // 等于是 <c-i> 的行为, 终端无法区分 <tab> 和 <c-i>
     "<down>": "do:previewdown",
     "<up>": "do:previewup"
