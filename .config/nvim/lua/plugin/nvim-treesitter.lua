@@ -29,7 +29,7 @@ local disabler = function(lang, bufnr)
       return true
     end
   else
-    return true
+    return false
   end
   return false
 end
