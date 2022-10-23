@@ -25,5 +25,6 @@ call SetupCommandAbbrs('tt', 'CocCommand coc-todo-tree.showTree')
 call SetupCommandAbbrs('dg2', 'diffget //2')
 call SetupCommandAbbrs('dg3', 'diffget //3')
 call SetupCommandAbbrs('gb', 'Git blame')
+call SetupCommandAbbrs('git', 'Git')
 ]]
 )
