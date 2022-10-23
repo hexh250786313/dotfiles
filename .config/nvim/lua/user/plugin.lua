@@ -210,6 +210,7 @@ return packer.startup(
         "neoclide/coc.nvim",
         -- "~/workspace/coc.nvim",
         -- branch = "release",
+        commit = "3727269e89fbe0c12cdede642271207b10488036",
         config = [[require("plugin.coc")]],
         -- run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<50\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
         run = "yarn install --frozen-lockfile && /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh"
