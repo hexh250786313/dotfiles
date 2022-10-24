@@ -28,6 +28,9 @@ local config = {
           hint = "DiagnosticHint"
         },
         symbols = {error = "E:", warn = "W:", info = "I:", hint = "H:", ok = "O:"}
+      },
+      {
+        "%f %m"
       }
       -- {
       -- "b:coc_symbol_line"
