@@ -336,7 +336,7 @@ endfunction
 
 
 call defx#custom#option('_', {
-      \ 'show_ignored_files': 1,
+      \ 'show_ignored_files': 0,
       \ 'listed': 1,
       \ 'columns': 'mark:git:indent:icon:icons:filename',
       \ 'split': 'vertical',
@@ -344,6 +344,7 @@ call defx#custom#option('_', {
       \ 'vertical_preview': 1,
       \ 'resume': 1,
       \ 'direction': 'topleft',
+      \ 'ignored_files': '.*,node_modules,Dockerfile*,yarn.lock,lib,build,dist',
       \ })
 
 call defx#custom#column('git', 'indicators', {

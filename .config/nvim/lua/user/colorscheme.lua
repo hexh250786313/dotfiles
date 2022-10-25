@@ -6,7 +6,7 @@ let g:everforest_background = 'medium'
 let g:everforest_better_performance = 0
 let g:gruvbox_material_foreground = 'original'
 
-colorscheme gruvbox-material
+colorscheme enfocado
 
 let g:defaultnormalgb=HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
 
@@ -36,7 +36,8 @@ exec 'hi! NormalStrongFont gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
 
 exec 'hi! DefxCursorLine' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+  " \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
 
 exec 'hi! TSString gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSString')), 'bg', 'gui')) .
@@ -132,12 +133,14 @@ exec 'hi! CocGitSignDelete' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffDelete')), 'bg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffDelete')), 'bg', 'gui'))
 exec 'hi! CocMenuSel' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+  " \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
 exec 'hi! WilderBorder' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
 exec 'hi! CocListLine' .
-  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Visual')), 'bg', 'gui'))
+  " \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('DiffAdd')), 'bg', 'gui'))
 exec 'hi! CocFloating' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
 exec 'hi! CocFloatDividingLine' .

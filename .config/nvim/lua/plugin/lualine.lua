@@ -30,8 +30,9 @@ local config = {
         symbols = {error = "E:", warn = "W:", info = "I:", hint = "H:", ok = "O:"}
       },
       {
-        "%f %m"
-      }
+        "filename",
+        path = 1
+      },
       -- {
       -- "b:coc_symbol_line"
       -- }
