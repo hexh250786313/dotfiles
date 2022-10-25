@@ -12,24 +12,31 @@ end
 
 -- 除了 autocmd 处对大文件进行处理, 这里也不能省略
 local disabler = function(lang, bufnr)
-  local rowCount = vim.api.nvim_buf_line_count(bufnr)
-  if rowCount > 5000 then
+  -- local rowCount = vim.api.nvim_buf_line_count(bufnr)
+  -- if rowCount > 5000 then
+  --   return true
+  -- end
+  --
+  -- local path = util.escape_path(util.get_current_buffer_file_path())
+  -- if file_exists(path) then
+  --   local handle = io.popen("wc -L " .. path)
+  --   local result = handle:read("*a")
+  --   local colCount = tonumber(string.match(result, "^%d+"))
+  --   -- print(colCount)
+  --
+  --   handle:close()
+  --   if colCount > 500 then
+  --     return true
+  --   end
+  -- else
+  --   return false
+  -- end
+  -- return false
+
+  local max_filesize = 50 * 1024 -- 50 KB
+  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+  if ok and stats and stats.size > max_filesize then
     return true
-  end
-
-  local path = util.escape_path(util.get_current_buffer_file_path())
-  if file_exists(path) then
-    local handle = io.popen("wc -L " .. path)
-    local result = handle:read("*a")
-    local colCount = tonumber(string.match(result, "^%d+"))
-    -- print(colCount)
-
-    handle:close()
-    if colCount > 500 then
-      return true
-    end
-  else
-    return false
   end
   return false
 end
