@@ -12,7 +12,7 @@ export EDITOR=nvim
 export REACT_EDITOR=nvim
 export ZSH_CUSTOM="/home/hexh/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/hexh/.config"
-export FZF_DEFAULT_COMMAND="fd --type f --hidden"
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*'"
 
 setopt globdots
 setopt rm_starsilent
