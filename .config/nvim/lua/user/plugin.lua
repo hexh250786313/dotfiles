@@ -212,7 +212,8 @@ return packer.startup(
         -- branch = "release",
         config = [[require("plugin.coc")]],
         -- run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<50\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
-        run = "yarn install --frozen-lockfile && /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh"
+        run = "yarn install --frozen-lockfile && /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh",
+        after = "nvim-autopairs"
       }
     )
 
@@ -273,40 +274,7 @@ return packer.startup(
 
     use({"dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]]})
 
-    use(
-      {
-        "kevinhwang91/nvim-hlslens",
-        config = function()
-          require("hlslens").setup(
-            {
-              calm_down = true,
-              nearest_only = true,
-              nearest_float_when = "always"
-            }
-          )
-          local kopts = {noremap = true, silent = true}
-
-          vim.api.nvim_set_keymap(
-            "n",
-            "n",
-            [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-            kopts
-          )
-          vim.api.nvim_set_keymap(
-            "n",
-            "N",
-            [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-            kopts
-          )
-          vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-          vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-          vim.api.nvim_set_keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-          vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-
-          vim.api.nvim_set_keymap("n", "<Leader>l", ":noh<CR>", kopts)
-        end
-      }
-    )
+    use({"kevinhwang91/nvim-hlslens", config = [[require("plugin.nvim-hlslens")]]})
 
     if PACKER_BOOTSTRAP then
       require("packer").sync()
