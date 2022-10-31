@@ -54,6 +54,7 @@ vim.g.coc_global_extensions = {
   -- "@hexuhua/coc-git",
   -- "@hexuhua/coc-yank",
   "@yaegassy/coc-volar",
+  "@yaegassy/coc-marksman",
   "coc-tasks"
 }
 

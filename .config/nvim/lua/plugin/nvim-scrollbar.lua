@@ -5,7 +5,8 @@ require("scrollbar").setup(
       "spectre_panel",
       "defx",
       "prompt",
-      "TelescopePrompt"
+      "TelescopePrompt",
+      "markdown"
     },
     set_highlights = false,
     marks = {
