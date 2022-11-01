@@ -22,7 +22,7 @@ function OpenSpectrePanel ()
 endfunction
 
 " 约 50K
-autocmd BufEnter * if line2byte('$') + len(getline('$')) > 51200 | syntax clear | endif
+autocmd BufEnter * if line2byte('$') + len(getline('$')) > 51200 | syntax clear | setlocal nowrap | endif
 
 function Test1 ()
   let l:hsl = Darken('#fabd2f')
