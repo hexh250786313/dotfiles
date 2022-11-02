@@ -9,6 +9,10 @@ vim.keymap.set("n", "<ScrollWheelDown>", "<C-e>")
 
 vim.cmd(
   [[
+" vnoremap p "0p
+" vnoremap P "0P
+" vnoremap y "0y
+vnoremap d "0d
 noremap <Space>y "+y
 " noremap <silent> <Space>y :<C-u>call ClipboardYank(visualmode())<cr>
 noremap <Space>p "+p
