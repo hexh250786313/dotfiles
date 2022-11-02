@@ -344,7 +344,7 @@ call defx#custom#option('_', {
       \ 'vertical_preview': 1,
       \ 'resume': 1,
       \ 'direction': 'topleft',
-      \ 'ignored_files': '.*,node_modules,Dockerfile*,yarn.lock,lib,build,dist,esbuild.js,package.json,tsconfig.json,yarn.lock,LICENSE',
+      \ 'ignored_files': '.*,node_modules,Dockerfile*,yarn.lock,lib,build,dist,esbuild.js,package.json,tsconfig.json,yarn.lock,LICENSE,jest.config.js',
       \ })
 
 call defx#custom#column('git', 'indicators', {
