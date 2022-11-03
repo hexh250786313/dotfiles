@@ -12,5 +12,5 @@ require("user.plugin")
 require("user.colorscheme")
 
 vim.cmd([[
-" set runtimepath^=/home/hexh/workspace/coc-lists
+set runtimepath^=/home/hexh/workspace/coc-todo-tree
 ]])
