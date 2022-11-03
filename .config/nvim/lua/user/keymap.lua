@@ -53,8 +53,8 @@ nnoremap <Space><tab> <C-^>
 " 缩进一格
 xnoremap > :s/^/ /<CR>:noh<CR>gv
 xnoremap < :s/^\s\=//<CR>:noh<CR>gv
-nnoremap > :s/^/ /<CR>:noh<CR>gv
-nnoremap < :s/^\s\=//<CR>:noh<CR>gv
+nnoremap > :s/^/ /<CR>:noh<CR>
+nnoremap < :s/^\s\=//<CR>:noh<CR>
 
 nnoremap <silent> <C-r> :silent redo<CR>
 nnoremap <silent> u :silent undo<CR>
