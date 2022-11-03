@@ -106,8 +106,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export OPENCV_LOG_LEVEL=ERROR
 
-source $ZSH/oh-my-zsh.sh
-
 alias l="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
 alias la="colorls -A --sd"
 alias ll="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
@@ -123,3 +121,5 @@ alias vm-set="sudo sh -c 'echo 0 > /proc/sys/vm/compaction_proactiveness' && cat
 alias makepkg-without-check="makepkg -si --nocheck"
 
 alias zhiyun-chrome='proxy_unset && export http_proxy="http://10.10.1.66:6699" && export https_proxy="http://10.10.1.66:6699" && google-chrome-stable --disable-site-isolation-trials --disable-web-security --user-data-dir="/home/hexh/Desktop/chrome-data"'
+
+source $ZSH/oh-my-zsh.sh

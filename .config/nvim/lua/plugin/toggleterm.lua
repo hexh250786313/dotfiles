@@ -81,10 +81,16 @@ local M = {}
 
 function M.watch_term(opts)
   local termnr = 9
+  local close = false
   if opts.option then
-    local next_termnr = vim.json.decode(opts.option).termnr
+    local opt = vim.json.decode(opts.option)
+    local next_termnr = opt.termnr
+    local next_close = opt.close
     if next_termnr then
       termnr = next_termnr
+    end
+    if next_close then
+      close = next_close
     end
   end
 
@@ -94,7 +100,8 @@ function M.watch_term(opts)
       cmd = opts.cmd,
       dir = opts.cwd,
       direction = "float",
-      count = termnr
+      count = termnr,
+      close_on_exit = close
     }
   )
   _watch_term:toggle(opts)
