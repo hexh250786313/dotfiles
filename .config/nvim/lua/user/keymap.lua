@@ -21,10 +21,10 @@ noremap <Space>y "+y
 " noremap <silent> <Space>y :<C-u>call ClipboardYank(visualmode())<cr>
 noremap <Space>p "+p
 noremap <Space>o "+x
-noremap <C-c>y "+y
 vnoremap <Space>y "+y
 " vnoremap <silent> <C-c> :<C-u>call ClipboardYank(visualmode())<cr>
-noremap <C-v> "+p
+" noremap <C-c>y "+y
+" noremap <C-v> "+p
 
 nnoremap <silent> <C-s> :silent write<CR>
 nnoremap <silent> <Space>wq :q<CR>
