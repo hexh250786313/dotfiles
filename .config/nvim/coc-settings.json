@@ -108,7 +108,7 @@
   "yank.enableCompletion": false,
   "lightbulb.enableSign": false,
   "lightbulb.virtualTextPosition": "eol",
-  "notification.statusLineProgress": false,
+  "notification.statusLineProgress": true,
   "hover.target": "float",
   "diagnostic.messageTarget": "float",
   "signature.target": "float",
