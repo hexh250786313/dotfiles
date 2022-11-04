@@ -32,6 +32,7 @@ endfunction
 )
 
 vim.api.nvim_create_autocmd({"FileType, BufferEnter"}, {pattern = "qf", command = "silent call OpenQF()"})
+vim.api.nvim_create_autocmd({"FileType, BufEnter"}, {pattern = "markdown", command = "setlocal nowrap"})
 vim.api.nvim_create_autocmd(
   {"FileType, BufferEnter"},
   {pattern = "spectre_panel", command = "silent call OpenSpectrePanel()"}
