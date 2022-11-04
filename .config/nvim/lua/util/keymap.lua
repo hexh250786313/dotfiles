@@ -50,5 +50,10 @@ function! CocPrint(str)
     \ 'kind': 'warning',
     \ })
 endfunction
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 ]]
 )

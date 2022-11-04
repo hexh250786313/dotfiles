@@ -76,5 +76,7 @@ inoremap <c-a> <Home>
 inoremap <c-e> <End>
 cnoremap <c-a> <Home>
 cnoremap <c-e> <End>
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 ]]
 )

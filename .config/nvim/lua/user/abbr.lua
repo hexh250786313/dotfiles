@@ -27,5 +27,6 @@ call SetupCommandAbbrs('dg3', 'diffget //3')
 call SetupCommandAbbrs('gb', 'Git blame')
 call SetupCommandAbbrs('git', 'Git')
 call SetupCommandAbbrs('cm', 'CocCommand markdown-preview-enhanced.openPreview')
+call SetupCommandAbbrs('ex', 'Explore')
 ]]
 )

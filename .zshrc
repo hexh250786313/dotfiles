@@ -66,6 +66,9 @@ source ~/.zsh-autopair/autopair.zsh
 autopair-init
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*'"
+if [[ ! -d $ZSH_CUSTOM/plugins/fzf-tab ]]; then
+  git clone https://github.com/Aloxaf/fzf-tab.git $ZSH_CUSTOM/plugins/fzf-tab
+fi
 alias nvimf='nvim $(fzf --reverse)' # must single quote to avoid fzf executed at zsh initing
 plugins=(
   auto-notify
@@ -74,6 +77,7 @@ plugins=(
   wd
   zsh-autosuggestions
   F-Sy-H
+  fzf-tab
   docker         # docker 补全
   docker-compose # docker-compose 补全
 )
@@ -87,6 +91,7 @@ alias lazygit="lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml"
 alias vm-set="sudo sh -c 'echo 0 > /proc/sys/vm/compaction_proactiveness' && cat /proc/sys/vm/compaction_proactiveness"
 alias makepkg-without-check="makepkg -si --nocheck"
 alias zhiyun-chrome='proxy_unset && export http_proxy="http://10.10.1.66:6699" && export https_proxy="http://10.10.1.66:6699" && google-chrome-stable --disable-site-isolation-trials --disable-web-security --user-data-dir="/home/hexh/Desktop/chrome-data"'
+alias maudio='mpv --no-video'
 # -------------------
 
 # my script

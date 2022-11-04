@@ -6,7 +6,7 @@ let g:everforest_background = 'medium'
 let g:everforest_better_performance = 0
 let g:gruvbox_material_foreground = 'original'
 
-colorscheme enfocado
+colorscheme gruvbox-material
 
 let g:defaultnormalgb=HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg', 'gui'))
 

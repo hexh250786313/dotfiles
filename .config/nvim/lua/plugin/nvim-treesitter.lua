@@ -1,4 +1,4 @@
-local util = require "formatter.util"
+-- local util = require "formatter.util"
 
 local file_exists = function(name)
   local f = io.open(name, "r")
