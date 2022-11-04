@@ -82,20 +82,32 @@ return packer.startup(
     use(
       {
         "Shougo/defx.nvim",
+        keys = {
+          {"n", "<space>fo"},
+          {"n", "<space>fr"}
+        },
+        cmd = {"Defx"},
         run = ":UpdateRemotePlugins",
         config = [[require("plugin.defx")]]
       }
     )
 
-    use({"hexh250786313/defx-icons"})
-
-    use({"p00f/nvim-ts-rainbow"})
+    use({"hexh250786313/defx-icons", after = "defx.nvim"})
 
     use(
       {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         config = [[require("plugin.nvim-treesitter")]]
+      }
+    )
+
+    use({"p00f/nvim-ts-rainbow"})
+
+    use(
+      {
+        "lukas-reineke/indent-blankline.nvim",
+        config = [[require("plugin.indent-blankline")]]
       }
     )
 
@@ -162,8 +174,6 @@ return packer.startup(
     use({"junegunn/fzf", config = [[require("plugin.fzf")]]})
 
     use({"gelguy/wilder.nvim", run = ":UpdateRemotePlugins", config = [[require("plugin.wilder")]]})
-
-    use({"lukas-reineke/indent-blankline.nvim", config = [[require("plugin.indent-blankline")]]})
 
     use(
       {
