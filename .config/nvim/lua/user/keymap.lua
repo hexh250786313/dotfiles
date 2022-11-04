@@ -71,5 +71,10 @@ nnoremap <silent> <Space>bD :call DeleteAllBuffers()<CR>
 xnoremap a' 2i'
 xnoremap a" 2i"
 xnoremap a` 2i`
+
+inoremap <c-a> <Home>
+inoremap <c-e> <End>
+cnoremap <c-a> <Home>
+cnoremap <c-e> <End>
 ]]
 )
