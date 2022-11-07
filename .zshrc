@@ -101,6 +101,7 @@ if [[ ! -d $ZSH_CUSTOM/plugins/fzf-tab ]]; then
 fi
 alias nvimf='nvim $(fzf --reverse --preview-window "right:50%" --preview "COLORTERM=truecolor bat --style=numbers --color=always --line-range :100 {}")' # must single quote to avoid fzf executed at zsh initing
 # alias gb='git branch --sort=-committerdate | fzf --reverse --preview-window "right:90%" --preview "git diff {1} | delta" | xargs git checkout'
+# & 异步, && 同步
 # 找出前 10 个远程和本地分支, 用日期排序 -> 过滤掉带有 HEAD 的 -> fzf -> 选择分支后剪切如 ref/origin/beta 变为 beta -> checkout
 alias gb="(git branch --sort=-committerdate | head -n 10 && git branch --sort=-committerdate -r | head -n 10) | grep -v HEAD | fzf --reverse --preview-window \"right:70%\" --preview \"git log --max-count=333 --color=always --format='%C(auto)%h%d %C(green)%cr%C(reset) %C(yellow)%cn%C(reset) %s %C(black)%C(bold)%cr' {1}\" | perl -0777 -pe \"s/.*origin\///i\" | xargs git checkout"
 plugins=(
@@ -138,17 +139,23 @@ alias lock="source ~/.config/my-config/sh/lock.sh"
 alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howard.ovpn"
 # -------------------
 
-# node
-export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-export MY_NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
-# export NODE_PATH="$(npm root --global)"
-export NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
+# fnm
+# a better nvm
+eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
+export MY_NODE_PATH="/home/hexh/.local/share/fnm/node-versions/v16.18.1/installation"
+export NODE_PATH=$(npm root --global)
 alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
-group_lazy_load $NVM_DIR/nvm.sh nvm node npm
+# -------------------
+
+# nvm
+# export NVM_DIR="$HOME/.nvm"
+# export MY_NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
+# export NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0/lib/node_modules"
+# alias yarn="$MY_NODE_PATH/bin/yarn"
+# alias http-server="$MY_NODE_PATH/bin/http-server"
+# group_lazy_load $NVM_DIR/nvm.sh nvm node npm # 只在执行剩余参数时 (nvm node npm) 才 load 第一个参数
 # -------------------
 
 # omz init
@@ -160,11 +167,18 @@ unset -f group_lazy_load
 
 # ruby
 # put it at the last of rc file (after omz.sh init) to cover the default zsh config
-eval "$(rbenv init - zsh)"
-alias l="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
-alias la="colorls -A --sd"
-alias ll="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
-alias ls="colorls -A --sd"
+# eval "$(rbenv init - zsh)"
+# alias l="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
+# alias la="colorls -A --sd"
+# alias ll="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
+# alias ls="colorls -A --sd"
+# -------------------
+
+# lsd, also need to be put after the omz.sh
+alias l="lsd -lAtFh --blocks=size,date,name"
+alias ll="lsd -lAtFh --blocks=size,date,name"
+alias la="lsd -AF --group-directories-first"
+alias ls="lsd -AF --group-directories-first"
 # -------------------
 
 # mcfly
