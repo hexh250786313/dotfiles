@@ -66,14 +66,18 @@ source ~/.zsh-autopair/autopair.zsh
 autopair-init
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*'"
+export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
 if [[ ! -d $ZSH_CUSTOM/plugins/fzf-tab ]]; then
   git clone https://github.com/Aloxaf/fzf-tab.git $ZSH_CUSTOM/plugins/fzf-tab
 fi
-alias nvimf='nvim $(fzf --reverse)' # must single quote to avoid fzf executed at zsh initing
+alias nvimf='nvim $(fzf --reverse --preview-window "right:50%" --preview "COLORTERM=truecolor bat --style=numbers --color=always --line-range :100 {}")' # must single quote to avoid fzf executed at zsh initing
+# alias gb='git branch --sort=-committerdate | fzf --reverse --preview-window "right:90%" --preview "git diff {1} | delta" | xargs git checkout'
+# 找出前 n 个远程和本地分支, 用日期排序 -> 过滤掉带有 HEAD 的 -> fzf -> 选择分支后剪切如 ref/origin/beta 变为 beta -> checkout
+alias gb="git branch --sort=-committerdate -a | head -n 10 | grep -v HEAD | fzf --reverse --preview-window \"right:70%\" --preview \"git log --max-count=333 --color=always --format='%C(auto)%h%d %C(green)%cr%C(reset) %C(yellow)%cn%C(reset) %s %C(black)%C(bold)%cr' {1}\" | perl -0777 -pe \"s/.*origin\///i\" | xargs git checkout"
 plugins=(
   auto-notify
   alias-tips
-  git
+  # git
   wd
   zsh-autosuggestions
   F-Sy-H

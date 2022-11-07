@@ -12,6 +12,6 @@ endfunction
 
 nnoremap <silent> <Space>gc :Git commit<CR>
 " nnoremap <silent> <Space>gg :Git<CR>
-nnoremap <silent> <Space>gg :<C-u>call ToggleGStatus()<cr>
+nnoremap <silent> <Space>gG :<C-u>call ToggleGStatus()<cr>
 ]]
 )

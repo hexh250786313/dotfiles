@@ -3,7 +3,17 @@
 	email = 250786313@qq.com
 [core]
 	quotepath = false
+	pager = delta
 [webui]
 	autoupdate = true
 [alias]
 	webui = !/home/hexh/.git-webui/release/libexec/git-core/git-webui
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
