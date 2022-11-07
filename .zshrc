@@ -174,6 +174,10 @@ export MCFLY_FUZZY=2
 eval "$(mcfly init zsh)"
 # -------------------
 
+# zoxide
+eval "$(zoxide init zsh)"
+# -------------------
+
 # test zsh speed end
 # zprof
 # -------------------
