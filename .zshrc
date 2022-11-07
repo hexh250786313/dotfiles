@@ -1,6 +1,43 @@
+# test zsh speed start
+# zmodload zsh/zprof
+# -------------------
+
 # used by following config
 export ZSH_CUSTOM="/home/hexh/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/hexh/.config"
+
+lazy_load() {
+    # Act as a stub to another shell function/command. When first run, it will load the actual function/command then execute it.
+    # E.g. This made my zsh load 0.8 seconds faster by loading `nvm` when "nvm", "npm" or "node" is used for the first time
+    # $1: space separated list of alias to release after the first load
+    # $2: file to source
+    # $3: name of the command to run after it's loaded
+    # $4+: argv to be passed to $3
+    echo "Lazy loading $1 ..."
+
+    # $1.split(' ') using the s flag. In bash, this can be simply ($1) #http://unix.stackexchange.com/questions/28854/list-elements-with-spaces-in-zsh
+    # Single line won't work: local names=("${(@s: :)${1}}"). Due to http://stackoverflow.com/questions/14917501/local-arrays-in-zsh   (zsh 5.0.8 (x86_64-apple-darwin15.0))
+    local -a names
+    if [[ -n "$ZSH_VERSION" ]]; then
+        names=("${(@s: :)${1}}")
+    else
+        names=($1)
+    fi
+    unalias "${names[@]}"
+    . $2
+    shift 2
+    $*
+}
+
+group_lazy_load() {
+    local script
+    script=$1
+    shift 1
+    for cmd in "$@"; do
+        alias $cmd="lazy_load \"$*\" $script $cmd"
+    done
+}
+
 # -------------------
 
 # proxy
@@ -44,9 +81,6 @@ setopt rm_starsilent
 if [[ ! -d $ZSH_CUSTOM/plugins/auto-notify ]]; then
   git clone https://github.com/MichaelAquilina/zsh-auto-notify.git $ZSH_CUSTOM/plugins/auto-notify
 fi
-if [[ ! -d $ZSH_CUSTOM/plugins/alias-tips ]]; then
-  git clone https://github.com/djui/alias-tips.git $ZSH_CUSTOM/plugins/alias-tips
-fi
 if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 fi
@@ -59,11 +93,6 @@ fi
 if [[ ! -f ~/.warprc ]]; then
   ln -s ~/workspace/dotfiles/.warprc ~/.warprc
 fi
-if [[ ! -d ~/.zsh-autopair ]]; then
-  git clone https://github.com/hlissner/zsh-autopair ~/.zsh-autopair
-fi
-source ~/.zsh-autopair/autopair.zsh
-autopair-init
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*'"
 export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
@@ -76,7 +105,6 @@ alias nvimf='nvim $(fzf --reverse --preview-window "right:50%" --preview "COLORT
 alias gb="git branch --sort=-committerdate -a | head -n 10 | grep -v HEAD | fzf --reverse --preview-window \"right:70%\" --preview \"git log --max-count=333 --color=always --format='%C(auto)%h%d %C(green)%cr%C(reset) %C(yellow)%cn%C(reset) %s %C(black)%C(bold)%cr' {1}\" | perl -0777 -pe \"s/.*origin\///i\" | xargs git checkout"
 plugins=(
   auto-notify
-  alias-tips
   # git
   wd
   zsh-autosuggestions
@@ -112,19 +140,22 @@ alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howa
 
 # node
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 export MY_NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
-export NODE_PATH="$(npm root --global)"
+# export NODE_PATH="$(npm root --global)"
+export NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
 export NODE_OPTIONS="--max-old-space-size=8192"
 alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
+group_lazy_load $NVM_DIR/nvm.sh nvm node npm
 # -------------------
 
 # omz init
 # put it at the last of rc file to init omz
 export ZSH="/home/hexh/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
+unset -f group_lazy_load
 # -------------------
 
 # ruby
@@ -134,4 +165,8 @@ alias l="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
 alias la="colorls -A --sd"
 alias ll="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
 alias ls="colorls -A --sd"
+# -------------------
+
+# test zsh speed end
+# zprof
 # -------------------
