@@ -167,6 +167,13 @@ alias ll="colorls --report=short -A -o -g -G --no-hardlinks -t -r"
 alias ls="colorls -A --sd"
 # -------------------
 
+# mcfly
+# a better ctrl-r
+export MCFLY_DISABLE_MENU=TRUE
+export MCFLY_FUZZY=2
+eval "$(mcfly init zsh)"
+# -------------------
+
 # test zsh speed end
 # zprof
 # -------------------
