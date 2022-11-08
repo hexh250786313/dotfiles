@@ -308,6 +308,8 @@ return packer.startup(
 
     use({"kevinhwang91/nvim-hlslens", config = [[require("plugin.nvim-hlslens")]]})
 
+    use({"klen/nvim-config-local", config = [[require("plugin.nvim-config-local")]]})
+
     if PACKER_BOOTSTRAP then
       require("packer").sync()
     end
