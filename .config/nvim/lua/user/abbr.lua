@@ -13,11 +13,17 @@ function! SetupCommandAbbrs(from, to)
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 
+function! PC()
+  :execute "!sh -c /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/all.sh"
+  :PackerCompile
+  :qa!
+endfunction
+
 call SetupCommandAbbrs('ch', 'checkhealth')
 call SetupCommandAbbrs('cl', 'CocList')
 call SetupCommandAbbrs('cr', 'CocRestart')
 call SetupCommandAbbrs('pu', 'PackerUpdate')
-call SetupCommandAbbrs('pc', 'PackerCompile')
+call SetupCommandAbbrs('pc', 'call PC()')
 call SetupCommandAbbrs('cu', 'CocUpdate')
 call SetupCommandAbbrs('tu', 'TSUpdate')
 call SetupCommandAbbrs('ol', 'CocOutline')

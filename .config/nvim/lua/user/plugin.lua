@@ -87,7 +87,7 @@ return packer.startup(
           {"n", "<space>fr"}
         },
         cmd = {"Defx"},
-        run = ":UpdateRemotePlugins",
+        -- run = ":UpdateRemotePlugins",
         config = [[require("plugin.defx")]]
       }
     )
