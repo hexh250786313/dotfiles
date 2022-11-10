@@ -162,6 +162,7 @@ alias http-server="$MY_NODE_PATH/bin/http-server"
 # put it at the last of rc file to init omz
 export ZSH="/home/hexh/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
+# bindkey -r "^r"
 unset -f group_lazy_load
 # -------------------
 

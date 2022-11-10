@@ -41,7 +41,7 @@ vim.g.coc_global_extensions = {
   "coc-markdown-preview-enhanced",
   "coc-marketplace",
   -- "coc-pairs",
-  "coc-react-refactor",
+  -- "coc-react-refactor",
   "coc-snippets",
   "coc-tsserver",
   "coc-webview",

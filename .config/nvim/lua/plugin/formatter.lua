@@ -62,6 +62,17 @@ require("formatter").setup(
           }
         end
       },
+      sql = {
+        function()
+          return {
+            exe = "pg_format",
+            args = {
+              "-"
+            },
+            stdin = true
+          }
+        end
+      },
       zsh = {format_prettier},
       yaml = {format_prettier},
       sh = {format_prettier}
