@@ -1,0 +1,12 @@
+[Unit]
+Description=Remove Wechat Border Shadow
+
+[Service]
+ExecStart=/home/hexh/.config/my-config/sh/remove-wechat-shadow.sh
+ExecStop=killall -q remove-wechat-shadow.sh
+ExecReload=killall -q remove-wechat-shadow.sh && /home/hexh/.config/my-config/sh/remove-wechat-shadow.sh
+Restart=on-failure
+RestartSec=1s
+
+[Install]
+WantedBy=default.target
