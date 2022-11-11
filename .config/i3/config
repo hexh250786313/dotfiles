@@ -100,6 +100,7 @@ bindsym $mod+s split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
+workspace_layout tabbed
 bindsym $mod+Shift+s layout stacking
 bindsym $mod+Shift+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -245,7 +246,7 @@ bindsym $sup+t exec --no-startup-id tilda
 for_window [class="Tilda"] floating enable
 for_window [class="Tilda"] border pixel 0
 
-for_window [class="com.alibabainc.dingtalk"] floating enable
+# for_window [class="com.alibabainc.dingtalk"] floating enable
 
 for_window [class="Rofi"] border pixel 0
 for_window [class="Rofi"] floating enable
