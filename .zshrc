@@ -158,6 +158,10 @@ alias http-server="$MY_NODE_PATH/bin/http-server"
 # group_lazy_load $NVM_DIR/nvm.sh nvm node npm # 只在执行剩余参数时 (nvm node npm) 才 load 第一个参数
 # -------------------
 
+# python
+# export PYTHONPATH="/usr/lib/python3.10"
+# -------------------
+
 # omz init
 # put it at the last of rc file to init omz
 export ZSH="/home/hexh/.oh-my-zsh"
