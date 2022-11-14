@@ -167,6 +167,8 @@ alias http-server="$MY_NODE_PATH/bin/http-server"
 export ZSH="/home/hexh/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 # bindkey -r "^r"
+bindkey -r "^j" # disable c-j to return
+bindkey -r "^k" # disable c-k
 unset -f group_lazy_load
 # -------------------
 
@@ -192,7 +194,10 @@ alias nviml="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/
 # a better ctrl-r
 export MCFLY_DISABLE_MENU=TRUE
 export MCFLY_FUZZY=2
-eval "$(mcfly init zsh)"
+# eval "$(mcfly init zsh | sed "s,\^R,^E,")"
+# eval "$(mcfly init zsh | sed "s,\^N,^J,")"
+# eval "$(mcfly init zsh | sed "s,\^J,^N,")"
+# eval "$(mcfly init zsh)"
 # -------------------
 
 # zoxide
