@@ -184,6 +184,8 @@ alias l="lsd -lAtFh --blocks=size,date,name"
 alias ll="lsd -lAtFh --blocks=size,date,name"
 alias la="lsd -AF --group-directories-first"
 alias ls="lsd -AF --group-directories-first"
+# alias nviml="la -1r | tail -n 1 | xargs nvim"
+alias nviml="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*' --exec-batch lsd -AtF -1r | tail -n 1 | xargs nvim"
 # -------------------
 
 # mcfly
