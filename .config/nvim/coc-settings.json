@@ -40,7 +40,7 @@
     "list.indicator": "❯",
     "list.menuAction": true,
     "list.source.location.defaultAction": "drop",
-    "list.floatPreview": true,
+    "list.floatPreview": false, // temp
     "git.addGBlameToVirtualText": false,
     "list.source.grep.useLiteral": false,
     "suggest.snippetIndicator": " ✩",
