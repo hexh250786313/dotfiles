@@ -58,8 +58,8 @@ tmux_conf_theme_status_left_bg=$color0
 tmux_conf_theme_status_right_fg=$color0,$color6,$color5,$color4,$color4
 tmux_conf_theme_status_right_bg=$color1,$color2,$color3,$color1,$color0
 tmux_conf_theme_terminal_title="#S - #W"
-tmux_conf_theme_prefix_fg=$color1
-tmux_conf_theme_pairing_fg=$color1
+tmux_conf_theme_prefix_fg=$color4
+tmux_conf_theme_pairing_fg=$color4
 
 set-option -g prefix M-b
 set -g prefix2 M-b
