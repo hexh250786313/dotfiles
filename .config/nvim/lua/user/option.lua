@@ -2,6 +2,7 @@ vim.cmd([[
 language en_US.UTF-8
 set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 let g:loaded_matchparen = 1 " 关闭括弧配对高亮
+" let g:coc_node_args = ["--nolazy", "--inspect=6045"]
 ]])
 
 local myNodePath = os.getenv("MY_NODE_PATH")
