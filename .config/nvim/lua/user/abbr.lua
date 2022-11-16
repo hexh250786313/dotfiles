@@ -13,10 +13,14 @@ function! SetupCommandAbbrs(from, to)
         \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 
+function! s:exit()
+  :qa
+endfunction
+
 function! PC()
   :execute "!sh -c /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/all.sh"
   :PackerCompile
-  :qa!
+  :call timer_start(2000, { -> <SID>exit() })
 endfunction
 
 call SetupCommandAbbrs('ch', 'checkhealth')
