@@ -6,7 +6,8 @@ require("scrollbar").setup(
       "defx",
       "prompt",
       "TelescopePrompt",
-      "markdown"
+      "markdown",
+      "fugitiveblame"
     },
     set_highlights = false,
     marks = {
@@ -30,6 +31,9 @@ require("scrollbar").setup(
         text = {"∎", "∎"},
         priority = 5
       }
+    },
+    handlers = {
+        cursor = false
     }
   }
 )
