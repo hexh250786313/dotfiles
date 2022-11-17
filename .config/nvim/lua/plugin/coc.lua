@@ -55,7 +55,8 @@ vim.g.coc_global_extensions = {
   -- "@hexuhua/coc-yank",
   "@yaegassy/coc-volar",
   "@yaegassy/coc-marksman",
-  "coc-tasks"
+  "coc-tasks",
+  "coc-todo-tree"
 }
 
 -- coc 选择了 quickfix 打开后的回调
