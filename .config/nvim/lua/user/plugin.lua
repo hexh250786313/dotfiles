@@ -88,7 +88,11 @@ return packer.startup(
         },
         cmd = {"Defx"},
         -- run = ":UpdateRemotePlugins",
-        config = [[require("plugin.defx")]]
+        -- config = [[require("plugin.defx")]]
+        config = function()
+          require("plugin.defx")
+          vim.cmd("ConfigSource")
+        end
       }
     )
 
@@ -102,7 +106,7 @@ return packer.startup(
       }
     )
 
-    use({"p00f/nvim-ts-rainbow"})
+    -- use({"p00f/nvim-ts-rainbow"})
 
     use(
       {
@@ -124,7 +128,7 @@ return packer.startup(
       }
     )
 
-    use({"honza/vim-snippets"})
+    use({"honza/vim-snippets", after = "coc.nvim"})
 
     use(
       {
@@ -204,7 +208,9 @@ return packer.startup(
     use(
       {
         "https://gitlab.com/yorickpeterse/nvim-window.git",
-        config = [[require("plugin.nvim-window")]]
+        config = [[require("plugin.nvim-window")]],
+        keys = {{"n", "<space>ww"}},
+        after = "defx.nvim"
       }
     )
 
@@ -311,7 +317,34 @@ return packer.startup(
 
     use({"kevinhwang91/nvim-hlslens", config = [[require("plugin.nvim-hlslens")]]})
 
-    use({"klen/nvim-config-local", config = [[require("plugin.nvim-config-local")]]})
+    use(
+      {
+        "klen/nvim-config-local",
+        config = [[require("plugin.nvim-config-local")]],
+        after = {
+          -- "vscode.nvim",
+          "gruvbox-material",
+          -- "everforest",
+          -- "vim-enfocado",
+          "lualine.nvim",
+          "plenary.nvim",
+          "nvim-treesitter",
+          "indent-blankline.nvim",
+          "nvim-web-devicons",
+          "toggleterm.nvim",
+          "nvim-bqf",
+          "fzf",
+          "nvim-scrollbar",
+          "vim-hexokinase",
+          "yanky.nvim",
+          "editorconfig.nvim",
+          "nvim-cursorword",
+          "asynctasks.vim",
+          "nvim-autopairs",
+          "nvim-hlslens"
+        }
+      }
+    )
 
     if PACKER_BOOTSTRAP then
       require("packer").sync()
