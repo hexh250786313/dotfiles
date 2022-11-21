@@ -52,11 +52,11 @@ require("nvim-treesitter.configs").setup {
     enable = false,
     disable = disabler
   },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    disable = disabler
-  }
+  -- rainbow = {
+  --   enable = true,
+  --   extended_mode = true,
+  --   disable = disabler
+  -- }
 }
 
 vim.keymap.set("n", "<space>tr", ":TSToggle rainbow<cr>", {silent = true})

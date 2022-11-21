@@ -239,7 +239,7 @@ return packer.startup(
         config = [[require("plugin.coc")]],
         -- run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<50\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
         run = "yarn install --frozen-lockfile && /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh",
-        event = "CursorHold",
+        -- event = "CursorHold",
         after = "nvim-autopairs"
       }
     )
@@ -253,7 +253,6 @@ return packer.startup(
     -- --       vim.cmd("let g:coc_node_args = ['--nolazy', '--inspect=6045']")
     --     end,
     --     run = "yarn install --frozen-lockfile && /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh",
-    --     event = "CursorHold",
     --     after = "nvim-autopairs"
     --   }
     -- )
@@ -333,6 +332,7 @@ return packer.startup(
           "nvim-web-devicons",
           "toggleterm.nvim",
           "nvim-bqf",
+          "vim-snippets",
           "fzf",
           "nvim-scrollbar",
           "vim-hexokinase",
@@ -341,7 +341,8 @@ return packer.startup(
           "nvim-cursorword",
           "asynctasks.vim",
           "nvim-autopairs",
-          "nvim-hlslens"
+          "nvim-hlslens",
+          "coc.nvim"
         }
       }
     )
