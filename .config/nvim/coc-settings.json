@@ -6,7 +6,6 @@
     "diagnostic.warningSign": "",
     "diagnostic.infoSign": "",
     "diagnostic.hintSign": "",
-    "snippet.choicesMenuPicker": true,
     "coc.preferences.maxFileSize": "50KB",
     "snippets.extends": {
         "javascriptreact": ["javascript"],
@@ -103,19 +102,16 @@
     "tsserver.maxTsServerMemory": 16384,
     "tsserver.locale": null,
     // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
-    "tsserver.ignoreLocalTsserver": true,
+    "tsserver.useLocalTsdk": false,
     // "tsserver.log": "verbose",
     "git.conflict.enabled": false,
     "suggest.selection": "recentlyUsedByPrefix",
-    "yank.enableCompletion": false,
     "lightbulb.enableSign": false,
     "lightbulb.virtualTextPosition": "eol",
     "notification.statusLineProgress": true,
     "hover.target": "float",
     "diagnostic.messageTarget": "float",
     "signature.target": "float",
-    "colors.filetypes": ["*"],
-    "symbol-line.separator": " ❯ ",
     "markdown-preview-enhanced.previewTheme": "atom-dark.css",
     "markdown-preview-enhanced.liveUpdate": true,
     "markdown-preview-enhanced.scrollSync": false,
@@ -268,5 +264,8 @@
                 "warning": "warning"
             }
         }
-    }
+    },
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "codeLens.position": "top"
 }
