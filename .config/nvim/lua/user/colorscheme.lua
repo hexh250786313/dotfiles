@@ -27,6 +27,7 @@ hi! EndOfBuffer guibg=NONE
 hi! link CocFloating Normal
 hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
+" hi! link @punctuation.bracket Directory
 
 hi! CursorWord gui=underline
 
