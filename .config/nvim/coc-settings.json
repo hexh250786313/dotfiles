@@ -37,6 +37,7 @@
     "git.untrackedDecorator": " ✩",
     "git.conflictedDecorator": "⇡⇣",
     "git.virtualTextPrefix": "  ",
+    "list.height": 9,
     "list.indicator": "❯",
     "list.menuAction": true,
     "list.source.location.defaultAction": "drop",

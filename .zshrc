@@ -195,8 +195,8 @@ alias nviml="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/
 # a better ctrl-r
 export MCFLY_DISABLE_MENU=TRUE
 export MCFLY_FUZZY=2
-export MCFLY_KEY_SCHEME=vim
-eval "$(mcfly init zsh | sed "s,\^R,^E,")"
+# export MCFLY_KEY_SCHEME=vim
+eval "$(mcfly init zsh | sed "s,\^R,^Q,")"
 # eval "$(mcfly init zsh | sed "s,\^N,^J,")"
 # eval "$(mcfly init zsh | sed "s,\^J,^N,")"
 # eval "$(mcfly init zsh)"
