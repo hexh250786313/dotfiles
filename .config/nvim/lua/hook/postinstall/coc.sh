@@ -13,4 +13,4 @@ sd '.*if.*"<plug>".*this\.plugTs.*20.*\n.*this\.plugTs.*now(.*\n){2}.*' 'if(now-
 sd 'if\(now-this\.plugTs<\d+\)\{return;\}else\{this\.plugTs=now;\}' 'if(now-this.plugTs<20){return;}else{this.plugTs=now;}' ./build/index.js
 
 # for both
-sd 'autocmd.*VimEnter.*call s:VimEnter\(\)' 'autocmd VimEnter * call s:VimEnter()\n    else\n      call s:VimEnter()' ./plugin/coc.vim
+sd 'autocmd.*VimEnter.*call s:VimEnter\(\).*\n.*endif' 'autocmd VimEnter * call s:VimEnter()\n    else\n      call s:VimEnter()\n    endif' ./plugin/coc.vim

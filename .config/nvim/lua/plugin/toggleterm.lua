@@ -47,10 +47,12 @@ local gitwebui =
 )
 
 function _lazygit_toggle()
+  vim.cmd("let g:floating_termnr = " .. 7)
   lazygit:toggle()
 end
 
 function _gitwebui_toggle()
+  vim.cmd("let g:floating_termnr = " .. 6)
   gitwebui:toggle()
 end
 
@@ -72,8 +74,16 @@ vim.cmd(
   [[
 autocmd! TermOpen term://* lua set_terminal_keymaps()
 
+let g:floating_termnr = 1
+
+function! s:ToggleTerm()
+  " exe v:count1 . "ToggleTerm direction=float"
+  exe g:floating_termnr . "ToggleTerm direction=float"
+endfunction
+
 " nnoremap <c-t> <cmd>ToggleTerm direction=float<cr>
-nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
+" nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
+nnoremap <silent><c-t> :call <SID>ToggleTerm()<CR>
 ]]
 )
 
@@ -93,6 +103,7 @@ function M.watch_term(opts)
       close = next_close
     end
   end
+  vim.cmd("let g:floating_termnr = " .. termnr)
 
   local _watch_term =
     Terminal:new(
@@ -106,5 +117,11 @@ function M.watch_term(opts)
   )
   _watch_term:toggle(opts)
 end
+
+vim.cmd([[
+
+autocmd TermEnter,TermOpen term://*toggleterm#* call CopyToXsel() | call UnsetFocusYank()
+autocmd TermLeave,TermClose term://*toggleterm#* call SetFocusYank() | call PasteFromXsel()
+]])
 
 return M

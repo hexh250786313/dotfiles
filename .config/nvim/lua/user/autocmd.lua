@@ -28,6 +28,50 @@ function Test1 ()
   let l:hsl = Darken('#fabd2f')
  :call CocPrint(l:hsl)
 endfunction
+
+function CopyToXsel ()
+  let content = @@
+  let word1 = substitute(content, '\\', '\\\\', 'g')
+  let word2 = substitute(word1, "\\'", "'\\\\''", 'g')
+  let word = word2
+  call system("echo -n '" . word . "' | xsel -i -b")
+endfunction
+
+function PasteFromXsel ()
+  let @@ = getreg('+')
+endfunction
+
+function! SetFocusYank ()
+  call UnsetFocusYank()
+  augroup set_focus_yank
+    autocmd!
+    autocmd FocusLost * call CopyToXsel()
+    autocmd FocusGained * call PasteFromXsel()
+  augroup END
+endfunction
+
+function! UnsetFocusYank ()
+  augroup set_focus_yank
+    autocmd!
+  augroup END
+endfunction
+
+call SetFocusYank()
+
+function s:SystemClipboardForSpecBuffer()
+  noremap y "+y
+  noremap p "+p
+
+  vnoremap x "+d
+  nnoremap x v"+d
+  vnoremap d "+d
+  vnoremap s "+s
+
+  nnoremap yy "+yy
+  nnoremap dd "+dd
+endfunction
+
+autocmd FileType gitcommit call <SID>SystemClipboardForSpecBuffer()
 ]]
 )
 
