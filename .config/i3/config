@@ -224,16 +224,17 @@ bindsym $mod+r mode "resize"
 
 # 另一种 dpi 120 下, 大间隔
 for_window [class="^.*"] border pixel 0px
-# gaps left 8
-# gaps right 8
-# gaps top 6
-# gaps bottom 5
+gaps left 8
+gaps right 8
+gaps top 6
+gaps bottom 5
 # for_window [class="^.*"] border pixel 4px
-# gaps inner 19
+gaps inner 19
 
 # Theme colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #9c00e5 #9c00e5 #ffff00 #9c00e5   #9c00e5
+client.focused          #a89984 #a89984 #ffff00 #a89984   #a89984
+# client.focused          #9c00e5 #9c00e5 #ffff00 #9c00e5   #9c00e5
 client.focused_inactive #0A7ACA #0A7ACA #ffff00 #373737   #373737
 client.unfocused        #373737 #373737 #ffff00 #373737   #373737
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
