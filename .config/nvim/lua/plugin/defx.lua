@@ -139,6 +139,8 @@ function! s:defx_my_settings() abort
   " Custom mappings
   nnoremap <silent><buffer><expr> d
         \ defx#do_action('remove_trash')
+  nnoremap <silent><buffer><expr> D
+        \ defx#do_action('remove_trash')
   nnoremap <silent><buffer><expr> <CR>
         \ defx#do_action('call', g:defx_config_sid . 'DefxSmartL')
   nnoremap <silent><buffer><expr> <2-LeftMouse>
