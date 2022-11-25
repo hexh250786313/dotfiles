@@ -31,13 +31,19 @@ require "diffview".setup {
       ["cb"] = actions.conflict_choose("all"),
       ["c1"] = actions.conflict_choose("base"),
       ["c0"] = actions.conflict_choose("none"),
-      ["o"] = actions.goto_file
+      ["o"] = function(opt)
+        actions.goto_file_edit(opt)
+        vim.cmd(":tabclose #")
+      end
     },
     file_panel = {
       ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
       ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
       ["s"] = actions.toggle_stage_entry, -- Stage / unstage the selected entry.
-      ["o"] = actions.goto_file
+      ["o"] = function(opt)
+        actions.goto_file_edit(opt)
+        vim.cmd(":tabclose #")
+      end
     },
     file_history_panel = {
       ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
