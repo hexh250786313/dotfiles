@@ -265,7 +265,7 @@
             }
         }
     },
-    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "codeLens.position": "top"
+    // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    // "codeLens.position": "top"
 }
