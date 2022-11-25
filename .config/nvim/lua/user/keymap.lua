@@ -12,13 +12,13 @@ vim.cmd(
 " vnoremap p "0p
 " vnoremap P "0P
 " vnoremap y "0y
-vnoremap x "0d
-nnoremap x v"0d
-vnoremap d "0d
-vnoremap s "0s
+vnoremap <silent> x "0d
+nnoremap <silent> x v"0d
+vnoremap <silent> d "0d
+vnoremap <silent> s "0s
 " nnoremap s "0s
-nnoremap yy "0yy
-nnoremap dd "0dd
+nnoremap <silent> yy "0yy
+nnoremap <silent> dd "0dd
 " noremap <Space>y "+y
 " noremap <silent> <Space>y :<C-u>call ClipboardYank(visualmode())<cr>
 " noremap <Space>p "+p
