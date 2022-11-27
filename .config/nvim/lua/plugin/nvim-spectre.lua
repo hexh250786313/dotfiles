@@ -32,7 +32,7 @@ require("spectre").setup(
         }
       }
     },
-    default = {replace = {cmd = "oxi"}}
+    -- default = {replace = {cmd = "oxi"}}
   }
 )
 

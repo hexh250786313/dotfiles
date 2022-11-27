@@ -8,7 +8,7 @@ engine:
     - lua_translator@expand_translator
 
 expand_translator:
-	wildcard: "*"
+  wildcard: "*"
 
 // you must add wildcard to speller, otherwise the Rime won't take it as normal input;
 speller:
@@ -59,7 +59,7 @@ local function translate(inp, seg, env)
         ph.comment = codeComment
         yield(ph:toCandidate())
       -- you can also use Candidate Simply, but it cannot be recognized by memorize, memorize callback won't be called
-      -- yield(Candidate("type",seg.start,seg.end,dictentry.text, codeComment	))
+      -- yield(Candidate("type",seg.start,seg.end,dictentry.text, codeComment  ))
       end
     end
   end

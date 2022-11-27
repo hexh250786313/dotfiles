@@ -5,8 +5,8 @@ vim.cmd(
 call defx#custom#column('git', 'column_length', 1)
 
 call defx#custom#column('filename', {
-      \ 'min_width': 200,
-      \ 'max_width': 1000,
+      \ 'min_width': 38,
+      \ 'max_width_percent': 97,
       \ })
 call defx#custom#column('indent', {
       \ 'indent': '  ',
@@ -201,7 +201,7 @@ function! s:DefxSmartL(_)
       for j in buflist
         let bufkind = win_gettype(j)
         if bufkind == '' " 空字符串代表正常的窗口
-					call add(list, i) " 将正常的窗口加入列表
+          call add(list, i) " 将正常的窗口加入列表
         endif
       endfor
     endfor

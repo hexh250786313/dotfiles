@@ -1,5 +1,5 @@
 if exists("b:cs_indent")
-	finish
+  finish
 endif
 
 setlocal tabstop=2
