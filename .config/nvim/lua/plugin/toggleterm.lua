@@ -120,8 +120,8 @@ end
 
 vim.cmd([[
 
-autocmd TermEnter,TermOpen term://*toggleterm#* call CopyToXsel() | call UnsetFocusYank()
-autocmd TermLeave,TermClose term://*toggleterm#* call SetFocusYank() | call PasteFromXsel()
+" autocmd TermEnter,TermOpen term://*toggleterm#* call CopyToXsel() | call UnsetFocusYank()
+" autocmd TermLeave,TermClose term://*toggleterm#* call SetFocusYank() | call PasteFromXsel()
 ]])
 
 return M

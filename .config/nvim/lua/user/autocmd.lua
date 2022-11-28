@@ -56,8 +56,6 @@ function! UnsetFocusYank ()
   augroup END
 endfunction
 
-call SetFocusYank()
-
 function s:SystemClipboardForSpecBuffer()
   noremap y "+y
   noremap p "+p
@@ -71,7 +69,8 @@ function s:SystemClipboardForSpecBuffer()
   nnoremap dd "+dd
 endfunction
 
-autocmd FileType gitcommit call <SID>SystemClipboardForSpecBuffer()
+" call SetFocusYank()
+" autocmd FileType gitcommit call <SID>SystemClipboardForSpecBuffer()
 ]]
 )
 
