@@ -9,7 +9,7 @@ function OpenQF ()
   :vertical resize 40
   :set winfixwidth
   :set winfixheight
-  :call timer_start(0, { -> CloseDefx()}) " this one works
+  " :call timer_start(0, { -> CloseDefx()}) " this one works
   " :call CloseDefx()                     " this one throws error
   :lua require('spectre').close()
 endfunction
@@ -18,7 +18,7 @@ function OpenSpectrePanel ()
   :vertical resize 80
   :set winfixwidth
   :set winfixheight
-  :call CloseDefx()
+  " :call CloseDefx()
 endfunction
 
 " 约 50K
