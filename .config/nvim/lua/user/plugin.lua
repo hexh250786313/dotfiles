@@ -37,13 +37,13 @@ end
 -- Have packer use a popup window
 packer.init(
   {
-    display = {open_cmd = "tabedit"}
-    -- git = {
-    -- subcommands = {
-    -- -- default: "checkout %s --", 强行切分支, 无视本地修改, 为了 hack coc
-    -- checkout = "checkout -f %s --"
-    -- }
-    -- }
+    display = {open_cmd = "tabedit"},
+    git = {
+      subcommands = {
+        -- default: "checkout %s --", 强行切分支, 无视本地修改, 为了 hack coc
+        checkout = "checkout -f %s --"
+      }
+    }
   }
 )
 
@@ -235,7 +235,7 @@ return packer.startup(
       {
         "neoclide/coc.nvim",
         -- "~/workspace/coc.nvim",
-        -- branch = "release",
+        branch = "master",
         config = [[require("plugin.coc")]],
         -- run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<50\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
         run = "yarn install --frozen-lockfile && /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh",
