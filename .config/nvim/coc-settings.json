@@ -268,4 +268,23 @@
     // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
     // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
     // "codeLens.position": "top"
+    "todo-tree.tags": [
+        {
+            "tagName": "todo",
+            "regex": "@todo",
+            "icon": {
+                "text": "",
+                "hlGroup": "CocInfoSign"
+            }
+        }
+    ],
+    "todo-tree.fileIcon": {
+        "text": "",
+        "hlGroup": "WarningMsg"
+    },
+    "todo-tree.folderIcon": {
+        "text": "",
+        "hlGroup": "DefxIconsOpenedTreeIcon"
+    },
+    "todo-tree.defaultView": "tree"
 }
