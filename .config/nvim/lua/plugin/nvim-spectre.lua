@@ -10,7 +10,7 @@ require("spectre").setup(
     mapping = {
       ["send_to_qf"] = {
         map = "<c-q>",
-        cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
+        cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR> | <cmd>lua require('spectre').close()<CR>",
         desc = "send all item to quickfix"
       },
       ["run_replace"] = {
@@ -27,8 +27,8 @@ require("spectre").setup(
           -- "--ignore-case",
           "--hidden",
           "--multiline",
-          "--sort-files"
-          -- "--vimgrep" -- for result in same line, usually, it is not useful for searching but useful for replacing
+          "--sort-files",
+          "--vimgrep" -- for result in same line, usually, it is not useful for searching but useful for replacing
         }
       }
     },

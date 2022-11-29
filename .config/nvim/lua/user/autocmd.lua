@@ -9,6 +9,7 @@ function OpenQF ()
   :vertical resize 40
   :set winfixwidth
   :set winfixheight
+  :setlocal nowrap
   " :call timer_start(0, { -> CloseDefx()}) " this one works
   " :call CloseDefx()                     " this one throws error
   :lua require('spectre').close()
@@ -74,7 +75,7 @@ endfunction
 ]]
 )
 
-vim.api.nvim_create_autocmd({"FileType, BufferEnter"}, {pattern = "qf", command = "silent call OpenQF()"})
+-- vim.api.nvim_create_autocmd({"FileType, BufferEnter"}, {pattern = "qf", command = "silent call OpenQF()"})
 vim.api.nvim_create_autocmd({"FileType, BufEnter"}, {pattern = "markdown", command = "setlocal nowrap"})
 vim.api.nvim_create_autocmd(
   {"FileType, BufferEnter"},

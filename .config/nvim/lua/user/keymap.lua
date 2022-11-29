@@ -14,7 +14,7 @@ vim.cmd(
 " vnoremap y "+y
 vnoremap <silent> x "+d
 nnoremap <silent> x v"+d
-vnoremap <silent> d "+d
+" vnoremap <silent> d "0d
 vnoremap <silent> s "+s
 nnoremap <silent> yy "+yy
 nnoremap <silent> dd "+dd
