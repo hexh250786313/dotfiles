@@ -1,7 +1,7 @@
 vim.cmd(
   [[
-let g:defx_win_width = 64
-" let g:defx_win_width = 40
+" let g:defx_win_width = 64
+let g:defx_win_width = 40
 
 if match(&runtimepath, 'Defx') != -1
   call defx#custom#column('filename', {
