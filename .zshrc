@@ -40,3 +40,4 @@ export NVM_DIR="$HOME/.nvm"
 export NODE_PATH="$(npm root --global)"
 
 alias shares="/usr/bin/vmhgfs-fuse .host:/ /home/hexh/shares -o subtype=vmhgfs-fuse,allow_other"
+alias tinyproxy-restart="sudo systemctl restart tinyproxy.service"

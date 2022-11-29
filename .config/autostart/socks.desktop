@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.9.4
+Type=Application
+Name=socks
+Comment=socks
+Exec=sh -c "microsocks -1 -p 6698 -u hexh -P lllk"
+RunHook=0
+StartupNotify=false
+Terminal=false
+Hidden=false
+
