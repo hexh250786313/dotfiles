@@ -76,14 +76,16 @@ autocmd! TermOpen term://* lua set_terminal_keymaps()
 
 let g:floating_termnr = 1
 
-function! s:ToggleTerm()
-  " exe v:count1 . "ToggleTerm direction=float"
+function! s:ToggleTerm(count)
+  if a:count != 0
+    let g:floating_termnr = a:count
+  endif
   exe g:floating_termnr . "ToggleTerm direction=float"
 endfunction
 
-" nnoremap <c-t> <cmd>ToggleTerm direction=float<cr>
 " nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
-nnoremap <silent><c-t> :call <SID>ToggleTerm()<CR>
+command! -nargs=1 CustomToggleTerm call <SID>ToggleTerm(<args>)
+nnoremap <silent><c-t> :<C-U>CustomToggleTerm(v:count)<CR>
 ]]
 )
 
