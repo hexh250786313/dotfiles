@@ -38,12 +38,12 @@ end
 packer.init(
   {
     display = {open_cmd = "tabedit"},
-    -- git = {
-    --   subcommands = {
-    --     -- default: "checkout %s --", 强行切分支, 无视本地修改, 为了 hack coc
-    --     checkout = "checkout -f %s --"
-    --   }
-    -- }
+    git = {
+      subcommands = {
+        -- default: "checkout %s --", 强行切分支, 无视本地修改, 为了 hack coc
+        checkout = "checkout -f %s --"
+      }
+    }
   }
 )
 
