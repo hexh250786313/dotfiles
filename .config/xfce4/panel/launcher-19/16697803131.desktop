@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=close window
+Comment=close current focus window
+Exec=wmctrl -c :ACTIVE:
+Icon=/home/hexh/桌面/share/图片/icons/close.png
+Path=
+Terminal=false
+StartupNotify=false

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=toggle floating
+Comment=toggle floating
+Exec=i3-msg "floating toggle"
+Icon=/home/hexh/下载/maximize.png
+Path=
+Terminal=false
+StartupNotify=false

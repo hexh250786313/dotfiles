@@ -8,9 +8,13 @@
       <property name="position-locked" type="bool" value="true"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="2"/>
-        <value type="int" value="1"/>
-        <value type="int" value="3"/>
+        <value type="int" value="19"/>
+        <value type="int" value="20"/>
+        <value type="int" value="21"/>
+        <value type="int" value="22"/>
         <value type="int" value="7"/>
+        <value type="int" value="3"/>
+        <value type="int" value="1"/>
         <value type="int" value="8"/>
         <value type="int" value="10"/>
         <value type="int" value="11"/>
@@ -161,6 +165,26 @@
       <property name="switch-workspace-on-unminimize" type="bool" value="true"/>
       <property name="show-wireframes" type="bool" value="false"/>
       <property name="include-all-workspaces" type="bool" value="true"/>
+    </property>
+    <property name="plugin-19" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16697803131.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-20" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16697815022.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-21" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16697817733.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-22" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16697832164.desktop"/>
+      </property>
     </property>
   </property>
   <property name="configver" type="int" value="2"/>

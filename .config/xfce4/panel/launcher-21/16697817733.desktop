@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=move to next ws
+Comment=move to next ws
+Exec=bash /home/hexh/workspace/dotfiles/.config/i3/scripts/next-available-ws.sh -m
+Icon=/home/hexh/桌面/share/图片/icons/right-chevron.png
+Path=
+Terminal=false
+StartupNotify=false

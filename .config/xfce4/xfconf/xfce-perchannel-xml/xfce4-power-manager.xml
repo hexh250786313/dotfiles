@@ -15,9 +15,9 @@
     <property name="general-notification" type="bool" value="false"/>
     <property name="lid-action-on-battery" type="uint" value="2"/>
     <property name="logind-handle-lid-switch" type="bool" value="false"/>
-    <property name="lid-action-on-ac" type="uint" value="2"/>
-    <property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/>
-    <property name="inactivity-on-battery" type="uint" value="14"/>
+    <property name="lid-action-on-ac" type="uint" value="1"/>
+    <property name="inactivity-sleep-mode-on-battery" type="uint" value="2"/>
+    <property name="inactivity-on-battery" type="uint" value="60"/>
     <property name="dpms-on-ac-off" type="uint" value="0"/>
     <property name="blank-on-ac" type="int" value="0"/>
     <property name="dpms-on-ac-sleep" type="uint" value="0"/>
@@ -28,5 +28,7 @@
     <property name="brightness-level-on-battery" type="uint" value="1"/>
     <property name="brightness-level-on-ac" type="uint" value="1"/>
     <property name="brightness-on-ac" type="uint" value="9"/>
+    <property name="inactivity-sleep-mode-on-ac" type="uint" value="1"/>
+    <property name="inactivity-on-ac" type="uint" value="14"/>
   </property>
 </channel>

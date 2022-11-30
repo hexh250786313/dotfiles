@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=add new ws
+Comment=add new ws
+Exec=bash /home/hexh/workspace/dotfiles/.config/i3/scripts/next-available-ws.sh
+Icon=/home/hexh/桌面/share/图片/icons/plus.png
+Path=
+Terminal=false
+StartupNotify=false
