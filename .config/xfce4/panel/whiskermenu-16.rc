@@ -1,4 +1,4 @@
-favorites=xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,xfce4-terminal-emulator.desktop
+favorites=google-chrome.desktop,com.qq.weixin.deepin.desktop,icalingua.desktop,com.alibabainc.dingtalk.desktop,Alacritty.desktop,vmware-workstation.desktop
 button-icon=desktop-environment-xfce
 button-single-row=false
 show-button-title=false
@@ -12,7 +12,7 @@ category-show-name=true
 category-icon-size=1
 sort-categories=true
 view-mode=1
-default-category=0
+default-category=1
 recent-items-max=10
 favorites-in-recent=true
 position-search-alternate=false
