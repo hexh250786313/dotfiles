@@ -214,8 +214,6 @@ return packer.startup(
       }
     )
 
-    -- use({"romainl/vim-cool"})
-
     use(
       {
         "petertriho/nvim-scrollbar",
@@ -313,7 +311,9 @@ return packer.startup(
 
     use({"dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]]})
 
-    use({"kevinhwang91/nvim-hlslens", config = [[require("plugin.nvim-hlslens")]]})
+    -- use({"kevinhwang91/nvim-hlslens", config = [[require("plugin.nvim-hlslens")]]})
+
+    use({"romainl/vim-cool", config = [[require("plugin.vim-cool")]]})
 
     use(
       {
@@ -339,7 +339,7 @@ return packer.startup(
           "nvim-cursorword",
           "asynctasks.vim",
           "nvim-autopairs",
-          "nvim-hlslens"
+          "vim-cool"
         }
       }
     )
