@@ -39,5 +39,6 @@ call SetupCommandAbbrs('git', 'Git')
 call SetupCommandAbbrs('cm', 'CocCommand markdown-preview-enhanced.openPreview')
 call SetupCommandAbbrs('ex', 'Explore')
 call SetupCommandAbbrs('dc', 'DiffviewClose')
+call SetupCommandAbbrs('cs', 'ConfigSource')
 ]]
 )
