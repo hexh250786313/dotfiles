@@ -53,8 +53,10 @@ nnoremap <Space><tab> <C-^>
 " nnoremap < <<_
 
 " 缩进一格
-xnoremap > :s/^/ /<CR>:noh<CR>gv
-xnoremap < :s/^\s\=//<CR>:noh<CR>gv
+" xnoremap > :s/^/ /<CR>:noh<CR>gv
+" xnoremap < :s/^\s\=//<CR>:noh<CR>gv
+xnoremap > :call Indent('>')<CR>gv
+xnoremap < :call Indent('<')<CR>gv
 nnoremap > :s/^/ /<CR>:noh<CR>
 nnoremap < :s/^\s\=//<CR>:noh<CR>
 

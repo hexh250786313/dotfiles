@@ -55,5 +55,15 @@ function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+function! Indent(direction)
+  if a:direction == '>'
+    s/^/ /
+  elseif a:direction == '<'
+    s/^\s\=//
+  endif
+  " noh " 函数里面没有高亮, 因此不需要 noh
+endfunction
+
 ]]
 )
