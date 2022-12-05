@@ -268,6 +268,8 @@ for_window [class="Thunar"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="Mpdevil"] floating enable
 
+for_window [title="SimpleScreenRecorder"] floating enable
+
 for_window [class="Viewnior"] floating enable
 
 for_window [class="Steam"] floating enable
