@@ -313,7 +313,7 @@ return packer.startup(
 
     -- use({"kevinhwang91/nvim-hlslens", config = [[require("plugin.nvim-hlslens")]]})
 
-    use({"romainl/vim-cool", config = [[require("plugin.vim-cool")]]})
+    use({"hexh250786313/vim-cool", config = [[require("plugin.vim-cool")]]})
 
     use(
       {

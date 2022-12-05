@@ -19,6 +19,7 @@ require "diffview".setup {
   hooks = {
     diff_buf_read = function(bufnr)
       -- Change local options in diff buffers
+      -- vim.cmd("call CocPrint(" .. bufnr .. ")")
       vim.opt_local.wrap = false
       -- vim.opt_local.list = false
       -- vim.opt_local.colorcolumn = {80}

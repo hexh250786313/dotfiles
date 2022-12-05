@@ -2,6 +2,7 @@
   "repos": [
     "hexh250786313/coc-symbol-line",
     "hexh250786313/vscode.nvim",
-    "hexh250786313/defx-icons"
+    "hexh250786313/defx-icons",
+    "hexh250786313/vim-cool"
   ]
 }
