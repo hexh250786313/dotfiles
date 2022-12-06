@@ -112,7 +112,7 @@
     "hover.target": "float",
     "diagnostic.messageTarget": "float",
     "signature.target": "float",
-    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "markdown-preview-enhanced.previewTheme": "vue.css",
     "markdown-preview-enhanced.liveUpdate": true,
     "markdown-preview-enhanced.scrollSync": false,
     "markdown-preview-enhanced.singlePreview": true,
