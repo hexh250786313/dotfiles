@@ -114,7 +114,7 @@
     "signature.target": "float",
     "markdown-preview-enhanced.previewTheme": "vue.css",
     "markdown-preview-enhanced.liveUpdate": true,
-    "markdown-preview-enhanced.scrollSync": false,
+    "markdown-preview-enhanced.scrollSync": true,
     "markdown-preview-enhanced.singlePreview": true,
     "markdown-preview-enhanced.mathRenderingOption": "None",
     "diagnostic.autoRefresh": true,
