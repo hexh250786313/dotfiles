@@ -82,5 +82,8 @@ cnoremap <c-a> <Home>
 cnoremap <c-e> <End>
 
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+nnoremap <silent><nowait> <left> 3zh
+nnoremap <silent><nowait> <right> 3zl
 ]]
 )
