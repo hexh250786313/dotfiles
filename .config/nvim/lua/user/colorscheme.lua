@@ -28,7 +28,9 @@ hi! link CocFloating Normal
 hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
 " hi! link @punctuation.bracket Directory
+" hi! link @punctuation.bracket @punctuation.special
 hi! link NormalNC Normal
+hi! link @punctuation.bracket Comment
 
 hi! CursorWord gui=underline
 
