@@ -20,11 +20,11 @@ vim.cmd(
   [[
 function! s:YankAndComment(type)
   if a:type ==# 'v'
-    normal! `<v`>y
+    normal! `<v`>"+y
   elseif a:type ==# 'V'
-    normal! `<V`>y
+    normal! `<V`>"+y
   elseif a:type ==# 'char'
-    normal! `[v`]y
+    normal! `[v`]"+y
   else
     return
   endif
