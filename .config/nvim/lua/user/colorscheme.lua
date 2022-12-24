@@ -30,7 +30,6 @@ hi! link CocListMode StatusLine
 " hi! link @punctuation.bracket Directory
 " hi! link @punctuation.bracket @punctuation.special
 hi! link NormalNC Normal
-hi! link @punctuation.bracket Comment
 
 hi! CursorWord gui=underline
 
@@ -61,6 +60,9 @@ exec 'hi! TSFloat gui=italic' .
 exec 'hi! TSParameter gui=italic' .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSParameter')), 'bg', 'gui')) .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSParameter')), 'fg', 'gui'))
+exec 'hi! @punctuation.bracket' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Comment')), 'fg', 'gui')) .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Comment')), 'bg', 'gui'))
 " exec 'hi! TSFuncBuiltin gui=bold' .
 "   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncBuiltin')), 'bg', 'gui')) .
 "   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('TSFuncBuiltin')), 'fg', 'gui'))
