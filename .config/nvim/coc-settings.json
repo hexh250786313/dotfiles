@@ -92,7 +92,7 @@
         "winblend": 20
     },
     "suggest.timeout": 5000,
-    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.extensionUpdateCheck": "never",
     "diagnostic.checkCurrentLine": false,
     "diagnostic.separateRelatedInformationAsDiagnostics": true,
     "git.semanticCommit.scope": false,
