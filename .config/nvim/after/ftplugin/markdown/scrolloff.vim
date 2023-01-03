@@ -1,13 +1,20 @@
+let s:scrolloff = &scrolloff
+
 function! s:SetScrolloff()
   let current_file_type = &filetype
-  if current_file_type == 'markdown'
-    setlocal scrolloff=999
+  if current_file_type ==# 'markdown'
+    set scrolloff=999
     setlocal nowrap
-    return
+  elseif current_file_type ==# 'defx'
+    set scrolloff=3
   else
-    setlocal scrolloff=0
+    let &scrolloff=s:scrolloff
   endif
 endfunction
+
+augroup set_md_scrolloff
+  autocmd!
+augroup END
 
 augroup set_md_scrolloff
   autocmd!
