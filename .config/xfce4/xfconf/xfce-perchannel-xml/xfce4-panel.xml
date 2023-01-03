@@ -10,6 +10,7 @@
         <value type="int" value="2"/>
         <value type="int" value="19"/>
         <value type="int" value="20"/>
+        <value type="int" value="23"/>
         <value type="int" value="21"/>
         <value type="int" value="22"/>
         <value type="int" value="3"/>
@@ -36,7 +37,7 @@
       <property name="size" type="uint" value="35"/>
       <property name="mode" type="uint" value="0"/>
       <property name="autohide-behavior" type="uint" value="0"/>
-      <property name="disable-struts" type="bool" value="false"/>
+      <property name="disable-struts" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="16"/>
       <property name="background-image" type="string" value="file:///home/hexh/%E6%A1%8C%E9%9D%A2/share/%E5%9B%BE%E7%89%87/black.png"/>
       <property name="output-name" type="string" value="Primary"/>
@@ -169,14 +170,17 @@
     <property name="plugin-8" type="string" value="netload"/>
     <property name="plugin-3" type="string" value="tasklist">
       <property name="show-handle" type="bool" value="true"/>
-      <property name="sort-order" type="uint" value="1"/>
-      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="sort-order" type="uint" value="0"/>
+      <property name="flat-buttons" type="bool" value="false"/>
       <property name="show-labels" type="bool" value="false"/>
-      <property name="grouping" type="uint" value="0"/>
+      <property name="grouping" type="bool" value="false"/>
       <property name="middle-click" type="uint" value="1"/>
       <property name="switch-workspace-on-unminimize" type="bool" value="true"/>
       <property name="show-wireframes" type="bool" value="false"/>
       <property name="include-all-workspaces" type="bool" value="true"/>
+      <property name="show-only-minimized" type="bool" value="false"/>
+      <property name="include-all-monitors" type="bool" value="true"/>
+      <property name="show-tooltips" type="bool" value="true"/>
     </property>
     <property name="plugin-19" type="string" value="launcher">
       <property name="items" type="array">
@@ -196,6 +200,11 @@
     <property name="plugin-22" type="string" value="launcher">
       <property name="items" type="array">
         <value type="string" value="16697832164.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-23" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16727650501.desktop"/>
       </property>
     </property>
   </property>

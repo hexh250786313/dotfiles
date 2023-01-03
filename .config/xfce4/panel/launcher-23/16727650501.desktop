@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=minimize
+Comment=minimize current window
+Exec=i3-msg "move scratchpad"
+Icon=/home/hexh/桌面/share/图片/icons/minimize.png
+Path=
+Terminal=false
+StartupNotify=false
