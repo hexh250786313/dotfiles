@@ -15,12 +15,12 @@ function OpenQF ()
   :lua require('spectre').close()
 endfunction
 
-function OpenSpectrePanel ()
-  :vertical resize 40
-  :set winfixwidth
-  :set winfixheight
-  " :call CloseDefx()
-endfunction
+" function OpenSpectrePanel ()
+"   :vertical resize 40
+"   :set winfixwidth
+"   :set winfixheight
+"   " :call CloseDefx()
+" endfunction
 
 " 约 50K
 autocmd BufEnter * if line2byte('$') + len(getline('$')) > 51200 | syntax clear | setlocal nowrap | endif
@@ -76,11 +76,11 @@ endfunction
 )
 
 -- vim.api.nvim_create_autocmd({"FileType, BufferEnter"}, {pattern = "qf", command = "silent call OpenQF()"})
-vim.api.nvim_create_autocmd({"FileType, BufEnter"}, {pattern = "markdown", command = "setlocal nowrap"})
-vim.api.nvim_create_autocmd(
-  {"FileType, BufferEnter"},
-  {pattern = "spectre_panel", command = "silent call OpenSpectrePanel()"}
-)
+-- vim.api.nvim_create_autocmd({"FileType, BufEnter"}, {pattern = "markdown", command = "setlocal nowrap"})
+-- vim.api.nvim_create_autocmd(
+--   {"FileType, BufferEnter"},
+--   {pattern = "spectre_panel", command = "silent call OpenSpectrePanel()"}
+-- )
 -- vim.api.nvim_create_autocmd({"BufferEnter"}, {pattern = "*", command = "call Test1()"})
 -- vim.api.nvim_create_autocmd(
 -- {"CursorHold"},
