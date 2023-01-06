@@ -4,3 +4,4 @@ cp /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/rplugin.vim /
 
 sh -c /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/defx.sh
 sh -c /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh
+sh -c /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/nvim-bqf.sh
