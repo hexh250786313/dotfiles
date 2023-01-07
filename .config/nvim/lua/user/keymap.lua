@@ -26,6 +26,7 @@ nnoremap <silent> dd "+dd
 " vnoremap <silent> <C-c> :<C-u>call ClipboardYank(visualmode())<cr>
 " noremap <C-c>y "+y
 " noremap <C-v> "+p
+nnoremap <C-v> "+p
 
 nnoremap <silent> <C-s> :silent write<CR>
 nnoremap <silent> <Space>wq :q<CR>
