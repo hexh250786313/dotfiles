@@ -77,5 +77,6 @@ set-option -g focus-events on
 set -g mouse on
 bind -n C-l send-keys C-l
 set -g history-limit 250000
+set-option -g status-position top
 # set -g status off
 # set-option repeat-time 0
