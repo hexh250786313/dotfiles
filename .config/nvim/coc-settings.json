@@ -100,7 +100,7 @@
     "suggest.defaultSortMethod": "none",
     "coc.source.file.ignoreHidden": false,
     "tsserver.maxTsServerMemory": 16384,
-    "tsserver.locale": null,
+    "tsserver.locale": "auto",
     // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
     "tsserver.useLocalTsdk": false,
     // "tsserver.log": "verbose",

@@ -2,6 +2,9 @@
 # zmodload zsh/zprof
 # -------------------
 
+# add cargo binary
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # used by following config
 export ZSH_CUSTOM="/home/hexh/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/hexh/.config"

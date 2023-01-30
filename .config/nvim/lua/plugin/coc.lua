@@ -16,8 +16,8 @@ if vim.fn.exists "&winbar" then
       callback = function()
         if vim.b.coc_symbol_line and vim.bo.buftype == "" then
           if vim.opt_local.winbar:get() == "" then
-            -- coclist heighht
-            -- vim.opt_local.winbar = "%!v:lua.symbol_line()"
+          -- coclist heighht
+          -- vim.opt_local.winbar = "%!v:lua.symbol_line()"
           end
         else
           vim.opt_local.winbar = ""
@@ -57,6 +57,10 @@ vim.g.coc_global_extensions = {
   "@yaegassy/coc-marksman",
   "coc-tasks",
   "coc-todo-tree",
+  "@yaegassy/coc-tailwindcss3",
+  "coc-styled-components",
+  "coc-cssmodules",
+  "coc-typos",
 }
 
 -- coc 选择了 quickfix 打开后的回调
