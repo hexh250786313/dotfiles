@@ -275,6 +275,14 @@
                 "text": "",
                 "hlGroup": "CocInfoSign"
             }
+        },
+        {
+            "tagName": "mark",
+            "regex": "@mark",
+            "icon": {
+                "text": "",
+                "hlGroup": "CocInfoSign"
+            }
         }
     ],
     "todo-tree.fileIcon": {
