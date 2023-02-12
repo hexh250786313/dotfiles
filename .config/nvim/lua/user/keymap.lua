@@ -28,6 +28,9 @@ nnoremap <silent> dd "+dd
 " noremap <C-v> "+p
 nnoremap <C-v> "+p
 
+nmap <S-Down> <C-d>
+nmap <S-Up> <C-u>
+
 nnoremap <silent> <C-s> :silent write<CR>
 nnoremap <silent> <Space>wq :q<CR>
 nnoremap <silent> <Space>wV :vsplit<CR>
