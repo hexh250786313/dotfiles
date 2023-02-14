@@ -96,6 +96,10 @@ fi
 if [[ ! -f ~/.warprc ]]; then
   ln -s ~/workspace/dotfiles/.warprc ~/.warprc
 fi
+if [[ ! -f ~/.fzf.zsh ]]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*'"
 export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
