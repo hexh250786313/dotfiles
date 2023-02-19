@@ -365,9 +365,9 @@ function! s:trim_right(str, trim)
   return substitute(a:str, printf('%s$', a:trim), '', 'g')
 endfunction
 
-nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
-" nmap <silent> <Space>fo :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
-nmap <silent> <Space>fr :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
+" nmap <silent> <Space>fr :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
+nmap <silent> <Space>fo :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
+" nmap <silent> <Space>fr :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 nmap <silent> <Space>fc :Defx -close<CR>
 
 ]]
