@@ -37,7 +37,7 @@ vim.g.coc_global_extensions = {
   "coc-json",
   "coc-lightbulb",
   "coc-lists",
-  "coc-lua",
+  -- "coc-lua",
   "coc-markdown-preview-enhanced",
   "coc-marketplace",
   -- "coc-pairs",
