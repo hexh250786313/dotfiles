@@ -32,6 +32,10 @@ hi! link NormalNC Normal
 
 hi! CursorWord gui=underline
 
+exec 'hi! DiffText' .
+  \' guifg=none' .
+  \' guibg=' . Darken(synIDattr(synIDtrans(hlID('DiffChange')), 'bg', 'gui'))
+
 " exec 'hi! NormalStrongFont gui=italic,bold' .
 exec 'hi! NormalStrongFont gui=italic' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
