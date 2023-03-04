@@ -1,6 +1,12 @@
 keybinding:
   universal:
     quit: '<c-c>'
+    scrollUpMain-alt1: '<up>'
+    scrollDownMain-alt1: '<down>'
+    moveDownCommit: 'E'
+    moveUpCommit: 'U'
+    prevItem: '<c-k>'
+    nextItem: '<c-j>'
 git:
   paging:
     colorArg: always
