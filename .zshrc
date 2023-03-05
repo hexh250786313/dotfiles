@@ -65,6 +65,7 @@ if [[ ! -f ~/.p10k.zsh ]]; then
 fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # -------------------
 
 # some env variable
