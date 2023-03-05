@@ -90,6 +90,7 @@ xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 nnoremap <silent><nowait> <left> 3zh
 nnoremap <silent><nowait> <right> 3zl
 
-nnoremap <silent><nowait> J gJ
+" nnoremap J gJ
+xnoremap J gJ
 ]]
 )
