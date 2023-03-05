@@ -33,6 +33,7 @@ if [[ ! -f ~/.p10k.zsh ]]; then
 fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # env
 export LANG=en_US.UTF-8
@@ -136,8 +137,3 @@ eval "$(mcfly init zsh | sed "s,\^R,^Q,")"
 
 # zoxide
 eval "$(zoxide init zsh)"
-
-
-# fnm
-export PATH="/home/hexh/.local/share/fnm:$PATH"
-eval "`fnm env`"
