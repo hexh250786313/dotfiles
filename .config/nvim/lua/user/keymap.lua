@@ -27,6 +27,8 @@ nnoremap <silent> dd "+dd
 " noremap <C-c>y "+y
 " noremap <C-v> "+p
 nnoremap <C-v> "+p
+set pastetoggle=<F10>
+inoremap <C-v> <F10><C-r>+<F10>
 
 nmap <S-Down> <C-d>
 nmap <S-Up> <C-u>
@@ -92,5 +94,7 @@ nnoremap <silent><nowait> <right> 3zl
 
 " nnoremap J gJ
 xnoremap J gJ
+
+nnoremap <c-z> u
 ]]
 )
