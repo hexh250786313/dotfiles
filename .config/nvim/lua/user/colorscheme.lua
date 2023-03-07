@@ -18,7 +18,7 @@ let g:defaultnormalgb=HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg'
 " 透明
 let g:hlnormalstate=0
 hi! Normal guibg=NONE
-set nocursorline
+" set nocursorline
 
 hi! LineNr guibg=NONE
 hi! SignColumn guibg=NONE
