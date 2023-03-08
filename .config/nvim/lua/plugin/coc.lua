@@ -141,12 +141,18 @@ nnoremap <silent> gh :call <SID>show_documentation()<CR>
 nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "3\<C-e>"
-  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "3\<C-y>"
-  inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 3)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 3)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "3\<C-e>"
-  vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "3\<C-y>"
+  " nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "3\<C-e>"
+  " nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "3\<C-y>"
+  " inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 3)\<cr>" : "\<Down>"
+  " inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 3)\<cr>" : "\<Up>"
+  " vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "3\<C-e>"
+  " vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "3\<C-y>"
+  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
+  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
+  inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
+  inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
+  vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
+  vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
 endif
 
 function! DiaRefresh()
