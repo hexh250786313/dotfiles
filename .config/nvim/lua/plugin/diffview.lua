@@ -55,7 +55,11 @@ require "diffview".setup {
       ["<c-j>"] = actions.select_next_entry,
       ["<c-k>"] = actions.select_prev_entry,
       ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
-      ["<down>"] = actions.scroll_view(0.25) -- Scroll the view down
+      ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
+      ["o"] = function(opt)
+        actions.goto_file_edit(opt)
+        vim.cmd(":tabclose #")
+      end
     }
   }
 }
