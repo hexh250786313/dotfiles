@@ -215,12 +215,12 @@ return packer.startup(
       }
     )
 
-    use(
-      {
-        "petertriho/nvim-scrollbar",
-        config = [[require("plugin.nvim-scrollbar")]]
-      }
-    )
+    -- use(
+    --   {
+    --     "petertriho/nvim-scrollbar",
+    --     config = [[require("plugin.nvim-scrollbar")]]
+    --   }
+    -- )
 
     use(
       {
@@ -258,9 +258,30 @@ return packer.startup(
     use(
       {
         "kevinhwang91/nvim-ufo",
-        requires = "kevinhwang91/promise-async",
         config = [[require("plugin.nvim-ufo")]],
-        cmd = "UfoEnable"
+        -- cmd = "UfoEnable",
+        requires = {
+          "kevinhwang91/promise-async",
+          {
+            "luukvbaal/statuscol.nvim",
+            config = function()
+              local builtin = require("statuscol.builtin")
+              vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+              require("statuscol").setup(
+                {
+                  relculright = true,
+                  segments = {
+                    {text = {builtin.foldfunc, " "}, click = "v:lua.ScFa"},
+                    {text = {"%s"}, click = "v:lua.ScSa"},
+                    {text = {builtin.lnumfunc}, click = "v:lua.ScLa"},
+                    {text = {" "}},
+                  }
+                }
+              )
+              -- vim.o.statuscolumn = "%@v:lua.ScFa@%C%T%@v:lua.ScSa@%s%T@v:lua.ScLa@%=%l%T"
+            end
+          }
+        }
       }
     )
 
@@ -335,7 +356,7 @@ return packer.startup(
           "toggleterm.nvim",
           "nvim-bqf",
           "fzf",
-          "nvim-scrollbar",
+          -- "nvim-scrollbar",
           "vim-hexokinase",
           "yanky.nvim",
           "editorconfig.nvim",

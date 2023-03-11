@@ -1,6 +1,13 @@
-vim.o.foldcolumn = '0'
-vim.o.foldlevelstart = -1
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+-- vim.o.foldlevelstart = -1
+vim.o.foldlevelstart = 99
 vim.wo.foldenable = true
+-- vim.o.statuscolumn = '%=%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }%s%l%{" "}'
+-- vim.o.statuscolumn = '%=%l%s%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }%*'
+
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
 local handler = function(virtText, lnum, endLnum, width)
   local newVirtText = {}

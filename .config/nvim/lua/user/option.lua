@@ -24,7 +24,7 @@ vim.g.clipboard = {
 
 local optionList = {
   mouse = "a", -- 使用鼠标
-  -- number = true, -- 显示行号, 如果开了, 则出现丑的要命的右 padding
+  number = true, -- 显示行号, 如果开了, 则出现丑的要命的右 padding
   -- relativenumber = true, -- 使用相对行号
   -- numberwidth = 2, -- 行号的宽度
   title = true, -- 任务栏显示标题
