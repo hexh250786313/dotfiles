@@ -4,7 +4,7 @@ function! IgnoreFile(...)
   if len(l:args) == 1
     let l:patterns = args[0]
 
-    let l:fd = 'fd --type f --hidden'
+    let l:fd = 'fdfind --type f --hidden'
     for i in split(l:patterns, ",")
         let l:fd .= ' --exclude ' . '"' . i . '"'
     endfor

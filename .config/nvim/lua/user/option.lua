@@ -1,5 +1,5 @@
 vim.cmd([[
-language en_US.UTF-8
+" language en_US.UTF-8
 set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 let g:loaded_matchparen = 1 " 关闭括弧配对高亮
 set guifont=FiraCode\ Nerd\ Font:h12
@@ -35,7 +35,7 @@ local optionList = {
   termguicolors = true, -- 终端
   ignorecase = true, -- 命令模式忽略大小写
   foldlevel = 99, -- 折叠级别
-  wrap = true, -- 是否折行, false 的话会影响多 cols 文件的性能
+  wrap = false, -- 是否折行, false 的话会影响多 cols 文件的性能
   swapfile = false, -- 是否使用交换文件
   signcolumn = "auto:1", -- icon 展示在哪, "number" 为展示在行号上, "auto:1" 指的是有 icon 时展示一列, "auto:1-2" 指的是平时至少一列, 有 icon 时最多两列, "auto:2" 指的是平时没有, 有 icon 时最多两列
   lazyredraw = true, -- 执行脚本时不刷新

@@ -32,7 +32,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit =
   Terminal:new(
   {
-    cmd = "lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml",
+    cmd = "lazygit -ucf ~/workspace/hexh/dotfiles/.config/lazygit/config.yml",
     direction = "float",
     count = 7
   }
@@ -62,7 +62,7 @@ vim.api.nvim_set_keymap("n", "<space>gw", "<cmd>lua _gitwebui_toggle()<CR>", {no
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   vim.api.nvim_buf_set_keymap(0, "t", "<c-t>", [[<C-\><C-n>:q<cr>]], opts)
-  -- vim.api.nvim_buf_set_keymap(0, "t", "<esc><esc>", [[<C-\><C-n>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<c-r>", [[<C-\><C-n>]], opts)
   -- vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 path="$1"
 fixed_length=$2
 if ((${#path} > $fixed_length)); then

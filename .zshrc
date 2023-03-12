@@ -101,7 +101,7 @@ if [[ ! -f ~/.fzf.zsh ]]; then
   ~/.fzf/install
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*'"
+export FZF_DEFAULT_COMMAND="fdfind --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*'"
 export FZF_DEFAULT_OPTS="--bind up:preview-up,down:preview-down"
 if [[ ! -d $ZSH_CUSTOM/plugins/fzf-tab ]]; then
   git clone https://github.com/Aloxaf/fzf-tab.git $ZSH_CUSTOM/plugins/fzf-tab
@@ -196,7 +196,7 @@ alias la="lsd -AF --group-directories-first"
 alias ls="lsd -AF --group-directories-first"
 # alias nviml="la -1r | tail -n 1 | xargs nvim"
 alias latestf="lsd -1AtrF | grep -v '/$' | tail -n 1 | xargs echo -n"
-alias nviml="fd --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*' --exec-batch lsd -AtF -1r | tail -n 1 | xargs nvim"
+alias nviml="fdfind --type f --hidden --exclude '.git/**/*' --exclude 'node_modules/**/*' --exec-batch lsd -AtF -1r | tail -n 1 | xargs nvim"
 # -------------------
 
 # mcfly

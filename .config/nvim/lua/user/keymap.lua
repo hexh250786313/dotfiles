@@ -15,7 +15,7 @@ vim.cmd(
 vnoremap <silent> x "+d
 nnoremap <silent> x v"+d
 " vnoremap <silent> d "0d
-vnoremap <silent> s "+s
+" vnoremap <silent> s "+s
 nnoremap <silent> yy "+yy
 nnoremap <silent> dd "+dd
 " noremap <Space>y "+y
@@ -27,6 +27,10 @@ nnoremap <silent> dd "+dd
 " noremap <C-c>y "+y
 " noremap <C-v> "+p
 nnoremap <C-v> "+p
+vnoremap <C-v> "+p
+" inoremap <C-v> "+p
+set pastetoggle=<F10>
+inoremap <C-v> <F10><C-r>+<F10>
 
 nmap <S-Down> <C-d>
 nmap <S-Up> <C-u>
@@ -89,5 +93,10 @@ xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 nnoremap <silent><nowait> <left> 3zh
 nnoremap <silent><nowait> <right> 3zl
+
+" nnoremap J gJ
+xnoremap J gJ
+
+nnoremap <c-z> u
 ]]
 )

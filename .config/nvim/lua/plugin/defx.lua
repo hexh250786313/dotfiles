@@ -156,6 +156,8 @@ function! s:defx_my_settings() abort
         \ 'mark:indent:icon:filename:type:size:time')
   nnoremap <silent><buffer><expr> <C-n>
         \ defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> x
+        \ defx#do_action('call', g:defx_config_sid . 'wsl_explorer')
   nnoremap <silent><buffer> cd :call LcdAndClose()<CR>
   nnoremap <silent><buffer> ~ :call CdRootAndClose()<CR>
   nnoremap <silent><buffer><expr> >
@@ -184,12 +186,12 @@ function! s:DefxSmartL(_)
   augroup set_auto_select
     autocmd!
   augroup END
+  let filepath = defx#get_candidate()['action__path']
   if defx#is_directory()
     call defx#call_action('open_or_close_tree')
   elseif defx#is_binary()
-    call defx#call_action('execute_system')
+    silent exec '!explorer.exe `wslpath -w "' .. filepath .. '"`'
   else
-    let filepath = defx#get_candidate()['action__path']
     " ========== 以下操作是用来过滤掉非正常窗口
     " 当前页面的所有窗口的 buffer 列表, 会有重复, 例如 [4, 1, 3, 3, 3] 代表 5 个窗口, 其中三个窗口是同一个 buffer
     let current_page_buffers_list = tabpagebuflist(tabpagenr())
@@ -251,6 +253,18 @@ function! s:defx_toggle_tree_right_preview() abort
   " return defx#do_action('open')
   " return defx#do_action('drop')
   return defx#do_action('preview')
+endfunction
+
+function! s:wsl_explorer(_)
+  let filepath = defx#get_candidate()['action__path']
+  if defx#is_directory()
+    " silent exec '!explorer.exe `wslpath -w "%:p:h"`'
+    silent exec '!explorer.exe `wslpath -w "' .. filepath .. '"`'
+  elseif defx#is_binary()
+    silent exec '!explorer.exe `wslpath -w "' .. filepath .. '"`'
+  else
+    call <SID>DefxSmartL("")
+  endif
 endfunction
 
 function! s:defx_toggle_tree_left(_)
@@ -365,9 +379,9 @@ function! s:trim_right(str, trim)
   return substitute(a:str, printf('%s$', a:trim), '', 'g')
 endfunction
 
-nmap <silent> <Space>fo :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
-" nmap <silent> <Space>fo :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
-nmap <silent> <Space>fr :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
+nmap <silent> <Space>fr :Defx `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
+nmap <silent> <Space>fo :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
+" nmap <silent> <Space>fr :Defx -no-resume `getcwd()` -search-recursive=`expand('%:p')` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`<CR>
 nmap <silent> <Space>fc :Defx -close<CR>
 
 ]]

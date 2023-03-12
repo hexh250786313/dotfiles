@@ -5,10 +5,10 @@
 
 
 " python3 plugins
-call remote#host#RegisterPlugin('python3', '/home/hexh/.local/share/nvim/site/pack/packer/opt/defx.nvim/rplugin/python3/defx', [
+call remote#host#RegisterPlugin('python3', '/home/edwardhe/.local/share/nvim/site/pack/packer/opt/defx.nvim/rplugin/python3/defx', [
       \ {'sync': v:true, 'name': '_defx_init', 'type': 'function', 'opts': {}},
      \ ])
-call remote#host#RegisterPlugin('python3', '/home/hexh/.local/share/nvim/site/pack/packer/opt/wilder.nvim/rplugin/python3/wilder', [
+call remote#host#RegisterPlugin('python3', '/home/edwardhe/.local/share/nvim/site/pack/packer/opt/wilder.nvim/rplugin/python3/wilder', [
       \ {'sync': v:true, 'name': '_wilder_python_basic_highlight', 'type': 'function', 'opts': {}},
       \ {'sync': 'urgent', 'name': '_wilder_python_clap_filt', 'type': 'function', 'opts': {}},
       \ {'sync': 'urgent', 'name': '_wilder_python_cpsm_filt', 'type': 'function', 'opts': {}},

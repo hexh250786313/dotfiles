@@ -233,36 +233,36 @@
                 "2": "error"
             }
         },
-        "stylelint": {
-            "command": "./node_modules/.bin/stylelint", // if no local stylelint, will use the global
-            "rootPatterns": [".git"], // For cwd
-            "debounce": 550,
-            "args": [
-                "-f",
-                "compact",
-                "--config",
-                "/home/hexh/workspace/dotfiles/.config/nvim/stylelint.config.js"
-            ],
-            "offsetLine": 0,
-            "offsetColumn": 0,
-            "sourceName": "stylelint",
-            "isStderr": false,
-            "isStdout": true,
-            "formatLines": 1,
-            "formatPattern": [
-                "^[^:]+:\\D+(\\d+)\\D+(\\d+)\\W+(\\w+)\\s-\\s(.*)$",
-                {
-                    "line": 1,
-                    "column": 2,
-                    "message": 4,
-                    "security": 3
-                }
-            ],
-            "securities": {
-                "error": "error",
-                "warning": "warning"
-            }
-        }
+        // "stylelint": {
+        //     "command": "./node_modules/.bin/stylelint", // if no local stylelint, will use the global
+        //     "rootPatterns": [".git"], // For cwd
+        //     "debounce": 550,
+        //     "args": [
+        //         "-f",
+        //         "compact",
+        //         "--config",
+        //         "/home/edwardhe/workspace/hexh/dotfiles/.config/nvim/stylelint.config.js"
+        //     ],
+        //     "offsetLine": 0,
+        //     "offsetColumn": 0,
+        //     "sourceName": "stylelint",
+        //     "isStderr": false,
+        //     "isStdout": true,
+        //     "formatLines": 1,
+        //     "formatPattern": [
+        //         "^[^:]+:\\D+(\\d+)\\D+(\\d+)\\W+(\\w+)\\s-\\s(.*)$",
+        //         {
+        //             "line": 1,
+        //             "column": 2,
+        //             "message": 4,
+        //             "security": 3
+        //         }
+        //     ],
+        //     "securities": {
+        //         "error": "error",
+        //         "warning": "warning"
+        //     }
+        // }
     },
     // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
     // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
@@ -295,7 +295,7 @@
     },
     "todo-tree.defaultView": "tree",
     "ds-pinyin-lsp.enabled": false,
-    "ds-pinyin-lsp.db_path": "/home/hexh/.config/ds-pinyin/dict.db3",
+    "ds-pinyin-lsp.db_path": "/home/edwardhe/.config/ds-pinyin/dict.db3",
     "ds-pinyin-lsp.match_as_same_as_input": true,
     "ds-pinyin-lsp.match_long_input": false,
     "ds-pinyin-lsp.check_on_startup": false

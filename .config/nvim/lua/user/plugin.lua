@@ -316,6 +316,8 @@ return packer.startup(
 
     use({"hexh250786313/vim-cool", config = [[require("plugin.vim-cool")]]})
 
+    use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
+
     use(
       {
         "klen/nvim-config-local",
