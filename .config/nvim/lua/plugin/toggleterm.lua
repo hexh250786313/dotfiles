@@ -7,11 +7,12 @@ end
 require("toggleterm").setup {
   size = function(term)
     if term.direction == "horizontal" then
-      return 9
+      return 19
     elseif term.direction == "vertical" then
       return vim.o.columns * 0.4
     end
   end,
+  start_in_insert = true,
   float_opts = {
     border = {"▃", "▃", "▃", "█", "▀", "▀", "▀", "█"}
     -- border = {"", "", "", "█", "", "", "", "█"}
@@ -25,7 +26,8 @@ require("toggleterm").setup {
       guifg = get_color("StatusLine", "bg")
       -- guibg = get_color("", "fg"),
     }
-  }
+  },
+  auto_scroll = true,
 }
 
 local Terminal = require("toggleterm.terminal").Terminal
@@ -34,15 +36,25 @@ local lazygit =
   {
     cmd = "lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml",
     direction = "float",
-    count = 7
+    count = 7,
+    on_open = function(term)
+      vim.cmd("startinsert!")
+      -- vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+    end,
+    -- function to run on closing the terminal
+    on_close = function(term)
+      vim.cmd("startinsert!")
+    end,
+    auto_scroll = false,
   }
 )
 local gitwebui =
   Terminal:new(
   {
     cmd = "git webui --port=9989",
-    direction = "float",
-    count = 6
+    direction = "horizontal",
+    count = 6,
+    auto_scroll = false,
   }
 )
 
@@ -80,10 +92,11 @@ function! s:ToggleTerm(count)
   if a:count != 0
     let g:floating_termnr = a:count
   endif
-  exe g:floating_termnr . "ToggleTerm direction=float"
+  " exe g:floating_termnr . "ToggleTerm direction=float"
+  exe g:floating_termnr . "ToggleTerm"
 endfunction
 
-" nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=float"<CR>
+" nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
 command! -nargs=1 CustomToggleTerm call <SID>ToggleTerm(<args>)
 nnoremap <silent><c-t> :<C-U>CustomToggleTerm(v:count)<CR>
 ]]
@@ -112,12 +125,13 @@ function M.watch_term(opts)
     {
       cmd = opts.cmd,
       dir = opts.cwd,
-      direction = "float",
+      direction = "horizontal",
       count = termnr,
-      close_on_exit = close
+      close_on_exit = close,
+      auto_scroll = false,
     }
   )
-  _watch_term:toggle(opts)
+  _watch_term:toggle(opt)
 end
 
 vim.cmd([[
