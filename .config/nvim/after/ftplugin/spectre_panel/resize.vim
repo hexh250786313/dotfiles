@@ -1,3 +1,3 @@
-vertical resize 40
+vertical resize 90
 setlocal winfixwidth
 setlocal winfixheight

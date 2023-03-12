@@ -110,11 +110,16 @@ inoremap <silent><expr> <Tab>
   \ CheckBackspace() ? "\<Tab>" :
   \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <c-j>
+  \ coc#pum#visible() ? coc#pum#next(1) :
+  \ CheckBackspace() ? "\<c-j>" :
+  \ coc#refresh()
+inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+" inoremap <silent><expr> <C-k> coc#refresh()
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-inoremap <silent><expr> <C-k> coc#refresh()
 nnoremap <silent> <Space>gs :CocCommand git.chunkStage<CR>
 nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>
 nnoremap <silent> <Space>gi :CocCommand git.chunkInfo<CR>
@@ -123,8 +128,10 @@ nmap <Space>g[ <Plug>(coc-git-prevchunk)
 nmap <Space>g] <Plug>(coc-git-nextchunk)
 nnoremap <silent> <Space>} :call CocActionAsync('jumpDefinition', v:false)<CR>
 nnoremap <silent> <Space>{ :call CocActionAsync('jumpReferences', v:false)<CR>
-nnoremap <silent> <Space>] :call CocActionAsync('jumpDefinition', v:false)<CR>
-nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences', v:false)<CR>
+" nnoremap <silent> <Space>] :call CocActionAsync('jumpDefinition', v:false)<CR>
+" nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences', v:false)<CR>
+nnoremap <silent> <Space>] :call CocActionAsync('jumpDefinition')<CR>
+nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences')<CR>
 nnoremap <silent> <Space>lm :CocList --no-sort mru<CR>
 nnoremap <silent> <Space>ld :CocList --no-sort diagnostics<CR>
 " nnoremap <silent> <Space>lt :CocList --auto-preview tags<CR>
