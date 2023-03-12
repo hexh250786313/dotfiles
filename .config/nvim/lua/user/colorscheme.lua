@@ -38,9 +38,9 @@ exec 'hi! DiffText' .
   \' guifg=none' .
   \' guibg=' . Darken(synIDattr(synIDtrans(hlID('DiffChange')), 'bg', 'gui'))
 
-exec 'hi! Folded' .
-  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('FoldColumn')), 'fg', 'gui')) .
-  \' guibg=#343632'
+" exec 'hi! Folded' .
+"   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('FoldColumn')), 'fg', 'gui')) .
+"   \' guibg=#343632'
 " exec 'hi! NormalStrongFont gui=italic,bold' .
 exec 'hi! NormalStrongFont gui=italic' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .

@@ -13,6 +13,7 @@ require("toggleterm").setup {
     end
   end,
   start_in_insert = true,
+  -- persist_mode = true,
   float_opts = {
     border = {"▃", "▃", "▃", "█", "▀", "▀", "▀", "█"}
     -- border = {"", "", "", "█", "", "", "", "█"}
