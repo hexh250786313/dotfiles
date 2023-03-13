@@ -18,7 +18,7 @@ let g:defaultnormalgb=HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'bg'
 " 透明
 let g:hlnormalstate=0
 hi! Normal guibg=NONE
-" set nocursorline
+set nocursorline
 
 hi! LineNr guibg=NONE
 hi! SignColumn guibg=NONE
@@ -30,12 +30,17 @@ hi! link CocListMode StatusLine
 hi! link @punctuation.bracket Comment
 hi! link NormalNC Normal
 
+hi! link UfoCursorFoldedLine DiffChange
+
 hi! CursorWord gui=underline
 
 exec 'hi! DiffText' .
   \' guifg=none' .
   \' guibg=' . Darken(synIDattr(synIDtrans(hlID('DiffChange')), 'bg', 'gui'))
 
+" exec 'hi! Folded' .
+"   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('FoldColumn')), 'fg', 'gui')) .
+"   \' guibg=#343632'
 " exec 'hi! NormalStrongFont gui=italic,bold' .
 exec 'hi! NormalStrongFont gui=italic' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('Normal')), 'fg', 'gui')) .
