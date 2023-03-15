@@ -45,8 +45,8 @@ require("nvim-treesitter.configs").setup {
   ensure_installed = {"javascript", "typescript", "css", "scss", "vue", "json", "lua", "vim", "bash", "html"},
   auto_install = true,
   highlight = {
-    -- enable = true,
-    enable = false,
+    enable = true,
+    -- enable = false,
     disable = disabler
   },
   incremental_selection = {
