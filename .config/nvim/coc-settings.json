@@ -159,10 +159,10 @@
         "typescript.tsx": "eslint_d",
         "sql": "sql-lint",
         // "sql": "sqlfluff",
-        "vue": ["eslint_d", "stylelint"],
-        "css": "stylelint",
-        "less": "stylelint",
-        "scss": "stylelint"
+        // "vue": ["eslint_d", "stylelint"],
+        // "css": "stylelint",
+        // "less": "stylelint",
+        // "scss": "stylelint"
     },
     "diagnostic-languageserver.linters": {
         "sqlfluff": {
@@ -226,7 +226,7 @@
                 "--format",
                 "json"
             ],
-            "sourceName": "eslint_d",
+            "sourceName": "eslint",
             "parseJson": {
                 "errorsRoot": "[0].messages",
                 "line": "line",

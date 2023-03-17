@@ -33,12 +33,11 @@ local disabler = function(lang, bufnr)
   -- end
   -- return false
 
-  local max_filesize = 50 * 1024 -- 50 KB
-  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
-  if ok and stats and stats.size > max_filesize then
-    return true
-  end
-  return false
+  -- local max_filesize = 50 * 1024 -- 50 KB
+  -- local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+  -- if ok and stats and stats.size > max_filesize then
+  --   return true
+  -- end
 end
 
 require("nvim-treesitter.configs").setup {
