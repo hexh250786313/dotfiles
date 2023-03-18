@@ -1,11 +1,12 @@
 require("bufferline").setup {
   options = {
+    numbers = "ordinal",
     separator_style = {"", ""},
     indicator = {
       icon = "▌"
     },
     max_prefix_length = 100,
-    -- modified_icon = "",
+    max_name_length = 100,
     modified_icon = ""
   }
 }
@@ -18,12 +19,11 @@ nnoremap <silent> <Space>3 :BufferLineGoToBuffer 3<cr>
 nnoremap <silent> <Space>4 :BufferLineGoToBuffer 4<cr>
 nnoremap <silent> <Space>5 :BufferLineGoToBuffer 5<cr>
 nnoremap <silent> <Space>6 :BufferLineGoToBuffer 6<cr>
+nnoremap <silent> <Space>7 :BufferLineGoToBuffer 7<cr>
+nnoremap <silent> <Space>8 :BufferLineGoToBuffer 8<cr>
+nnoremap <silent> <Space>9 :BufferLineGoToBuffer 9<cr>
 nnoremap <silent> gb :BufferLineCycleNext<cr>
 nnoremap <silent> gB :BufferLineCyclePrev<cr>
 nnoremap <silent> <space>bs :BufferLineSortByDirectory<cr>
-nnoremap <silent> <space>bp :BufferLinePick<cr>
-nnoremap <silent> <space>bp :BufferLinePick<cr>
-nnoremap <silent> <space>b> :BufferLineMoveNext<cr>
-nnoremap <silent> <space>b< :BufferLineMovePrev<cr>
 ]]
 )
