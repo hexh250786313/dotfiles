@@ -83,14 +83,16 @@ return packer.startup(
       {
         "Shougo/defx.nvim",
         keys = {
-          {"n", "<space>fo"},
-          {"n", "<space>fr"}
+          -- {"n", "<space>fo"},
+          -- {"n", "<space>fr"}
+          {"n", "<space>e"},
+          {"n", "<space>E"}
         },
         cmd = {"Defx"},
         -- run = ":UpdateRemotePlugins",
         -- config = [[require("plugin.defx")]]
         config = function()
-          require("plugin.defx")
+          require("plugin.defx-tab")
           vim.cmd("ConfigSource")
         end
       }
@@ -338,6 +340,8 @@ return packer.startup(
     use({"hexh250786313/vim-cool", config = [[require("plugin.vim-cool")]]})
 
     use({"karb94/neoscroll.nvim", config = [[require("plugin.neoscroll")]]})
+
+    use({"junegunn/vim-easy-align", config = [[require("plugin.vim-easy-align")]]})
 
     use(
       {
