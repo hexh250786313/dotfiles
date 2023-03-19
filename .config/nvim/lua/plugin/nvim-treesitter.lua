@@ -42,7 +42,6 @@ local disabler = function(lang, bufnr)
 end
 
 require("nvim-treesitter.configs").setup {
-  -- ensure_installed = {"javascript", "typescript", "css", "scss", "vue", "json", "lua", "vim", "bash", "html", "jsonc", "tsx"},
   ensure_installed = {"javascript", "typescript", "css", "scss", "vue", "lua", "vim", "tsx", "markdown"},
   auto_install = false,
   highlight = {
@@ -54,11 +53,5 @@ require("nvim-treesitter.configs").setup {
     enable = false,
     disable = disabler
   }
-  -- rainbow = {
-  --   enable = true,
-  --   extended_mode = true,
-  --   disable = disabler
-  -- }
 }
 
-vim.keymap.set("n", "<space>tr", ":TSToggle rainbow<cr>", {silent = true})

@@ -83,14 +83,10 @@ return packer.startup(
       {
         "Shougo/defx.nvim",
         keys = {
-          -- {"n", "<space>fo"},
-          -- {"n", "<space>fr"}
           {"n", "<space>e"},
           {"n", "<space>E"}
         },
         cmd = {"Defx"},
-        -- run = ":UpdateRemotePlugins",
-        -- config = [[require("plugin.defx")]]
         config = function()
           require("plugin.defx-tab")
           vim.cmd("ConfigSource")
