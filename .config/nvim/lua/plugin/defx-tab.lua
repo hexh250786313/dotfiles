@@ -55,12 +55,7 @@ function! s:DEFX_SMART_L(_) abort
   elseif defx#is_binary()
     call defx#call_action('execute_system')
   else
-    let filepath = defx#get_candidate()['action__path']
-      exec 'b#'
-      let current_file_path = expand('%:p')
-      if current_file_path != filepath
-        exec 'e' filepath
-      endif
+    call defx#call_action('multi', ['drop', 'quit'])
   endif
 endfunction
 
@@ -95,8 +90,9 @@ function s:CD_AND_CLOSE () abort
   let s:candidate = defx#get_candidate()
   let s:current = fnamemodify(s:candidate['action__path'], ':p:h')
   execute 'lcd ' . s:current
-  call <SID>DEFX_OPEN(0)
+  " call <SID>DEFX_OPEN(0)
   echomsg 'cd ' . s:current
+  call defx#call_action('quit')
 endfunction
 
 " cd 根目录
@@ -110,8 +106,9 @@ function s:CD_ROOT_AND_CLOSE () abort
   if root != '.'
     " 执行 lcd 只改变当前 buffer 的工作目录
     execute 'lcd ' . root
-    call <SID>DEFX_OPEN(0)
+    " call <SID>DEFX_OPEN(0)
     echomsg 'cd ' . root
+    call defx#call_action('quit')
   endif
 endfunction
 
