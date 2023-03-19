@@ -45,9 +45,6 @@ function! s:DEFX_OPEN(search) abort
   exec 'Defx `getcwd()` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`' . l:str
 endfunction
 
-" 识别码
-let g:defx_config_sid = s:SID_PREFIX()
-
 " 打开目录 or 打开文件
 function! s:DEFX_SMART_L(_) abort
   if defx#is_directory()
@@ -119,6 +116,9 @@ function! s:DEFX_MY_SETTINGS() abort
   setlocal nornu
   setlocal nonu
   setlocal shiftwidth=2
+
+  " 添加全局 defx 识别码
+  let g:defx_config_sid = s:SID_PREFIX()
 
   " 默认配置
   nnoremap <silent><buffer><expr> <CR>  defx#do_action('open')
