@@ -33,17 +33,17 @@ local disabler = function(lang, bufnr)
   -- end
   -- return false
 
-  local max_filesize = 50 * 1024 -- 50 KB
-  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
-  if ok and stats and stats.size > max_filesize then
-    return true
-  end
-  return false
+  -- local max_filesize = 50 * 1024 -- 50 KB
+  -- local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+  -- if ok and stats and stats.size > max_filesize then
+  --   return true
+  -- end
+  -- return false
 end
 
 require("nvim-treesitter.configs").setup {
-  ensure_installed = {"javascript", "typescript", "css", "scss", "vue", "json", "lua", "vim", "bash", "html"},
-  auto_install = true,
+  ensure_installed = {"javascript", "typescript", "css", "scss", "vue", "lua", "vim", "tsx", "markdown"},
+  auto_install = false,
   highlight = {
     enable = true,
     -- enable = false,
@@ -53,11 +53,5 @@ require("nvim-treesitter.configs").setup {
     enable = false,
     disable = disabler
   }
-  -- rainbow = {
-  --   enable = true,
-  --   extended_mode = true,
-  --   disable = disabler
-  -- }
 }
 
-vim.keymap.set("n", "<space>tr", ":TSToggle rainbow<cr>", {silent = true})

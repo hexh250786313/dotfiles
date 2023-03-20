@@ -10,7 +10,7 @@
     "diagnostic.warningSign": "",
     "diagnostic.infoSign": "",
     "diagnostic.hintSign": "",
-    "coc.preferences.maxFileSize": "50KB",
+    // "coc.preferences.maxFileSize": "50KB",
     "snippets.extends": {
         "javascriptreact": ["javascript"],
         "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
@@ -111,6 +111,7 @@
     "tsserver.maxTsServerMemory": 16384,
     "tsserver.locale": "auto",
     // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
+    "tsserver.tsdk": "/home/hexh/.local/share/fnm/node-versions/v16.18.1/installation/lib/node_modules/typescript/lib",
     "tsserver.useLocalTsdk": false,
     // "tsserver.log": "verbose",
     "git.conflict.enabled": false,
