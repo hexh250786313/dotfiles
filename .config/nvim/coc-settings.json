@@ -10,7 +10,7 @@
     "diagnostic.warningSign": "",
     "diagnostic.infoSign": "",
     "diagnostic.hintSign": "",
-    "coc.preferences.maxFileSize": "50KB",
+    // "coc.preferences.maxFileSize": "50KB",
     "snippets.extends": {
         "javascriptreact": ["javascript"],
         "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
@@ -226,7 +226,7 @@
                 "--format",
                 "json"
             ],
-            "sourceName": "eslint",
+            "sourceName": "eslint_d",
             "parseJson": {
                 "errorsRoot": "[0].messages",
                 "line": "line",
@@ -250,7 +250,7 @@
                 "-f",
                 "compact",
                 "--config",
-                "/home/edwardhe/workspace/hexh/dotfiles/.config/nvim/stylelint.config.js"
+                "~/.config/nvim/stylelint.config.js"
             ],
             "offsetLine": 0,
             "offsetColumn": 0,
@@ -304,8 +304,9 @@
     },
     "todo-tree.defaultView": "tree",
     "ds-pinyin-lsp.enabled": false,
-    "ds-pinyin-lsp.db_path": "/home/hexh/.config/ds-pinyin/dict.db3",
+    "ds-pinyin-lsp.db_path": "~/.config/ds-pinyin/dict.db3",
     "ds-pinyin-lsp.match_as_same_as_input": true,
     "ds-pinyin-lsp.match_long_input": false,
-    "ds-pinyin-lsp.check_on_startup": false
+    "ds-pinyin-lsp.check_on_startup": false,
+    "tsserver.tsdk": "/home/edwardhe/.local/share/fnm/node-versions/v16.18.1/installation/lib/node_modules/typescript/lib"
 }

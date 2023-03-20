@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 vim.cmd([[
 language en_US.UTF-8
 set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
@@ -47,7 +49,9 @@ local optionList = {
   shiftwidth = 2,
   tabstop = 2,
   softtabstop = 2,
-  laststatus = 3 -- 状态栏全局只展示一个
+  laststatus = 3, -- 状态栏全局只展示一个
+  timeout = true,
+  timeoutlen = 500,
 }
 
 for k, v in pairs(optionList) do

@@ -28,20 +28,6 @@ function! CloseSQAndSG()
   :ccl
 endfunction
 
-function! DeleteAllBuffers() abort
-  if confirm('Kill all other buffers?', "&Yes\n&No\n&Cancel") == 1
-    let blisted = filter(range(1, bufnr('$')), 'buflisted(v:val)')
-    for i in blisted
-      if i != bufnr('%')
-        try 
-          exe 'bw ' . i
-        catch
-        endtry
-      endif
-    endfor
-  endif
-endfunction
-
 function! CocPrint(str)
   let lines = split(a:str, '\n')
   call coc#notify#create(lines, {
