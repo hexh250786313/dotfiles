@@ -4,9 +4,20 @@ local ft = require("Comment.ft")
 local wk = require("which-key")
 wk.register(
   {
-    mode = {"n", "x"},
-    ["<leader>cy"] = {"yy<space>cl", "Comment line current and yank"},
-    ["<leader>cl"] = {"<cmd>exec 'call ' . g:comment_config_sid . 'YANK_AND_COMMENT(visualmode())'<cr>", "Comment current line"},
+    mode = {"n"},
+    ["<leader>cy"] = {
+      "yy:lua require('Comment.api').comment.linewise()<cr>",
+      "Comment current line and yank"
+    }
+  }
+)
+wk.register(
+  {
+    mode = {"x"},
+    ["<leader>cy"] = {
+      ":<c-u>call function(g:comment_config_sid . 'YANK_AND_COMMENT')(visualmode())<cr>",
+      "Comment current line and yank"
+    }
   }
 )
 

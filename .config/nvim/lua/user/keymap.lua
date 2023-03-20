@@ -25,8 +25,7 @@ nnoremap <silent> <Space>wL <C-w>L
 nnoremap <silent> <Space>wd :q<CR>
 nnoremap <silent> <Space>wD :only<CR>
 
-set pastetoggle=<F10>
-inoremap <C-v> <F10><C-r>+<F10>
+inoremap <C-v> <C-r>+
 
 nnoremap <silent> <Space>qt :tabclose<CR>
 

@@ -18,7 +18,7 @@ function! s:exit()
 endfunction
 
 function! PC()
-  :execute "!sh -c /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/all.sh"
+  :execute "!sh -c ~/.config/nvim/lua/hook/postinstall/all.sh"
   :PackerCompile
   :call timer_start(2000, { -> <SID>exit() })
 endfunction

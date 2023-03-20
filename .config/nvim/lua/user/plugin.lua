@@ -157,7 +157,6 @@ return packer.startup(
 
     use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
 
-
     use({"hoob3rt/lualine.nvim", config = [[require("plugin.lualine")]]})
 
     use({"nvim-lua/plenary.nvim"})
@@ -189,7 +188,6 @@ return packer.startup(
         config = [[require("plugin.toggleterm")]]
       }
     )
-
 
     use(
       {
@@ -241,31 +239,15 @@ return packer.startup(
     --   }
     -- )
 
-
     use(
       {
         "neoclide/coc.nvim",
-        -- "~/workspace/coc.nvim",
         branch = "master",
         config = [[require("plugin.coc")]],
-        -- run = 'perl -0777 -i -pe \'s/if\\(t==\\"\\<plug\\>\\"\\|\\|this\\.plugTs&&o-this\\.plugTs<20\\)\\{this\\.plugTs=o;return\\}/if\\(o-this\\.plugTs\\<50\\)\\{return;\\}else\\{this\\.plugTs=o;\\}/g\' ./build/index.js'
-        -- run = "yarn install --frozen-lockfile && /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh",
         run = "yarn install --frozen-lockfile",
         event = "User ConfigFinished"
-        -- after = {"nvim-autopairs", "nvim-config-local"}
       }
     )
-
-    -- debug
-    -- use(
-    --   {
-    --     "~/workspace/coc.nvim",
-    --     config = [[require("plugin.coc")]],
-    --     run = "yarn install --frozen-lockfile && /home/hexh/workspace/dotfiles/.config/nvim/lua/hook/postinstall/coc.sh",
-    --     event = "User ConfigFinished"
-    --     -- after = {"nvim-autopairs", "nvim-config-local"}
-    --   }
-    -- )
 
     use(
       {

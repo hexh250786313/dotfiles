@@ -251,7 +251,7 @@
                 "-f",
                 "compact",
                 "--config",
-                "/home/hexh/workspace/dotfiles/.config/nvim/stylelint.config.js"
+                "~/.config/nvim/stylelint.config.js"
             ],
             "offsetLine": 0,
             "offsetColumn": 0,

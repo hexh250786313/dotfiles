@@ -35,7 +35,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit =
   Terminal:new(
   {
-    cmd = "lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml",
+    cmd = "lazygit -ucf ~/.config/lazygit/config.yml",
     direction = "float",
     count = 7,
     on_open = function(term)
