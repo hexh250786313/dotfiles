@@ -1,11 +1,12 @@
 # requirement
-export HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+export MY_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+unset HOST
 export CONFIG_DIR="/home/$ME/.config"
 export ME="hexh"
 export REAL_ME="hexh"
 export ZSH_CUSTOM="/home/$ME/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/$ME/.config"
-export DISPLAY=$HOST:0.0
+export DISPLAY=$MY_HOST:0.0
 
 # path
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -15,11 +16,11 @@ export PATH="$HOME/go/bin:$PATH:"
 export GOPATH="$HOME/go"
 
 # proxy
-export all_proxy="socks5://$HOST:4780"
-export http_proxy="http://$HOST:4780"
-export https_proxy="http://$HOST:4780"
+export all_proxy="socks5://$MY_HOST:4780"
+export http_proxy="http://$MY_HOST:4780"
+export https_proxy="http://$MY_HOST:4780"
 alias proxy_unset="unset all_proxy && unset http_proxy && unset https_proxy"
-alias proxy_set="export all_proxy="socks://$HOST:4780" && export http_proxy="http://$HOST:4780" && export https_proxy="http://$HOST:4780""
+alias proxy_set="export all_proxy="socks://$MY_HOST:4780" && export http_proxy="http://$MY_HOST:4780" && export https_proxy="http://$MY_HOST:4780""
 
 # p10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
