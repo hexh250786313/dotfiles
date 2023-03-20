@@ -1,7 +1,7 @@
 vim.cmd(
   [[
-" call IgnoreFile('.git,.vim')
-call DefxIgnoreFile('.git,.vim')
-call DefxWinWidth(40)
+" call IGNOREF_ILE('.git,.vim')
+call DEFX_IGNORE_FILE('.git,.vim')
+" call DEFX_WIN_WIDTH(40)
 ]]
 )

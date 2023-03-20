@@ -1,47 +1,14 @@
 local api = vim.api
 
-function _G.symbol_line()
-  local curwin = vim.g.statusline_winid or 0
-  local curbuf = vim.api.nvim_win_get_buf(curwin)
-  local ok, line = pcall(vim.api.nvim_buf_get_var, curbuf, "coc_symbol_line")
-  -- return ok and line or vim.api.nvim_buf_get_name(curbuf)
-  return ok and line or vim.fn.bufname(curbuf)
-end
-
-if vim.fn.exists "&winbar" then
-  api.nvim_create_autocmd(
-    {"CursorHold", "WinEnter", "BufWinEnter"},
-    {
-      pattern = "*",
-      callback = function()
-        if vim.b.coc_symbol_line and vim.bo.buftype == "" then
-          if vim.opt_local.winbar:get() == "" then
-          -- coclist heighht
-          -- vim.opt_local.winbar = "%!v:lua.symbol_line()"
-          end
-        else
-          vim.opt_local.winbar = ""
-        end
-      end
-    }
-  )
-end
-
 vim.g.coc_global_extensions = {
-  "coc-list-yanky",
   "coc-css",
-  -- "coc-eslint",
   "coc-diagnostic",
-  -- "coc-highlight",
   "coc-html",
   "coc-json",
   "coc-lightbulb",
   "coc-lists",
-  -- "coc-lua",
   "coc-markdown-preview-enhanced",
   "coc-marketplace",
-  -- "coc-pairs",
-  -- "coc-react-refactor",
   "coc-snippets",
   "coc-tsserver",
   "coc-webview",
@@ -49,10 +16,7 @@ vim.g.coc_global_extensions = {
   "coc-markmap",
   "coc-angular",
   "coc-git",
-  -- "@hexuhua/coc-symbol-line",
   "@hexuhua/coc-replacement",
-  -- "@hexuhua/coc-git",
-  -- "@hexuhua/coc-yank",
   "@yaegassy/coc-volar",
   "@yaegassy/coc-marksman",
   "coc-tasks",
@@ -73,17 +37,6 @@ api.nvim_create_autocmd(
   {"User"},
   {pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location"}
 )
-
--- api.nvim_create_autocmd(
--- {"User"},
--- {pattern = "CocOpenFloat", command = 'call setwinvar(g:coc_last_float_win, "&winblend", 20)'}
--- )
-
--- 移动光标根据算法高亮词语以及 buffer 中的相关词语, 有点烦人, 关掉
--- api.nvim_create_autocmd(
--- {"CursorHold"},
--- {pattern = "*", command = "if (coc#rpc#ready()) | silent call CocActionAsync('highlight')"}
--- )
 
 vim.cmd(
   [[
@@ -126,17 +79,9 @@ nnoremap <silent> <Space>gi :CocCommand git.chunkInfo<CR>
 nnoremap <silent> <Space>gd :CocCommand git.diffCached<CR>
 nmap <Space>g[ <Plug>(coc-git-prevchunk)
 nmap <Space>g] <Plug>(coc-git-nextchunk)
-nnoremap <silent> <Space>} :call CocActionAsync('jumpDefinition', v:false)<CR>
-nnoremap <silent> <Space>{ :call CocActionAsync('jumpReferences', v:false)<CR>
-" nnoremap <silent> <Space>] :call CocActionAsync('jumpDefinition', v:false)<CR>
-" nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences', v:false)<CR>
-nnoremap <silent> <Space>] :call CocActionAsync('jumpDefinition')<CR>
-nnoremap <silent> <Space>[ :call CocActionAsync('jumpReferences')<CR>
 nnoremap <silent> <Space>lm :CocList --no-sort mru<CR>
 nnoremap <silent> <Space>ld :CocList --no-sort diagnostics<CR>
-" nnoremap <silent> <Space>lt :CocList --auto-preview tags<CR>
 nnoremap <silent> <Space>lt :CocList tasks<CR>
-" nnoremap <silent> <Space>sf :CocList files<CR>
 nnoremap <silent> <Space>ly :CocList --auto-preview yanky<CR>
 nnoremap <silent> <Space>ls :CocList --no-sort services<CR>
 nnoremap <silent> <Space>lb :CocList --no-sort buffers<CR>
@@ -148,12 +93,6 @@ nnoremap <silent> gh :call <SID>show_documentation()<CR>
 nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  " nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "3\<C-e>"
-  " nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "3\<C-y>"
-  " inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 3)\<cr>" : "\<Down>"
-  " inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 3)\<cr>" : "\<Up>"
-  " vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 3) : "3\<C-e>"
-  " vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 3) : "3\<C-y>"
   nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
   nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
   inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
@@ -161,59 +100,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
   vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
 endif
-
-function! DiaRefresh()
-  if (coc#rpc#ready())
-    silent! call timer_start(1100, { -> CocActionAsync('diagnosticToggle', 1)})
-    silent! call timer_start(1150, { -> CocActionAsync('diagnosticRefresh')})
-  endif
-endfunction
-
-function! DiaDisable()
-  if (coc#rpc#ready())
-    silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 0)})
-    silent! call timer_start(1050, { -> CocActionAsync('diagnosticToggle', 0)})
-  endif
-endfunction
 ]]
 )
 
--- 与 coc-settings 的 diagnosticRefresh 对应, false 相当于禁用自动刷新, 自定义刷新行为
--- silent! 可以无视报错
--- 下面两个会导致性能问题并且可能会导致 nvim core dump 崩溃
--- api.nvim_create_autocmd(
--- {"CursorHold"},
--- {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticRefresh')"}
--- )
--- api.nvim_create_autocmd(
--- {"CursorMoved"},
--- {pattern = "*", command = "silent! call timer_start(1000, { -> CocActionAsync('diagnosticRefresh')})"}
--- )
--- api.nvim_create_autocmd(
--- {"InsertLeave"},
--- {
--- pattern = "*",
--- command = "if (coc#rpc#ready()) | silent! call timer_start(1000, { -> CocActionAsync('diagnosticToggle', 1)})"
--- }
--- )
--- 影响性能
--- api.nvim_create_autocmd(
--- {"InsertLeave"},
--- {
--- pattern = "*",
--- command = "silent! call DiaRefresh()"
--- }
--- )
--- api.nvim_create_autocmd(
--- {"InsertEnter"},
--- {
--- pattern = "*",
--- command = "silent! call DiaDisable()"
--- }
--- )
--- api.nvim_create_autocmd(
--- {"InsertCharPre"},
--- {pattern = "*", command = "if (coc#rpc#ready()) | silent! call CocActionAsync('diagnosticToggle', 0)"}
--- )
--- diagnosticToggleBuffer 看起来不太行, 提个 pr
--- api.nvim_create_autocmd({"InsertLeavePre"}, {pattern = "*", command = "silent call CocActionAsync('diagnosticToggleBuffer', 1)"})

@@ -2,6 +2,7 @@ vim.keymap.set({"n", "x"}, "<ScrollWheelUp>", "3<c-y>")
 vim.keymap.set({"n", "x"}, "<ScrollWheelDown>", "3<c-e>")
 vim.keymap.set({"i"}, "<ScrollWheelUp>", "<c-x><c-y><c-x><c-y><c-x><c-y>")
 vim.keymap.set({"i"}, "<ScrollWheelDown>", "<c-x><c-e><c-x><c-e><c-x><c-e>")
+vim.keymap.set({"n", "x"}, "<c-v>", "p")
 
 vim.cmd(
   [[
@@ -24,15 +25,18 @@ nnoremap <silent> <Space>wL <C-w>L
 nnoremap <silent> <Space>wd :q<CR>
 nnoremap <silent> <Space>wD :only<CR>
 
+set pastetoggle=<F10>
+inoremap <C-v> <F10><C-r>+<F10>
+
 nnoremap <silent> <Space>qt :tabclose<CR>
 
-nnoremap <Space><tab> <C-^>
+" nnoremap g<tab> <C-^>
 
 " 缩进一格
-xnoremap > :call Indent('>')<CR>gv
-xnoremap < :call Indent('<')<CR>gv
-nnoremap > :s/^/ /<CR>:noh<CR>
-nnoremap < :s/^\s\=//<CR>:noh<CR>
+" xnoremap > :call Indent('>')<CR>gv
+" xnoremap < :call Indent('<')<CR>gv
+" nnoremap > :s/^/ /<CR>:noh<CR>
+" nnoremap < :s/^\s\=//<CR>:noh<CR>
 
 nnoremap <silent> <C-r> :silent redo<CR>
 nnoremap <silent> u :silent undo<CR>
@@ -44,7 +48,7 @@ nmap <Space>wt <C-w>v<C-w>T
 nnoremap <silent> <space>hn <cmd>call ToggleNormalBackground()<cr>
 nnoremap <silent> <space>hc <cmd>call ToggleCursorLine()<cr>
 nnoremap <silent> <space>sc <cmd>call CloseSQAndSG()<cr>
-nnoremap <silent> <Space>bD :call DeleteAllBuffers()<CR>
+" nnoremap <silent> <Space>bD :call DeleteAllBuffers()<CR>
 
 xnoremap a' 2i'
 xnoremap a" 2i"

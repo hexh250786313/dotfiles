@@ -60,6 +60,90 @@ return packer.startup(
 
     use({"wbthomason/packer.nvim"})
 
+    ---------> Buffer Module
+    use(
+      {
+        "moll/vim-bbye",
+        keys = {{"n", "<leader>bd"}},
+        cmd = "Bdelete",
+        config = [[require("modules.buffer.plugins.vim-bbye")]]
+      }
+    )
+    use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]]})
+    use(
+      {
+        "~/.config/nvim/_self/plugins/delete-all-buffers",
+        config = [[require("modules.buffer.plugins.delete-all-buffers")]],
+        keys = {{"n", "<leader>bD"}}
+      }
+    )
+
+    ---------> Code Module
+    use(
+      {
+        "mhartington/formatter.nvim",
+        keys = {
+          {"n", "<leader>cf"},
+          {"x", "<leader>cf"}
+        },
+        config = [[require("modules.code.plugins.formatter")]]
+      }
+    )
+    use(
+      {
+        "numToStr/Comment.nvim",
+        keys = {
+          {"n", "<space>cl"},
+          {"n", "<space>cy"},
+          {"n", "<space>cs"},
+          {"v", "<space>cl"},
+          {"v", "<space>cy"},
+          {"v", "<space>cs"}
+        },
+        config = [[require("modules.code.plugins.Comment")]]
+      }
+    )
+
+    ---------> File Module
+    use(
+      {
+        "Shougo/defx.nvim",
+        keys = {
+          {"n", "<space>e"},
+          {"n", "<space>E"}
+        },
+        cmd = {"Defx"},
+        config = function()
+          require("modules.file.plugins.defx-tab")
+          vim.cmd("ConfigSource")
+        end
+      }
+    )
+    use({"hexh250786313/defx-icons", after = "defx.nvim"})
+    use({"junegunn/fzf", config = [[require("modules.file.plugins.fzf")]]})
+
+    ---------> Highlight Module
+    use(
+      {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+        config = [[require("modules.highlight.plugins.nvim-treesitter")]]
+      }
+    )
+    use({"nvim-treesitter/playground", cmd = {"TSHighlightCapturesUnderCursor"}})
+    use(
+      {
+        "RRethy/vim-hexokinase",
+        config = [[require("modules.highlight.plugins.vim-hexokinase")]],
+        run = "make hexokinase"
+      }
+    )
+    use(
+      {
+        "lukas-reineke/indent-blankline.nvim",
+        config = [[require("modules.highlight.plugins.indent-blankline")]]
+      }
+    )
     -- Theme
     use(
       {
@@ -71,47 +155,14 @@ return packer.startup(
     )
     -- Theme End
 
-    use({"moll/vim-bbye", keys = {{"n", "<space>bd"}}, cmd = "Bdelete", config = [[require("plugin.vim-bbye")]]})
+    use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
+
 
     use({"hoob3rt/lualine.nvim", config = [[require("plugin.lualine")]]})
 
-    use({"akinsho/bufferline.nvim", config = [[require("plugin.bufferline")]]})
-
     use({"nvim-lua/plenary.nvim"})
 
-    use(
-      {
-        "Shougo/defx.nvim",
-        keys = {
-          {"n", "<space>e"},
-          {"n", "<space>E"}
-        },
-        cmd = {"Defx"},
-        config = function()
-          require("plugin.defx-tab")
-          vim.cmd("ConfigSource")
-        end
-      }
-    )
-
-    use({"hexh250786313/defx-icons", after = "defx.nvim"})
-
-    use(
-      {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-        config = [[require("plugin.nvim-treesitter")]]
-      }
-    )
-
     -- use({"p00f/nvim-ts-rainbow"})
-
-    use(
-      {
-        "lukas-reineke/indent-blankline.nvim",
-        config = [[require("plugin.indent-blankline")]]
-      }
-    )
 
     use(
       {
@@ -128,21 +179,6 @@ return packer.startup(
 
     use({"honza/vim-snippets", after = "coc.nvim"})
 
-    use(
-      {
-        "numToStr/Comment.nvim",
-        keys = {
-          {"n", "<space>cl"},
-          {"n", "<space>cy"},
-          {"n", "<space>cs"},
-          {"v", "<space>cl"},
-          {"v", "<space>cy"},
-          {"v", "<space>cs"}
-        },
-        config = [[require("plugin.Comment")]]
-      }
-    )
-
     use({"kyazdani42/nvim-web-devicons"})
 
     use({"phaazon/hop.nvim", cmd = {"HopChar1"}, keys = {{"n", "f"}, {"v", "f"}}, config = [[require("plugin.hop")]]})
@@ -154,7 +190,6 @@ return packer.startup(
       }
     )
 
-    use({"nvim-treesitter/playground", cmd = {"TSHighlightCapturesUnderCursor"}})
 
     use(
       {
@@ -171,26 +206,12 @@ return packer.startup(
 
     use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
 
-    use({"kevinhwang91/nvim-bqf", config = [[require("plugin.nvim-bqf")]], requires = "junegunn/fzf"})
-
-    use({"junegunn/fzf", config = [[require("plugin.fzf")]]})
-
     use(
       {
         "gelguy/wilder.nvim",
         config = [[require("plugin.wilder")]],
         event = "CmdlineEnter"
         -- run = ":UpdateRemotePlugins",
-      }
-    )
-
-    use(
-      {
-        "mhartington/formatter.nvim",
-        keys = {
-          {"n", "<space>bf"}
-        },
-        config = [[require("plugin.formatter")]]
       }
     )
 
@@ -220,13 +241,6 @@ return packer.startup(
     --   }
     -- )
 
-    use(
-      {
-        "RRethy/vim-hexokinase",
-        config = [[require("plugin.vim-hexokinase")]],
-        run = "make hexokinase"
-      }
-    )
 
     use(
       {
@@ -272,7 +286,7 @@ return packer.startup(
                     {text = {builtin.foldfunc, " "}, click = "v:lua.ScFa"},
                     {text = {"%s"}, click = "v:lua.ScSa"},
                     {text = {builtin.lnumfunc}, click = "v:lua.ScLa"},
-                    {text = {" "}},
+                    {text = {" "}}
                   }
                 }
               )
@@ -301,12 +315,12 @@ return packer.startup(
       }
     )
 
-    use(
-      {
-        "gbprod/yanky.nvim",
-        config = [[require("plugin.yanky")]]
-      }
-    )
+    -- use(
+    --   {
+    --     "gbprod/yanky.nvim",
+    --     config = [[require("plugin.yanky")]]
+    --   }
+    -- )
 
     use({"gpanders/editorconfig.nvim"})
 
@@ -339,6 +353,11 @@ return packer.startup(
 
     use({"junegunn/vim-easy-align", config = [[require("plugin.vim-easy-align")]]})
 
+    use {
+      "folke/which-key.nvim",
+      config = [[require("plugin.which-key")]]
+    }
+
     use(
       {
         "klen/nvim-config-local",
@@ -358,7 +377,7 @@ return packer.startup(
           "fzf",
           -- "nvim-scrollbar",
           "vim-hexokinase",
-          "yanky.nvim",
+          -- "yanky.nvim",
           "editorconfig.nvim",
           "nvim-cursorword",
           "asynctasks.vim",

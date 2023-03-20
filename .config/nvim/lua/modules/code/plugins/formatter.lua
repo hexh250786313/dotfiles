@@ -1,5 +1,15 @@
 local util = require "formatter.util"
 
+---------> 快捷键
+local wk = require("which-key")
+wk.register(
+  {
+    mode = {"n", "x"},
+    ["<leader>cf"] = {"<cmd>Format<cr>", "Format code"},
+  }
+)
+
+---------> 配置
 local function format_prettier()
   if vim.api.nvim_buf_line_count(0) < 1 then
     return {}
@@ -80,17 +90,3 @@ require("formatter").setup(
   }
 )
 
-vim.cmd([[
-nnoremap <silent> <Space>bf :Format<cr>
-xnoremap <silent> <Space>bf :Format<cr>
-]])
-
--- vim.api.nvim_exec(
---   [[
--- augroup FormatAutogroup
---   autocmd!
---   autocmd BufWritePost *.ts,*.tsx,*.js,*.jsx,*.json,*.less,*.scss,*.sass,*.lua,*.vue FormatWrite
--- augroup END
--- ]],
---   true
--- )

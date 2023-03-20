@@ -1,6 +1,18 @@
+---------> 快捷键
+local wk = require("which-key")
+wk.register(
+  {
+    ["<leader>e"] = {"<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(0)'<cr>", "Open file explorer"},
+    ["<leader>E"] = {
+      "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(1)'<cr>",
+      "Search current file at file explorer"
+    }
+  }
+)
+
+---------> 配置
 -- 要放外层这里才生效，原因不明
 vim.g.defx_icons_column_length = 2
-
 vim.cmd(
   [[
 call defx#custom#column('filename', {
@@ -118,16 +130,16 @@ function s:CD_ROOT_AND_CLOSE () abort
   endif
 endfunction
 
+" 添加全局 defx 识别码
+let g:defx_config_sid = s:SID_PREFIX()
+
 " 注册 Defx 配置，每个 Vim 实例只执行一次
 function! s:DEFX_MY_SETTINGS() abort
   setlocal nowrap
   setlocal cursorline
-  setlocal nornu
-  setlocal nonu
+  " setlocal nornu
+  " setlocal nonu
   setlocal shiftwidth=2
-
-  " 添加全局 defx 识别码
-  let g:defx_config_sid = s:SID_PREFIX()
 
   " 默认配置
   nnoremap <silent><buffer><expr> <CR>  defx#do_action('open')
@@ -175,10 +187,8 @@ function! s:DEFX_MY_SETTINGS() abort
   nnoremap <silent><buffer><expr> <             defx#do_action('resize', winwidth(0) - 6)
   " nnoremap <silent><buffer><expr> l             defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
 endfunction
-
-nnoremap <silent> <Space>e :call <SID>DEFX_OPEN(0)<cr>
-nnoremap <silent> <Space>E :call <SID>DEFX_OPEN(1)<cr>
-
-autocmd FileType defx call s:DEFX_MY_SETTINGS()
 ]]
 )
+
+---------> autocmd
+vim.cmd("autocmd FileType defx exec 'call ' . g:defx_config_sid . 'DEFX_MY_SETTINGS()' ")
