@@ -62,7 +62,7 @@ function! s:DEFX_SMART_L(_) abort
   if defx#is_directory()
     call defx#call_action('open_or_close_tree')
   elseif defx#is_binary()
-    call defx#call_action('execute_system')
+    silent exec '!explorer.exe `wslpath -w "' .. filepath .. '"`'
   else
     let filepath = defx#get_candidate()['action__path']
       try
@@ -74,6 +74,18 @@ function! s:DEFX_SMART_L(_) abort
       catch
         call defx#call_action('multi', ['drop', 'quit'])
       endtry
+  endif
+endfunction
+
+" wsl 资源管理器打开
+function! s:OPEN_AT_WSL_EXPLORER(_)
+  let filepath = defx#get_candidate()['action__path']
+  if defx#is_directory()
+    silent exec '!explorer.exe `wslpath -w "' .. filepath .. '"`'
+  elseif defx#is_binary()
+    silent exec '!explorer.exe `wslpath -w "' .. filepath .. '"`'
+  else
+    call <SID>DEFX_SMART_L("")
   endif
 endfunction
 
@@ -186,6 +198,7 @@ function! s:DEFX_MY_SETTINGS() abort
   nnoremap <silent><buffer><expr> >             defx#do_action('resize', winwidth(0) + 6)
   nnoremap <silent><buffer><expr> <             defx#do_action('resize', winwidth(0) - 6)
   " nnoremap <silent><buffer><expr> l             defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
+  nnoremap <silent><buffer><expr> x             defx#do_action('call', g:defx_config_sid . 'OPEN_AT_WSL_EXPLORER')
 endfunction
 ]]
 )
