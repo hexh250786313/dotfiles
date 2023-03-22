@@ -10,8 +10,8 @@ wk.setup(
 wk.register(
   {
     mode = {"n"},
-    ["gr"] = {"<cmd>call CocActionAsync('jumpReferences', v:false)<cr>", "Go to references"},
-    ["gd"] = {"<cmd>call CocActionAsync('jumpDefinition', v:false)<cr>", "Go to definition"}
+    ["gr"] = {"<cmd>call CocActionAsync('jumpReferences')<cr>", "Go to references"},
+    ["gd"] = {"<cmd>call CocActionAsync('jumpDefinition')<cr>", "Go to definition"}
     -- ["gd"] = {name = "Go to definition"}
   }
 )

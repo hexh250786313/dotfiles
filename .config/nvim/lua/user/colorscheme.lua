@@ -32,7 +32,8 @@ hi! link NormalNC Normal
 
 hi! link UfoCursorFoldedLine DiffChange
 
-hi! CursorWord gui=underline
+" hi! CursorWord gui=underline
+hi! CursorWord guibg=#303731
 
 exec 'hi! DiffText' .
   \' guifg=none' .
@@ -211,5 +212,10 @@ exec 'hi! DiagnosticInfo' .
 exec 'hi! DiagnosticHint' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintVirtualText')), 'fg', 'gui')) .
   \' guibg=' . Darken(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
+
+autocmd VimEnter * exec 'hi! IndentBlanklineContextStart gui=bold' .
+  \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('IndentBlanklineContextStart')), 'fg', 'gui')) .
+  \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('IndentBlanklineContextStart')), 'bg', 'gui'))
+
 ]]
 )
