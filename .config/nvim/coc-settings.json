@@ -216,7 +216,7 @@
             ]
         },
         "eslint_d": {
-            "command": "eslint_d",
+            "command": "eslint",
             "rootPatterns": [".git"], // For cwd
             "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
             "args": [

@@ -16,7 +16,8 @@ wk.register(
       ["B"] = {"<cmd>BufferLineCyclePrev<cr>", "Go to left buffer"}
     },
     ["<leader>bs"] = {"<cmd>BufferLineSortByDirectory<cr>", "Sort by directory"},
-    ["<leader>bc"] = {"<cmd>BufferLinePickClose<cr>", "Close picked buffer"}
+    ["<leader>bc"] = {"<cmd>BufferLinePickClose<cr>", "Close picked buffer"},
+    ["<leader>bb"] = {"<cmd>BufferLinePick<cr>", "Go to picked buffer"}
   }
 )
 
