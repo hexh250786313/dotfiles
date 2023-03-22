@@ -64,8 +64,7 @@ function! s:DEFX_SMART_L(_) abort
   elseif defx#is_binary()
     silent exec '!explorer.exe `wslpath -w "' .. filepath .. '"`'
   else
-    let filepath = defx#get_candidate()['action__path']
-      call defx#call_action('multi', ['drop', 'quit'])
+    call defx#call_action('multi', ['drop', 'quit'])
   endif
 endfunction
 
