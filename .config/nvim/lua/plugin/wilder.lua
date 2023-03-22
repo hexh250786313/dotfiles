@@ -2,7 +2,11 @@ local wilder = require "wilder"
 
 vim.cmd(
   [[
-call wilder#setup({'modes': [':', '/', '?']})
+call wilder#setup({
+  \    'modes': [':', '/', '?'],
+  \    'next_key': '<c-j>',
+  \    'previous_key': '<c-k>',
+  \  })
 call wilder#set_option('pipeline', [
       \   wilder#branch(
       \     wilder#cmdline_pipeline({
