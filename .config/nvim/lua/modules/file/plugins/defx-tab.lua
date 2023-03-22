@@ -2,8 +2,8 @@
 local wk = require("which-key")
 wk.register(
   {
-    ["<leader>e"] = {"<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(0)'<cr>", "Open file explorer"},
-    ["<leader>E"] = {
+    ["<leader>E"] = {"<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(0)'<cr>", "Open file explorer"},
+    ["<leader>e"] = {
       "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(1)'<cr>",
       "Search current file at file explorer"
     }
