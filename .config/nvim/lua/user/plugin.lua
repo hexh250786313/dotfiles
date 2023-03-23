@@ -127,6 +127,7 @@ return packer.startup(
       {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
+        commit = "9bfaf62e42bdcd042df1230e9188487e62a112c0",
         config = [[require("modules.highlight.plugins.nvim-treesitter")]]
       }
     )
