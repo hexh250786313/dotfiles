@@ -213,7 +213,7 @@ exec 'hi! DiagnosticHint' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('CocHintVirtualText')), 'fg', 'gui')) .
   \' guibg=' . Darken(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'gui'))
 
-autocmd VimEnter * exec 'hi! IndentBlanklineContextStart gui=bold' .
+autocmd VimEnter * exec 'hi! IndentBlanklineContextStart gui=none' .
   \' guifg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('IndentBlanklineContextStart')), 'fg', 'gui')) .
   \' guibg=' . HandleColorNONE(synIDattr(synIDtrans(hlID('IndentBlanklineContextStart')), 'bg', 'gui'))
 

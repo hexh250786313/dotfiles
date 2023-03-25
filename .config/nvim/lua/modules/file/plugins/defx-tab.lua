@@ -34,6 +34,7 @@ call defx#custom#option('_', {
   \    'split': 'no',
   \    'vertical_preview': 1,
   \    'winwidth': 300,
+  \    'ignored_files': '',
   \    'resume': 1,
   \  })
 
