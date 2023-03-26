@@ -89,7 +89,7 @@ nmap <silent> <Space>la <plug>(coc-codeaction-line)
 nmap <silent> <Space>lA <plug>(coc-codeaction-cursor)
 xmap <silent> <Space>la <plug>(coc-codeaction-selected)
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
-nnoremap <silent> <Space>f :CocList filesMru<CR>
+nnoremap <silent> <leader>f :CocList --height=9 filesMru<CR>
 
 nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>
 
