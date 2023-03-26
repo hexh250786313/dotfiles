@@ -2,7 +2,7 @@
 local wk = require("which-key")
 wk.register(
   {
-    ["<leader>f"] = {"<cmd>exec 'call ' . g:fzf_config_sid . 'FZF()'<cr>", "Open file picker"}
+    ["<leader>F"] = {"<cmd>exec 'call ' . g:fzf_config_sid . 'FZF()'<cr>", "Open file picker"}
   }
 )
 

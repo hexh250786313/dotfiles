@@ -25,6 +25,7 @@ vim.g.coc_global_extensions = {
   "coc-styled-components",
   "coc-cssmodules",
   "coc-typos",
+  "@hexuhua/coc-list-files-mru",
 }
 
 -- coc 选择了 quickfix 打开后的回调
@@ -79,7 +80,6 @@ nnoremap <silent> <Space>gi :CocCommand git.chunkInfo<CR>
 nnoremap <silent> <Space>gd :CocCommand git.diffCached<CR>
 nmap <Space>g[ <Plug>(coc-git-prevchunk)
 nmap <Space>g] <Plug>(coc-git-nextchunk)
-nnoremap <silent> <Space>lm :CocList --no-sort mru<CR>
 nnoremap <silent> <Space>ld :CocList --no-sort diagnostics<CR>
 nnoremap <silent> <Space>lt :CocList tasks<CR>
 nnoremap <silent> <Space>ly :CocList --auto-preview yanky<CR>
@@ -89,6 +89,7 @@ nmap <silent> <Space>la <plug>(coc-codeaction-line)
 nmap <silent> <Space>lA <plug>(coc-codeaction-cursor)
 xmap <silent> <Space>la <plug>(coc-codeaction-selected)
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>f :CocList --height=9 filesMru<CR>
 
 nnoremap <silent> <Space>br :CocCommand coc-replacement.replace<CR>
 

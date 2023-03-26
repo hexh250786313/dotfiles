@@ -56,6 +56,7 @@ require("formatter").setup(
       javascriptreact = {format_prettierd},
       markdown = {format_prettierd},
       json = {format_prettierd},
+      jsonc = {format_prettierd},
       css = {format_prettierd},
       scss = {format_prettierd},
       less = {format_prettierd},

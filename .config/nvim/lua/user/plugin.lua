@@ -216,9 +216,8 @@ return packer.startup(
 
     use(
       {
-        "sindrets/diffview.nvim",
+        "hexh250786313/diffview.nvim",
         cmd = {"DiffviewFileHistory", "DiffviewOpen"},
-        commit = "6e514ce24afb1b7d104f0d736c22d5f2c1363037",
         keys = {{"n", "<space>gt"}, {"n", "<space>gg"}, {"n", "<space>gT"}},
         config = [[require("plugin.diffview")]]
       }
