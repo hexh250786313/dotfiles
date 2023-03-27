@@ -304,7 +304,7 @@
     },
     "todo-tree.defaultView": "tree",
     "ds-pinyin-lsp.enabled": false,
-    "ds-pinyin-lsp.db_path": "/home/hexh/.config/ds-pinyin/dict.db3",
+    "ds-pinyin-lsp.db_path": "~/.config/ds-pinyin/dict.db3",
     "ds-pinyin-lsp.match_as_same_as_input": true,
     "ds-pinyin-lsp.match_long_input": false,
     "ds-pinyin-lsp.check_on_startup": false
