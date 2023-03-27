@@ -1,0 +1,90 @@
+---- 配置
+local api = vim.api
+vim.g.coc_global_extensions = {
+  "coc-css",
+  "coc-diagnostic",
+  "coc-html",
+  "coc-json",
+  "coc-lightbulb",
+  "coc-lists",
+  "coc-markdown-preview-enhanced",
+  "coc-marketplace",
+  "coc-snippets",
+  "coc-tsserver",
+  "coc-webview",
+  "coc-yaml",
+  "coc-markmap",
+  "coc-angular",
+  "coc-git",
+  "@hexuhua/coc-replacement",
+  "@yaegassy/coc-volar",
+  "@yaegassy/coc-marksman",
+  "coc-tasks",
+  "coc-todo-tree",
+  "@yaegassy/coc-tailwindcss3",
+  "coc-styled-components",
+  "coc-cssmodules",
+  "coc-typos",
+  "@hexuhua/coc-list-files-mru"
+}
+
+-- coc 选择了 quickfix 打开后的回调
+vim.g.coc_quickfix_open_command = "copen"
+
+-- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
+vim.g.coc_enable_locationlist = 0
+api.nvim_create_autocmd(
+  {"User"},
+  {pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location"}
+)
+
+vim.cmd(
+  [[
+" 获取识别码
+function! s:SID_PREFIX() abort
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+" 添加全局识别码
+let g:coc_config_sid = s:SID_PREFIX()
+
+" 展示文档
+function! s:SHOW_DOCUMENTATION()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" 回退行为
+function! s:CHECK_BACKSPACE() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+  \ coc#pum#visible() ? coc#pum#next(1) :
+  \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <c-j>
+  \ coc#pum#visible() ? coc#pum#next(1) :
+  \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
+  \ coc#refresh()
+inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
+  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
+  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
+  inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
+  inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
+  vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
+  vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
+endif
+]]
+)
