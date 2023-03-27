@@ -5,7 +5,7 @@ local wk = require("which-key")
 wk.register(
   {
     mode = {"n", "x"},
-    ["<leader>cf"] = {"<cmd>Format<cr>", "Format code"},
+    ["<leader>cf"] = {"<cmd>Format<cr>", "Format code"}
   }
 )
 
@@ -90,4 +90,3 @@ require("formatter").setup(
     }
   }
 )
-

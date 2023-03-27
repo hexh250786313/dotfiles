@@ -1,0 +1,6 @@
+require("modules.buffer.keymappings")
+require("modules.code.keymappings")
+require("modules.coc.keymappings")
+require("modules.git.keymappings")
+require("modules.motion.keymappings")
+require("modules.highlight.keymappings")
