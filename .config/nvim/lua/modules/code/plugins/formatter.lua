@@ -5,7 +5,7 @@ local wk = require("which-key")
 wk.register(
   {
     mode = {"n", "x"},
-    ["<leader>cf"] = {"<cmd>Format<cr>", "Format code"},
+    ["<leader>cf"] = {"<cmd>Format<cr>", "Format code"}
   }
 )
 
@@ -56,6 +56,7 @@ require("formatter").setup(
       javascriptreact = {format_prettierd},
       markdown = {format_prettierd},
       json = {format_prettierd},
+      jsonc = {format_prettierd},
       css = {format_prettierd},
       scss = {format_prettierd},
       less = {format_prettierd},
@@ -89,4 +90,3 @@ require("formatter").setup(
     }
   }
 )
-

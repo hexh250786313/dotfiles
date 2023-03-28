@@ -22,3 +22,10 @@ require("nvim-treesitter.configs").setup {
     disable = disabler
   }
 }
+
+vim.cmd(
+  [[
+" 约 50K
+autocmd BufEnter * if line2byte('$') + len(getline('$')) > 51200 | syntax clear | setlocal nowrap | endif
+]]
+)
