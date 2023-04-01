@@ -19,7 +19,7 @@ local M = {}
 require("spectre").setup(
   {
     is_insert_mode = false,
-    live_update = true,
+    live_update = false,
     line_sep_start = "┌───────────────────────────────────────",
     result_padding = "│  ",
     line_sep = "└───────────────────────────────────────",

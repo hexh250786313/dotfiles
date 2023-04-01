@@ -31,6 +31,10 @@ vim.g.coc_global_extensions = {
 -- coc 选择了 quickfix 打开后的回调
 vim.g.coc_quickfix_open_command = "copen"
 
+-- coc snippets 自动跳跃
+vim.g.coc_snippet_next = '<c-n>'
+vim.g.coc_snippet_prev = '<c-p>'
+
 -- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
 vim.g.coc_enable_locationlist = 0
 api.nvim_create_autocmd(

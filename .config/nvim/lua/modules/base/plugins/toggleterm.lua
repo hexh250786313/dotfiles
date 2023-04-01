@@ -1,4 +1,5 @@
 local fn = vim.fn
+local wk = require("which-key")
 
 local function get_color(group, attr)
   return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr)
@@ -15,7 +16,8 @@ require("toggleterm").setup {
   start_in_insert = true,
   -- persist_mode = true,
   float_opts = {
-    border = {"▃", "▃", "▃", "█", "▀", "▀", "▀", "█"}
+    border = {" ", " ", " ", " ", " ", " ", " ", " "}
+    -- border = {"▃", "▃", "▃", "█", "▀", "▀", "▀", "█"}
     -- border = {"", "", "", "█", "", "", "", "█"}
     -- border = {"", "", "", "", "", "", "", ""}
   },
@@ -39,12 +41,12 @@ local lazygit =
     direction = "float",
     count = 7,
     on_open = function(term)
-      vim.cmd("startinsert!")
+      -- vim.cmd("startinsert!")
       -- vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
     end,
     -- function to run on closing the terminal
     on_close = function(term)
-      vim.cmd("startinsert!")
+      -- vim.cmd("startinsert!")
     end,
     auto_scroll = false
   }
@@ -69,10 +71,18 @@ function _gitwebui_toggle()
   gitwebui:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<space>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<space>gw", "<cmd>lua _gitwebui_toggle()<CR>", {noremap = true, silent = true})
+---- 快捷键
+wk.register(
+  {
+    mode = {"n"},
+    ["<leader>gl"] = {"<cmd>lua _lazygit_toggle()<cr>", "Git log"}
+  }
+)
 
-function _G.set_terminal_keymaps()
+-- vim.api.nvim_set_keymap("n", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leaer>gw", "<cmd>lua _gitwebui_toggle()<CR>", {noremap = true, silent = true})
+
+function _G.set_terminal_config()
   local opts = {noremap = true}
   vim.api.nvim_buf_set_keymap(0, "t", "<c-t>", [[<C-\><C-n>:q<cr>]], opts)
   vim.api.nvim_buf_set_keymap(0, "t", "<c-r>", [[<C-\><C-n>]], opts)
@@ -96,11 +106,11 @@ end
 
 vim.cmd(
   [[
-autocmd! TermOpen term://* lua set_terminal_keymaps()
+autocmd! TermOpen term://* lua set_terminal_config()
 
 let g:floating_termnr = 1
 
-function! s:ToggleTerm(count)
+function! s:TOGGLE_TERM(count)
   if a:count != 0
     let g:floating_termnr = a:count
   endif
@@ -109,7 +119,7 @@ function! s:ToggleTerm(count)
 endfunction
 
 " nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
-command! -nargs=1 CustomToggleTerm call <SID>ToggleTerm(<args>)
+command! -nargs=1 CustomToggleTerm call <SID>TOGGLE_TERM(<args>)
 nnoremap <silent><c-t> :<C-U>CustomToggleTerm(v:count)<CR>
 
 map <F1> :<C-U>CustomToggleTerm(1)<CR>
@@ -158,16 +168,25 @@ end
 
 vim.cmd(
   [[
-function! s:ResetFloatingTermnr()
-    let l:win_name = expand('%:p')
-    let l:num = l:win_name =~ '\d\+$' ? matchstr(l:win_name, '\d\+$') : 1
-    let g:floating_termnr = l:num
+function! s:RESET_FLOATING_TERM_NR()
+  let l:win_name = expand('%:p')
+  let l:num = l:win_name =~ '\d\+$' ? matchstr(l:win_name, '\d\+$') : 1
+  let g:floating_termnr = l:num
 endfunction
 
-autocmd TermEnter,TermOpen term://*toggleterm#* call <SID>ResetFloatingTermnr()
-autocmd TermLeave,TermClose term://*toggleterm#* call <SID>ResetFloatingTermnr()
-autocmd BufEnter term://*toggleterm#* call <SID>ResetFloatingTermnr()
-autocmd BufLeave term://*toggleterm#* call <SID>ResetFloatingTermnr()
+function! s:INSERT()
+  startinsert!
+endfunction
+
+function! s:ENTER_HOOK()
+  call <SID>RESET_FLOATING_TERM_NR()
+  call timer_start(100, { -> <SID>INSERT() })
+endfunction
+
+autocmd TermEnter,TermOpen term://*toggleterm#* call <SID>ENTER_HOOK()
+autocmd TermLeave,TermClose term://*toggleterm#* call <SID>RESET_FLOATING_TERM_NR()
+autocmd BufEnter term://*toggleterm#* call <SID>ENTER_HOOK()
+autocmd BufLeave term://*toggleterm#* call <SID>RESET_FLOATING_TERM_NR()
 ]]
 )
 

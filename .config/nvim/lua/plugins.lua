@@ -74,26 +74,14 @@ return packer.startup(
         config = [[require("modules.base.plugins.nvim-ufo")]],
         requires = {
           "kevinhwang91/promise-async",
-          {
-            "luukvbaal/statuscol.nvim",
-            commit = "4d5a511d9e3854039bd2d757a4f8648734040a22",
-            config = function()
-              local builtin = require("statuscol.builtin")
-              vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-              require("statuscol").setup(
-                {
-                  relculright = true,
-                  segments = {
-                    {text = {builtin.foldfunc, " "}, click = "v:lua.ScFa"},
-                    {text = {"%s"}, click = "v:lua.ScSa"},
-                    {text = {builtin.lnumfunc}, click = "v:lua.ScLa"},
-                    {text = {" "}}
-                  }
-                }
-              )
-            end
-          }
+          "luukvbaal/statuscol.nvim"
         }
+      }
+    )
+    use(
+      {
+        "luukvbaal/statuscol.nvim",
+        config = [[require("modules.base.plugins.statuscol")]]
       }
     )
     use({"gpanders/editorconfig.nvim"})
@@ -133,6 +121,13 @@ return packer.startup(
         }
       }
     )
+    use(
+      {
+        "~/.config/nvim/_self/plugins/close-all-windows",
+        config = [[require("modules.base.plugins.close-all-windows")]],
+        keys = {{"n", "<leader>qW"}}
+      }
+    )
 
     -- ┌───────────────────────────────────────
     -- │  Buffer Module
@@ -140,7 +135,7 @@ return packer.startup(
     use(
       {
         "moll/vim-bbye",
-        keys = {{"n", "<leader>bd"}},
+        keys = {{"n", "<leader>qb"}},
         cmd = "Bdelete",
         config = [[require("modules.buffer.plugins.vim-bbye")]]
       }
@@ -160,7 +155,7 @@ return packer.startup(
       {
         "~/.config/nvim/_self/plugins/delete-all-buffers",
         config = [[require("modules.buffer.plugins.delete-all-buffers")]],
-        keys = {{"n", "<leader>bD"}}
+        keys = {{"n", "<leader>qB"}}
       }
     )
 

@@ -16,7 +16,6 @@ wk.register(
     ["<leader>wK"] = {"<c-w>K", "Move current window to the top"},
     ["<leader>wH"] = {"<c-w>H", "Move current window to the left side"},
     ["<leader>wL"] = {"<c-w>L", "Move current window to the right side"},
-    ["<leader>wD"] = {"<cmd>only<cr>", "Close all windows except this"},
     ["<leader>wq"] = {"<cmd>copen<cr>", "Open quickfix"},
     ["<leader>wt"] = {"<C-w>v<C-w>T", "Open this buffer in a new tab"}
   }
@@ -24,10 +23,10 @@ wk.register(
 wk.register(
   {
     mode = {"n"},
-    ["<leader>q"] = {name = "Quit"},
+    ["<leader>q"] = {name = "Quit / Close / Delete"},
     ["<leader>qq"] = {"<cmd>qa<cr>", "Quit vim"},
     ["<leader>qt"] = {"<cmd>tabclose<cr>", "Quit tab"},
-    ["<leader>qw"] = {"<cmd>q<cr>", "Quit window"}
+    ["<leader>qw"] = {"<cmd>q<cr>", "Close window"},
   }
 )
 
@@ -48,8 +47,8 @@ xnoremap a" 2i"
 xnoremap a` 2i`
 xnoremap > >gv|
 xnoremap < <gv
-nnoremap > >>_
-nnoremap < <<_
+" nnoremap > >>_
+" nnoremap < <<_
 xnoremap @ :<C-u>call <SID>EXECUTE_MACRO_OVER_VISUAL_RANGE()<CR>
 nnoremap <silent><nowait> <left> 3zh
 nnoremap <silent><nowait> <right> 3zl
