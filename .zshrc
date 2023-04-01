@@ -44,7 +44,7 @@ group_lazy_load() {
 # -------------------
 
 # proxy
-export SPRING_BOARD=192.168.199.152
+export SPRING_BOARD=192.168.1.4
 export all_proxy="socks://127.0.0.1:4780"
 export http_proxy="http://127.0.0.1:4780"
 export https_proxy="http://127.0.0.1:4780"
@@ -147,14 +147,16 @@ alias hexh="source ~/.config/my-config/sh/hexh.sh"
 alias server="source ~/.config/my-config/sh/server.sh"
 alias git-dude="source ~/.config/my-config/sh/git-dude/git-dude.sh"
 alias lock="source ~/.config/my-config/sh/lock.sh"
-alias howard="cd ~/.config/openvpn/howard/ && echo 'lllk' | sudo -S openvpn howard.ovpn"
+alias edward="proxy_unset && cd ~/Desktop/share/openvpn/songmao/ && echo 'lllk' | sudo -S openvpn edward.ovpn"
 # -------------------
 
 # fnm
 # a better nvm
+export DEFAULT_NODE_VERSION="v16.18.1"
+export LOWER_NODE_VERSION="v14.15.0"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
-export MY_NODE_PATH="/home/hexh/.local/share/fnm/node-versions/v16.18.1/installation"
+export MY_NODE_PATH="/home/hexh/.local/share/fnm/node-versions/$DEFAULT_NODE_VERSION/installation"
 export NODE_PATH=$(npm root --global)
 alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
@@ -216,6 +218,43 @@ eval "$(mcfly init zsh | sed "s,\^R,^Q,")"
 # zoxide
 eval "$(zoxide init zsh)"
 # -------------------
+
+# 切换 node 版本
+lower_node_paths=(
+  "/home/hexh/workspace/songmao/crm-h5"
+  "/home/hexh/workspace/songmao/crm-client"
+  "/home/hexh/workspace/songmao/crm-components"
+  "/home/hexh/workspace/songmao/crm-ib"
+)
+use_lower_node() {
+  current_path=$(pwd)
+  node_version=$(node --version)
+  if [[ " ${lower_node_paths[*]} " == *" $current_path "* ]]; then
+    if [[ " ${LOWER_NODE_VERSION} " != *" $node_version " ]]; then
+      proxy_unset
+      fnm use v14.15.0
+    fi
+  else
+    if [[ " ${DEFAULT_NODE_VERSION} " != *" $node_version " ]]; then
+      fnm use default
+    fi
+  fi
+}
+use_lower_node
+# -------------------
+
+# 自定义 chpwd hook
+_ls_on_cwd_change() {
+  use_lower_node
+}
+# load add-zsh-hook if it's not available yet
+(( $+functions[add-zsh-hook] )) || autoload -Uz add-zsh-hook
+add-zsh-hook chpwd _ls_on_cwd_change
+# Additional info
+# list existing hook functions
+# add-zsh-hook -L
+# or
+# add-zsh-hook -L chpwd
 
 # test zsh speed end
 # zprof
