@@ -76,7 +76,6 @@ return packer.startup(
           "kevinhwang91/promise-async",
           {
             "luukvbaal/statuscol.nvim",
-            commit = "4d5a511d9e3854039bd2d757a4f8648734040a22",
             config = function()
               local builtin = require("statuscol.builtin")
               vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
