@@ -2,6 +2,6 @@
 local wk = require("which-key")
 wk.register(
   {
-    ["<leader>bD"] = {"<cmd>call _self#buffer#delete_all_buffers()<cr>", "Open file explorer"}
+    ["<leader>qB"] = {"<cmd>call _self#buffer#delete_all_buffers()<cr>", "Delete all buffers except current one"}
   }
 )

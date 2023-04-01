@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- coc 的配置目录路径，需要初始化时指定，所以放在这里
+vim.g.coc_config_home = "~/.config/nvim/lua/modules/coc/"
+
 vim.cmd(
   [[
 language en_US.UTF-8
