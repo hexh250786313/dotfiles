@@ -26,7 +26,7 @@ if [ "$?" != 0 ]; then
   # tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:4 'sleep 10 && ssh node@10.10.5.28 && frontend-build' C-m" C-m
   # tmux send-keys -t $SESSIONNAME_0:1 "tmux send-keys -t $SESSIONNAME_0:5 'all_proxy="" http_proxy="" https_proxy="" musicbox' C-m" C-m
 
-  tmux send-keys -t $SESSIONNAME_0:1 "tmux set-option repeat-time 0" C-m
+  tmux send-keys -t $SESSIONNAME_0:1 "tmux set-option repeat-time 200" C-m
   tmux send-keys -t $SESSIONNAME_0:1 "clear" C-m
 fi
 

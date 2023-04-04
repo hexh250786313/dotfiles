@@ -2,6 +2,6 @@
 local wk = require("which-key")
 wk.register(
   {
-    ["<leader>bd"] = {"<cmd>Bdelete<cr>", "Delete buffer"}
+    ["<leader>qb"] = {"<cmd>Bdelete<cr>", "Delete current buffer"}
   }
 )

@@ -1,5 +1,5 @@
 {
-    "snippets.userSnippetsDirectory": "~/.config/nvim/ultisnips",
+    "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
     "session.directory": "~/.vimsessions",
     "diagnostic.virtualTextPrefix": "  ",
     // "diagnostic.errorSign": "",
@@ -216,7 +216,7 @@
             ]
         },
         "eslint_d": {
-            "command": "eslint",
+            "command": "eslint_d",
             "rootPatterns": [".git"], // For cwd
             "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
             "args": [
@@ -250,7 +250,7 @@
                 "-f",
                 "compact",
                 "--config",
-                "~/.config/nvim/stylelint.config.js"
+                "/home/edwardhe/.config/nvim/_self/lang-configs/typescript/stylelint.config.js" // 要用绝对路径
             ],
             "offsetLine": 0,
             "offsetColumn": 0,
@@ -303,9 +303,9 @@
         "hlGroup": "DefxIconsOpenedTreeIcon"
     },
     "todo-tree.defaultView": "tree",
-    "ds-pinyin-lsp.enabled": false,
-    "ds-pinyin-lsp.db_path": "~/.config/ds-pinyin/dict.db3",
-    "ds-pinyin-lsp.match_as_same_as_input": true,
-    "ds-pinyin-lsp.match_long_input": false,
-    "ds-pinyin-lsp.check_on_startup": false
+    // "ds-pinyin-lsp.enabled": false,
+    // "ds-pinyin-lsp.db_path": "~/.config/ds-pinyin/dict.db3",
+    // "ds-pinyin-lsp.match_as_same_as_input": true,
+    // "ds-pinyin-lsp.match_long_input": false,
+    // "ds-pinyin-lsp.check_on_startup": false
 }
