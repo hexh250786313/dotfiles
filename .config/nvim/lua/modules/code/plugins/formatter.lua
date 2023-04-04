@@ -4,8 +4,14 @@ local util = require "formatter.util"
 local wk = require("which-key")
 wk.register(
   {
-    mode = {"n", "x"},
+    mode = {"n"},
     ["<leader>cf"] = {"<cmd>Format<cr>", "Format code"}
+  }
+)
+wk.register(
+  {
+    mode = {"x"},
+    ["<leader>cf"] = {":'<,'>Format<cr><esc>", "Format code"} -- 这里不要用 <cmd>
   }
 )
 
