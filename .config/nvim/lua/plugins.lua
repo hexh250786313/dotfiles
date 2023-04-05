@@ -233,6 +233,13 @@ return packer.startup(
         config = [[require("modules.highlight.plugins.indent-blankline")]]
       }
     )
+    use(
+      {
+        "lukas-reineke/virt-column.nvim",
+        config = [[require("modules.highlight.plugins.virt-column")]],
+        after = "editorconfig.nvim"
+      }
+    )
     -- Theme
     use(
       {

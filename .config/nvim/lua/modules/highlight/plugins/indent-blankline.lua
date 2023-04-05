@@ -23,6 +23,9 @@ require("indent_blankline").setup {
     "terminal",
     "quickfix"
     -- "nofile",
+  },
+  char_highlight_list = {
+    "IndentBlanklineIndent"
   }
 }
 

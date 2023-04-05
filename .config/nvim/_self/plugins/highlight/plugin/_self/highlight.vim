@@ -87,6 +87,9 @@ exec 'hi! DiffText' .
   \' guifg=none' .
   \' guibg=' . _self#highlight#darken('DiffChange', 'bg')
 
+exec 'hi! VirtColumn' .
+  \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
+
 " exec 'hi! Folded' .
 "   \' guifg=' . _self#highlight#pick('FoldColumn', 'fg') .
 "   \' guibg=#343632'
@@ -238,5 +241,7 @@ exec 'hi! DiagnosticHint' .
 autocmd VimEnter * exec 'hi! IndentBlanklineContextStart gui=none' .
   \' guifg=' . _self#highlight#pick('IndentBlanklineContextStart', 'fg') .
   \' guibg=' . _self#highlight#pick('IndentBlanklineContextStart', 'bg')
+autocmd VimEnter * exec 'hi! IndentBlanklineIndent guifg=#393734 gui=nocombine'
+autocmd VimEnter * exec 'hi! IndentBlanklineContextChar guifg=#554f49 gui=nocombine'
 
 autocmd VimEnter * exec 'hi! link @punctuation.bracket Comment'
