@@ -84,7 +84,6 @@ return packer.startup(
         config = [[require("modules.base.plugins.statuscol")]]
       }
     )
-    use({"gpanders/editorconfig.nvim"})
     use(
       {
         "skywind3000/asynctasks.vim",
@@ -113,7 +112,6 @@ return packer.startup(
           "nvim-bqf",
           "fzf",
           "vim-hexokinase",
-          "editorconfig.nvim",
           "nvim-cursorword",
           "asynctasks.vim",
           "nvim-autopairs",
@@ -237,7 +235,6 @@ return packer.startup(
       {
         "lukas-reineke/virt-column.nvim",
         config = [[require("modules.highlight.plugins.virt-column")]],
-        after = "editorconfig.nvim"
       }
     )
     -- Theme
