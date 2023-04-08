@@ -10,7 +10,7 @@ vim.g.coc_global_extensions = {
   "coc-markdown-preview-enhanced",
   "coc-marketplace",
   "coc-snippets",
-  "coc-tsserver",
+  -- "coc-tsserver",
   "coc-webview",
   "coc-yaml",
   "coc-markmap",

@@ -184,7 +184,6 @@ return packer.startup(
         config = [[require("modules.code.plugins.Comment")]]
       }
     )
-    use({"honza/vim-snippets", after = "coc.nvim"})
 
     -- ┌───────────────────────────────────────
     -- │  File Module
@@ -234,7 +233,7 @@ return packer.startup(
     use(
       {
         "lukas-reineke/virt-column.nvim",
-        config = [[require("modules.highlight.plugins.virt-column")]],
+        config = [[require("modules.highlight.plugins.virt-column")]]
       }
     )
     -- Theme
@@ -251,7 +250,12 @@ return packer.startup(
       {
         "~/.config/nvim/_self/plugins/highlight",
         config = [[require("modules.highlight.plugins.highlight")]],
-        after = {"nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "gruvbox-material"}
+        after = {
+          "nvim-cursorword",
+          "indent-blankline.nvim",
+          "nvim-treesitter",
+          "gruvbox-material"
+        }
       }
     )
 
