@@ -1,30 +1,13 @@
 ---- 配置
 local api = vim.api
 vim.g.coc_global_extensions = {
-  "coc-css",
-  "coc-diagnostic",
-  "coc-html",
-  "coc-json",
-  "coc-lightbulb",
-  "coc-lists",
-  "coc-markdown-preview-enhanced",
-  "coc-marketplace",
-  "coc-snippets",
-  -- "coc-tsserver",
-  "coc-webview",
-  "coc-yaml",
-  "coc-markmap",
-  "coc-angular",
-  "coc-git",
-  "@hexuhua/coc-replacement",
-  "@yaegassy/coc-volar",
-  "@yaegassy/coc-marksman",
-  "coc-tasks",
-  "coc-todo-tree",
-  "@yaegassy/coc-tailwindcss3",
-  "coc-styled-components",
-  "coc-cssmodules",
-  "coc-typos",
+  "coc-css", "coc-diagnostic", "coc-html", "coc-json", "coc-lightbulb",
+  "coc-lists", "coc-markdown-preview-enhanced", "coc-marketplace",
+  "coc-snippets", -- "coc-tsserver",
+  "coc-webview", "coc-yaml", "coc-markmap", "coc-angular", "coc-git",
+  "@hexuhua/coc-replacement", "@yaegassy/coc-volar", "@yaegassy/coc-marksman",
+  "coc-tasks", "coc-todo-tree", "@yaegassy/coc-tailwindcss3",
+  "coc-styled-components", "coc-cssmodules", "coc-typos",
   "@hexuhua/coc-list-files-mru"
 }
 
@@ -37,13 +20,12 @@ vim.g.coc_snippet_prev = '<c-p>'
 
 -- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
 vim.g.coc_enable_locationlist = 0
-api.nvim_create_autocmd(
-  {"User"},
-  {pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location"}
-)
+api.nvim_create_autocmd({"User"}, {
+  pattern = "CocLocationsChange",
+  command = "CocList --number-select --auto-preview location"
+})
 
-vim.cmd(
-  [[
+vim.cmd([[
 " 获取识别码
 function! s:SID_PREFIX() abort
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -90,5 +72,4 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
   vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
 endif
-]]
-)
+]])

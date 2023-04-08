@@ -32,11 +32,7 @@ local handler = function(virtText, lnum, endLnum, width)
 end
 
 -- global handler
-require("ufo").setup(
-  {
-    fold_virt_text_handler = handler
-  }
-)
+require("ufo").setup({fold_virt_text_handler = handler})
 
 -- local bufnr = vim.api.nvim_get_current_buf()
 -- require("ufo").setVirtTextHandler(bufnr, handler)

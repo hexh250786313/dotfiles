@@ -1,20 +1,20 @@
 ---------> 快捷键
 local wk = require("which-key")
-wk.register(
-  {
-    ["<leader>E"] = {"<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(0)'<cr>", "Open file explorer"},
-    ["<leader>e"] = {
-      "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(1)'<cr>",
-      "Search current file at file explorer"
-    }
+wk.register({
+  ["<leader>E"] = {
+    "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(0)'<cr>",
+    "Open file explorer"
+  },
+  ["<leader>e"] = {
+    "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(1)'<cr>",
+    "Search current file at file explorer"
   }
-)
+})
 
 ---------> 配置
 -- 要放外层这里才生效，原因不明
 vim.g.defx_icons_column_length = 2
-vim.cmd(
-  [[
+vim.cmd([[
 call defx#custom#column('filename', {
   \    'min_width': 300,
   \  })
@@ -179,8 +179,8 @@ function! s:DEFX_MY_SETTINGS() abort
   nnoremap <silent><buffer><expr> <             defx#do_action('resize', winwidth(0) - 6)
   " nnoremap <silent><buffer><expr> l             defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
 endfunction
-]]
-)
+]])
 
 ---------> autocmd
-vim.cmd("autocmd FileType defx exec 'call ' . g:defx_config_sid . 'DEFX_MY_SETTINGS()' ")
+vim.cmd(
+  "autocmd FileType defx exec 'call ' . g:defx_config_sid . 'DEFX_MY_SETTINGS()' ")
