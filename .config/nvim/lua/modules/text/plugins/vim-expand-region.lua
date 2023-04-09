@@ -1,5 +1,4 @@
-vim.cmd(
-  [[
+vim.cmd([[
 let g:expand_region_text_objects = {
       \ 'iw'  :0,
       \ 'iW'  :0,
@@ -21,8 +20,7 @@ let g:expand_region_text_objects = {
 
 xmap v <Plug>(expand_region_expand)
 xmap V <Plug>(expand_region_shrink)
-]]
-)
+]])
 
 -- 数字意味着 [count]
 -- see :h text-objects

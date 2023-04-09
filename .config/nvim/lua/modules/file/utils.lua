@@ -1,5 +1,4 @@
-vim.cmd(
-  [[
+vim.cmd([[
 function! DEFX_IGNORE_FILE(...) abort
   let l:args = a:000
   if len(l:args) == 1
@@ -47,5 +46,4 @@ function! IGNORE_FILE(...) abort
     endif
   endif
 endfunction
-]]
-)
+]])

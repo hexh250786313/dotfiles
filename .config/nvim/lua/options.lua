@@ -3,8 +3,7 @@ vim.g.mapleader = " "
 -- coc 的配置目录路径，需要初始化时指定，所以放在这里
 vim.g.coc_config_home = "~/.config/nvim/lua/modules/coc/"
 
-vim.cmd(
-  [[
+vim.cmd([[
 language en_US.UTF-8
 set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 set clipboard+=unnamedplus
@@ -12,18 +11,14 @@ set clipboard+=unnamedplus
 set guifont=FiraCode\ Nerd\ Font:h12
 set colorcolumn=+1
 let g:neovide_transparency = 0.9
-]]
-)
+]])
 
 local myNodePath = os.getenv("MY_NODE_PATH")
 vim.cmd("let $PATH = '" .. myNodePath .. "/bin:' . $PATH")
 
 vim.g.clipboard = {
   name = "xsel_override",
-  copy = {
-    ["+"] = "xsel --input --clipboard",
-    ["*"] = "xsel --input --primary"
-  },
+  copy = {["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary"},
   paste = {
     ["+"] = "xsel --output --clipboard",
     ["*"] = "xsel --output --primary"
@@ -62,6 +57,4 @@ local optionList = {
   background = "dark" -- 背景 "light" | "dark"
 }
 
-for k, v in pairs(optionList) do
-  vim.opt[k] = v
-end
+for k, v in pairs(optionList) do vim.opt[k] = v end

@@ -1,18 +1,18 @@
 ---- 快捷键
 local wk = require("which-key")
-wk.register(
-  {
-    mode = {"n"},
-    ["<leader>gt"] = {"<cmd>DiffviewFileHistory %<cr>", "Git History"},
-    ["<leader>gT"] = {"<cmd>DiffviewFileHistory<cr>", "Git History for current file"},
-    ["<leader>gg"] = {"<cmd>DiffviewOpen<cr>", "Git status"}
-  }
-)
+wk.register({
+  mode = {"n"},
+  ["<leader>gt"] = {"<cmd>DiffviewFileHistory %<cr>", "Git History"},
+  ["<leader>gT"] = {
+    "<cmd>DiffviewFileHistory<cr>", "Git History for current file"
+  },
+  ["<leader>gg"] = {"<cmd>DiffviewOpen<cr>", "Git status"}
+})
 
 ---- 配置
 local actions = require("diffview.actions")
 
-require "diffview".setup {
+require"diffview".setup {
   view = {
     merge_tool = {
       -- Config for conflicted files in diff views during a merge or rebase.
@@ -20,14 +20,8 @@ require "diffview".setup {
       disable_diagnostics = true -- Temporarily disable diagnostics for conflict buffers while in the view.
     }
   },
-  file_history_panel = {
-    win_config = {
-      height = 9
-    }
-  },
-  file_panel = {
-    listing_style = "list"
-  },
+  file_history_panel = {win_config = {height = 9}},
+  file_panel = {listing_style = "list"},
   hooks = {
     diff_buf_read = function(bufnr)
       -- Change local options in diff buffers

@@ -1,14 +1,13 @@
 ---------> 快捷键
 local wk = require("which-key")
-wk.register(
-  {
-    ["<leader>F"] = {"<cmd>exec 'call ' . g:fzf_config_sid . 'FZF()'<cr>", "Open file picker"}
+wk.register({
+  ["<leader>F"] = {
+    "<cmd>exec 'call ' . g:fzf_config_sid . 'FZF()'<cr>", "Open file picker"
   }
-)
+})
 
 ---------> 配置
-vim.cmd(
-  [[
+vim.cmd([[
 " 获取识别码
 function! s:SID_PREFIX() abort
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -50,5 +49,4 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-]]
-)
+]])

@@ -1,8 +1,6 @@
 -- 配置
 local status, lualine = pcall(require, "lualine")
-if (not status) then
-  return
-end
+if (not status) then return end
 
 local config = {
   options = {
@@ -17,8 +15,7 @@ local config = {
         "diff",
         colored = true,
         symbols = {added = "+", modified = "~", removed = "-"}
-      },
-      {
+      }, {
         "diagnostics",
         sources = {"coc"},
         diagnostics_color = {
@@ -27,18 +24,16 @@ local config = {
           info = "DiagnosticInfo",
           hint = "DiagnosticHint"
         },
-        symbols = {error = "E:", warn = "W:", info = "I:", hint = "H:", ok = "O:"}
-      },
-      {
-        "filename",
-        path = 1
-      }
+        symbols = {
+          error = "E:",
+          warn = "W:",
+          info = "I:",
+          hint = "H:",
+          ok = "O:"
+        }
+      }, {"filename", path = 1}
     },
-    lualine_x = {
-      "g:coc_status",
-      "encoding",
-      "filetype"
-    },
+    lualine_x = {"g:coc_status", "encoding", "filetype"},
     lualine_y = {"progress"},
     lualine_z = {"location"}
   },
@@ -47,9 +42,7 @@ local config = {
 
 local function can_require(path)
   local ok, err = pcall(require, path)
-  if ok then
-    return true
-  end
+  if ok then return true end
   return false
 end
 
