@@ -1,311 +1,321 @@
 {
-    "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
-    "session.directory": "~/.vimsessions",
-    "diagnostic.virtualTextPrefix": "  ",
-    // "diagnostic.errorSign": "",
-    // "diagnostic.warningSign": "",
-    // "diagnostic.hintSign": "",
-    // "diagnostic.infoSign": "",
-    "diagnostic.errorSign": "",
-    "diagnostic.warningSign": "",
-    "diagnostic.infoSign": "",
-    "diagnostic.hintSign": "",
-    "coc.preferences.maxFileSize": "50KB",
-    "snippets.extends": {
-        "javascriptreact": ["javascript"],
-        "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
-        "typescript": ["javascript", "javascript-jasmine-arrow"],
-        "vue": ["vue", "javascript"]
+  "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
+  "session.directory": "~/.vimsessions",
+  "diagnostic.virtualTextPrefix": "  ",
+  // "diagnostic.errorSign": "",
+  // "diagnostic.warningSign": "",
+  // "diagnostic.hintSign": "",
+  // "diagnostic.infoSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "coc.preferences.maxFileSize": "50KB",
+  "snippets.extends": {
+    "javascript": ["javascript", "javascriptreact", "basedjs"],
+    "javascriptreact": ["javascript", "basedjs"],
+    "typescriptreact": ["typescript", "typescriptreact", "basedjs"],
+    "typescript": ["typescript", "basedjs"],
+    "vue": ["vue", "javascript", "typescript"]
+  },
+  "outline.autoPreview": true,
+  "outline.sortBy": "position",
+  "outline.togglePreviewKey": "p",
+  "outline.showLineNumber": true,
+  "tree.closedIcon": "",
+  "tree.openedIcon": "",
+  "tree.key.close": "q",
+  "git.addGBlameToBufferVar": true,
+  "git.changedSign.hlGroup": "CocGitSignChange",
+  "git.addedSign.hlGroup": "CocGitSignAdd",
+  "git.removedSign.hlGroup": "CocGitSignDelete",
+  "git.topRemovedSign.hlGroup": "CocGitSignDelete",
+  "git.changeRemovedSign.hlGroup": "CocGitSignChange",
+  // "git.changedSign.text": "▏",
+  // "git.addedSign.text": "▏",
+  // "git.removedSign.text": "▏",
+  // "git.changeRemovedSign.text": "▏",
+  // "git.topRemovedSign.text": "▏",
+  // "git.changedSign.text": "▌",
+  // "git.addedSign.text": "▌",
+  // "git.removedSign.text": "▌",
+  // "git.changeRemovedSign.text": "▌",
+  // "git.topRemovedSign.text": "▌",
+  "git.changedDecorator": " ",
+  "git.stagedDecorator": " ",
+  "git.untrackedDecorator": " ✩",
+  "git.conflictedDecorator": "⇡⇣",
+  "git.virtualTextPrefix": "  ",
+  "list.height": 9,
+  "list.indicator": "❯",
+  "list.menuAction": true,
+  "list.source.location.defaultAction": "drop",
+  "list.floatPreview": true,
+  "git.addGBlameToVirtualText": false,
+  "list.source.grep.useLiteral": false,
+  "suggest.snippetIndicator": " ✩",
+  "suggest.autoTrigger": "always",
+  "list.interactiveDebounceTime": 100, // only for interactive supported list
+  "list.source.grep.command": "rg",
+  "list.source.files.command": "rg",
+  "list.source.grep.args": ["-i", "--hidden", "--sort-files"],
+  "list.source.grep.excludePatterns": ["**/.git/**"],
+  "list.source.files.args": ["--files", "--hidden"],
+  "list.source.files.excludePatterns": ["**/.git/**"],
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "suggest.completionItemKindLabels": {
+    "keyword": "",
+    "variable": "",
+    "value": "",
+    "operator": "Ψ",
+    "constructor": "",
+    "function": "ƒ",
+    "reference": "",
+    "constant": "",
+    "method": "",
+    "struct": "",
+    "class": "",
+    "interface": "",
+    "text": "",
+    "enum": "",
+    "enumMember": "",
+    "module": "",
+    "color": "",
+    "property": "",
+    "field": "",
+    "unit": "",
+    "event": "",
+    "file": "",
+    "folder": "",
+    "snippet": "",
+    "typeParameter": "",
+    "default": ""
+  },
+  "suggest.labelMaxLength": 30,
+  "suggest.floatConfig": {
+    "border": false,
+    "winblend": 20
+  },
+  "floatFactory.floatConfig": {
+    "border": [0, 0, 0, 0], // or bool
+    "winblend": 20
+  },
+  "suggest.timeout": 5000,
+  "coc.preferences.extensionUpdateCheck": "never",
+  "diagnostic.checkCurrentLine": false,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "git.semanticCommit.scope": false,
+  "suggest.detailField": "abbr",
+  "suggest.defaultSortMethod": "none",
+  "coc.source.file.ignoreHidden": false,
+  "git.conflict.enabled": false,
+  "suggest.selection": "recentlyUsedByPrefix",
+  "lightbulb.enableSign": false,
+  "lightbulb.virtualTextPosition": "eol",
+  "notification.statusLineProgress": true,
+  "hover.target": "float",
+  "diagnostic.messageTarget": "float",
+  "signature.target": "float",
+  "markdown-preview-enhanced.liveUpdate": true,
+  "markdown-preview-enhanced.scrollSync": true,
+  "markdown-preview-enhanced.singlePreview": true,
+  "markdown-preview-enhanced.mathRenderingOption": "None",
+  "diagnostic.autoRefresh": true,
+  "diagnostic.refreshOnInsertMode": false,
+  "diagnostic.messageDelay": 200, // default 200
+  "diagnostic-languageserver.enable": true,
+  "list.source.tags.command": "ctags -R --options=$HOME/.ctags .",
+  // "list.source.tags.command": "find \\( -name '*.js' -or -name '*.ts' -or -name '*.tsx' -or -name '*.jsx' \\) ! -path './node_modules/*' ! -path './lib/*' ! -path './build/*' ! -path './dist/*' -exec ctags --langmap=typescript:.tsx.ts {} +",
+  "list.normalMappings": {
+    "P": "do:previewtoggle",
+    "<c-a>": "do:selectall",
+    "<c-q>": "action:quickfix",
+    // "<c-q>": "feedkeys:\\<tab>",
+    "<tab>": "do:toggle",
+    "<space>": "do:chooseaction",
+    "<down>": "do:previewdown",
+    "<up>": "do:previewup"
+  },
+  "list.insertMappings": {
+    "<c-p>": "do:previewtoggle",
+    "<c-a>": "do:selectall",
+    "<c-q>": "action:quickfix",
+    "<tab>": "do:toggle",
+    // "<tab>": "do:togglemode", // 等于是 <c-i> 的行为, 终端无法区分 <tab> 和 <c-i>
+    "<down>": "do:previewdown",
+    "<up>": "do:previewup"
+  },
+  "diagnostic-languageserver.filetypes": {
+    "typescriptreact": "eslint_d",
+    "typescript": "eslint_d",
+    "javascript": "eslint_d",
+    "javascriptreact": "eslint_d",
+    "javascript.jsx": "eslint_d",
+    "typescript.tsx": "eslint_d",
+    "sql": "sql-lint",
+    // "sql": "sqlfluff",
+    "vue": ["eslint_d", "stylelint"],
+    "css": "stylelint",
+    "less": "stylelint",
+    "scss": "stylelint"
+  },
+  "diagnostic-languageserver.linters": {
+    "sqlfluff": {
+      "command": "sqlfluff",
+      "rootPatterns": [".git"], // For cwd
+      "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
+      "args": ["lint", "--dialect", "mysql", "--format", "json", "--ignore", "parsing", "-"],
+      "sourceName": "sqlfluff",
+      "parseJson": {
+        "errorsRoot": "[0].violations",
+        "line": "line_no",
+        "column": "column_pos",
+        // "endLine": "endLine",
+        // "endColumn": "endColumn",
+        "message": "${description} [${code}]",
+        "security": "severity"
+      },
+      "securities": {
+        // "0": "info",
+        "1": "warning",
+        "2": "error"
+      }
     },
-    "outline.autoPreview": true,
-    "outline.sortBy": "position",
-    "outline.togglePreviewKey": "p",
-    "outline.showLineNumber": true,
-    "tree.closedIcon": "",
-    "tree.openedIcon": "",
-    "tree.key.close": "q",
-    "git.addGBlameToBufferVar": true,
-    "git.changedSign.hlGroup": "CocGitSignChange",
-    "git.addedSign.hlGroup": "CocGitSignAdd",
-    "git.removedSign.hlGroup": "CocGitSignDelete",
-    "git.topRemovedSign.hlGroup": "CocGitSignDelete",
-    "git.changeRemovedSign.hlGroup": "CocGitSignChange",
-    // "git.changedSign.text": "▏",
-    // "git.addedSign.text": "▏",
-    // "git.removedSign.text": "▏",
-    // "git.changeRemovedSign.text": "▏",
-    // "git.topRemovedSign.text": "▏",
-    // "git.changedSign.text": "▌",
-    // "git.addedSign.text": "▌",
-    // "git.removedSign.text": "▌",
-    // "git.changeRemovedSign.text": "▌",
-    // "git.topRemovedSign.text": "▌",
-    "git.changedDecorator": " ",
-    "git.stagedDecorator": " ",
-    "git.untrackedDecorator": " ✩",
-    "git.conflictedDecorator": "⇡⇣",
-    "git.virtualTextPrefix": "  ",
-    "list.height": 9,
-    "list.indicator": "❯",
-    "list.menuAction": true,
-    "list.source.location.defaultAction": "drop",
-    "list.floatPreview": true,
-    "git.addGBlameToVirtualText": false,
-    "list.source.grep.useLiteral": false,
-    "suggest.snippetIndicator": " ✩",
-    "suggest.autoTrigger": "always",
-    "list.interactiveDebounceTime": 100, // only for interactive supported list
-    "list.source.grep.command": "rg",
-    "list.source.files.command": "rg",
-    "list.source.grep.args": ["-i", "--hidden", "--sort-files"],
-    "list.source.grep.excludePatterns": ["**/.git/**"],
-    "list.source.files.args": ["--files", "--hidden"],
-    "list.source.files.excludePatterns": ["**/.git/**"],
-    "diagnostic.virtualText": true,
-    "diagnostic.virtualTextCurrentLineOnly": false,
-    "suggest.completionItemKindLabels": {
-        "keyword": "",
-        "variable": "",
-        "value": "",
-        "operator": "Ψ",
-        "constructor": "",
-        "function": "ƒ",
-        "reference": "",
-        "constant": "",
-        "method": "",
-        "struct": "",
-        "class": "",
-        "interface": "",
-        "text": "",
-        "enum": "",
-        "enumMember": "",
-        "module": "",
-        "color": "",
-        "property": "",
-        "field": "",
-        "unit": "",
-        "event": "",
-        "file": "",
-        "folder": "",
-        "snippet": "",
-        "typeParameter": "",
-        "default": ""
-    },
-    "suggest.labelMaxLength": 30,
-    "suggest.floatConfig": {
-        "border": false,
-        "winblend": 20
-    },
-    "floatFactory.floatConfig": {
-        "border": [0, 0, 0, 0], // or bool
-        "winblend": 20
-    },
-    "suggest.timeout": 5000,
-    "coc.preferences.extensionUpdateCheck": "never",
-    "diagnostic.checkCurrentLine": false,
-    "diagnostic.separateRelatedInformationAsDiagnostics": true,
-    "git.semanticCommit.scope": false,
-    "suggest.detailField": "abbr",
-    "suggest.defaultSortMethod": "none",
-    "coc.source.file.ignoreHidden": false,
-    "tsserver.maxTsServerMemory": 16384,
-    "tsserver.locale": "auto",
-    // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
-    "tsserver.useLocalTsdk": false,
-    // "tsserver.log": "verbose",
-    "git.conflict.enabled": false,
-    "suggest.selection": "recentlyUsedByPrefix",
-    "lightbulb.enableSign": false,
-    "lightbulb.virtualTextPosition": "eol",
-    "notification.statusLineProgress": true,
-    "hover.target": "float",
-    "diagnostic.messageTarget": "float",
-    "signature.target": "float",
-    "markdown-preview-enhanced.liveUpdate": true,
-    "markdown-preview-enhanced.scrollSync": true,
-    "markdown-preview-enhanced.singlePreview": true,
-    "markdown-preview-enhanced.mathRenderingOption": "None",
-    "diagnostic.autoRefresh": true,
-    "diagnostic.refreshOnInsertMode": false,
-    "diagnostic.messageDelay": 200, // default 200
-    "diagnostic-languageserver.enable": true,
-    "list.source.tags.command": "ctags -R --options=$HOME/.ctags .",
-    // "list.source.tags.command": "find \\( -name '*.js' -or -name '*.ts' -or -name '*.tsx' -or -name '*.jsx' \\) ! -path './node_modules/*' ! -path './lib/*' ! -path './build/*' ! -path './dist/*' -exec ctags --langmap=typescript:.tsx.ts {} +",
-    "list.normalMappings": {
-        "P": "do:previewtoggle",
-        "<c-a>": "do:selectall",
-        "<c-q>": "action:quickfix",
-        // "<c-q>": "feedkeys:\\<tab>",
-        "<tab>": "do:toggle",
-        "<space>": "do:chooseaction",
-        "<down>": "do:previewdown",
-        "<up>": "do:previewup"
-    },
-    "list.insertMappings": {
-        "<c-p>": "do:previewtoggle",
-        "<c-a>": "do:selectall",
-        "<c-q>": "action:quickfix",
-        "<tab>": "do:toggle",
-        // "<tab>": "do:togglemode", // 等于是 <c-i> 的行为, 终端无法区分 <tab> 和 <c-i>
-        "<down>": "do:previewdown",
-        "<up>": "do:previewup"
-    },
-    "diagnostic-languageserver.filetypes": {
-        "typescriptreact": "eslint_d",
-        "typescript": "eslint_d",
-        "javascript": "eslint_d",
-        "javascriptreact": "eslint_d",
-        "javascript.jsx": "eslint_d",
-        "typescript.tsx": "eslint_d",
-        "sql": "sql-lint",
-        // "sql": "sqlfluff",
-        "vue": ["eslint_d", "stylelint"],
-        "css": "stylelint",
-        "less": "stylelint",
-        "scss": "stylelint"
-    },
-    "diagnostic-languageserver.linters": {
-        "sqlfluff": {
-            "command": "sqlfluff",
-            "rootPatterns": [".git"], // For cwd
-            "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
-            "args": [
-                "lint",
-                "--dialect",
-                "mysql",
-                "--format",
-                "json",
-                "--ignore",
-                "parsing",
-                "-"
-            ],
-            "sourceName": "sqlfluff",
-            "parseJson": {
-                "errorsRoot": "[0].violations",
-                "line": "line_no",
-                "column": "column_pos",
-                // "endLine": "endLine",
-                // "endColumn": "endColumn",
-                "message": "${description} [${code}]",
-                "security": "severity"
-            },
-            "securities": {
-                // "0": "info",
-                "1": "warning",
-                "2": "error"
-            }
-        },
-        "sql-lint": {
-            "command": "sql-lint",
-            "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
-            "sourceName": "sql-lint",
-            // "offsetLine": 0,
-            // "offsetColumn": 1,
-            "formatPattern": [
-                "^([^:]+):(\\d+)\u0020(.*)",
-                {
-                    "line": 2,
-                    // "column": 3,
-                    "message": [3]
-                    // "sourceName": 1,
-                    // "sourceNameFilter": true,
-                    // "endLine": 2,
-                    // "endColumn": 3,
-                    // "security": 4
-                }
-            ]
-        },
-        "eslint_d": {
-            "command": "eslint_d",
-            "rootPatterns": [".git"], // For cwd
-            "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
-            "args": [
-                "--stdin",
-                "--stdin-filename",
-                "%filepath",
-                "--format",
-                "json"
-            ],
-            "sourceName": "eslint_d",
-            "parseJson": {
-                "errorsRoot": "[0].messages",
-                "line": "line",
-                "column": "column",
-                "endLine": "endLine",
-                "endColumn": "endColumn",
-                "message": "${message} [${ruleId}]",
-                "security": "severity"
-            },
-            "securities": {
-                // "0": "info",
-                "1": "warning",
-                "2": "error"
-            }
-        },
-        "stylelint": {
-            "command": "./node_modules/.bin/stylelint", // if no local stylelint, will use the global
-            "rootPatterns": [".git"], // For cwd
-            "debounce": 550,
-            "args": [
-                "-f",
-                "compact",
-                "--config",
-                "/home/hexh/.config/nvim/_self/lang-configs/typescript/stylelint.config.js" // 要用绝对路径
-            ],
-            "offsetLine": 0,
-            "offsetColumn": 0,
-            "sourceName": "stylelint",
-            "isStderr": false,
-            "isStdout": true,
-            "formatLines": 1,
-            "formatPattern": [
-                "^[^:]+:\\D+(\\d+)\\D+(\\d+)\\W+(\\w+)\\s-\\s(.*)$",
-                {
-                    "line": 1,
-                    "column": 2,
-                    "message": 4,
-                    "security": 3
-                }
-            ],
-            "securities": {
-                "error": "error",
-                "warning": "warning"
-            }
-        }
-    },
-    // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-    // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-    // "codeLens.position": "top"
-    "todo-tree.tags": [
+    "sql-lint": {
+      "command": "sql-lint",
+      "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
+      "sourceName": "sql-lint",
+      // "offsetLine": 0,
+      // "offsetColumn": 1,
+      "formatPattern": [
+        "^([^:]+):(\\d+)\u0020(.*)",
         {
-            "tagName": "todo",
-            "regex": "@todo",
-            "icon": {
-                "text": "",
-                "hlGroup": "CocInfoSign"
-            }
-        },
-        {
-            "tagName": "mark",
-            "regex": "@mark",
-            "icon": {
-                "text": "",
-                "hlGroup": "CocInfoSign"
-            }
+          "line": 2,
+          // "column": 3,
+          "message": [3]
+          // "sourceName": 1,
+          // "sourceNameFilter": true,
+          // "endLine": 2,
+          // "endColumn": 3,
+          // "security": 4
         }
-    ],
-    "todo-tree.fileIcon": {
-        "text": "",
-        "hlGroup": "WarningMsg"
+      ]
     },
-    "todo-tree.folderIcon": {
-        "text": "",
-        "hlGroup": "DefxIconsOpenedTreeIcon"
+    "eslint_d": {
+      "command": "eslint_d",
+      "rootPatterns": [".git"], // For cwd
+      "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
+      "args": ["--stdin", "--stdin-filename", "%filepath", "--format", "json"],
+      "sourceName": "eslint_d",
+      "parseJson": {
+        "errorsRoot": "[0].messages",
+        "line": "line",
+        "column": "column",
+        "endLine": "endLine",
+        "endColumn": "endColumn",
+        "message": "${message} [${ruleId}]",
+        "security": "severity"
+      },
+      "securities": {
+        // "0": "info",
+        "1": "warning",
+        "2": "error"
+      }
     },
-    "todo-tree.defaultView": "tree",
-    // "ds-pinyin-lsp.enabled": false,
-    // "ds-pinyin-lsp.db_path": "~/.config/ds-pinyin/dict.db3",
-    // "ds-pinyin-lsp.match_as_same_as_input": true,
-    // "ds-pinyin-lsp.match_long_input": false,
-    // "ds-pinyin-lsp.check_on_startup": false
+    "stylelint": {
+      "command": "./node_modules/.bin/stylelint", // if no local stylelint, will use the global
+      "rootPatterns": [".git"], // For cwd
+      "debounce": 550,
+      "args": [
+        "-f",
+        "compact",
+        "--config",
+        "/home/hexh/.config/nvim/_self/lang-configs/typescript/stylelint.config.js" // 要用绝对路径
+      ],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "stylelint",
+      "isStderr": false,
+      "isStdout": true,
+      "formatLines": 1,
+      "formatPattern": [
+        "^[^:]+:\\D+(\\d+)\\D+(\\d+)\\W+(\\w+)\\s-\\s(.*)$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 4,
+          "security": 3
+        }
+      ],
+      "securities": {
+        "error": "error",
+        "warning": "warning"
+      }
+    }
+  },
+  // "codeLens.position": "top"
+  "todo-tree.tags": [
+    {
+      "tagName": "todo",
+      "regex": "@todo",
+      "icon": {
+        "text": "",
+        "hlGroup": "CocInfoSign"
+      }
+    },
+    {
+      "tagName": "mark",
+      "regex": "@mark",
+      "icon": {
+        "text": "",
+        "hlGroup": "CocInfoSign"
+      }
+    }
+  ],
+  "todo-tree.fileIcon": {
+    "text": "",
+    "hlGroup": "WarningMsg"
+  },
+  "todo-tree.folderIcon": {
+    "text": "",
+    "hlGroup": "DefxIconsOpenedTreeIcon"
+  },
+  "todo-tree.defaultView": "tree",
+  // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
+  // "tsserver.log": "verbose",
+  // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.suggest.completeFunctionCalls": false,
+  "tsserver.maxTsServerMemory": 16384,
+  "tsserver.locale": "auto",
+  "tsserver.useLocalTsdk": false,
+  "languageserver": {
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "rootPatterns": ["package.json", ".git", ".editorconfig"],
+      // "trace.server": "verbose",
+      "filetypes": [
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "typescript.tsx",
+        "javascript.jsx"
+      ],
+      "disabledFeatures": ["progress"],
+      "initializationOptions": {
+        "maxTsServerMemory": 16384,
+        "tsserver": {
+          "path": "/home/hexh/.local/share/fnm/node-versions/v16.19.1/installation/lib/node_modules/typescript/lib/tsserver.js"
+          // "trace": "verbose",
+          // "logVerbosity": "verbose"
+        }
+      },
+      "settings": {
+        "completions.completeFunctionCalls": false
+      }
+    }
+  }
 }
