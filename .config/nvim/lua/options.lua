@@ -10,6 +10,7 @@ set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 set clipboard+=unnamedplus
 " let g:loaded_matchparen = 1 " 关闭括弧配对高亮
 set guifont=FiraCode\ Nerd\ Font:h12
+set colorcolumn=+1
 let g:neovide_transparency = 0.9
 ]]
 )
@@ -52,9 +53,9 @@ local optionList = {
   -- foldexpr = "nvim_treesitter#foldexpr()", -- 折叠表达式
   -- 缩进相关
   expandtab = true,
-  shiftwidth = 2,
-  tabstop = 2,
-  softtabstop = 2,
+  shiftwidth = 4,
+  tabstop = 4,
+  softtabstop = 4,
   laststatus = 3, -- 状态栏全局只展示一个
   timeout = true,
   timeoutlen = 500,
