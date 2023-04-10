@@ -1,13 +1,13 @@
 ---- 配置
 local api = vim.api
 vim.g.coc_global_extensions = {
-    "coc-css", "coc-diagnostic", "coc-html", "coc-json", "coc-lightbulb",
-    "coc-lists", "coc-markdown-preview-enhanced", "coc-marketplace",
-    "coc-snippets", "coc-tsserver", "coc-webview", "coc-yaml", "coc-markmap",
-    "coc-angular", "coc-git", "@hexuhua/coc-replacement", "@yaegassy/coc-volar",
-    "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree",
-    "@yaegassy/coc-tailwindcss3", "coc-styled-components", "coc-cssmodules",
-    "coc-typos", "@hexuhua/coc-list-files-mru"
+  "coc-css", "coc-diagnostic", "coc-html", "coc-json", "coc-lightbulb",
+  "coc-lists", "coc-markdown-preview-enhanced", "coc-marketplace",
+  "coc-snippets", "coc-tsserver", "coc-webview", "coc-yaml", "coc-markmap",
+  "coc-angular", "coc-git", "@hexuhua/coc-replacement", "@yaegassy/coc-volar",
+  "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree",
+  "@yaegassy/coc-tailwindcss3", "coc-styled-components", "coc-cssmodules",
+  "coc-typos", "@hexuhua/coc-list-files-mru"
 }
 
 -- coc 选择了 quickfix 打开后的回调
@@ -20,8 +20,8 @@ vim.g.coc_snippet_prev = '<c-p>'
 -- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
 vim.g.coc_enable_locationlist = 0
 api.nvim_create_autocmd({"User"}, {
-    pattern = "CocLocationsChange",
-    command = "CocList --number-select --auto-preview location"
+  pattern = "CocLocationsChange",
+  command = "CocList --number-select --auto-preview location"
 })
 
 vim.cmd([[

@@ -3,23 +3,23 @@ local wk = require("which-key")
 ---- 快捷键
 wk.setup({key_labels = {["<leader>"] = "SPC"}})
 wk.register({
-    mode = {"n"},
-    ["<leader>w"] = {name = "Window"},
-    ["<leader>wv"] = {"<cmd>vsplit<cr>", "Add vertical window"},
-    ["<leader>ws"] = {"<cmd>split<cr>", "Add horizontal window"},
-    ["<leader>wJ"] = {"<c-w>J", "Move current window to the bottom"},
-    ["<leader>wK"] = {"<c-w>K", "Move current window to the top"},
-    ["<leader>wH"] = {"<c-w>H", "Move current window to the left side"},
-    ["<leader>wL"] = {"<c-w>L", "Move current window to the right side"},
-    ["<leader>wq"] = {"<cmd>copen<cr>", "Open quickfix"},
-    ["<leader>wt"] = {"<C-w>v<C-w>T", "Open this buffer in a new tab"}
+  mode = {"n"},
+  ["<leader>w"] = {name = "Window"},
+  ["<leader>wv"] = {"<cmd>vsplit<cr>", "Add vertical window"},
+  ["<leader>ws"] = {"<cmd>split<cr>", "Add horizontal window"},
+  ["<leader>wJ"] = {"<c-w>J", "Move current window to the bottom"},
+  ["<leader>wK"] = {"<c-w>K", "Move current window to the top"},
+  ["<leader>wH"] = {"<c-w>H", "Move current window to the left side"},
+  ["<leader>wL"] = {"<c-w>L", "Move current window to the right side"},
+  ["<leader>wq"] = {"<cmd>copen<cr>", "Open quickfix"},
+  ["<leader>wt"] = {"<C-w>v<C-w>T", "Open this buffer in a new tab"}
 })
 wk.register({
-    mode = {"n"},
-    ["<leader>q"] = {name = "Quit / Close / Delete"},
-    ["<leader>qq"] = {"<cmd>qa<cr>", "Quit vim"},
-    ["<leader>qt"] = {"<cmd>tabclose<cr>", "Quit tab"},
-    ["<leader>qw"] = {"<cmd>q<cr>", "Close window"}
+  mode = {"n"},
+  ["<leader>q"] = {name = "Quit / Close / Delete"},
+  ["<leader>qq"] = {"<cmd>qa<cr>", "Quit vim"},
+  ["<leader>qt"] = {"<cmd>tabclose<cr>", "Quit tab"},
+  ["<leader>qw"] = {"<cmd>q<cr>", "Close window"}
 })
 
 ---- 配置

@@ -1,14 +1,14 @@
 ---------> 快捷键
 local wk = require("which-key")
 wk.register({
-    ["<leader>E"] = {
-        "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(0)'<cr>",
-        "Open file explorer"
-    },
-    ["<leader>e"] = {
-        "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(1)'<cr>",
-        "Search current file at file explorer"
-    }
+  ["<leader>E"] = {
+    "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(0)'<cr>",
+    "Open file explorer"
+  },
+  ["<leader>e"] = {
+    "<cmd>exec 'call ' . g:defx_config_sid . 'DEFX_OPEN(1)'<cr>",
+    "Search current file at file explorer"
+  }
 })
 
 ---------> 配置
@@ -196,4 +196,4 @@ endfunction
 
 ---------> autocmd
 vim.cmd(
-    "autocmd FileType defx exec 'call ' . g:defx_config_sid . 'DEFX_MY_SETTINGS()' ")
+  "autocmd FileType defx exec 'call ' . g:defx_config_sid . 'DEFX_MY_SETTINGS()' ")
