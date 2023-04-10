@@ -1,5 +1,4 @@
-vim.cmd(
-  [[
+vim.cmd([[
 iabbr cosnt const
 iabbr thsi this
 iabbr mian main
@@ -28,5 +27,4 @@ call <SID>SETUP_COMMAND_ABBRS('cm',  'CocCommand markdown-preview-enhanced.openP
 call <SID>SETUP_COMMAND_ABBRS('ex',  'Explore')
 call <SID>SETUP_COMMAND_ABBRS('dc',  'DiffviewClose')
 call <SID>SETUP_COMMAND_ABBRS('cs',  'ConfigSource')
-]]
-)
+]])

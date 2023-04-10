@@ -1,5 +1,4 @@
-vim.cmd(
-  [[
+vim.cmd([[
 " 获取识别码
 function! s:SID_PREFIX() abort
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -18,5 +17,4 @@ endfunction
 function! s:exit()
   :qa
 endfunction
-]]
-)
+]])
