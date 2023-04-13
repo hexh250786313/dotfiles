@@ -304,7 +304,7 @@
         "typescript.tsx",
         "javascript.jsx"
       ],
-      "disabledFeatures": ["progress"],
+      "disabledFeatures": ["progress", "inlayHint"],
       "initializationOptions": {
         "maxTsServerMemory": 16384,
         "tsserver": {
