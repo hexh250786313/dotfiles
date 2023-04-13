@@ -14,6 +14,10 @@ vim.g.coc_global_extensions = {
 -- coc 选择了 quickfix 打开后的回调
 vim.g.coc_quickfix_open_command = "copen"
 
+-- 禁用默认插入模式下的 c-n keyword completion
+vim.api.nvim_set_keymap('i', '<C-n>', '<Nop>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-p>', '<Nop>', {noremap = true})
+
 -- coc snippets 自动跳跃
 vim.g.coc_snippet_next = '<c-n>'
 vim.g.coc_snippet_prev = '<c-p>'
