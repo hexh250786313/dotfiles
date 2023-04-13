@@ -44,7 +44,7 @@ require"diffview".setup {
       ["c0"] = actions.conflict_choose("none"),
       ["o"] = function(opt)
         actions.goto_file_edit(opt)
-        vim.cmd(":tabclose #")
+        -- vim.cmd(":tabclose #")
       end
     },
     file_panel = {
@@ -55,7 +55,7 @@ require"diffview".setup {
       ["s"] = actions.toggle_stage_entry, -- Stage / unstage the selected entry.
       ["o"] = function(opt)
         actions.goto_file_edit(opt)
-        vim.cmd(":tabclose #")
+        -- vim.cmd(":tabclose #")
       end
     },
     file_history_panel = {
@@ -65,7 +65,7 @@ require"diffview".setup {
       ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
       ["o"] = function(opt)
         actions.goto_file_edit(opt)
-        vim.cmd(":tabclose #")
+        -- vim.cmd(":tabclose #")
       end
     }
   }
