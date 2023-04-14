@@ -3,15 +3,20 @@ local api = vim.api
 vim.g.coc_global_extensions = {
   "coc-css", "coc-diagnostic", "coc-html", "coc-json", "coc-lightbulb",
   "coc-lists", "coc-markdown-preview-enhanced", "coc-marketplace",
-  "coc-snippets", "coc-tsserver", "coc-webview", "coc-yaml", "coc-markmap",
-  "coc-angular", "coc-git", "@hexuhua/coc-replacement", "@yaegassy/coc-volar",
-  "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree",
-  "@yaegassy/coc-tailwindcss3", "coc-styled-components", "coc-cssmodules",
-  "coc-typos", "@hexuhua/coc-list-files-mru"
+  "coc-snippets", -- "coc-tsserver",
+  "coc-webview", "coc-yaml", "coc-markmap", "coc-angular", "coc-git",
+  "@hexuhua/coc-replacement", "@yaegassy/coc-volar", "@yaegassy/coc-marksman",
+  "coc-tasks", "coc-todo-tree", "@yaegassy/coc-tailwindcss3",
+  "coc-styled-components", "coc-cssmodules", "coc-typos",
+  "@hexuhua/coc-list-files-mru"
 }
 
 -- coc 选择了 quickfix 打开后的回调
 vim.g.coc_quickfix_open_command = "copen"
+
+-- 禁用默认插入模式下的 c-n keyword completion
+vim.api.nvim_set_keymap('i', '<C-n>', '<Nop>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-p>', '<Nop>', {noremap = true})
 
 -- coc snippets 自动跳跃
 vim.g.coc_snippet_next = '<c-n>'

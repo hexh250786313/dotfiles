@@ -48,13 +48,14 @@ local optionList = {
   -- foldexpr = "nvim_treesitter#foldexpr()", -- 折叠表达式
   -- 缩进相关
   expandtab = true,
-  shiftwidth = 4,
-  tabstop = 4,
-  softtabstop = 4,
+  shiftwidth = 2,
+  tabstop = 2,
+  softtabstop = 2,
   laststatus = 3, -- 状态栏全局只展示一个
   timeout = true,
   timeoutlen = 500,
-  background = "dark" -- 背景 "light" | "dark"
+  background = "dark", -- 背景 "light" | "dark"
+  textwidth = 80
 }
 
 for k, v in pairs(optionList) do vim.opt[k] = v end

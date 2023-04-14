@@ -66,7 +66,6 @@ return packer.startup(function(use)
     "luukvbaal/statuscol.nvim",
     config = [[require("modules.base.plugins.statuscol")]]
   })
-  use({"gpanders/editorconfig.nvim"})
   use({
     "skywind3000/asynctasks.vim",
     requires = "skywind3000/asyncrun.vim",
@@ -82,8 +81,8 @@ return packer.startup(function(use)
     after = {
       "gruvbox-material", "lualine.nvim", "plenary.nvim", "nvim-treesitter",
       "indent-blankline.nvim", "nvim-web-devicons", "toggleterm.nvim",
-      "nvim-bqf", "fzf", "vim-hexokinase", "editorconfig.nvim",
-      "nvim-cursorword", "asynctasks.vim", "nvim-autopairs", "vim-cool"
+      "nvim-bqf", "fzf", "vim-hexokinase", "nvim-cursorword", "asynctasks.vim",
+      "nvim-autopairs", "vim-cool"
     }
   })
   use({
@@ -132,7 +131,6 @@ return packer.startup(function(use)
     },
     config = [[require("modules.code.plugins.Comment")]]
   })
-  use({"honza/vim-snippets", after = "coc.nvim"})
 
   -- ┌───────────────────────────────────────
   -- │  File Module
@@ -155,7 +153,8 @@ return packer.startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    commit = "9bfaf62e42bdcd042df1230e9188487e62a112c0",
+    -- commit = "9bfaf62e42bdcd042df1230e9188487e62a112c0",
+    commit = "6fcb2e6a",
     config = [[require("modules.highlight.plugins.nvim-treesitter")]]
   })
   use({"nvim-treesitter/playground", cmd = {"TSHighlightCapturesUnderCursor"}})
@@ -170,8 +169,7 @@ return packer.startup(function(use)
   })
   use({
     "lukas-reineke/virt-column.nvim",
-    config = [[require("modules.highlight.plugins.virt-column")]],
-    after = "editorconfig.nvim"
+    config = [[require("modules.highlight.plugins.virt-column")]]
   })
   -- Theme
   use({
@@ -205,7 +203,7 @@ return packer.startup(function(use)
   -- │  Git Module
   -- └───────────────────────────────────────
   use({
-    "hexh250786313/diffview.nvim",
+    "sindrets/diffview.nvim",
     cmd = {"DiffviewFileHistory", "DiffviewOpen"},
     keys = {{"n", "<leader>gt"}, {"n", "<leader>gg"}, {"n", "<leader>gT"}},
     config = [[require("modules.git.plugins.diffview")]]

@@ -56,8 +56,10 @@ require("formatter").setup({
       function()
         if vim.api.nvim_buf_line_count(0) < 1 then return {} end
         return {
-          exe = "luafmt",
-          args = {"--indent-count", 2, "--stdin"},
+          exe = "lua-format",
+          args = {
+            "--config", "~/.config/nvim/_self/lang-configs/lua/lua-format.conf"
+          },
           stdin = true
         }
       end
