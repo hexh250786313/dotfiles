@@ -9,8 +9,10 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
-set $sup Mod4
+# win
+set $mod Mod4
+# alt
+set $sup Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -54,8 +56,8 @@ floating_modifier $mod
 # bindsym $mod+Return exec alacritty
 
 # kill focused window
-# bindsym $mod+Shift+q kill
-bindsym $mod+w kill
+# bindsym $sup+Shift+q kill
+bindsym $sup+w kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
@@ -309,7 +311,7 @@ bindsym $mod+Left resize shrink width 20 px or 1 ppt
 bindsym $mod+Up resize shrink height 20 px or 1 ppt
 
 # bindsym  exec "~/workspace/dotfiles/.config/i3/scripts/cycle-workspace.py"
-bindsym $sup+Tab move workspace to output next
+bindsym $mod+Tab move workspace to output next
 
 # 1
 # bindsym $mod+Tab workspace back_and_forth
