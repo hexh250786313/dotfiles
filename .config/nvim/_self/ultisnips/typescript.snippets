@@ -1,5 +1,5 @@
-snippet con "const = ;" i
-const ${1}: ${2:any} = ${3};
+snippet con "const = " i
+const ${1}: ${2:any} = ${3}
 endsnippet
 
 snippet aaf "async arrow function" i
@@ -12,25 +12,25 @@ endsnippet
 
 snippet functor "class Functor" b
 class ${1:Functor} {
-  private val: ${2:any};
+  private val: ${2:any}
   constructor(val: ${2}) {
-    this.val = val;
+    this.val = val
   }
 
   get value() {
-    return this.val;
+    return this.val
   }
 
   static of(val: ${2}) {
-    return new ${1}(val);
+    return new ${1}(val)
   }
 
   map(fn: (val: ${2}) => ${2}) {
-    return new ${1}(fn(this.val));
+    return new ${1}(fn(this.val))
   }
 
   ${3:handle}(${4:param}: ${5:any}) {
-    return new ${1}(this.val + ${4});
+    return new ${1}(this.val + ${4})
   }
 }
 endsnippet
@@ -38,11 +38,11 @@ endsnippet
 snippet fetch "mock fetch" b
 const mock = function (url: string) {
   if (!url) {
-    throw new Error("Url required!");
+    throw new Error("Url required!")
   }
 
   const _fetch = async (${1:args}?: ${2:any}) => {
-    const rawBody = { ...${1} };
+    const rawBody = { ...${1} }
     const opts: RequestInit = {
       method: "${3:post}",
       headers: {
@@ -53,15 +53,15 @@ const mock = function (url: string) {
       mode: "cors",
       cache: "no-cache",
       body: JSON.parse(JSON.stringify(rawBody)),
-    };
+    }
 
     return fetch(url, opts).then((res) => {
-      ${4:console.log(res);}
-    });
-  };
+      ${4:console.log(res)}
+    })
+  }
 
-  return _fetch;
-};
+  return _fetch
+}
 
-mock("${5:http://127.0.0.1}:${6:8080}/${7:test}")(${8:\{ a: 1 \}});
+mock("${5:http://127.0.0.1}:${6:8080}/${7:test}")(${8:\{ a: 1 \}})
 endsnippet
