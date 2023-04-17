@@ -249,8 +249,9 @@
         }
       ],
       "securities": {
-        "error": "error",
-        "warning": "warning"
+        // "error": "error",
+        "error": "info",
+        "warning": "info"
       }
     }
   },

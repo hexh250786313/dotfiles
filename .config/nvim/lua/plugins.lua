@@ -77,13 +77,14 @@ return packer.startup(function(use)
   })
   use({
     "klen/nvim-config-local",
-    config = [[require("modules.base.plugins.nvim-config-local")]],
-    after = {
-      "gruvbox-material", "lualine.nvim", "plenary.nvim", "nvim-treesitter",
-      "indent-blankline.nvim", "nvim-web-devicons", "toggleterm.nvim",
-      "nvim-bqf", "fzf", "vim-hexokinase", "nvim-cursorword", "asynctasks.vim",
-      "nvim-autopairs", "vim-cool"
-    }
+    config = [[require("modules.base.plugins.nvim-config-local")]]
+    -- 插件的启动时机：
+    -- a. 启动时同步加载的插件（不需要应用本地配置的插件）
+    -- b. 需要使用 nvim-config-local 的插件
+    --   b.1 应用 ConfigFinished 事件的，如 coc
+    --   b.2 调用 ConfigFinished 的，如 defx
+    -- 如果怕本地配置被插件覆盖，则把插件配置进 after 中
+    -- after = {"lualine.nvim"}
   })
   use({
     "~/.config/nvim/_self/plugins/close-all-windows",
@@ -153,8 +154,8 @@ return packer.startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    -- commit = "9bfaf62e42bdcd042df1230e9188487e62a112c0",
-    commit = "6fcb2e6a",
+    -- commit = "3c42fb9d702e1246313d2b5531b815595cb4d889",
+    -- commit = "d4e48be88d9822d98c9194f5cc2778c9953afb66",
     config = [[require("modules.highlight.plugins.nvim-treesitter")]]
   })
   use({"nvim-treesitter/playground", cmd = {"TSHighlightCapturesUnderCursor"}})
@@ -172,16 +173,12 @@ return packer.startup(function(use)
     config = [[require("modules.highlight.plugins.virt-column")]]
   })
   -- Theme
-  use({
-    -- "hexh250786313/vscode.nvim"
-    "sainnhe/gruvbox-material"
-    -- "sainnhe/everforest"
-    -- "wuelnerdotexe/vim-enfocado"
-  })
+  use({"sainnhe/gruvbox-material"})
   -- Theme End
   use({
     "~/.config/nvim/_self/plugins/highlight",
     config = [[require("modules.highlight.plugins.highlight")]],
+    -- 样式相关的插件都要比这个先启动
     after = {
       "nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter",
       "gruvbox-material"
@@ -196,6 +193,8 @@ return packer.startup(function(use)
     branch = "master",
     config = [[require("modules.coc.config")]],
     run = "yarn install --frozen-lockfile",
+    -- 这个事件是 nvim-config-local 完成后的事件
+    -- 这里要保证 coc.nvim 在本地配置加载完后才加载 coc
     event = "User ConfigFinished"
   })
 
@@ -265,8 +264,8 @@ return packer.startup(function(use)
   use({
     "https://gitlab.com/yorickpeterse/nvim-window.git",
     config = [[require("modules.motion.plugins.nvim-window")]],
-    keys = {{"n", "<leader>ww"}},
-    after = "defx.nvim"
+    keys = {{"n", "<leader>ww"}}
+    -- after = "defx.nvim"
   })
   use({
     "karb94/neoscroll.nvim",
