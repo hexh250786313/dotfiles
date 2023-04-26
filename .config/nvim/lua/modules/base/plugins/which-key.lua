@@ -45,6 +45,7 @@ nnoremap <silent><nowait> <left> 3zh
 nnoremap <silent><nowait> <right> 3zl
 xnoremap J gJ
 nnoremap <c-z> u
+nnoremap <c-_> :%s///g<left><left><left>
 ]])
 vim.keymap.set({"n", "x"}, "<ScrollWheelUp>", "<esc>3<c-y>")
 vim.keymap.set({"n", "x"}, "<ScrollWheelDown>", "<esc>3<c-e>")
