@@ -28,7 +28,7 @@ require"diffview".setup {
       vim.cmd(":setlocal nocursorline")
       vim.opt_local.wrap = false
       -- vim.opt_local.list = false
-      -- vim.opt_local.colorcolumn = {80}
+      -- vim.opt_local.colorcolumn = {120}
     end
   },
   keymaps = {

@@ -65,6 +65,7 @@ return packer.startup(function(use)
     config = [[require("modules.base.plugins.close-all-windows")]],
     keys = {{"n", "<leader>qW"}}
   })
+  use({"ggVGc/vim-fuzzysearch", cmd = "FuzzySearch"})
 
   -- ┌───────────────────────────────────────
   -- │  Buffer Module
