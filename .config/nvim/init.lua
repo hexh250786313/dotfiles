@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 require("options") -- 加载配置
 require("keymappings") -- 加载各个插件的快捷键
 require("plugins") -- 加载插件
