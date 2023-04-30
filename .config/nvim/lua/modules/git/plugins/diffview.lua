@@ -28,7 +28,7 @@ require"diffview".setup {
       vim.cmd(":setlocal nocursorline")
       vim.opt_local.wrap = false
       -- vim.opt_local.list = false
-      -- vim.opt_local.colorcolumn = {80}
+      -- vim.opt_local.colorcolumn = {120}
     end
   },
   keymaps = {
@@ -40,9 +40,10 @@ require"diffview".setup {
       ["cb"] = actions.conflict_choose("all"),
       ["c1"] = actions.conflict_choose("base"),
       ["c0"] = actions.conflict_choose("none"),
-      ["o"] = function(opt)
+      ["o"] = function(opt) actions.goto_file_edit(opt) end,
+      ["O"] = function(opt)
         actions.goto_file_edit(opt)
-        -- vim.cmd(":tabclose #")
+        vim.cmd(":tabclose #")
       end
     },
     file_panel = {
@@ -51,9 +52,10 @@ require"diffview".setup {
       ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
       ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
       ["s"] = actions.toggle_stage_entry, -- Stage / unstage the selected entry.
-      ["o"] = function(opt)
+      ["o"] = function(opt) actions.goto_file_edit(opt) end,
+      ["O"] = function(opt)
         actions.goto_file_edit(opt)
-        -- vim.cmd(":tabclose #")
+        vim.cmd(":tabclose #")
       end
     },
     file_history_panel = {
@@ -61,9 +63,10 @@ require"diffview".setup {
       ["<c-k>"] = actions.select_prev_entry,
       ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
       ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
-      ["o"] = function(opt)
+      ["o"] = function(opt) actions.goto_file_edit(opt) end,
+      ["O"] = function(opt)
         actions.goto_file_edit(opt)
-        -- vim.cmd(":tabclose #")
+        vim.cmd(":tabclose #")
       end
     }
   }

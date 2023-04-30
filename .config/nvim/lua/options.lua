@@ -52,7 +52,8 @@ local optionList = {
   timeout = true,
   timeoutlen = 500,
   background = "dark", -- 背景 "light" | "dark"
-  textwidth = 120
+  textwidth = 120,
+  incsearch = true -- 高亮搜索
 }
 
 for k, v in pairs(optionList) do vim.opt[k] = v end
