@@ -43,31 +43,50 @@ require"diffview".setup {
       ["o"] = function(opt) actions.goto_file_edit(opt) end,
       ["O"] = function(opt)
         actions.goto_file_edit(opt)
-        vim.cmd(":tabclose #")
+        vim.cmd(":call timer_start(50, { -> function(g:diffview_config_sid . 'CLOSE_TAB')() })")
       end
     },
     file_panel = {
       ["<c-j>"] = actions.select_next_entry,
       ["<c-k>"] = actions.select_prev_entry,
-      ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
-      ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
+      ["<up>"] = actions.scroll_view(-0.01), -- Scroll the view up
+      ["<down>"] = actions.scroll_view(0.01), -- Scroll the view down
+      -- ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
+      -- ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
       ["s"] = actions.toggle_stage_entry, -- Stage / unstage the selected entry.
       ["o"] = function(opt) actions.goto_file_edit(opt) end,
       ["O"] = function(opt)
         actions.goto_file_edit(opt)
-        vim.cmd(":tabclose #")
+        vim.cmd(":call timer_start(50, { -> function(g:diffview_config_sid . 'CLOSE_TAB')() })")
       end
     },
     file_history_panel = {
       ["<c-j>"] = actions.select_next_entry,
       ["<c-k>"] = actions.select_prev_entry,
-      ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
-      ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
+      ["<up>"] = actions.scroll_view(-0.01), -- Scroll the view up
+      ["<down>"] = actions.scroll_view(0.01), -- Scroll the view down
+      -- ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
+      -- ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
       ["o"] = function(opt) actions.goto_file_edit(opt) end,
       ["O"] = function(opt)
         actions.goto_file_edit(opt)
-        vim.cmd(":tabclose #")
+        vim.cmd(":call timer_start(50, { -> function(g:diffview_config_sid . 'CLOSE_TAB')() })")
       end
     }
   }
 }
+
+vim.cmd([[
+function! s:CLOSE_TAB()
+  :tabclose #
+endfunction
+
+" 获取识别码
+function! s:SID_PREFIX() abort
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+" 添加全局识别码
+let g:diffview_config_sid = s:SID_PREFIX()
+" let g:asyncrun_runner.exec = function(g:asyncrun_runner_exec_config_sid . 'TOGGLE_TERM_EXEC')
+]])
