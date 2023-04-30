@@ -49,8 +49,10 @@ require"diffview".setup {
     file_panel = {
       ["<c-j>"] = actions.select_next_entry,
       ["<c-k>"] = actions.select_prev_entry,
-      ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
-      ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
+      ["<up>"] = actions.scroll_view(-0.01), -- Scroll the view up
+      ["<down>"] = actions.scroll_view(0.01), -- Scroll the view down
+      -- ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
+      -- ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
       ["s"] = actions.toggle_stage_entry, -- Stage / unstage the selected entry.
       ["o"] = function(opt) actions.goto_file_edit(opt) end,
       ["O"] = function(opt)
@@ -61,8 +63,10 @@ require"diffview".setup {
     file_history_panel = {
       ["<c-j>"] = actions.select_next_entry,
       ["<c-k>"] = actions.select_prev_entry,
-      ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
-      ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
+      ["<up>"] = actions.scroll_view(-0.01), -- Scroll the view up
+      ["<down>"] = actions.scroll_view(0.01), -- Scroll the view down
+      -- ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
+      -- ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
       ["o"] = function(opt) actions.goto_file_edit(opt) end,
       ["O"] = function(opt)
         actions.goto_file_edit(opt)
