@@ -5,8 +5,7 @@ charset_comment_filter: 为候选项加上其所属字符集的注释
 本例说明了 filter 最基本的写法。
 
 请见 `charset_filter` 和 `charset_comment_filter` 上方注释。
---]]
--- 帮助函数（可跳过）
+--]] -- 帮助函数（可跳过）
 local charset = {
   ["CJK"] = {first = 0x4E00, last = 0x9FFF},
   ["ExtA"] = {first = 0x3400, last = 0x4DBF},
@@ -21,24 +20,16 @@ local charset = {
 local function exists(single_filter, text)
   for i in utf8.codes(text) do
     local c = utf8.codepoint(text, i)
-    if (not single_filter(c)) then
-      return false
-    end
+    if (not single_filter(c)) then return false end
   end
   return true
 end
 
-local function is_charset(s)
-  return function(c)
-    return c >= charset[s].first and c <= charset[s].last
-  end
-end
+local function is_charset(s) return function(c) return c >= charset[s].first and c <= charset[s].last end end
 
 local function is_cjk_ext(c)
   return is_charset("ExtA")(c) or is_charset("ExtB")(c) or is_charset("ExtC")(c) or is_charset("ExtD")(c) or
-    is_charset("ExtE")(c) or
-    is_charset("ExtF")(c) or
-    is_charset("Compat")(c)
+           is_charset("ExtE")(c) or is_charset("ExtF")(c) or is_charset("Compat")(c)
 end
 
 --[[
@@ -90,7 +81,4 @@ local function charset_comment_filter(input)
 end
 
 -- 本例中定义了两个 filter，故使用一个表将两者导出
-return {
-  filter = charset_filter,
-  comment_filter = charset_comment_filter
-}
+return {filter = charset_filter, comment_filter = charset_comment_filter}

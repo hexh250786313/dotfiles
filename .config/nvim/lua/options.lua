@@ -19,10 +19,7 @@ vim.cmd("let $PATH = '" .. myNodePath .. "/bin:' . $PATH")
 vim.g.clipboard = {
   name = "xsel_override",
   copy = {["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary"},
-  paste = {
-    ["+"] = "xsel --output --clipboard",
-    ["*"] = "xsel --output --primary"
-  },
+  paste = {["+"] = "xsel --output --clipboard", ["*"] = "xsel --output --primary"},
   cache_enabled = 1
 }
 
@@ -55,7 +52,7 @@ local optionList = {
   timeout = true,
   timeoutlen = 500,
   background = "dark", -- 背景 "light" | "dark"
-  textwidth = 80
+  textwidth = 120
 }
 
 for k, v in pairs(optionList) do vim.opt[k] = v end

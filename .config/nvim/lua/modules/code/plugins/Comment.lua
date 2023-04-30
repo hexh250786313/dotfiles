@@ -4,16 +4,12 @@ local ft = require("Comment.ft")
 local wk = require("which-key")
 wk.register({
   mode = {"n"},
-  ["<leader>cy"] = {
-    "yy:lua require('Comment.api').comment.linewise()<cr>",
-    "Comment current line and yank"
-  }
+  ["<leader>cy"] = {"yy:lua require('Comment.api').comment.linewise()<cr>", "Comment current line and yank"}
 })
 wk.register({
   mode = {"x"},
   ["<leader>cy"] = {
-    ":<c-u>call function(g:comment_config_sid . 'YANK_AND_COMMENT')(visualmode())<cr>",
-    "Comment current line and yank"
+    ":<c-u>call function(g:comment_config_sid . 'YANK_AND_COMMENT')(visualmode())<cr>", "Comment current line and yank"
   }
 })
 
@@ -22,8 +18,7 @@ require("Comment").setup({
   toggler = {line = "<leader>cl", block = "<leader>cs"},
   opleader = {line = "<space>cl", block = "<space>cs"}
 })
-ft({"javascript", "javascriptreact", "typescript", "typescriptreact"},
-   {"//%s", "/**%s*/"})
+ft({"javascript", "javascriptreact", "typescript", "typescriptreact"}, {"//%s", "/**%s*/"})
 ft({"json"}, {"//%s"})
 
 vim.cmd([[

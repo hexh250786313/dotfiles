@@ -1,4 +1,3 @@
-
 -- 增加 KeySequence(string) 
 -- 1 
 --    local ks= KeySequence()
@@ -6,15 +5,12 @@
 -- 2 
 --    local ks= KeySequence("abc") 
 --
-local _KeySequence=KeySequence 
+local _KeySequence = KeySequence
 KeySequence = function(str)
   local ks = _KeySequence()
-  if type(str)== "string" then 
-    ks:parse(str)
-  end 
-  return ks 
-end 
-
+  if type(str) == "string" then ks:parse(str) end
+  return ks
+end
 
 --[[
 librime-lua 样例
@@ -53,7 +49,6 @@ librime-lua 样例
 
 --]]
 
-
 -- I. translators:
 
 -- date_translator: 将 `date` 翻译为当前日期
@@ -67,7 +62,6 @@ time_translator = require("time")
 -- number_translator: 将 `/` + 阿拉伯数字 翻译为大小写汉字
 -- 详见 `lua/number.lua`
 number_translator = require("number")
-
 
 -- II. filters:
 
@@ -86,9 +80,8 @@ single_char_filter = require("single_char")
 -- 详见 `lua/reverse.lua`
 reverse_lookup_filter = require("reverse")
 
---use wildcard to search code
+-- use wildcard to search code
 expand_translator = require("expand_translator")
-
 
 -- III. processors:
 

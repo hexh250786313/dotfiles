@@ -14,8 +14,7 @@ translator 的输出是若干候选项。
 `yield` 每次只能产生一个候选项。有多个候选时，可以多次使用 `yield` 。
 
 请看如下示例：
---]]
-local function translator(input, seg)
+--]] local function translator(input, seg)
   -- 如果输入串为 `date` 则翻译
   if (input == "date") then
     --[[ 用 `yield` 产生一个候选项

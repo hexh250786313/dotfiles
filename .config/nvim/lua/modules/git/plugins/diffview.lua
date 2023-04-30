@@ -3,9 +3,7 @@ local wk = require("which-key")
 wk.register({
   mode = {"n"},
   ["<leader>gt"] = {"<cmd>DiffviewFileHistory %<cr>", "Git History"},
-  ["<leader>gT"] = {
-    "<cmd>DiffviewFileHistory<cr>", "Git History for current file"
-  },
+  ["<leader>gT"] = {"<cmd>DiffviewFileHistory<cr>", "Git History for current file"},
   ["<leader>gg"] = {"<cmd>DiffviewOpen<cr>", "Git status"}
 })
 
