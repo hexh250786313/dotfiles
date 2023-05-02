@@ -12,11 +12,7 @@ wk.register({
 local function format_prettier()
   if vim.api.nvim_buf_line_count(0) < 1 then return {} end
 
-  return {
-    exe = "prettier",
-    args = {util.escape_path(util.get_current_buffer_file_path())},
-    stdin = true
-  }
+  return {exe = "prettier", args = {util.escape_path(util.get_current_buffer_file_path())}, stdin = true}
 end
 
 local function format_prettierd()
@@ -24,8 +20,7 @@ local function format_prettierd()
 
   local current_bufnr = vim.api.nvim_get_current_buf()
   local max_filesize = 50 * 1024 -- 50 KB
-  local ok, stats = pcall(vim.loop.fs_stat,
-                          vim.api.nvim_buf_get_name(current_bufnr))
+  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(current_bufnr))
   if ok and stats and stats.size > max_filesize then return format_prettier() end
 
   return {
@@ -57,16 +52,12 @@ require("formatter").setup({
         if vim.api.nvim_buf_line_count(0) < 1 then return {} end
         return {
           exe = "lua-format",
-          args = {
-            "--config", "~/.config/nvim/_self/lang-configs/lua/lua-format.conf"
-          },
+          args = {"--config", "~/.config/nvim/_self/lang-configs/lua/lua-format.conf"},
           stdin = true
         }
       end
     },
-    sql = {
-      function() return {exe = "pg_format", args = {"-"}, stdin = true} end
-    },
+    sql = {function() return {exe = "pg_format", args = {"-"}, stdin = true} end},
     zsh = {format_prettier},
     yaml = {format_prettier},
     sh = {format_prettier}

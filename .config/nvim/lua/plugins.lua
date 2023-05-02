@@ -1,12 +1,10 @@
 local fn = vim.fn
 
-local packer_install_path = fn.stdpath("data") ..
-                              "/site/pack/packer/start/packer.nvim"
+local packer_install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(packer_install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({
-    "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
-    packer_install_path
+    "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", packer_install_path
   })
   print("Installing packer close and reopen Neovim...")
   vim.cmd([[packadd packer.nvim]])
@@ -31,50 +29,26 @@ return packer.startup(function(use)
   -- ┌───────────────────────────────────────
   -- │  Base Module
   -- └───────────────────────────────────────
-  use({
-    "lewis6991/impatient.nvim",
-    config = function() require("impatient").enable_profile() end
-  })
+  use({"lewis6991/impatient.nvim", config = function() require("impatient").enable_profile() end})
   use({"wbthomason/packer.nvim"})
-  use({
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime",
-    config = [[vim.g.startuptime_tries = 10]]
-  })
-  use({
-    "kevinhwang91/nvim-bqf",
-    config = [[require("modules.base.plugins.nvim-bqf")]],
-    requires = "junegunn/fzf"
-  })
+  use({"dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]]})
+  use({"kevinhwang91/nvim-bqf", config = [[require("modules.base.plugins.nvim-bqf")]], requires = "junegunn/fzf"})
   use({"kyazdani42/nvim-web-devicons"})
   use({"nvim-lua/plenary.nvim"})
-  use({
-    "akinsho/toggleterm.nvim",
-    config = [[require("modules.base.plugins.toggleterm")]]
-  })
-  use({
-    "gelguy/wilder.nvim",
-    config = [[require("modules.base.plugins.wilder")]],
-    event = "CmdlineEnter"
-  })
+  use({"akinsho/toggleterm.nvim", config = [[require("modules.base.plugins.toggleterm")]]})
+  use({"gelguy/wilder.nvim", config = [[require("modules.base.plugins.wilder")]], event = "CmdlineEnter"})
   use({
     "kevinhwang91/nvim-ufo",
     config = [[require("modules.base.plugins.nvim-ufo")]],
     requires = {"kevinhwang91/promise-async", "luukvbaal/statuscol.nvim"}
   })
-  use({
-    "luukvbaal/statuscol.nvim",
-    config = [[require("modules.base.plugins.statuscol")]]
-  })
+  use({"luukvbaal/statuscol.nvim", config = [[require("modules.base.plugins.statuscol")]]})
   use({
     "skywind3000/asynctasks.vim",
     requires = "skywind3000/asyncrun.vim",
     config = [[require("modules.base.plugins.asynctasks")]]
   })
-  use({
-    "folke/which-key.nvim",
-    config = [[require("modules.base.plugins.which-key")]]
-  })
+  use({"folke/which-key.nvim", config = [[require("modules.base.plugins.which-key")]]})
   use({
     "klen/nvim-config-local",
     config = [[require("modules.base.plugins.nvim-config-local")]]
@@ -91,6 +65,7 @@ return packer.startup(function(use)
     config = [[require("modules.base.plugins.close-all-windows")]],
     keys = {{"n", "<leader>qW"}}
   })
+  use({"ggVGc/vim-fuzzysearch", cmd = "FuzzySearch"})
 
   -- ┌───────────────────────────────────────
   -- │  Buffer Module
@@ -101,10 +76,7 @@ return packer.startup(function(use)
     cmd = "Bdelete",
     config = [[require("modules.buffer.plugins.vim-bbye")]]
   })
-  use({
-    "akinsho/bufferline.nvim",
-    config = [[require("modules.buffer.plugins.bufferline")]]
-  })
+  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]]})
   use({
     "hoob3rt/lualine.nvim",
     config = [[require("modules.buffer.plugins.lualine")]],
@@ -127,8 +99,8 @@ return packer.startup(function(use)
   use({
     "numToStr/Comment.nvim",
     keys = {
-      {"n", "<leader>cl"}, {"n", "<leader>cy"}, {"n", "<leader>cs"},
-      {"v", "<leader>cl"}, {"v", "<leader>cy"}, {"v", "<leader>cs"}
+      {"n", "<leader>cl"}, {"n", "<leader>cy"}, {"n", "<leader>cs"}, {"v", "<leader>cl"}, {"v", "<leader>cy"},
+      {"v", "<leader>cs"}
     },
     config = [[require("modules.code.plugins.Comment")]]
   })
@@ -164,14 +136,8 @@ return packer.startup(function(use)
     config = [[require("modules.highlight.plugins.vim-hexokinase")]],
     run = "make hexokinase"
   })
-  use({
-    "lukas-reineke/indent-blankline.nvim",
-    config = [[require("modules.highlight.plugins.indent-blankline")]]
-  })
-  use({
-    "lukas-reineke/virt-column.nvim",
-    config = [[require("modules.highlight.plugins.virt-column")]]
-  })
+  use({"lukas-reineke/indent-blankline.nvim", config = [[require("modules.highlight.plugins.indent-blankline")]]})
+  use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})
   -- Theme
   use({"sainnhe/gruvbox-material"})
   -- Theme End
@@ -179,10 +145,7 @@ return packer.startup(function(use)
     "~/.config/nvim/_self/plugins/highlight",
     config = [[require("modules.highlight.plugins.highlight")]],
     -- 样式相关的插件都要比这个先启动
-    after = {
-      "nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter",
-      "gruvbox-material"
-    }
+    after = {"nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "gruvbox-material"}
   })
 
   -- ┌───────────────────────────────────────
@@ -207,11 +170,7 @@ return packer.startup(function(use)
     keys = {{"n", "<leader>gt"}, {"n", "<leader>gg"}, {"n", "<leader>gT"}},
     config = [[require("modules.git.plugins.diffview")]]
   })
-  use({
-    "tpope/vim-fugitive",
-    cmd = {"Git"},
-    config = [[require("modules.git.plugins.vim-fugitive")]]
-  })
+  use({"tpope/vim-fugitive", cmd = {"Git"}, config = [[require("modules.git.plugins.vim-fugitive")]]})
 
   -- ┌───────────────────────────────────────
   -- │  Text Module
@@ -221,20 +180,10 @@ return packer.startup(function(use)
     keys = {{"x", "v"}, {"x", "V"}},
     config = [[require("modules.text.plugins.vim-expand-region")]]
   })
-  use({
-    "junegunn/vim-easy-align",
-    keys = {{"x", "ga"}},
-    config = [[require("modules.text.plugins.vim-easy-align")]]
-  })
-  use({
-    "tpope/vim-surround",
-    keys = {{"n", "vi"}, {"n", "va"}, {"n", "cs"}, {"n", "ds"}, {"v", "S"}}
-  })
+  use({"junegunn/vim-easy-align", keys = {{"x", "ga"}}, config = [[require("modules.text.plugins.vim-easy-align")]]})
+  use({"tpope/vim-surround", keys = {{"n", "vi"}, {"n", "va"}, {"n", "cs"}, {"n", "ds"}, {"v", "S"}}})
   use({"AndrewRadev/linediff.vim", cmd = {"Linediff"}})
-  use({
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  })
+  use({"windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end})
   use({"xiyaowong/nvim-cursorword"})
 
   -- ┌───────────────────────────────────────
@@ -246,10 +195,7 @@ return packer.startup(function(use)
     config = [[require("modules.grep.plugins.nvim-spectre")]],
     run = "./build.sh"
   })
-  use({
-    "hexh250786313/vim-cool",
-    config = [[require("modules.grep.plugins.vim-cool")]]
-  })
+  use({"hexh250786313/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]]})
   use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
 
   -- ┌───────────────────────────────────────
@@ -267,10 +213,7 @@ return packer.startup(function(use)
     keys = {{"n", "<leader>ww"}}
     -- after = "defx.nvim"
   })
-  use({
-    "karb94/neoscroll.nvim",
-    config = [[require("modules.motion.plugins.neoscroll")]]
-  })
+  use({"karb94/neoscroll.nvim", config = [[require("modules.motion.plugins.neoscroll")]]})
 
   if PACKER_BOOTSTRAP then require("packer").sync() end
 end)

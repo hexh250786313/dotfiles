@@ -2,12 +2,9 @@
 reverse_lookup_filter: 依地球拼音为候选项加上带调拼音的注释
 
 本例说明了环境的用法。
---]]
--- 帮助函数（可跳过）
+--]] -- 帮助函数（可跳过）
 local function xform_py(inp)
-  if inp == "" then
-    return ""
-  end
+  if inp == "" then return "" end
   inp = string.gsub(inp, "([aeiou])(ng?)([1234])", "%1%3%2")
   inp = string.gsub(inp, "([aeiou])(r)([1234])", "%1%3%2")
   inp = string.gsub(inp, "([aeo])([iuo])([1234])", "%1%3%2")

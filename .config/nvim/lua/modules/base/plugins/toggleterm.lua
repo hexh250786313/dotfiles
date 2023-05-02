@@ -1,9 +1,7 @@
 local fn = vim.fn
 local wk = require("which-key")
 
-local function get_color(group, attr)
-  return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr)
-end
+local function get_color(group, attr) return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr) end
 
 require("toggleterm").setup {
   size = function(term)
@@ -46,12 +44,7 @@ local lazygit = Terminal:new({
   end,
   auto_scroll = false
 })
-local gitwebui = Terminal:new({
-  cmd = "git webui --port=9989",
-  direction = "horizontal",
-  count = 6,
-  auto_scroll = false
-})
+local gitwebui = Terminal:new({cmd = "git webui --port=9989", direction = "horizontal", count = 6, auto_scroll = false})
 
 function _lazygit_toggle()
   vim.cmd("let g:floating_termnr = " .. 7)
@@ -64,38 +57,25 @@ function _gitwebui_toggle()
 end
 
 ---- 快捷键
-wk.register({
-  mode = {"n"},
-  ["<leader>gl"] = {"<cmd>lua _lazygit_toggle()<cr>", "Git log"}
-})
+wk.register({mode = {"n"}, ["<leader>gl"] = {"<cmd>lua _lazygit_toggle()<cr>", "Git log"}})
 
 -- vim.api.nvim_set_keymap("n", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leaer>gw", "<cmd>lua _gitwebui_toggle()<CR>",
-                        {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leaer>gw", "<cmd>lua _gitwebui_toggle()<CR>", {noremap = true, silent = true})
 
 function _G.set_terminal_config()
   local opts = {noremap = true}
   vim.api.nvim_buf_set_keymap(0, "t", "<c-t>", [[<C-\><C-n>:q<cr>]], opts)
   vim.api.nvim_buf_set_keymap(0, "t", "<c-r>", [[<C-\><C-n>]], opts)
 
-  vim.api.nvim_buf_set_keymap(0, "t", "<F1>",
-                              [[<C-\><C-n>:<C-U>CustomToggleTerm(1)<CR>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<F2>",
-                              [[<C-\><C-n>:<C-U>CustomToggleTerm(2)<CR>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<F3>",
-                              [[<C-\><C-n>:<C-U>CustomToggleTerm(3)<CR>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<F4>",
-                              [[<C-\><C-n>:<C-U>CustomToggleTerm(4)<CR>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<F5>",
-                              [[<C-\><C-n>:<C-U>CustomToggleTerm(5)<CR>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<F6>",
-                              [[<C-\><C-n>:<C-U>CustomToggleTerm(6)<CR>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<F7>",
-                              [[<C-\><C-n>:<C-U>CustomToggleTerm(7)<CR>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<F8>",
-                              [[<C-\><C-n>:<C-U>CustomToggleTerm(8)<CR>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<F9>",
-                              [[<C-\><C-n>:ToggleTermToggleAll<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F1>", [[<C-\><C-n>:<C-U>CustomToggleTerm(1)<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F2>", [[<C-\><C-n>:<C-U>CustomToggleTerm(2)<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F3>", [[<C-\><C-n>:<C-U>CustomToggleTerm(3)<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F4>", [[<C-\><C-n>:<C-U>CustomToggleTerm(4)<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F5>", [[<C-\><C-n>:<C-U>CustomToggleTerm(5)<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F6>", [[<C-\><C-n>:<C-U>CustomToggleTerm(6)<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F7>", [[<C-\><C-n>:<C-U>CustomToggleTerm(7)<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F8>", [[<C-\><C-n>:<C-U>CustomToggleTerm(8)<CR>]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<F9>", [[<C-\><C-n>:ToggleTermToggleAll<CR>]], opts)
 
   -- vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
   -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)

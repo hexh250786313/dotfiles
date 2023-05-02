@@ -13,8 +13,7 @@ expand_translator:
 // you must add wildcard to speller, otherwise the Rime won't take it as normal input;
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba*
-]]
-local function memoryCallback(memory, commit)
+]] local function memoryCallback(memory, commit)
   for i, dictentry in ipairs(commit:get()) do
     log.info(dictentry.text .. " " .. dictentry.weight .. " " .. dictentry.comment .. "")
     memory:update_userdict(dictentry, 0, "") -- do nothing to userdict
@@ -28,11 +27,7 @@ local function init(env)
   env.mem = Memory(env.engine, env.engine.schema) --  ns= "translator"
   -- env.mem = Memory(env.engine,env.engine.schema, env.name_space )
   -- env.mem = Memory(env.engine,Schema("cangjie5") ) --  ns= "translator-
-  env.mem:memorize(
-    function(commit)
-      memoryCallback(env.mem, commit)
-    end
-  )
+  env.mem:memorize(function(commit) memoryCallback(env.mem, commit) end)
   -- or use
   -- schema = Schema("cangjie5") -- schema_id
   -- env.mem = Memory(env.engine, schema, "translator")
@@ -58,8 +53,8 @@ local function translate(inp, seg, env)
         local ph = Phrase(env.mem, "expand_translator", seg.start, seg._end, dictentry)
         ph.comment = codeComment
         yield(ph:toCandidate())
-      -- you can also use Candidate Simply, but it cannot be recognized by memorize, memorize callback won't be called
-      -- yield(Candidate("type",seg.start,seg.end,dictentry.text, codeComment  ))
+        -- you can also use Candidate Simply, but it cannot be recognized by memorize, memorize callback won't be called
+        -- yield(Candidate("type",seg.start,seg.end,dictentry.text, codeComment  ))
       end
     end
   end
