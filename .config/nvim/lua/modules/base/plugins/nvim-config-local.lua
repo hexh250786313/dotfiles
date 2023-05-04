@@ -5,5 +5,5 @@ require("config-local").setup {
   lookup_parents = true -- 往上找配置文件, false 时为当前目录找
   -- hashfile = vim.fn.stdpath("data") .. "/config-local", -- Where the plugin keeps files data
   -- autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
-  -- commands_create = true, -- Create commands (ConfigSource, ConfigEdit, ConfigTrust, ConfigIgnore)
+  -- commands_create = true, -- Create commands (ConfigLocalSource, ConfigLocalEdit, ConfigLocalTrust, ConfigLocalIgnore)
 }
