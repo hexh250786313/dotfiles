@@ -217,3 +217,5 @@ eval "$(zoxide init zsh)"
 # test zsh speed end
 # zprof
 # -------------------
+
+alias initvim="source ~/.config/my-config/sh/init-vim.sh"
