@@ -51,7 +51,7 @@ return packer.startup(function(use)
   use({"folke/which-key.nvim", config = [[require("modules.base.plugins.which-key")]]})
   use({
     "klen/nvim-config-local",
-    config = [[require("modules.base.plugins.nvim-config-local")]]
+    config = [[require("modules.base.plugins.nvim-config-local")]],
     -- 插件的启动时机：
     -- a. 启动时同步加载的插件（不需要应用本地配置的插件）
     -- b. 需要使用 nvim-config-local 的插件
@@ -114,7 +114,7 @@ return packer.startup(function(use)
     cmd = {"Defx"},
     config = function()
       require("modules.file.plugins.defx")
-      vim.cmd("ConfigSource")
+      vim.cmd("ConfigLocalSource")
     end
   })
   use({"hexh250786313/defx-icons", after = "defx.nvim"})
@@ -158,7 +158,7 @@ return packer.startup(function(use)
     run = "yarn install --frozen-lockfile",
     -- 这个事件是 nvim-config-local 完成后的事件
     -- 这里要保证 coc.nvim 在本地配置加载完后才加载 coc
-    event = "User ConfigFinished"
+    event = "User ConfigLocalFinished"
   })
 
   -- ┌───────────────────────────────────────
