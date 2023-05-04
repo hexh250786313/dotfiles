@@ -87,6 +87,7 @@ return packer.startup(function(use)
     config = [[require("modules.buffer.plugins.delete-all-buffers")]],
     keys = {{"n", "<leader>qB"}}
   })
+  use("~/.config/nvim/_self/plugins/avoid-scrolling-when-switch-buffers")
 
   -- ┌───────────────────────────────────────
   -- │  Code Module
