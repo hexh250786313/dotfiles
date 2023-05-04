@@ -114,7 +114,7 @@ return packer.startup(function(use)
     cmd = {"Defx"},
     config = function()
       require("modules.file.plugins.defx")
-      vim.cmd("ConfigSource")
+      vim.cmd("ConfigLocalSource")
     end
   })
   use({"hexh250786313/defx-icons", after = "defx.nvim"})
@@ -158,7 +158,7 @@ return packer.startup(function(use)
     run = "yarn install --frozen-lockfile",
     -- 这个事件是 nvim-config-local 完成后的事件
     -- 这里要保证 coc.nvim 在本地配置加载完后才加载 coc
-    event = "User ConfigFinished"
+    event = "User ConfigLocalFinished"
   })
 
   -- ┌───────────────────────────────────────
