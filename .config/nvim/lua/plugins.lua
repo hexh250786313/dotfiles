@@ -51,7 +51,7 @@ return packer.startup(function(use)
   use({"folke/which-key.nvim", config = [[require("modules.base.plugins.which-key")]]})
   use({
     "klen/nvim-config-local",
-    config = [[require("modules.base.plugins.nvim-config-local")]],
+    config = [[require("modules.base.plugins.nvim-config-local")]]
     -- 插件的启动时机：
     -- a. 启动时同步加载的插件（不需要应用本地配置的插件）
     -- b. 需要使用 nvim-config-local 的插件
