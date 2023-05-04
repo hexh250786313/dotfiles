@@ -51,9 +51,9 @@ function! _self#highlight#darken(color, ground) abort
   end
 endfunction
 
-let g:everforest_better_performance = 0
-" let g:everforest_background = 'medium'
-" let g:gruvbox_material_foreground = 'original'
+let g:gruvbox_material_better_performance = 0
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_foreground = 'material'
 
 colorscheme gruvbox-material
 
