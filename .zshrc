@@ -101,6 +101,7 @@ if [[ ! -d $CONFIG_DIR/my-config ]]; then
 fi
 alias work="source ~/.config/my-config/sh/work.sh"
 alias hexh="source ~/.config/my-config/sh/hexh.sh"
+alias initvim="source ~/.config/my-config/sh/init-vim.sh"
 
 # init omz
 export ZSH="/home/$ME/.oh-my-zsh"
