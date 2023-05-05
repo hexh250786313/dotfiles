@@ -11,6 +11,7 @@
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
   "coc.preferences.maxFileSize": "50KB",
+  "coc.preferences.bracketEnterImprove": false,
   "snippets.extends": {
     "javascript": ["javascript", "basedjs"],
     "typescript": ["typescript", "basedjs"],
