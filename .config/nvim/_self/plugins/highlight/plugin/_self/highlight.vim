@@ -53,7 +53,7 @@ endfunction
 
 let g:gruvbox_material_better_performance = 0
 let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_foreground = 'material'
+let g:gruvbox_material_foreground = 'original'
 
 colorscheme gruvbox-material
 
@@ -102,57 +102,74 @@ exec 'hi! DefxCursorLine' .
   \' guibg=' . _self#highlight#pick('Visual', 'bg')
   " \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
 
+hi! link @string TSString
 exec 'hi! TSString gui=italic' .
   \' guibg=' . _self#highlight#pick('TSString', 'bg') .
   \' guifg=' . _self#highlight#pick('TSString', 'fg')
+hi! link @character TSCharacter
 exec 'hi! TSCharacter gui=italic' .
   \' guibg=' . _self#highlight#pick('TSCharacter', 'bg') .
   \' guifg=' . _self#highlight#pick('TSCharacter', 'fg')
+hi! link @number TSNumber
 exec 'hi! TSNumber gui=italic' .
   \' guibg=' . _self#highlight#pick('TSNumber', 'bg') .
   \' guifg=' . _self#highlight#pick('TSNumber', 'fg')
+hi! link @boolean TSBoolean
 exec 'hi! TSBoolean gui=italic' .
   \' guibg=' . _self#highlight#pick('TSBoolean', 'bg') .
   \' guifg=' . _self#highlight#pick('TSBoolean', 'fg')
+hi! link @float TSFloat
 exec 'hi! TSFloat gui=italic' .
   \' guibg=' . _self#highlight#pick('TSFloat', 'bg') .
   \' guifg=' . _self#highlight#pick('TSFloat', 'fg')
+hi! link @parameter TSParameter
 exec 'hi! TSParameter gui=italic' .
   \' guibg=' . _self#highlight#pick('TSParameter', 'bg') .
   \' guifg=' . _self#highlight#pick('TSParameter', 'fg')
 " exec 'hi! @punctuation.bracket' .
 "   \' guifg=' . _self#highlight#pick('Comment', 'fg') .
 "   \' guibg=' . _self#highlight#pick('Comment', 'bg')
+" hi! link @function.builtin TSFuncBuiltin
 " exec 'hi! TSFuncBuiltin gui=bold' .
 "   \' guibg=' . _self#highlight#pick('TSFuncBuiltin', 'bg') .
 "   \' guifg=' . _self#highlight#pick('TSFuncBuiltin', 'fg')
+" hi! link @function TSFunction
 " exec 'hi! TSFunction gui=bold' .
 "   \' guibg=' . _self#highlight#pick('TSFunction', 'bg') .
 "   \' guifg=' . _self#highlight#pick('TSFunction', 'fg')
+" hi! link @function.macro TSFuncMacro
 " exec 'hi! TSFuncMacro gui=bold' .
 "   \' guibg=' . _self#highlight#pick('TSFuncMacro', 'bg') .
 "   \' guifg=' . _self#highlight#pick('TSFuncMacro', 'fg')
+" hi! link @method TSMethod
 " exec 'hi! TSMethod gui=bold' .
 "   \' guibg=' . _self#highlight#pick('TSMethod', 'bg') .
 "   \' guifg=' . _self#highlight#pick('TSMethod', 'fg')
+" hi! link @constructor TSConstructor
 " exec 'hi! TSConstructor gui=bold' .
 "   \' guibg=' . _self#highlight#pick('TSConstructor', 'bg') .
 "   \' guifg=' . _self#highlight#pick('TSConstructor', 'fg')
+" hi! link @tag TSTag
 " exec 'hi! TSTag gui=bold' .
 "   \' guibg=' . _self#highlight#pick('TSTag', 'bg') .
 "   \' guifg=' . _self#highlight#pick('TSTag', 'fg')
+hi! link @keyword TSKeyword
 exec 'hi! TSKeyword gui=italic' .
   \' guibg=' . _self#highlight#pick('TSKeyword', 'bg') .
   \' guifg=' . _self#highlight#pick('TSKeyword', 'fg')
+hi! link @include TSInclude
 exec 'hi! TSInclude gui=italic' .
   \' guibg=' . _self#highlight#pick('TSInclude', 'bg') .
   \' guifg=' . _self#highlight#pick('TSInclude', 'fg')
+hi! link @variable TSVariable
 exec 'hi! TSVariable gui=italic' .
   \' guibg=' . _self#highlight#pick('TSVariable', 'bg') .
   \' guifg=' . _self#highlight#pick('TSVariable', 'fg')
+hi! link @variable.builtin TSVariableBuiltin
 exec 'hi! TSVariableBuiltin gui=italic' .
   \' guibg=' . _self#highlight#pick('TSVariableBuiltin', 'bg') .
   \' guifg=' . _self#highlight#pick('TSVariableBuiltin', 'fg')
+hi! link @tag.attribute TSTagAttribute
 exec 'hi! TSTagAttribute gui=italic' .
   \' guibg=' . _self#highlight#pick('TSTagAttribute', 'bg') .
   \' guifg=' . _self#highlight#pick('TSVariableBuiltin', 'fg')
