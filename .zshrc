@@ -148,6 +148,7 @@ alias server="source ~/.config/my-config/sh/server.sh"
 alias git-dude="source ~/.config/my-config/sh/git-dude/git-dude.sh"
 alias lock="source ~/.config/my-config/sh/lock.sh"
 alias edward="proxy_unset && cd ~/Desktop/share/openvpn/songmao/ && echo 'lllk' | sudo -S openvpn edward.ovpn"
+alias initvim="source ~/.config/my-config/sh/init-vim.sh"
 # -------------------
 
 # fnm
