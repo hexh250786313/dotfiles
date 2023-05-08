@@ -102,77 +102,60 @@ exec 'hi! DefxCursorLine' .
   \' guibg=' . _self#highlight#pick('Visual', 'bg')
   " \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
 
-hi! link @string TSString
-exec 'hi! TSString gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSString', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSString', 'fg')
-hi! link @character TSCharacter
-exec 'hi! TSCharacter gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSCharacter', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSCharacter', 'fg')
-hi! link @number TSNumber
-exec 'hi! TSNumber gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSNumber', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSNumber', 'fg')
-hi! link @boolean TSBoolean
-exec 'hi! TSBoolean gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSBoolean', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSBoolean', 'fg')
-hi! link @float TSFloat
-exec 'hi! TSFloat gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSFloat', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSFloat', 'fg')
-hi! link @parameter TSParameter
-exec 'hi! TSParameter gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSParameter', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSParameter', 'fg')
+exec 'hi! @string gui=italic' .
+  \' guibg=' . _self#highlight#pick('@string', 'bg') .
+  \' guifg=' . _self#highlight#pick('@string', 'fg')
+exec 'hi! @character gui=italic' .
+  \' guibg=' . _self#highlight#pick('@character', 'bg') .
+  \' guifg=' . _self#highlight#pick('@character', 'fg')
+exec 'hi! @number gui=italic' .
+  \' guibg=' . _self#highlight#pick('@number', 'bg') .
+  \' guifg=' . _self#highlight#pick('@number', 'fg')
+exec 'hi! @boolean gui=italic' .
+  \' guibg=' . _self#highlight#pick('@boolean', 'bg') .
+  \' guifg=' . _self#highlight#pick('@boolean', 'fg')
+exec 'hi! @float gui=italic' .
+  \' guibg=' . _self#highlight#pick('@float', 'bg') .
+  \' guifg=' . _self#highlight#pick('@float', 'fg')
+exec 'hi! @parameter gui=italic' .
+  \' guibg=' . _self#highlight#pick('@parameter', 'bg') .
+  \' guifg=' . _self#highlight#pick('@parameter', 'fg')
 " exec 'hi! @punctuation.bracket' .
 "   \' guifg=' . _self#highlight#pick('Comment', 'fg') .
 "   \' guibg=' . _self#highlight#pick('Comment', 'bg')
-" hi! link @function.builtin TSFuncBuiltin
-" exec 'hi! TSFuncBuiltin gui=bold' .
-"   \' guibg=' . _self#highlight#pick('TSFuncBuiltin', 'bg') .
-"   \' guifg=' . _self#highlight#pick('TSFuncBuiltin', 'fg')
-" hi! link @function TSFunction
-" exec 'hi! TSFunction gui=bold' .
-"   \' guibg=' . _self#highlight#pick('TSFunction', 'bg') .
-"   \' guifg=' . _self#highlight#pick('TSFunction', 'fg')
-" hi! link @function.macro TSFuncMacro
-" exec 'hi! TSFuncMacro gui=bold' .
-"   \' guibg=' . _self#highlight#pick('TSFuncMacro', 'bg') .
-"   \' guifg=' . _self#highlight#pick('TSFuncMacro', 'fg')
-" hi! link @method TSMethod
-" exec 'hi! TSMethod gui=bold' .
-"   \' guibg=' . _self#highlight#pick('TSMethod', 'bg') .
-"   \' guifg=' . _self#highlight#pick('TSMethod', 'fg')
-" hi! link @constructor TSConstructor
-" exec 'hi! TSConstructor gui=bold' .
-"   \' guibg=' . _self#highlight#pick('TSConstructor', 'bg') .
-"   \' guifg=' . _self#highlight#pick('TSConstructor', 'fg')
-" hi! link @tag TSTag
-" exec 'hi! TSTag gui=bold' .
-"   \' guibg=' . _self#highlight#pick('TSTag', 'bg') .
-"   \' guifg=' . _self#highlight#pick('TSTag', 'fg')
-hi! link @keyword TSKeyword
-exec 'hi! TSKeyword gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSKeyword', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSKeyword', 'fg')
-hi! link @include TSInclude
-exec 'hi! TSInclude gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSInclude', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSInclude', 'fg')
-hi! link @variable TSVariable
-exec 'hi! TSVariable gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSVariable', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSVariable', 'fg')
-hi! link @variable.builtin TSVariableBuiltin
-exec 'hi! TSVariableBuiltin gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSVariableBuiltin', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSVariableBuiltin', 'fg')
-hi! link @tag.attribute TSTagAttribute
-exec 'hi! TSTagAttribute gui=italic' .
-  \' guibg=' . _self#highlight#pick('TSTagAttribute', 'bg') .
-  \' guifg=' . _self#highlight#pick('TSVariableBuiltin', 'fg')
+" exec 'hi! @function.builtin gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@function.builtin', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@function.builtin', 'fg')
+" exec 'hi! @function gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@function', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@function', 'fg')
+" exec 'hi! @function.macro gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@function.macro', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@function.macro', 'fg')
+" exec 'hi! @method gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@method', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@method', 'fg')
+" exec 'hi! @constructor gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@constructor', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@constructor', 'fg')
+" exec 'hi! @tag gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@tag', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@tag', 'fg')
+exec 'hi! @keyword gui=italic' .
+  \' guibg=' . _self#highlight#pick('@keyword', 'bg') .
+  \' guifg=' . _self#highlight#pick('@keyword', 'fg')
+exec 'hi! @include gui=italic' .
+  \' guibg=' . _self#highlight#pick('@include', 'bg') .
+  \' guifg=' . _self#highlight#pick('@include', 'fg')
+exec 'hi! @variable gui=italic' .
+  \' guibg=' . _self#highlight#pick('@variable', 'bg') .
+  \' guifg=' . _self#highlight#pick('@variable', 'fg')
+exec 'hi! @variable.builtin gui=italic' .
+  \' guibg=' . _self#highlight#pick('@variable.builtin', 'bg') .
+  \' guifg=' . _self#highlight#pick('@variable.builtin', 'fg')
+exec 'hi! @tag.attribute gui=italic' .
+  \' guibg=' . _self#highlight#pick('@tag.attribute', 'bg') .
+  \' guifg=' . _self#highlight#pick('@variable.builtin', 'fg')
 
 exec 'hi! DefxIconsDefaultIcon guibg=NONE guifg=#6d8086'
 exec 'hi! DefxIconsNestedTreeIcon guibg=NONE' .

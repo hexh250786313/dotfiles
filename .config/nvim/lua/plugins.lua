@@ -75,7 +75,11 @@ return packer.startup(function(use)
     cmd = "Bdelete",
     config = [[require("modules.buffer.plugins.vim-bbye")]]
   })
-  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]]})
+  use({
+    "akinsho/bufferline.nvim",
+    config = [[require("modules.buffer.plugins.bufferline")]],
+    after = {"gruvbox-material"}
+  })
   use({
     "hoob3rt/lualine.nvim",
     config = [[require("modules.buffer.plugins.lualine")]],
