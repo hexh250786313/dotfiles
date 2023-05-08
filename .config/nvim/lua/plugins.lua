@@ -65,7 +65,6 @@ return packer.startup(function(use)
     config = [[require("modules.base.plugins.close-all-windows")]],
     keys = {{"n", "<leader>qW"}}
   })
-  use({"ggVGc/vim-fuzzysearch", cmd = "FuzzySearch"})
 
   -- ┌───────────────────────────────────────
   -- │  Buffer Module
@@ -76,7 +75,7 @@ return packer.startup(function(use)
     cmd = "Bdelete",
     config = [[require("modules.buffer.plugins.vim-bbye")]]
   })
-  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]]})
+  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"gruvbox-material"}})
   use({
     "hoob3rt/lualine.nvim",
     config = [[require("modules.buffer.plugins.lualine")]],
@@ -87,6 +86,7 @@ return packer.startup(function(use)
     config = [[require("modules.buffer.plugins.delete-all-buffers")]],
     keys = {{"n", "<leader>qB"}}
   })
+  use("~/.config/nvim/_self/plugins/avoid-scrolling-when-switch-buffers")
 
   -- ┌───────────────────────────────────────
   -- │  Code Module
@@ -114,7 +114,7 @@ return packer.startup(function(use)
     cmd = {"Defx"},
     config = function()
       require("modules.file.plugins.defx")
-      vim.cmd("ConfigSource")
+      vim.cmd("ConfigLocalSource")
     end
   })
   use({"hexh250786313/defx-icons", after = "defx.nvim"})
@@ -158,7 +158,7 @@ return packer.startup(function(use)
     run = "yarn install --frozen-lockfile",
     -- 这个事件是 nvim-config-local 完成后的事件
     -- 这里要保证 coc.nvim 在本地配置加载完后才加载 coc
-    event = "User ConfigFinished"
+    event = "User ConfigLocalFinished"
   })
 
   -- ┌───────────────────────────────────────
@@ -197,6 +197,12 @@ return packer.startup(function(use)
   })
   use({"hexh250786313/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]]})
   use({"bronson/vim-visual-star-search", keys = {{"n", "*"}, {"v", "*"}}})
+  use({
+    "ggVGc/vim-fuzzysearch",
+    cmd = "FuzzySearch",
+    keys = {{"n", "?"}},
+    config = [[require("modules.grep.plugins.vim-fuzzysearch")]]
+  })
 
   -- ┌───────────────────────────────────────
   -- │  Motion Module

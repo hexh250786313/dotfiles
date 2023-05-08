@@ -2,7 +2,7 @@ local wilder = require "wilder"
 
 vim.cmd([[
 call wilder#setup({
-  \    'modes': [':', '/', '?'],
+  \    'modes': [':', '/'],
   \    'next_key': '<c-j>',
   \    'previous_key': '<c-k>',
   \  })
