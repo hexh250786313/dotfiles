@@ -75,11 +75,11 @@ return packer.startup(function(use)
     cmd = "Bdelete",
     config = [[require("modules.buffer.plugins.vim-bbye")]]
   })
-  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]]})
+  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"catppuccin"}})
   use({
     "hoob3rt/lualine.nvim",
     config = [[require("modules.buffer.plugins.lualine")]],
-    after = {"gruvbox-material", "highlight"}
+    after = {"catppuccin", "highlight"}
   })
   use({
     "~/.config/nvim/_self/plugins/delete-all-buffers",
@@ -139,13 +139,50 @@ return packer.startup(function(use)
   use({"lukas-reineke/indent-blankline.nvim", config = [[require("modules.highlight.plugins.indent-blankline")]]})
   use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})
   -- Theme
-  use({"sainnhe/gruvbox-material"})
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+      require("catppuccin").setup {
+        color_overrides = {
+          all = {
+            rosewater = "#fb4934",
+            flamingo = "#fb4934",
+            pink = "#d3869b",
+            mauve = "#d3869b",
+            red = "#fb4934",
+            maroon = "#fb4934",
+            peach = "#fe8019",
+            yellow = "#fabd2f",
+            green = "#b8bb26",
+            teal = "#8ec07c",
+            sky = "#8ec07c",
+            sapphire = "#8ec07c",
+            blue = "#83a598",
+            lavender = "#83a598",
+            text = "#ebdbb2",
+            subtext1 = "#BDAE8B",
+            subtext0 = "#A69372",
+            overlay2 = "#ebdbb2",
+            overlay1 = "#ebdbb2",
+            overlay0 = "#928374",
+            surface2 = "#4B4F51",
+            surface1 = "#2A2D2E",
+            surface0 = "#232728",
+            base = "#1D2021",
+            mantle = "#191C1D",
+            crust = "#151819"
+          }
+        }
+      }
+    end
+  })
   -- Theme End
   use({
     "~/.config/nvim/_self/plugins/highlight",
     config = [[require("modules.highlight.plugins.highlight")]],
     -- 样式相关的插件都要比这个先启动
-    after = {"nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "gruvbox-material"}
+    after = {"nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "catppuccin"}
   })
 
   -- ┌───────────────────────────────────────
