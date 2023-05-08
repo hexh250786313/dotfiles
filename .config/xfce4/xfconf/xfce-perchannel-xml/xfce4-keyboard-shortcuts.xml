@@ -29,6 +29,7 @@
       <property name="&lt;Super&gt;r" type="empty">
         <property name="startup-notify" type="empty"/>
       </property>
+      <property name="&lt;Alt&gt;&lt;Super&gt;s" type="empty"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Delete" type="empty"/>
       <property name="&lt;Control&gt;Escape" type="empty"/>
     </property>
@@ -49,8 +50,8 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;a" type="string" value="flameshot gui"/>
       <property name="&lt;Super&gt;q" type="string" value="sh -c &quot;killall -q xfce4-notifyd&quot;"/>
       <property name="&lt;Shift&gt;F1" type="string" value="sh -c &quot;source /home/hexh/workspace/dotfiles/.config/my-config/sh/rofi-toggle.sh&quot;"/>
-      <property name="&lt;Alt&gt;n" type="string" value="alacritty -e zsh -i -c &quot;cd ~/Desktop/share/Obsidian/狗屎/ &amp;&amp; nvim 碎片.md&quot;"/>
       <property name="&lt;Shift&gt;F4" type="string" value="tdrop -am -w 100% -h 1044 -x 0 -y 36 -s I_fixed_it! alacritty"/>
+      <property name="&lt;Alt&gt;n" type="string" value="alacritty -e zsh -i -c &quot;cd ~/Desktop/share/Obsidian/狗屎/ &amp;&amp; nvim 碎片.md&quot;"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -109,8 +110,8 @@
       <property name="&lt;Primary&gt;F12" type="empty"/>
       <property name="&lt;Super&gt;KP_Left" type="empty"/>
       <property name="&lt;Super&gt;KP_Right" type="empty"/>
-      <property name="&lt;Super&gt;KP_Up" type="empty"/>
       <property name="&lt;Super&gt;KP_Down" type="empty"/>
+      <property name="&lt;Super&gt;KP_Up" type="empty"/>
       <property name="&lt;Super&gt;KP_Page_Up" type="empty"/>
       <property name="&lt;Super&gt;KP_Home" type="empty"/>
       <property name="&lt;Super&gt;KP_End" type="empty"/>
