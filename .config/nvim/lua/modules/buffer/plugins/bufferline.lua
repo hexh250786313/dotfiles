@@ -21,6 +21,7 @@ wk.register({
 
 ---------> 配置
 require("bufferline").setup {
+  highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
     numbers = "ordinal",
     separator_style = {"", ""},
