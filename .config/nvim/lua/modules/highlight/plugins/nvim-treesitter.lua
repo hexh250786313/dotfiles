@@ -1,7 +1,7 @@
 ---------> 配置
 -- 除了 autocmd 处对大文件进行处理, 这里也不能省略
 local disabler = function(lang, bufnr)
-  local max_filesize = 50 * 1024 -- 50 KB
+  local max_filesize = 500 * 1024 -- 50 KB
   local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
   if ok and stats and stats.size > max_filesize then return true end
   return false
@@ -20,5 +20,5 @@ require("nvim-treesitter.configs").setup {
 
 vim.cmd([[
 " 约 50K
-autocmd BufEnter * if line2byte('$') + len(getline('$')) > 51200 | syntax clear | setlocal nowrap | endif
+autocmd BufEnter * if line2byte('$') + len(getline('$')) > 512000 | syntax clear | setlocal nowrap | endif
 ]])
