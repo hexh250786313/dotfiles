@@ -75,11 +75,11 @@ return packer.startup(function(use)
     cmd = "Bdelete",
     config = [[require("modules.buffer.plugins.vim-bbye")]]
   })
-  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"gruvbox-material"}})
+  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"vscode.nvim"}})
   use({
     "hoob3rt/lualine.nvim",
     config = [[require("modules.buffer.plugins.lualine")]],
-    after = {"gruvbox-material", "highlight"}
+    after = {"vscode.nvim", "highlight"}
   })
   use({
     "~/.config/nvim/_self/plugins/delete-all-buffers",
@@ -139,13 +139,13 @@ return packer.startup(function(use)
   use({"lukas-reineke/indent-blankline.nvim", config = [[require("modules.highlight.plugins.indent-blankline")]]})
   use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})
   -- Theme
-  use({"sainnhe/gruvbox-material"})
+  use({"Mofiqul/vscode.nvim"})
   -- Theme End
   use({
     "~/.config/nvim/_self/plugins/highlight",
     config = [[require("modules.highlight.plugins.highlight")]],
     -- 样式相关的插件都要比这个先启动
-    after = {"nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "gruvbox-material"}
+    after = {"nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "vscode.nvim"}
   })
 
   -- ┌───────────────────────────────────────
