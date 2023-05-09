@@ -55,7 +55,7 @@ let g:gruvbox_material_better_performance = 0
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_foreground = 'original'
 
-colorscheme catppuccin
+colorscheme gruvbox-material
 
 let g:defaultnormalgb=_self#highlight#pick('Normal', 'bg')
 
