@@ -109,6 +109,9 @@ exec 'hi! @text.diff.delete guibg=NONE guifg=' . s:red
 exec 'hi! DiffText' .
   \' guifg=none' .
   \' guibg=' . _self#highlight#darken('DiffChange', 'bg')
+exec 'hi! Conceal' .
+  \' guifg=' . _self#highlight#darken('Normal', 'fg') .
+  \' guibg=NONE'
 exec 'hi! VirtColumn' .
   \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
 exec 'hi SpellBad guifg=' . s:error .
