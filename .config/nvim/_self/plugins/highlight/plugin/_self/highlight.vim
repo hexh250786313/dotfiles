@@ -111,7 +111,8 @@ exec 'hi! DiffText' .
   \' guibg=' . _self#highlight#darken('DiffChange', 'bg')
 exec 'hi! VirtColumn' .
   \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
-
+exec 'hi SpellBad guifg=' . s:error .
+  \' guibg=' . _self#highlight#pick('SpellBad', 'bg')
 " exec 'hi! Folded' .
 "   \' guifg=' . _self#highlight#pick('FoldColumn', 'fg') .
 "   \' guibg=#343632'
