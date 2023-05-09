@@ -51,7 +51,6 @@ local optionList = {
   laststatus = 3, -- 状态栏全局只展示一个
   timeout = true,
   timeoutlen = 500,
-  background = "dark", -- 背景 "light" | "dark"
   textwidth = 120,
   incsearch = true -- 高亮搜索
 }

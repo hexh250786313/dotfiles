@@ -51,12 +51,6 @@ function! _self#highlight#darken(color, ground) abort
   end
 endfunction
 
-let g:gruvbox_material_better_performance = 0
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_foreground = 'original'
-
-colorscheme vscode
-
 let g:defaultnormalgb=_self#highlight#pick('Normal', 'bg')
 
 " 全局 Normal 不能设置 gui, 但是 winhighlight 可以
@@ -68,6 +62,30 @@ set cursorline
 " let g:hlnormalstate=0
 " hi! Normal guibg=NONE
 " set nocursorline
+
+let s:green = '#b8bb26'
+let s:blue = '#83a598'
+let s:red = '#fb4934'
+let s:green_bg = '#32361a'
+let s:blue_bg = '#0d3138'
+let s:red_bg = '#3c1f1e'
+
+let s:error = _self#highlight#pick('ErrorMsg', 'fg')
+let s:error_bg = _self#highlight#darken('ErrorMsg', 'fg')
+let s:warning = _self#highlight#pick('WarningMsg', 'fg')
+let s:warning_bg = _self#highlight#darken('WarningMsg', 'fg')
+let s:info = _self#highlight#pick('Directory', 'fg')
+let s:info_bg = _self#highlight#darken('Directory', 'fg')
+let s:hint = _self#highlight#pick('Directory', 'fg')
+let s:hint_bg = _self#highlight#darken('Directory', 'fg')
+
+" autocmd VimEnter * exec 'hi! IndentBlanklineContextStart gui=none' .
+"   \' guifg=' . _self#highlight#pick('IndentBlanklineContextStart', 'fg') .
+"   \' guibg=' . _self#highlight#pick('IndentBlanklineContextStart', 'bg')
+" autocmd VimEnter * exec 'hi! IndentBlanklineIndent guifg=#393734 gui=nocombine'
+" autocmd VimEnter * exec 'hi! IndentBlanklineContextChar guifg=#554f49 gui=nocombine'
+hi! IndentBlanklineIndent guifg=#393734 gui=nocombine
+hi! IndentBlanklineContextChar guifg=#554f49 gui=nocombine
 
 hi! LineNr guibg=NONE
 hi! SignColumn guibg=NONE
@@ -83,10 +101,14 @@ hi! link UfoCursorFoldedLine DiffChange
 " hi! CursorWord gui=underline
 hi! CursorWord guibg=#303731 gui=none
 
+exec 'hi! DiffAdd guibg=' . s:green_bg . ' guifg=NONE'
+exec 'hi! DiffChange guibg=' . s:blue_bg . ' guifg=NONE'
+exec 'hi! DiffDelete guibg=' . s:red_bg . ' guifg=NONE'
+exec 'hi! @text.diff.add guibg=NONE guifg=' . s:green
+exec 'hi! @text.diff.delete guibg=NONE guifg=' . s:red
 exec 'hi! DiffText' .
   \' guifg=none' .
   \' guibg=' . _self#highlight#darken('DiffChange', 'bg')
-
 exec 'hi! VirtColumn' .
   \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
 
@@ -102,6 +124,9 @@ exec 'hi! DefxCursorLine' .
   \' guibg=' . _self#highlight#pick('Visual', 'bg')
   " \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
 
+exec 'hi! Comment gui=italic' .
+  \' guifg=' . _self#highlight#pick('Comment', 'fg') .
+  \' guibg=' . _self#highlight#pick('Comment', 'bg')
 exec 'hi! @string gui=italic' .
   \' guibg=' . _self#highlight#pick('@string', 'bg') .
   \' guifg=' . _self#highlight#pick('@string', 'fg')
@@ -120,9 +145,9 @@ exec 'hi! @float gui=italic' .
 exec 'hi! @parameter gui=italic' .
   \' guibg=' . _self#highlight#pick('@parameter', 'bg') .
   \' guifg=' . _self#highlight#pick('@parameter', 'fg')
-" exec 'hi! @punctuation.bracket' .
-"   \' guifg=' . _self#highlight#pick('Comment', 'fg') .
-"   \' guibg=' . _self#highlight#pick('Comment', 'bg')
+exec 'hi! @punctuation.bracket gui=italic' .
+  \' guifg=' . _self#highlight#pick('Normal', 'fg') .
+  \' guibg=NONE'
 " exec 'hi! @function.builtin gui=bold' .
 "   \' guibg=' . _self#highlight#pick('@function.builtin', 'bg') .
 "   \' guifg=' . _self#highlight#pick('@function.builtin', 'fg')
@@ -189,15 +214,6 @@ exec 'hi! CocSymbolLine gui=bold' .
 exec 'hi! LightBulbVirtualText' .
   \' guibg=' . _self#highlight#pick('CursorLine', 'bg') .
   \' guifg=' . _self#highlight#pick('Special', 'fg')
-exec 'hi! CocGitSignChange' .
-  \' guifg=' . _self#highlight#pick('DiffChange', 'bg') .
-  \' guibg=' . _self#highlight#pick('DiffChange', 'bg')
-exec 'hi! CocGitSignAdd' .
-  \' guifg=' . _self#highlight#pick('DiffAdd', 'bg') .
-  \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
-exec 'hi! CocGitSignDelete' .
-  \' guifg=' . _self#highlight#pick('DiffDelete', 'bg') .
-  \' guibg=' . _self#highlight#pick('DiffDelete', 'bg')
 exec 'hi! CocMenuSel' .
   \' guibg=' . _self#highlight#pick('Visual', 'bg')
   " \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
@@ -212,36 +228,45 @@ exec 'hi! CocFloating' .
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 
-exec 'hi! CocErrorVirtualText' .
-  \' guifg=' . _self#highlight#pick('CocErrorFloat', 'fg') .
-  \' guibg=' . _self#highlight#darken('CocErrorFloat', 'fg')
-exec 'hi! CocWarningVirtualText' .
-  \' guifg=' . _self#highlight#pick('CocWarningFloat', 'fg') .
-  \' guibg=' . _self#highlight#darken('CocWarningFloat', 'fg')
-exec 'hi! CocInfoVirtualText' .
-  \' guifg=' . _self#highlight#pick('CocInfoFloat', 'fg') .
-  \' guibg=' . _self#highlight#darken('CocInfoFloat', 'fg')
-exec 'hi! CocHintVirtualText' .
-  \' guifg=' . _self#highlight#pick('CocHintFloat', 'fg') .
-  \' guibg=' . _self#highlight#darken('CocHintFloat', 'fg')
-
 exec 'hi! DiagnosticError' .
-  \' guifg=' . _self#highlight#pick('CocErrorVirtualText', 'fg') .
-  \' guibg=' . _self#highlight#darken('StatusLine', 'bg')
+  \' guifg=' . s:error .
+  \' guibg=' . _self#highlight#pick('DiagnosticError', 'bg')
 exec 'hi! DiagnosticWarn' .
-  \' guifg=' . _self#highlight#pick('CocWarningVirtualText', 'fg') .
-  \' guibg=' . _self#highlight#darken('StatusLine', 'bg')
+  \' guifg=' . s:warning .
+  \' guibg=' . _self#highlight#pick('DiagnosticWarn', 'bg')
 exec 'hi! DiagnosticInfo' .
-  \' guifg=' . _self#highlight#pick('CocInfoVirtualText', 'fg') .
-  \' guibg=' . _self#highlight#darken('StatusLine', 'bg')
+  \' guifg=' . s:info .
+  \' guibg=' . _self#highlight#pick('DiagnosticInfo', 'bg')
 exec 'hi! DiagnosticHint' .
-  \' guifg=' . _self#highlight#pick('CocHintVirtualText', 'fg') .
-  \' guibg=' . _self#highlight#darken('StatusLine', 'bg')
+  \' guifg=' . s:hint .
+  \' guibg=' . _self#highlight#pick('DiagnosticHint', 'bg')
 
-autocmd VimEnter * exec 'hi! IndentBlanklineContextStart gui=none' .
-  \' guifg=' . _self#highlight#pick('IndentBlanklineContextStart', 'fg') .
-  \' guibg=' . _self#highlight#pick('IndentBlanklineContextStart', 'bg')
-autocmd VimEnter * exec 'hi! IndentBlanklineIndent guifg=#393734 gui=nocombine'
-autocmd VimEnter * exec 'hi! IndentBlanklineContextChar guifg=#554f49 gui=nocombine'
+exec 'hi! CocErrorVirtualText' .
+  \' guifg=' . s:error .
+  \' guibg=' . s:error_bg
+exec 'hi! CocWarningVirtualText' .
+  \' guifg=' . s:warning .
+  \' guibg=' . s:warning_bg
+exec 'hi! CocInfoVirtualText' .
+  \' guifg=' . s:info .
+  \' guibg=' . s:info_bg
+exec 'hi! CocHintVirtualText' .
+  \' guifg=' . s:hint .
+  \' guibg=' . s:hint_bg
 
-autocmd VimEnter * exec 'hi! link @punctuation.bracket Comment'
+exec 'hi! CocErrorSign' .
+  \' guifg=' . s:error .
+  \' guibg=NONE'
+exec 'hi! CocWarningSign' .
+  \' guifg=' . s:warning .
+  \' guibg=NONE'
+exec 'hi! CocInfoSign' .
+  \' guifg=' . s:info .
+  \' guibg=NONE'
+exec 'hi! CocHintSign' .
+  \' guifg=' . s:hint .
+  \' guibg=NONE'
+
+exec 'hi! CocGitSignChange guifg=' . s:blue . ' guibg=NONE'
+exec 'hi! CocGitSignDelete guifg=' . s:red . ' guibg=NONE'
+exec 'hi! CocGitSignAdd guifg=' s:green . ' guibg=NONE'
