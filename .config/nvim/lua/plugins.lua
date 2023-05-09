@@ -75,12 +75,8 @@ return packer.startup(function(use)
     cmd = "Bdelete",
     config = [[require("modules.buffer.plugins.vim-bbye")]]
   })
-  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"gruvbox-material"}})
-  use({
-    "hoob3rt/lualine.nvim",
-    config = [[require("modules.buffer.plugins.lualine")]],
-    after = {"gruvbox-material", "highlight"}
-  })
+  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"theme"}})
+  use({"hoob3rt/lualine.nvim", config = [[require("modules.buffer.plugins.lualine")]], after = {"theme", "highlight"}})
   use({
     "~/.config/nvim/_self/plugins/delete-all-buffers",
     config = [[require("modules.buffer.plugins.delete-all-buffers")]],
@@ -136,16 +132,32 @@ return packer.startup(function(use)
     config = [[require("modules.highlight.plugins.vim-hexokinase")]],
     run = "make hexokinase"
   })
-  use({"lukas-reineke/indent-blankline.nvim", config = [[require("modules.highlight.plugins.indent-blankline")]]})
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    config = [[require("modules.highlight.plugins.indent-blankline")]],
+    after = "theme"
+  })
   use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})
   -- Theme
-  use({"sainnhe/gruvbox-material"})
+  use({
+    "Mofiqul/vscode.nvim",
+    as = "theme",
+    config = function()
+      vim.cmd([[
+        colorscheme vscode
+        let g:gruvbox_material_better_performance = 0
+        let g:gruvbox_material_background = 'hard'
+        let g:gruvbox_material_foreground = 'original'
+        set background=dark " 背景 "light" | "dark"
+      ]])
+    end
+  })
   -- Theme End
   use({
     "~/.config/nvim/_self/plugins/highlight",
     config = [[require("modules.highlight.plugins.highlight")]],
     -- 样式相关的插件都要比这个先启动
-    after = {"nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "gruvbox-material"}
+    after = {"nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "theme"}
   })
 
   -- ┌───────────────────────────────────────
