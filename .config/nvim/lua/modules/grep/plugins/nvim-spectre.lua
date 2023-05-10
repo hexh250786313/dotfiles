@@ -9,12 +9,30 @@ wk.register({mode = {"x"}, ["<leader>/"] = {"<esc>:lua require('spectre').open_v
 ---- 配置
 local M = {}
 
+vim.cmd([[
+hi! default SpectreFilename guifg=grey guibg=NONE gui=italic,underline
+hi! default SpectreFiledirectory guifg=grey guibg=NONE gui=italic,underline
+]])
+
 require("spectre").setup({
   is_insert_mode = false,
   live_update = false,
-  line_sep_start = "┌───────────────────────────────────────",
-  result_padding = "│  ",
-  line_sep = "└───────────────────────────────────────",
+  -- line_sep_start = "┌───────────────────────────────────────",
+  -- result_padding = "│     ",
+  -- line_sep = "└───────────────────────────────────────",
+  result_padding = "      ",
+  line_sep_start = "",
+  line_sep = "",
+  highlight = {
+    -- headers = "Comment",
+    -- ui = "String",
+    -- border = "Comment",
+    -- 
+    filename = "SpectreFilename",
+    filedirectory = "SpectreFiledirectory",
+    search = "CocWarningVirtualText",
+    replace = "CocErrorVirtualText",
+  },
   mapping = {
     ["send_to_qf"] = {
       map = "<c-q>",
