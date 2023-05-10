@@ -140,11 +140,12 @@ return packer.startup(function(use)
   use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})
   -- Theme
   use({
-    "Mofiqul/vscode.nvim",
+    "rockyzhang24/arctic.nvim",
+    requires = {"rktjmp/lush.nvim"},
     as = "theme",
     config = function()
       vim.cmd([[
-        colorscheme vscode
+        colorscheme arctic
         let g:gruvbox_material_better_performance = 0
         let g:gruvbox_material_background = 'hard'
         let g:gruvbox_material_foreground = 'original'

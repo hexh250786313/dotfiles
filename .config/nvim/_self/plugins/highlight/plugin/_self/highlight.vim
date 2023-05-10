@@ -94,6 +94,8 @@ hi! EndOfBuffer guibg=NONE
 hi! link CocFloating Normal
 hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
+hi! link CocSearch Question
+hi! link CocPumMenu Pmenu
 hi! link NormalNC Normal
 
 hi! link UfoCursorFoldedLine DiffChange
@@ -109,9 +111,6 @@ exec 'hi! @text.diff.delete guibg=NONE guifg=' . s:red
 exec 'hi! DiffText' .
   \' guifg=none' .
   \' guibg=' . _self#highlight#darken('DiffChange', 'bg')
-exec 'hi! Conceal' .
-  \' guifg=' . _self#highlight#darken('Normal', 'fg') .
-  \' guibg=NONE'
 exec 'hi! VirtColumn' .
   \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
 exec 'hi SpellBad guifg=' . s:error .
@@ -219,7 +218,7 @@ exec 'hi! LightBulbVirtualText' .
   \' guibg=' . _self#highlight#pick('CursorLine', 'bg') .
   \' guifg=' . _self#highlight#pick('Special', 'fg')
 exec 'hi! CocMenuSel' .
-  \' guibg=' . _self#highlight#pick('Visual', 'bg')
+  \' guibg=' . _self#highlight#pick('Question', 'bg')
   " \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
 exec 'hi! WilderBorder' .
   \' guifg=' . _self#highlight#pick('Visual', 'bg') .
