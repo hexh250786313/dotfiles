@@ -102,3 +102,7 @@ bind-key -n M-k select-pane -U
 bind-key -n M-l select-pane -R
 
 bind-key -n M-z resize-pane -Z
+
+run-shell ~/.tmux-jump/tmux-jump.tmux
+
+run -b 'tmux set -g @jump-key "f"'
