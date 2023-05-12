@@ -54,6 +54,7 @@ inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#pum#next(1) :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
+inoremap <silent><expr><c-l> coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <c-j>
   \ coc#pum#visible() ? coc#pum#next(1) :
