@@ -228,11 +228,21 @@ lower_node_paths=(
   "/home/hexh/workspace/songmao/crm-client"
   "/home/hexh/workspace/songmao/crm-components"
   "/home/hexh/workspace/songmao/crm-ib"
+  "/home/hexh/workspace/songmao/intrade-system-public-h5"
 )
 use_lower_node() {
   current_path=$(pwd)
   node_version=$(node --version)
-  if [[ " ${lower_node_paths[*]} " == *" $current_path "* ]]; then
+  match_found=false
+
+  for path_pattern in "${lower_node_paths[@]}"; do
+    if [[ $current_path == *$path_pattern* ]]; then
+      match_found=true
+      break
+    fi
+  done
+
+  if $match_found; then
     if [[ " ${LOWER_NODE_VERSION} " != *" $node_version " ]]; then
       proxy_unset
       fnm use v14.15.0
