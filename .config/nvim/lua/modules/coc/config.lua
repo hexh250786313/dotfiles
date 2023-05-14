@@ -5,7 +5,7 @@ vim.g.coc_global_extensions = {
   "coc-marketplace", "coc-snippets", -- "coc-tsserver",
   "coc-webview", "coc-yaml", "coc-markmap", "coc-angular", "coc-git", "@hexuhua/coc-replacement", "@yaegassy/coc-volar",
   "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree", "@yaegassy/coc-tailwindcss3", "coc-styled-components",
-  "coc-cssmodules", "coc-typos", "@hexuhua/coc-list-files-mru"
+  "coc-cssmodules", "coc-typos", "@hexuhua/coc-list-files-mru", "@hexuhua/coc-copilot"
 }
 
 -- coc 选择了 quickfix 打开后的回调
