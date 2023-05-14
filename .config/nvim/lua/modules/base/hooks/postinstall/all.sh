@@ -5,3 +5,4 @@ cp ~/.config/nvim/lua/modules/base/hooks/postinstall/rplugin.vim ~/.local/share/
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/defx.sh
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/coc.sh
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/nvim-bqf.sh
+sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/copilot.sh

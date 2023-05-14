@@ -2,6 +2,8 @@
 # zmodload zsh/zprof
 # -------------------
 
+export MY_HOST="127.0.0.1"
+
 # add cargo binary
 export PATH="$HOME/.cargo/bin:$PATH"
 

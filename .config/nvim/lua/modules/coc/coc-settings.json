@@ -55,6 +55,7 @@
   "list.source.grep.useLiteral": false,
   "suggest.snippetIndicator": " ✩",
   "suggest.autoTrigger": "always",
+  "suggest.virtualText": true,
   "list.interactiveDebounceTime": 100, // only for interactive supported list
   "list.source.grep.command": "rg",
   "list.source.files.command": "rg",

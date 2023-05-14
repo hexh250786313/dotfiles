@@ -1,3 +1,5 @@
+local wk = require("which-key")
+
 vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
 -- vim.o.foldlevelstart = -1
@@ -6,10 +8,14 @@ vim.wo.foldenable = true
 -- vim.o.statuscolumn = '%=%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }%s%l%{" "}'
 -- vim.o.statuscolumn = '%=%l%s%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }%*'
 
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
+wk.register({
+  ["zR"] = {'<cmd>lua require("ufo").openAllFolds()<cr>lh', "Open all folds"},
+  ["zM"] = {'<cmd>lua require("ufo").closeAllFolds()<cr>lh', "Cloase all folds"},
+  ["zr"] = {'<cmd>lua require("ufo").openFoldsExceptKinds()<cr>lh', "Fold less"},
+  ["zm"] = {'<cmd>lua require("ufo").closeFoldsWith()<cr>lh', "Fold more"},
+  ["za"] = {"zalh", "Toggle fold under cursor"},
+  ["zA"] = {"zAlh", "Toggle all folds under cursor"}
+})
 
 local handler = function(virtText, lnum, endLnum, width)
   local newVirtText = {}
