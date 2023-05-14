@@ -54,6 +54,28 @@ cursor:
     blinking: Always
     # blink_interval: 500
 schemes:
+  codedark2: &code_dark_2
+    primary:
+      background: '0x1e1e1e'
+      foreground: '0xd4d4d4'
+    normal:
+      black:   '0x1e1e1e'
+      red:     '0xf44747'
+      green:   '0x6a9955'
+      yellow:  '0xd7ba7d'
+      blue:    '0x569cd6'
+      magenta: '0xc586c0'
+      cyan:    '0x4dc9b0'
+      white:   '0xdddddd'
+    bright:
+      black:   '0x808080'
+      red:     '0xf55757'
+      green:   '0x80ad6b'
+      yellow:  '0xe1cb9e'
+      blue:    '0x6fabdc'
+      magenta: '0xd6a9d2'
+      cyan:    '0x70d3bf'
+      white:   '0xffffff'
   codelight: &code_light
     primary:
       background: "#ffffff"
@@ -313,4 +335,4 @@ schemes:
       - { index: 248, color: '#bdae93' }
       - { index: 250, color: '#d5c4a1' }
 
-colors: *gruvbox_dark
+colors: *code_dark_2
