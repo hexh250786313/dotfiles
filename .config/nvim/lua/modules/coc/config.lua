@@ -5,7 +5,7 @@ vim.g.coc_global_extensions = {
   "coc-marketplace", "coc-snippets", -- "coc-tsserver",
   "coc-webview", "coc-yaml", "coc-markmap", "coc-angular", "coc-git", "@hexuhua/coc-replacement", "@yaegassy/coc-volar",
   "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree", "@yaegassy/coc-tailwindcss3", "coc-styled-components",
-  "coc-cssmodules", "coc-typos", "@hexuhua/coc-list-files-mru"
+  "coc-cssmodules", "coc-typos", "@hexuhua/coc-list-files-mru", "@hexuhua/coc-copilot"
 }
 
 -- coc 选择了 quickfix 打开后的回调
@@ -50,17 +50,18 @@ function! s:CHECK_BACKSPACE() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" coc#pum#next(0) 0 是不插入文本，1 是插入
 inoremap <silent><expr> <Tab>
-  \ coc#pum#visible() ? coc#pum#next(1) :
+  \ coc#pum#visible() ? coc#pum#next(0) :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
 inoremap <silent><expr><c-l> coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
 inoremap <silent><expr> <c-j>
-  \ coc#pum#visible() ? coc#pum#next(1) :
+  \ coc#pum#visible() ? coc#pum#next(0) :
   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
   \ coc#refresh()
-inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(0) : "\<C-k>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
