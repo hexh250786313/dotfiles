@@ -97,11 +97,11 @@
   "suggest.labelMaxLength": 30,
   "suggest.floatConfig": {
     "border": false,
-    "winblend": 20
+    "winblend": 0
   },
   "floatFactory.floatConfig": {
     "border": [0, 0, 0, 0], // or bool
-    "winblend": 20
+    "winblend": 0
   },
   "suggest.timeout": 5000,
   "coc.preferences.extensionUpdateCheck": "never",
@@ -159,7 +159,7 @@
     // "sql": "sqlfluff",
     "vue": ["eslint_d", "stylelint"],
     "css": "stylelint",
-    "less": "stylelint",
+    // "less": "stylelint",
     "scss": "stylelint"
   },
   "diagnostic-languageserver.linters": {
