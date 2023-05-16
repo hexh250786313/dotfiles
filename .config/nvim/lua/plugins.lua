@@ -83,10 +83,6 @@ return packer.startup(function(use)
     keys = {{"n", "<leader>qB"}}
   })
   use("~/.config/nvim/_self/plugins/avoid-scrolling-when-switch-buffers")
-  use({
-    "axkirillov/hbac.nvim",
-    config = [[require("modules.buffer.plugins.hbac")]]
-  })
 
   -- ┌───────────────────────────────────────
   -- │  Code Module

@@ -59,7 +59,7 @@ function! s:DEFX_SMART_L(_) abort
   elseif defx#is_binary()
     call defx#call_action('execute_system')
   else
-    call defx#call_action('multi', ['drop', 'quit'])
+    call defx#call_action('multi', ['open', 'quit'])
   endif
 endfunction
 
