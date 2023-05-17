@@ -47,9 +47,9 @@ group_lazy_load() {
 
 # proxy
 export SPRING_BOARD=192.168.1.4
-export all_proxy="socks://127.0.0.1:4780"
-export http_proxy="http://127.0.0.1:4780"
-export https_proxy="http://127.0.0.1:4780"
+# export all_proxy="socks://127.0.0.1:4780"
+# export http_proxy="http://127.0.0.1:4780"
+# export https_proxy="http://127.0.0.1:4780"
 alias fluent-proxy="source ~/.config/my-config/sh/fluent_proxy.sh"
 alias proxy_unset="unset all_proxy && unset http_proxy && unset https_proxy"
 alias proxy_set="export all_proxy="socks://127.0.0.1:4780" && export http_proxy="http://127.0.0.1:4780" && export https_proxy="http://127.0.0.1:4780""
