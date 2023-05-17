@@ -16,9 +16,9 @@ export PATH="$HOME/go/bin:$PATH:"
 export GOPATH="$HOME/go"
 
 # proxy
-export all_proxy="socks5://$MY_HOST:4780"
-export http_proxy="http://$MY_HOST:4780"
-export https_proxy="http://$MY_HOST:4780"
+# export all_proxy="socks5://$MY_HOST:4780"
+# export http_proxy="http://$MY_HOST:4780"
+# export https_proxy="http://$MY_HOST:4780"
 alias proxy_unset="unset all_proxy && unset http_proxy && unset https_proxy"
 alias proxy_set="export all_proxy="socks://$MY_HOST:4780" && export http_proxy="http://$MY_HOST:4780" && export https_proxy="http://$MY_HOST:4780""
 
