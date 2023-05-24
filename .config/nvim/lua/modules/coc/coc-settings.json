@@ -159,7 +159,7 @@
     // "sql": "sqlfluff",
     "vue": ["eslint_d", "stylelint"],
     "css": "stylelint",
-    // "less": "stylelint",
+    "less": "stylelint",
     "scss": "stylelint"
   },
   "diagnostic-languageserver.linters": {
