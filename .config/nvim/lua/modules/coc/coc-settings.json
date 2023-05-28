@@ -207,6 +207,27 @@
       "command": "eslint_d",
       "rootPatterns": [".git"], // For cwd
       "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
+      "args": ["--stdin", "--stdin-filename", "%filepath", "--format", "json"],
+      "sourceName": "eslint_d",
+      "parseJson": {
+        "errorsRoot": "[0].messages",
+        "line": "line",
+        "column": "column",
+        "endLine": "endLine",
+        "endColumn": "endColumn",
+        "message": "${message} [${ruleId}]",
+        "security": "severity"
+      },
+      "securities": {
+        // "0": "info",
+        "1": "warning",
+        "2": "error"
+      }
+    },
+    "tseslint_d": {
+      "command": "eslint_d",
+      "rootPatterns": [".git"], // For cwd
+      "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
       "args": [
         "--stdin",
         "--stdin-filename",
