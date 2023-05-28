@@ -138,6 +138,7 @@ alias makepkg-without-check="makepkg -si --nocheck"
 alias zhiyun-chrome='proxy_unset && export http_proxy="http://10.10.1.30:6699" && export https_proxy="http://10.10.1.30:6699" && google-chrome-stable --disable-site-isolation-trials --disable-web-security --user-data-dir="/home/hexh/Desktop/chrome-data"'
 alias maudio='mpv --no-video'
 alias ranger="source ranger"
+alias gitr='cd "$(git rev-parse --show-toplevel)"'
 # -------------------
 
 # my script
@@ -151,6 +152,7 @@ alias git-dude="source ~/.config/my-config/sh/git-dude/git-dude.sh"
 alias lock="source ~/.config/my-config/sh/lock.sh"
 alias edward="proxy_unset && cd ~/Desktop/share/openvpn/songmao/ && echo 'lllk' | sudo -S openvpn edward.ovpn"
 alias initvim="source ~/.config/my-config/sh/init-vim.sh"
+alias createfile="source ~/.config/my-config/sh/create-file-or-directory.sh"
 # -------------------
 
 # fnm
