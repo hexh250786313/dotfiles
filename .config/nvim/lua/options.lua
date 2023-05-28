@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+local function has(os) return vim.fn.has(os) == 1 end
 
 -- coc 的配置目录路径，需要初始化时指定，所以放在这里
 vim.g.coc_config_home = "~/.config/nvim/lua/modules/coc/"
@@ -20,12 +21,21 @@ vim.cmd("let $all_proxy ='http://" .. host .. ":4780'")
 vim.cmd("let $http_proxy ='http://" .. host .. ":4780'")
 vim.cmd("let $https_proxy ='http://" .. host .. ":4780'")
 
-vim.g.clipboard = {
-  name = "xsel_override",
-  copy = {["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary"},
-  paste = {["+"] = "xsel --output --clipboard", ["*"] = "xsel --output --primary"},
-  cache_enabled = 1
-}
+if has("wsl") then
+  vim.g.clipboard = {
+    name = "win32yank_override",
+    copy = {["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf"},
+    paste = {["+"] = "win32yank.exe -o --lf", ["*"] = "win32yank.exe -o --lf"},
+    cache_enabled = 1
+  }
+else
+  vim.g.clipboard = {
+    name = "xsel_override",
+    copy = {["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary"},
+    paste = {["+"] = "xsel --output --clipboard", ["*"] = "xsel --output --primary"},
+    cache_enabled = 1
+  }
+end
 
 local optionList = {
   mouse = "a", -- 使用鼠标

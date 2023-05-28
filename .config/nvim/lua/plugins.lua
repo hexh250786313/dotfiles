@@ -100,23 +100,25 @@ return packer.startup(function(use)
     },
     config = [[require("modules.code.plugins.Comment")]]
   })
-  use({
-    "github/copilot.vim",
-    event = "InsertEnter",
-    config = [[require("modules.code.plugins.copilot")]]
-  })
+  use({"github/copilot.vim", event = "InsertEnter", config = [[require("modules.code.plugins.copilot")]]})
 
   -- ┌───────────────────────────────────────
   -- │  File Module
   -- └───────────────────────────────────────
   use({
     "Shougo/defx.nvim",
-    keys = {{"n", "<leader>e"}, {"n", "<leader>E"}},
+    keys = {{"n", "<leader>E"}},
     cmd = {"Defx"},
     config = function()
       require("modules.file.plugins.defx")
       vim.cmd("ConfigLocalSource")
     end
+  })
+  use({
+    "kevinhwang91/rnvimr",
+    keys = {{"n", "<leader>e"}},
+    cmd = {"RnvimrToggle"},
+    config = [[require("modules.file.plugins.rnvimr")]]
   })
   use({"hexh250786313/defx-icons", after = "defx.nvim"})
   use({"junegunn/fzf", config = [[require("modules.file.plugins.fzf")]]})

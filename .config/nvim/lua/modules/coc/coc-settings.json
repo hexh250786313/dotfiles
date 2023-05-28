@@ -156,10 +156,10 @@
     "typescript.tsx": "eslint_d",
     "sql": "sql-lint",
     // "sql": "sqlfluff",
-    "vue": ["eslint_d", "stylelint"],
-    "css": "stylelint",
-    "less": "stylelint",
-    "scss": "stylelint"
+    // "vue": ["eslint_d", "stylelint"],
+    "css": "csslint",
+    "less": "lesslint",
+    "scss": "scsslint"
   },
   "diagnostic-languageserver.linters": {
     "sqlfluff": {
@@ -207,7 +207,15 @@
       "command": "eslint_d",
       "rootPatterns": [".git"], // For cwd
       "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
-      "args": ["--stdin", "--stdin-filename", "%filepath", "--format", "json"],
+      "args": [
+        "--stdin",
+        "--stdin-filename",
+        "%filepath",
+        "--format",
+        "json",
+        "--config",
+        "/home/hexh/.config/nvim/_self/lang-configs/typescript/linter.js"
+      ],
       "sourceName": "eslint_d",
       "parseJson": {
         "errorsRoot": "[0].messages",
@@ -224,7 +232,7 @@
         "2": "error"
       }
     },
-    "stylelint": {
+    "scsslint": {
       "command": "./node_modules/.bin/stylelint", // if no local stylelint, will use the global
       "rootPatterns": [".git"], // For cwd
       "debounce": 550,
@@ -232,7 +240,7 @@
         "-f",
         "compact",
         "--config",
-        "/home/hexh/.config/nvim/_self/lang-configs/typescript/stylelint.config.js" // 要用绝对路径
+        "/home/hexh/.config/nvim/_self/lang-configs/scss/linter.js" // 要用绝对路径
       ],
       "offsetLine": 0,
       "offsetColumn": 0,
@@ -251,6 +259,57 @@
       ],
       "securities": {
         // "error": "error",
+        "error": "info",
+        "warning": "info"
+      }
+    },
+    "csslint": {
+      "command": "./node_modules/.bin/stylelint",
+      "rootPatterns": [".git"],
+      "debounce": 550,
+      "args": ["-f", "compact", "--config", "/home/hexh/.config/nvim/_self/lang-configs/css/linter.js"],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "stylelint",
+      "isStderr": false,
+      "isStdout": true,
+      "formatLines": 1,
+      "formatPattern": [
+        "^[^:]+:\\D+(\\d+)\\D+(\\d+)\\W+(\\w+)\\s-\\s(.*)$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 4,
+          "security": 3
+        }
+      ],
+      "securities": {
+        // "error": "error",
+        "error": "info",
+        "warning": "info"
+      }
+    },
+    "lesslint": {
+      "command": "./node_modules/.bin/stylelint",
+      "rootPatterns": [".git"],
+      "debounce": 550,
+      "args": ["-f", "compact", "--config", "/home/hexh/.config/nvim/_self/lang-configs/less/linter.js"],
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "sourceName": "stylelint",
+      "isStderr": false,
+      "isStdout": true,
+      "formatLines": 1,
+      "formatPattern": [
+        "^[^:]+:\\D+(\\d+)\\D+(\\d+)\\W+(\\w+)\\s-\\s(.*)$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 4,
+          "security": 3
+        }
+      ],
+      "securities": {
         "error": "info",
         "warning": "info"
       }

@@ -6,7 +6,7 @@ export ME="hexh"
 export REAL_ME="hexh"
 export ZSH_CUSTOM="/home/$ME/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/$ME/.config"
-export DISPLAY=$MY_HOST:0.0
+# export DISPLAY=$MY_HOST:0.0
 
 # path
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -57,6 +57,7 @@ alias ranger="source ranger"
 # alias fd="fdfind"
 # alias bat="batcat"
 # alias python="python3"
+alias gitr='cd "$(git rev-parse --show-toplevel)"'
 
 # plugin
 if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
@@ -102,6 +103,7 @@ fi
 alias work="source ~/.config/my-config/sh/work.sh"
 alias hexh="source ~/.config/my-config/sh/hexh.sh"
 alias initvim="source ~/.config/my-config/sh/init-vim.sh"
+alias createfile="source ~/.config/my-config/sh/create-file-or-directory.sh"
 
 # init omz
 export ZSH="/home/$ME/.oh-my-zsh"

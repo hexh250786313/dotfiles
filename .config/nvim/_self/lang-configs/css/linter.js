@@ -1,6 +1,5 @@
 const NODE_PATH = process.env.MY_NODE_PATH + "/lib/node_modules";
 
-const { existsSync } = require(`node:fs`);
 const { rcFile } = require(`${NODE_PATH}/rc-config-loader`);
 const current = process.cwd();
 
@@ -19,18 +18,15 @@ function loadRcFile(rcFileName) {
   }
 }
 
-let standard = `${NODE_PATH}/stylelint-config-standard-scss`;
-let prettier = `${NODE_PATH}/stylelint-config-prettier-scss`;
+let standard = `${NODE_PATH}/stylelint-config-standard`;
 let globalConfig = {
-  extends: [standard, prettier],
+  extends: [standard],
 };
-
-if (existsSync(`${current}/vue.config.js`) || existsSync(`${current}/vue.config.ts`)) {
-  globalConfig = {}
-}
 
 const localConfig = loadRcFile("stylelint");
 
-console.log(localConfig);
+const config = localConfig || globalConfig;
 
-module.exports = localConfig || globalConfig;
+console.log(config)
+
+module.exports = config;
