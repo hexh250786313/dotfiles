@@ -11,7 +11,6 @@ wk.register({
   ["<leader>wK"] = {"<c-w>K", "Move current window to the top"},
   ["<leader>wH"] = {"<c-w>H", "Move current window to the left side"},
   ["<leader>wL"] = {"<c-w>L", "Move current window to the right side"},
-  ["<leader>wq"] = {"<cmd>copen<cr>", "Open quickfix"},
   ["<leader>wt"] = {"<C-w>v<C-w>T", "Open this buffer in a new tab"}
 })
 wk.register({
@@ -21,6 +20,7 @@ wk.register({
   ["<leader>qt"] = {"<cmd>tabclose<cr>", "Quit tab"},
   ["<leader>qw"] = {"<cmd>q<cr>", "Close window"}
 })
+wk.register({mode = {"n"}, ["<leader>lq"] = {"<cmd>copen<cr>", "Open quickfix"}})
 
 ---- 配置
 vim.cmd([[
