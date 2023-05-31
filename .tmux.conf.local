@@ -1,16 +1,16 @@
 tmux_conf_24b_colour=true
 
-color0="#a89984" # leftest bar bg
-color1="#32302f" # status bg
-color2="#504945" # time bg
-color3="#a89984" # hexh bg
-color4="#ebdbb2" # status fg
-color5="#2a2a29" # leftest bar fg
-color6="#ebdbb2" # selected fg
+color0="#043e67" # leftest bar bg
+color1="#282829" # status bg
+color2="#043e67" # time bg
+color3="#043e67" # hexh bg
+color4="#8a8a8a" # status fg
+color5="#8a8a8a" # leftest bar fg
+color6="#8a8a8a" # selected fg
 color7="#f44336"
 color8="#f44336"
 color9="#f44336"
-color10="#504945" # selected bg
+color10="#043e67" # selected bg
 color11="#f44336"
 color12="#f44336"
 color13="#ffffff" # command bg
@@ -34,8 +34,8 @@ tmux_conf_theme_window_status_fg=$color4
 tmux_conf_theme_window_status_bg=$color1
 tmux_conf_theme_window_status_current_fg=$color6
 tmux_conf_theme_window_status_current_bg=$color10
-tmux_conf_theme_window_status_format="#I #(~/workspace/dotfiles/.config/my-config/sh/truncate-path.sh #{pane_current_path} 25)"
-tmux_conf_theme_window_status_current_format='  #(~/workspace/dotfiles/.config/my-config/sh/truncate-path.sh #{pane_current_path} 25) '
+tmux_conf_theme_window_status_format="#I #(~/workspace/hexh/dotfiles/.config/my-config/sh/truncate-path.sh #{pane_current_path} 25)"
+tmux_conf_theme_window_status_current_format='  #(~/workspace/hexh/dotfiles/.config/my-config/sh/truncate-path.sh #{pane_current_path} 25) '
 tmux_conf_theme_window_status_bell_fg="#f44336"
 tmux_conf_theme_window_status_last_fg="default"
 tmux_conf_theme_window_status_last_bg="default"
@@ -52,7 +52,7 @@ tmux_conf_theme_right_separator_sub=" "
 tmux_conf_theme_status_left="   #S "
 # tmux_conf_theme_status_right="#{prefix}#{pairing}#{synchronized}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} | #(curl wttr.in?format="%%c%%20%%t") |  %R |  #{username}#{root} | ﯅ #{hostname} "
 # tmux_conf_theme_status_right="#{prefix}  #{pairing}| 深圳 #(curl wttr.in/Shenzhen?format="%%c%%20%%t") |  %R |  #{username}#{root} | ﯅ #{hostname} "
-tmux_conf_theme_status_right="#{prefix}  #{pairing}|  %R |  #{username}#{root} | ﯅ #{hostname} "
+tmux_conf_theme_status_right="#{prefix}  #{pairing}| %R "
 tmux_conf_theme_status_left_fg=$color5
 tmux_conf_theme_status_left_bg=$color0
 tmux_conf_theme_status_right_fg=$color0,$color6,$color5,$color4,$color4
@@ -61,22 +61,47 @@ tmux_conf_theme_terminal_title="#S - #W"
 tmux_conf_theme_prefix_fg=$color4
 tmux_conf_theme_pairing_fg=$color4
 
+
 set-option -g prefix M-b
 set -g prefix2 M-b
 tmux_conf_copy_to_os_clipboard=true
 set -g default-terminal "tmux-256color"
-set -as terminal-overrides ",*256col*:Tc"
-set -as terminal-overrides ',alacritty:RGB'
-set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'                                                        # Undercurl support
-set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m' # Underscore colors
 set-option -sg escape-time 50 # esc 键延迟，设置 0 的话 Ubuntu 20.04 会出现奇怪字符
 set-window-option -g mode-keys vi
-bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
-bind -T copy-mode-vi v send-keys Space
-set-option -g focus-events on
+run -b 'tmux bind -T copy-mode-vi y send -X copy-selection -x 2> /dev/null || true' # y 复制
+run -b 'tmux bind -T copy-mode-vi Escape send -X clear-selection 2> /dev/null || true' # esc 取消选择
+run -b 'tmux bind -T copy-mode-vi MouseDown1Pane send -X copy-selection -x 2> /dev/null || true' # 单击复制
+run -b 'tmux bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X begin-selection -x 2> /dev/null || true' # 拖拽选择
+run -b 'tmux bind -T copy-mode-vi DoubleClick1Pane send -X select-word 2> /dev/null || true' # 双击选择单词
+run -b 'tmux bind -T copy-mode-vi TripleClick1Pane send -X select-line 2> /dev/null || true' # 三击选择整行
+set-option -g focus-events off
 set -g mouse on
 bind -n C-l send-keys C-l
 set -g history-limit 250000
-set-option -g status-position top
+# set-option -g status-position top
 # set -g status off
 # set-option repeat-time 0
+
+bind-key -n M-1 select-window -t 1
+bind-key -n M-2 select-window -t 2
+bind-key -n M-3 select-window -t 3
+bind-key -n M-4 select-window -t 4
+bind-key -n M-5 select-window -t 5
+bind-key -n M-6 select-window -t 6
+bind-key -n M-7 select-window -t 7
+bind-key -n M-8 select-window -t 8
+bind-key -n M-9 select-window -t 9
+bind-key -n M-` last-window
+
+bind-key -n M-h select-pane -L
+bind-key -n M-j select-pane -D
+bind-key -n M-k select-pane -U
+bind-key -n M-l select-pane -R
+
+bind-key -n M-z resize-pane -Z
+
+run-shell ~/.tmux-jump/tmux-jump.tmux
+
+run -b 'tmux set -g @jump-key "f"'
+
+bind-key -n M-f last-window

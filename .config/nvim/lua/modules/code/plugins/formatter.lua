@@ -52,7 +52,7 @@ require("formatter").setup({
         if vim.api.nvim_buf_line_count(0) < 1 then return {} end
         return {
           exe = "lua-format",
-          args = {"--config", "~/.config/nvim/_self/lang-configs/lua/lua-format.conf"},
+          args = {"--config", "~/.config/nvim/_self/lang-configs/lua/formatter.conf"},
           stdin = true
         }
       end
