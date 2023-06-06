@@ -103,7 +103,7 @@ fi
 alias work="source ~/.config/my-config/sh/work.sh"
 alias hexh="source ~/.config/my-config/sh/hexh.sh"
 alias initvim="source ~/.config/my-config/sh/init-vim.sh"
-alias createfile="source ~/.config/my-config/sh/create-file-or-directory.sh"
+alias pwsh="~/.config/my-config/sh/pwsh.sh"
 
 # init omz
 export ZSH="/home/$ME/.oh-my-zsh"
