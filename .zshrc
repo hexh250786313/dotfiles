@@ -86,9 +86,10 @@ setopt rm_starsilent
 # -------------------
 
 # plugins
-if [[ ! -d $ZSH_CUSTOM/plugins/auto-notify ]]; then
-  git clone https://github.com/MichaelAquilina/zsh-auto-notify.git $ZSH_CUSTOM/plugins/auto-notify
-fi
+# 通知
+# if [[ ! -d $ZSH_CUSTOM/plugins/auto-notify ]]; then
+#   git clone https://github.com/MichaelAquilina/zsh-auto-notify.git $ZSH_CUSTOM/plugins/auto-notify
+# fi
 if [[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 fi
