@@ -4,7 +4,6 @@ gui:
   showIcons: true
   showCommandLog: false
   showRandomTip: false
-  border: 'hidden'
   mouseEvents: false
   showFileTree: false
 keybinding:
