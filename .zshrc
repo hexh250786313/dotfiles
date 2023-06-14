@@ -232,6 +232,7 @@ lower_node_paths=(
   "/home/hexh/workspace/songmao/crm-components"
   "/home/hexh/workspace/songmao/crm-ib"
   "/home/hexh/workspace/songmao/intrade-system-public-h5"
+  "/home/hexh/workspace/songmao/intrade-system-public-h5-design"
 )
 use_lower_node() {
   current_path=$(pwd)
