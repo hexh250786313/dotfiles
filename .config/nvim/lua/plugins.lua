@@ -185,7 +185,7 @@ return packer.startup(function(use)
   -- │  Git Module
   -- └───────────────────────────────────────
   use({
-    "hexh250786313/diffview.nvim",
+    "sindrets/diffview.nvim",
     cmd = {"DiffviewFileHistory", "DiffviewOpen"},
     keys = {{"n", "<leader>gt"}, {"n", "<leader>gg"}, {"n", "<leader>gT"}},
     config = [[require("modules.git.plugins.diffview")]]
