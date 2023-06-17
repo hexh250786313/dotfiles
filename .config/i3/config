@@ -324,7 +324,7 @@ bindsym $mod+Tab move workspace to output next
 # bindsym $mod+n exec --no-startup-id "bash ~/workspace/dotfiles/.config/i3/scripts/next-available-ws.sh"
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
-bindsym $mod+Shift+n exec --no-startup-id bash ~/workspace/dotfiles/.config/i3/scripts/next-available-ws.sh -m # move container to new window
+bindsym $mod+Shift+m exec --no-startup-id bash ~/workspace/dotfiles/.config/i3/scripts/next-available-ws.sh -m # move container to new window
 
 focus_follows_mouse no
 
