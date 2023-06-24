@@ -117,11 +117,11 @@ if [[ ! -f /home/$ME/.local/share/fnm/fnm ]]; then
 fi
 export PATH="/home/$ME/.local/share/fnm:$PATH"
 # eval "`fnm env`"
-export DEFAULT_NODE_VERSION="v16.19.1"
+export DEFAULT_NODE_VERSION="v16.20.1"
 export LOWER_NODE_VERSION="v14.15.0"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
-export MY_NODE_PATH="/home/$ME/.local/share/fnm/node-versions/v16.19.1/installation"
+export MY_NODE_PATH="/home/$ME/.local/share/fnm/node-versions/$DEFAULT_NODE_VERSION/installation"
 export NODE_PATH=$(npm root --global)
 alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
