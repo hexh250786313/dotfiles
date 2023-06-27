@@ -17,12 +17,13 @@ window:
     x: 0
     y: 0
   dynamic_padding: true
-  decorations: none
+  # decorations: none
 font:
   normal:
     # family: CaskaydiaCove Nerd Font
     # family: FiraCode Nerd Font
-    family: FiraCode Nerd Font Mono
+    # family: JetBrainsMono Nerd Font
+    family: JetBrainsMono Nerd Font Mono
     # family: Sarasa Mono SC Nerd
     # family: agave Nerd Font Mono
     # family: CaskaydiaCove Nerd Font Mono

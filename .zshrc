@@ -158,7 +158,7 @@ alias createfile="source ~/.config/my-config/sh/create-file-or-directory.sh"
 
 # fnm
 # a better nvm
-export DEFAULT_NODE_VERSION="v16.18.1"
+export DEFAULT_NODE_VERSION="v16.20.1"
 export LOWER_NODE_VERSION="v14.15.0"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"

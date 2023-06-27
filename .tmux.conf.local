@@ -1,16 +1,17 @@
 tmux_conf_24b_colour=true
 
-color0="#a89984" # leftest bar bg
-color1="#32302f" # status bg
-color2="#504945" # time bg
-color3="#a89984" # hexh bg
-color4="#ebdbb2" # status fg
-color5="#2a2a29" # leftest bar fg
-color6="#ebdbb2" # selected fg
+# code_dark2
+color0="#043e67" # leftest bar bg
+color1="#282829" # status bg
+color2="#043e67" # time bg
+color3="#043e67" # hexh bg
+color4="#8a8a8a" # status fg
+color5="#8a8a8a" # leftest bar fg
+color6="#8a8a8a" # selected fg
 color7="#f44336"
 color8="#f44336"
 color9="#f44336"
-color10="#504945" # selected bg
+color10="#043e67" # selected bg
 color11="#f44336"
 color12="#f44336"
 color13="#ffffff" # command bg
@@ -81,7 +82,7 @@ set-option -g focus-events on
 set -g mouse on
 bind -n C-l send-keys C-l
 set -g history-limit 250000
-set-option -g status-position top
+set-option -g status-position bottom
 # set -g status off
 # set-option repeat-time 0
 
@@ -104,3 +105,7 @@ bind-key -n M-k select-pane -U
 bind-key -n M-l select-pane -R
 
 bind-key -n M-z resize-pane -Z
+
+run -b 'tmux set -g @jump-key "f"'
+
+# run-shell ~/.tmux-jump/tmux-jump.tmux
