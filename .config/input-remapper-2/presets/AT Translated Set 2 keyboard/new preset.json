@@ -1,0 +1,114 @@
+[
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 1).h().ifeq(space, 1, h(space))",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57
+            },
+            {
+                "type": 1,
+                "code": 36
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 0).h(KEY_DOWN)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57
+            },
+            {
+                "type": 1,
+                "code": 35
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 0).h(KEY_LEFT)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57
+            },
+            {
+                "type": 1,
+                "code": 37
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 0).h(KEY_UP)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57
+            },
+            {
+                "type": 1,
+                "code": 38
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 0).h(KEY_RIGHT)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 58
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "Escape",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57
+            },
+            {
+                "type": 1,
+                "code": 52
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 0).h(KEY_FORWARD)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57
+            },
+            {
+                "type": 1,
+                "code": 51
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 0).h(KEY_BACK)",
+        "mapping_type": "key_macro"
+    }
+]
