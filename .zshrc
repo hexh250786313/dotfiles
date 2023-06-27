@@ -151,7 +151,7 @@ alias hexh="source ~/.config/my-config/sh/hexh.sh"
 alias server="source ~/.config/my-config/sh/server.sh"
 alias git-dude="source ~/.config/my-config/sh/git-dude/git-dude.sh"
 alias lock="source ~/.config/my-config/sh/lock.sh"
-alias edward="proxy_unset && cd ~/Desktop/share/openvpn/songmao/ && echo 'lllk' | sudo -S openvpn edward.ovpn"
+alias edward="proxy_unset && cd ~/Documents/nutstore/share/openvpn/songmao/ && echo 'lllk' | sudo -S openvpn edward.ovpn"
 alias initvim="source ~/.config/my-config/sh/init-vim.sh"
 alias createfile="source ~/.config/my-config/sh/create-file-or-directory.sh"
 # -------------------
@@ -231,8 +231,9 @@ lower_node_paths=(
   "/home/hexh/workspace/songmao/crm-client"
   "/home/hexh/workspace/songmao/crm-components"
   "/home/hexh/workspace/songmao/crm-ib"
-  "/home/hexh/workspace/songmao/intrade-system-public-h5"
-  "/home/hexh/workspace/songmao/intrade-system-public-h5-design"
+  "/home/hexh/workspace/songmao/public-h5"
+  "/home/hexh/workspace/songmao/h5-design"
+  "/home/hexh/workspace/songmao/crm-login-web"
 )
 use_lower_node() {
   current_path=$(pwd)
