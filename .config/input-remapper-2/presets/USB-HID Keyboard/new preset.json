@@ -3,7 +3,8 @@
         "input_combination": [
             {
                 "type": 1,
-                "code": 57
+                "code": 57,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             }
         ],
         "target_uinput": "keyboard",
@@ -14,26 +15,42 @@
         "input_combination": [
             {
                 "type": 1,
-                "code": 57
-            },
-            {
-                "type": 1,
-                "code": 36
+                "code": 58,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "set(space, 0).h(KEY_DOWN)",
+        "output_symbol": "Escape",
         "mapping_type": "key_macro"
     },
     {
         "input_combination": [
             {
                 "type": 1,
-                "code": 57
+                "code": 57,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             },
             {
                 "type": 1,
-                "code": 35
+                "code": 51,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 0).h(KEY_BACK)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
+            },
+            {
+                "type": 1,
+                "code": 35,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             }
         ],
         "target_uinput": "keyboard",
@@ -44,11 +61,30 @@
         "input_combination": [
             {
                 "type": 1,
-                "code": 57
+                "code": 57,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             },
             {
                 "type": 1,
-                "code": 37
+                "code": 36,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "set(space, 0).h(KEY_DOWN)",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 57,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
+            },
+            {
+                "type": 1,
+                "code": 37,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             }
         ],
         "target_uinput": "keyboard",
@@ -59,11 +95,13 @@
         "input_combination": [
             {
                 "type": 1,
-                "code": 57
+                "code": 57,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             },
             {
                 "type": 1,
-                "code": 38
+                "code": 38,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             }
         ],
         "target_uinput": "keyboard",
@@ -74,30 +112,17 @@
         "input_combination": [
             {
                 "type": 1,
-                "code": 57
+                "code": 57,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             },
             {
                 "type": 1,
-                "code": 52
+                "code": 52,
+                "origin_hash": "99e6c3c3139db77602699d0b0e596d9a"
             }
         ],
         "target_uinput": "keyboard",
         "output_symbol": "set(space, 0).h(KEY_FORWARD)",
-        "mapping_type": "key_macro"
-    },
-    {
-        "input_combination": [
-            {
-                "type": 1,
-                "code": 57
-            },
-            {
-                "type": 1,
-                "code": 51
-            }
-        ],
-        "target_uinput": "keyboard",
-        "output_symbol": "set(space, 0).h(KEY_BACK)",
         "mapping_type": "key_macro"
     }
 ]

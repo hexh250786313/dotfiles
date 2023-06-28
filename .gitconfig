@@ -5,9 +5,9 @@
     quotepath = false
     pager = delta
 [webui]
-    autoupdate = true
+	autoupdate = true
 [alias]
-    webui = !/home/hexh/.git-webui/release/libexec/git-core/git-webui
+	webui = !/home/hexh/.git-webui/release/libexec/git-core/git-webui
 [interactive]
     diffFilter = delta --color-only
 [delta]
