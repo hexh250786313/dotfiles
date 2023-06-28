@@ -107,7 +107,7 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "Shougo/defx.nvim",
-    keys = {{"n", "<leader>E"}},
+    keys = {{"n", "<leader>e"}},
     cmd = {"Defx"},
     config = function()
       require("modules.file.plugins.defx")
@@ -116,7 +116,7 @@ return packer.startup(function(use)
   })
   use({
     "kevinhwang91/rnvimr",
-    keys = {{"n", "<leader>e"}},
+    keys = {{"n", "<leader>E"}},
     cmd = {"RnvimrToggle"},
     config = [[require("modules.file.plugins.rnvimr")]]
   })
