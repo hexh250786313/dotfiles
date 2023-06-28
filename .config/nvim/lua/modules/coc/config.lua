@@ -4,7 +4,7 @@ wk.register({
   mode = {"n"},
   ["<leader>/"] = {":CocList grep<cr>", "Grep globally"}
 })
-wk.register({mode = {"x"}, ["<leader>/"] = {"<cmd>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally"}})
+wk.register({mode = {"x"}, ["<leader>/"] = {":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally"}})
 
 ---- 配置
 local api = vim.api
@@ -68,10 +68,31 @@ function! s:GREP_FROM_SELECTED(type)
   else
     return
   endif
-  let word = substitute(@@, '\n$', '', 'g')
-  let word = escape(word, '| ')
+
+  " 转义 rg 的保留符号
+  let wordA = substitute(@@, '\', '\\\\\', 'g')
+  let wordB = substitute(wordA, '\.', '\\.', 'g')
+  let wordC = substitute(wordB, '\$', '\\$', 'g')
+  let word1 = substitute(wordC, '\n$', '', 'g')
+  let word2 = escape(word1, '| ')
+  let word3 = substitute(word2, '(', '\\(', 'g')
+  let word4 = substitute(word3, ')', '\\)', 'g')
+  let word5 = substitute(word4, '}', '\\}', 'g')
+  let word6 = substitute(word5, '{', '\\{', 'g')
+  let word7 = substitute(word6, '<', '\\<', 'g')
+  let word8 = substitute(word7, '>', '\\>', 'g')
+  let word7 = substitute(word6, ']', '\\]', 'g')
+  let word8 = substitute(word7, '[', '\\[', 'g')
+  let word9 = substitute(word8, '-', '\\-', 'g')
+  let word10 = substitute(word9, 'iuo', 'iuo', 'g')
+  let word10 = substitute(word9, '*', '\\*', 'g')
+  let word11 = substitute(word10, '+', '\\+', 'g')
+  let word12 = substitute(word11, '?', '\\?', 'g')
+  let word13 = substitute(word12, '\^', '\\^', 'g')
+  let word = word13
+
   let @@ = saved_unnamed_register
-  execute printf('CocList grep ', word)
+  execute 'CocList -A grep ' . word
 endfunction
 
 " coc#pum#next(0) 0 是不插入文本，1 是插入
@@ -90,11 +111,11 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
-  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
+  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "2<C-e>"
+  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "2<C-y>"
   inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
   inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
-  vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-e>"
-  vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-y>"
+  vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "2<C-e>"
+  vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "2<C-y>"
 endif
 ]])
