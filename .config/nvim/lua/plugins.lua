@@ -187,10 +187,18 @@ return packer.startup(function(use)
   use({
     "sindrets/diffview.nvim",
     cmd = {"DiffviewFileHistory", "DiffviewOpen"},
-    keys = {{"n", "<leader>gt"}, {"n", "<leader>gg"}, {"n", "<leader>gT"}},
+    keys = {
+      {"n", "<leader>gt"}, {"n", "<leader>gT"}
+      -- {"n", "<leader>gg"},
+    },
     config = [[require("modules.git.plugins.diffview")]]
   })
-  use({"tpope/vim-fugitive", cmd = {"Git"}, config = [[require("modules.git.plugins.vim-fugitive")]]})
+  use({
+    "tpope/vim-fugitive",
+    cmd = {"Git"},
+    keys = {{"n", "<leader>gg"}},
+    config = [[require("modules.git.plugins.vim-fugitive")]]
+  })
 
   -- ┌───────────────────────────────────────
   -- │  Text Module

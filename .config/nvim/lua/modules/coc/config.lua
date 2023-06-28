@@ -1,10 +1,10 @@
 ---- 快捷键
 local wk = require("which-key")
+wk.register({mode = {"n"}, ["<leader>/"] = {":CocList grep<cr>", "Grep globally"}})
 wk.register({
-  mode = {"n"},
-  ["<leader>/"] = {":CocList grep<cr>", "Grep globally"}
+  mode = {"x"},
+  ["<leader>/"] = {":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally"}
 })
-wk.register({mode = {"x"}, ["<leader>/"] = {":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally"}})
 
 ---- 配置
 local api = vim.api

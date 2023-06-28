@@ -2,9 +2,9 @@
 local wk = require("which-key")
 wk.register({
   mode = {"n"},
-  ["<leader>/"] = {"<esc>:lua require('modules.grep.plugins.nvim-spectre').search_resume(true)<cr>", "Grep globally"}
+  ["<leader>?"] = {"<esc>:lua require('modules.grep.plugins.nvim-spectre').search_resume(true)<cr>", "Grep globally"}
 })
-wk.register({mode = {"x"}, ["<leader>/"] = {"<esc>:lua require('spectre').open_visual()<cr>", "Grep globally"}})
+wk.register({mode = {"x"}, ["<leader>?"] = {"<esc>:lua require('spectre').open_visual()<cr>", "Grep globally"}})
 
 ---- 配置
 local M = {}
@@ -31,7 +31,7 @@ require("spectre").setup({
     filename = "SpectreFilename",
     filedirectory = "SpectreFiledirectory",
     search = "CocWarningVirtualText",
-    replace = "CocErrorVirtualText",
+    replace = "CocErrorVirtualText"
   },
   mapping = {
     ["send_to_qf"] = {
