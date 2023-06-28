@@ -211,7 +211,7 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "nvim-pack/nvim-spectre",
-    keys = {{"n", "<leader>/"}, {"x", "<leader>/"}},
+    -- keys = {{"n", "<leader>/"}, {"x", "<leader>/"}},
     config = [[require("modules.grep.plugins.nvim-spectre")]],
     run = "./build.sh"
   })

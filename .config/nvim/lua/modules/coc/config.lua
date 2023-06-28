@@ -1,3 +1,11 @@
+---- 快捷键
+local wk = require("which-key")
+wk.register({
+  mode = {"n"},
+  ["<leader>/"] = {":CocList grep<cr>", "Grep globally"}
+})
+wk.register({mode = {"x"}, ["<leader>/"] = {"<cmd>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally"}})
+
 ---- 配置
 local api = vim.api
 vim.g.coc_global_extensions = {
@@ -48,6 +56,22 @@ endfunction
 function! s:CHECK_BACKSPACE() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" 从选中的文本中搜索
+function! s:GREP_FROM_SELECTED(type)
+  let saved_unnamed_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  let word = substitute(@@, '\n$', '', 'g')
+  let word = escape(word, '| ')
+  let @@ = saved_unnamed_register
+  execute printf('CocList grep ', word)
 endfunction
 
 " coc#pum#next(0) 0 是不插入文本，1 是插入
