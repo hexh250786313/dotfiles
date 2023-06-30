@@ -233,6 +233,7 @@ lower_node_paths=(
   "/home/hexh/workspace/songmao/crm-ib"
   "/home/hexh/workspace/songmao/public-h5"
   "/home/hexh/workspace/songmao/h5-design"
+  "/home/hexh/workspace/songmao/h5-utils"
   "/home/hexh/workspace/songmao/crm-login-web"
 )
 use_lower_node() {
@@ -250,7 +251,7 @@ use_lower_node() {
   if $match_found; then
     if [[ " ${LOWER_NODE_VERSION} " != *" $node_version " ]]; then
       proxy_unset
-      fnm use v14.15.0
+      fnm use $LOWER_NODE_VERSION
     fi
   else
     if [[ " ${DEFAULT_NODE_VERSION} " != *" $node_version " ]]; then
