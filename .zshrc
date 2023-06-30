@@ -227,14 +227,14 @@ eval "$(zoxide init zsh)"
 
 # 切换 node 版本
 lower_node_paths=(
-  "/home/hexh/workspace/songmao/crm-h5"
-  "/home/hexh/workspace/songmao/crm-client"
-  "/home/hexh/workspace/songmao/crm-components"
-  "/home/hexh/workspace/songmao/crm-ib"
-  "/home/hexh/workspace/songmao/public-h5"
-  "/home/hexh/workspace/songmao/h5-design"
-  "/home/hexh/workspace/songmao/h5-utils"
-  "/home/hexh/workspace/songmao/crm-login-web"
+  "crm-h5"
+  "crm-client"
+  "crm-components"
+  "crm-ib"
+  "public-h5"
+  "h5-design"
+  "h5-utils"
+  "crm-login-web"
 )
 use_lower_node() {
   current_path=$(pwd)
