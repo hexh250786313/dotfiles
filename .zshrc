@@ -128,11 +128,13 @@ alias http-server="$MY_NODE_PATH/bin/http-server"
 
 # 切换 node 版本
 lower_node_paths=(
-  "/home/hexh/workspace/songmao/crm-h5"
-  "/home/hexh/workspace/songmao/crm-client"
-  "/home/hexh/workspace/songmao/crm-components"
-  "/home/hexh/workspace/songmao/crm-ib"
-  "/home/hexh/workspace/songmao/intrade-system-public-h5"
+  "crm-h5"
+  "crm-client"
+  "crm-components"
+  "crm-ib"
+  "public-h5"
+  "h5-design"
+  "h5-utils"
 )
 use_lower_node() {
   current_path=$(pwd)
@@ -149,7 +151,7 @@ use_lower_node() {
   if $match_found; then
     if [[ " ${LOWER_NODE_VERSION} " != *" $node_version " ]]; then
       proxy_unset
-      fnm use v14.15.0
+      fnm use $LOWER_NODE_VERSION
     fi
   else
     if [[ " ${DEFAULT_NODE_VERSION} " != *" $node_version " ]]; then
