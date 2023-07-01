@@ -107,7 +107,7 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "Shougo/defx.nvim",
-    keys = {{"n", "<leader>E"}},
+    keys = {{"n", "<leader>e"}},
     cmd = {"Defx"},
     config = function()
       require("modules.file.plugins.defx")
@@ -116,7 +116,7 @@ return packer.startup(function(use)
   })
   use({
     "kevinhwang91/rnvimr",
-    keys = {{"n", "<leader>e"}},
+    keys = {{"n", "<leader>E"}},
     cmd = {"RnvimrToggle"},
     config = [[require("modules.file.plugins.rnvimr")]]
   })
@@ -187,10 +187,18 @@ return packer.startup(function(use)
   use({
     "sindrets/diffview.nvim",
     cmd = {"DiffviewFileHistory", "DiffviewOpen"},
-    keys = {{"n", "<leader>gt"}, {"n", "<leader>gg"}, {"n", "<leader>gT"}},
+    keys = {
+      {"n", "<leader>gt"}, {"n", "<leader>gT"}
+      -- {"n", "<leader>gg"},
+    },
     config = [[require("modules.git.plugins.diffview")]]
   })
-  use({"tpope/vim-fugitive", cmd = {"Git"}, config = [[require("modules.git.plugins.vim-fugitive")]]})
+  use({
+    "tpope/vim-fugitive",
+    cmd = {"Git"},
+    keys = {{"n", "<leader>gg"}},
+    config = [[require("modules.git.plugins.vim-fugitive")]]
+  })
 
   -- ┌───────────────────────────────────────
   -- │  Text Module
@@ -211,7 +219,8 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "nvim-pack/nvim-spectre",
-    keys = {{"n", "<leader>/"}, {"x", "<leader>/"}},
+    -- keys = {{"n", "<leader>/"}, {"x", "<leader>/"}},
+    keys = {{"n", "<leader>?"}, {"x", "<leader>?"}},
     config = [[require("modules.grep.plugins.nvim-spectre")]],
     run = "./build.sh"
   })
