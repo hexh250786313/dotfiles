@@ -242,6 +242,11 @@ use_lower_node() {
   node_version=$(node --version)
   match_found=false
 
+  # 检查当前目录是否存在 .nvmrc 文件
+  if [[ -f ".nvmrc" ]]; then
+    return  # 忽略已经有 .nvmrc 的目录，让其遵循 .nvmrc
+  fi
+
   for path_pattern in "${lower_node_paths[@]}"; do
     if [[ $current_path == *$path_pattern* ]]; then
       match_found=true
