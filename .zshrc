@@ -136,7 +136,8 @@ alias editor=nvim
 alias lazygit="lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml"
 alias vm-set="sudo sh -c 'echo 0 > /proc/sys/vm/compaction_proactiveness' && cat /proc/sys/vm/compaction_proactiveness"
 alias makepkg-without-check="makepkg -si --nocheck"
-alias zhiyun-chrome='proxy_unset && export http_proxy="http://10.10.1.30:6699" && export https_proxy="http://10.10.1.30:6699" && google-chrome-stable --disable-site-isolation-trials --disable-web-security --user-data-dir="/home/hexh/Desktop/chrome-data"'
+# alias zhiyun-chrome='proxy_unset && export http_proxy="http://10.10.1.30:6699" && export https_proxy="http://10.10.1.30:6699" && google-chrome-stable --disable-site-isolation-trials --disable-web-security --user-data-dir="/home/hexh/Desktop/chrome-data"'
+alias zhiyun-chrome='google-chrome-stable --disable-site-isolation-trials --disable-web-security --allow-running-insecure-content --user-data-dir="/home/hexh/Desktop/chrome-data"'
 alias maudio='mpv --no-video'
 alias ranger="source ranger"
 alias gitr='cd "$(git rev-parse --show-toplevel)"'
@@ -164,7 +165,7 @@ eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
 export MY_NODE_PATH="/home/hexh/.local/share/fnm/node-versions/$DEFAULT_NODE_VERSION/installation"
 export NODE_PATH=$(npm root --global)
-# alias yarn="$MY_NODE_PATH/bin/yarn"
+alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
 # -------------------
 
