@@ -1,5 +1,5 @@
 patch:
-  switches/@3/reset: 1
+  switches/@3/reset: 0
   translator/dictionary: luna_pinyin_simp.custom
   "menu/page_size": 9
   "key_binder/bindings":

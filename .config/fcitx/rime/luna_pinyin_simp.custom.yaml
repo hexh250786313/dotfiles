@@ -2,7 +2,7 @@
 # 把 switches 的第四个 @3 (ascii_punct), 全半角设置
 # 的 reset 值 (默认全角还是半角) 改为 1 (1 为半角, 0 为全角)
 patch:
-  switches/@3/reset: 1
+  switches/@3/reset: 0
   translator/dictionary: luna_pinyin_simp.custom
   "menu/page_size": 9
   "key_binder/bindings":
