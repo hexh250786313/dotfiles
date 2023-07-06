@@ -165,14 +165,14 @@ eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
 export MY_NODE_PATH="/home/hexh/.local/share/fnm/node-versions/$DEFAULT_NODE_VERSION/installation"
 export NODE_PATH=$(npm root --global)
-alias yarn="$MY_NODE_PATH/bin/yarn"
+# alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
 # -------------------
 
 # nvm
 # export NVM_DIR="$HOME/.nvm"
-# export MY_NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0"
-# export NODE_PATH="/home/hexh/.nvm/versions/node/v16.17.0/lib/node_modules"
+# export MY_NODE_PATH="/home/hexh/.nvm/versions/node/$DEFAULT_NODE_VERSION"
+# export NODE_PATH="/home/hexh/.nvm/versions/node/$DEFAULT_NODE_VERSION/lib/node_modules"
 # alias yarn="$MY_NODE_PATH/bin/yarn"
 # alias http-server="$MY_NODE_PATH/bin/http-server"
 # group_lazy_load $NVM_DIR/nvm.sh nvm node npm # 只在执行剩余参数时 (nvm node npm) 才 load 第一个参数
