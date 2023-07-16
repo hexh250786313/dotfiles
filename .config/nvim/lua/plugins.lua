@@ -65,6 +65,7 @@ return packer.startup(function(use)
     config = [[require("modules.base.plugins.close-all-windows")]],
     keys = {{"n", "<leader>qW"}}
   })
+  use({"~/.config/nvim/_self/plugins/copy-to-clipboard", config = [[require("modules.base.plugins.copy-to-clipboard")]]})
 
   -- ┌───────────────────────────────────────
   -- │  Buffer Module
@@ -209,7 +210,7 @@ return packer.startup(function(use)
     config = [[require("modules.text.plugins.vim-expand-region")]]
   })
   use({"junegunn/vim-easy-align", keys = {{"x", "ga"}}, config = [[require("modules.text.plugins.vim-easy-align")]]})
-  use({"tpope/vim-surround", keys = {{"n", "vi"}, {"n", "va"}, {"n", "cs"}, {"n", "ds"}, {"v", "S"}}})
+  use({"tpope/vim-surround", keys = {{"n", "vi"}, {"n", "va"}, {"n", "cs"}, {"n", "ds"}, {"x", "S"}}})
   use({"AndrewRadev/linediff.vim", cmd = {"Linediff"}})
   use({"windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end})
   use({"xiyaowong/nvim-cursorword"})
