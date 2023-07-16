@@ -10,7 +10,7 @@
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "coc.preferences.maxFileSize": "50KB",
+  "coc.preferences.maxFileSize": "5MB",
   "snippets.extends": {
     "javascript": ["javascript", "basedjs"],
     "typescript": ["typescript", "basedjs"],
@@ -65,7 +65,7 @@
   "list.source.files.args": ["--files", "--hidden"],
   "list.source.files.excludePatterns": ["**/.git/**"],
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextCurrentLineOnly": true,
   "suggest.completionItemKindLabels": {
     "keyword": "",
     "variable": "",
@@ -391,7 +391,7 @@
       "initializationOptions": {
         "maxTsServerMemory": 16384,
         "tsserver": {
-          "path": "/home/hexh/.local/share/fnm/node-versions/v16.19.1/installation/lib/node_modules/typescript/lib/tsserver.js"
+          "path": "/home/hexh/.local/share/fnm/node-versions/v16.20.1/installation/lib/node_modules/typescript/lib/tsserver.js"
           // "trace": "verbose",
           // "logVerbosity": "verbose"
         }

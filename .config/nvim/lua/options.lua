@@ -7,7 +7,7 @@ vim.g.coc_config_home = "~/.config/nvim/lua/modules/coc/"
 vim.cmd([[
 language en_US.UTF-8
 set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 " let g:loaded_matchparen = 1 " 关闭括弧配对高亮
 set guifont=FiraCode\ Nerd\ Font:h12
 set colorcolumn=+1
