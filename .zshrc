@@ -7,6 +7,9 @@ export MY_HOST="127.0.0.1"
 # add cargo binary
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# add python virtualenv
+export PATH="$HOME/venv/bin:$PATH"
+
 # used by following config
 export ZSH_CUSTOM="/home/hexh/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/hexh/.config"
