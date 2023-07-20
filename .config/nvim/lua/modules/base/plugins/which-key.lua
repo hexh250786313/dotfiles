@@ -22,6 +22,9 @@ wk.register({
 })
 wk.register({mode = {"n"}, ["<leader>lq"] = {"<cmd>copen<cr>", "Open quickfix"}})
 
+wk.register({mode = {"x"}, ["<leader>y"] = {'"zy', "Copy to z register"}})
+wk.register({mode = {"n", "x"}, ["<leader>p"] = {'"zp', "Paste from z register"}})
+
 ---- 配置
 vim.cmd([[
 " 宏
