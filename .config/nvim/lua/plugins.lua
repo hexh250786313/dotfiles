@@ -65,7 +65,7 @@ return packer.startup(function(use)
     config = [[require("modules.base.plugins.close-all-windows")]],
     keys = {{"n", "<leader>qW"}}
   })
-  use({"~/.config/nvim/_self/plugins/copy-to-clipboard", config = [[require("modules.base.plugins.copy-to-clipboard")]]})
+  -- use({"~/.config/nvim/_self/plugins/copy-to-clipboard", config = [[require("modules.base.plugins.copy-to-clipboard")]]})
 
   -- ┌───────────────────────────────────────
   -- │  Buffer Module

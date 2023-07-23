@@ -14,6 +14,6 @@ function! _self#yank#copy_to_clipboard(type) abort
   let word2 = substitute(word1, "\\'", "'\\\\''", 'g')
   let word = word2
   let @@ = saved_unnamed_register
-  call system("echo -n '" . word . "' | xsel --input -b")
+  call system("echo -n '" . word . "' | xsel -i -b")
   normal! gv
 endfunction
