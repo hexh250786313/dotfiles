@@ -117,13 +117,13 @@ if [[ ! -f /home/$ME/.local/share/fnm/fnm ]]; then
 fi
 export PATH="/home/$ME/.local/share/fnm:$PATH"
 # eval "`fnm env`"
-export DEFAULT_NODE_VERSION="v16.20.1"
+export DEFAULT_NODE_VERSION="v18.16.1"
 export LOWER_NODE_VERSION="v14.15.0"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
 export MY_NODE_PATH="/home/$ME/.local/share/fnm/node-versions/$DEFAULT_NODE_VERSION/installation"
 export NODE_PATH=$(npm root --global)
-alias yarn="$MY_NODE_PATH/bin/yarn"
+# alias yarn="$MY_NODE_PATH/bin/yarn"
 alias http-server="$MY_NODE_PATH/bin/http-server"
 
 # 切换 node 版本
@@ -135,11 +135,17 @@ lower_node_paths=(
   "public-h5"
   "h5-design"
   "h5-utils"
+  "h5-api"
 )
 use_lower_node() {
   current_path=$(pwd)
   node_version=$(node --version)
   match_found=false
+
+  # 检查当前目录是否存在 .nvmrc 文件
+  if [[ -f ".nvmrc" ]]; then
+    return  # 忽略已经有 .nvmrc 的目录，让其遵循 .nvmrc
+  fi
 
   for path_pattern in "${lower_node_paths[@]}"; do
     if [[ $current_path == *$path_pattern* ]]; then
