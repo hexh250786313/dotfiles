@@ -2,7 +2,7 @@ tmux_conf_24b_colour=true
 
 # code_dark2
 color0="#043e67" # leftest bar bg
-color1="#282829" # status bg
+color1="#1a1a1a" # status bg
 color2="#043e67" # time bg
 color3="#043e67" # hexh bg
 color4="#8a8a8a" # status fg
