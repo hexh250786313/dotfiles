@@ -149,6 +149,7 @@ return packer.startup(function(use)
   -- Theme
   use({
     "rockyzhang24/arctic.nvim",
+    branch = "v2",
     requires = {"rktjmp/lush.nvim"},
     as = "theme",
     config = function()
