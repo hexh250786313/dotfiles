@@ -163,7 +163,7 @@ alias createfile="source ~/.config/my-config/sh/create-file-or-directory.sh"
 # fnm
 # a better nvm
 export DEFAULT_NODE_VERSION="v18.16.1"
-export LOWER_NODE_VERSION="v14.15.0"
+export LOWER_NODE_VERSION="v14.21.3"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
 export MY_NODE_PATH="/home/hexh/.local/share/fnm/node-versions/$DEFAULT_NODE_VERSION/installation"
