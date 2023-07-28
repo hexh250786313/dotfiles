@@ -1,5 +1,4 @@
 gui:
-  language: 'zh'
   scrollHeight: 1
   showIcons: true
   showCommandLog: false
