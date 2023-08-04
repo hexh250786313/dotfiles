@@ -56,7 +56,7 @@
   "suggest.snippetIndicator": " ✩",
   "suggest.autoTrigger": "always",
   "suggest.virtualText": true,
-  "list.interactiveDebounceTime": 100, // only for interactive supported list
+  "list.interactiveDebounceTime": 2000, // only for interactive supported list
   "list.source.grep.command": "rg",
   "list.source.files.command": "rg",
   // "list.source.grep.args": ["-i", "--hidden", "--sort-files"],
