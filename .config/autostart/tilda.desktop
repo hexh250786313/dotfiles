@@ -5,7 +5,6 @@ Type=Application
 Name=tilda
 Comment=tilda
 Exec=sh -c "sleep 20; tilda"
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false

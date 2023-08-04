@@ -5,7 +5,6 @@ Type=Application
 Name=clash
 Comment=clash
 Exec=clash
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false

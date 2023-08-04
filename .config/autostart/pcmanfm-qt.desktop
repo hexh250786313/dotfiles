@@ -5,9 +5,8 @@ Type=Application
 Name=feh
 Comment=
 Exec=sh -c "sleep 10; LANG=zh_CN.UTF-8 pcmanfm-qt -d"
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false
-Hidden=false
+Hidden=true
 

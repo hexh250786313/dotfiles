@@ -5,7 +5,6 @@ Type=Application
 Name=fluent proxy
 Comment=
 Exec=sh -c "source ~/.config/my-config/sh/fluent_proxy.sh"
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false

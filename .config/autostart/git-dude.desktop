@@ -5,7 +5,6 @@ Type=Application
 Name=git-dude
 Comment=git-dude
 Exec=sh -c "~/.config/my-config/sh/git-dude/git-dude.sh ~/.git-dude"
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false

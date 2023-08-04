@@ -5,7 +5,6 @@ Type=Application
 Name=utools
 Comment=utools
 Exec=utools
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false

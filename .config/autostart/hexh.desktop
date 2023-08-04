@@ -5,7 +5,6 @@ Type=Application
 Name=hexh
 Comment=
 Exec=sh -c "source ~/.config/my-config/sh/hexh.sh"
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false

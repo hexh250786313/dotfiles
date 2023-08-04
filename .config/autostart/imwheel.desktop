@@ -5,7 +5,6 @@ Type=Application
 Name=imwheel
 Comment=imwheel
 Exec=sh -c "imwheel -b 45"
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false

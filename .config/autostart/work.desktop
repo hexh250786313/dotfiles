@@ -5,7 +5,6 @@ Type=Application
 Name=work
 Comment=
 Exec=sh -c "sleep 10; source ~/.config/my-config/sh/work.sh"
-OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false
