@@ -2,14 +2,14 @@ function _self#highlight#toggle_normal_background()
   if g:hlnormalstate == 1
     let g:hlnormalstate=0
     hi! Normal guibg=NONE
-    exec 'hi! NormalStrongFont gui=bold' .
+    exec 'hi! NormalStrongFont gui=italic,bold' .
       \' guifg=' . _self#highlight#pick('Normal', 'fg') .
       \' guibg=' . _self#highlight#pick('Normal', 'bg')
   else
     let g:hlnormalstate=1
     exec 'hi! Normal' .
       \' guibg=' . g:defaultnormalgb
-    exec 'hi! NormalStrongFont gui=bold' .
+    exec 'hi! NormalStrongFont gui=italic,bold' .
       \' guifg=' . _self#highlight#pick('Normal', 'fg') .
       \' guibg=' . _self#highlight#pick('Normal', 'bg')
   endif
@@ -115,17 +115,73 @@ exec 'hi! VirtColumn' .
   \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
 exec 'hi SpellBad guifg=' . s:error .
   \' guibg=' . _self#highlight#pick('SpellBad', 'bg')
-exec 'hi! NormalStrongFont' .
+" exec 'hi! Folded' .
+"   \' guifg=' . _self#highlight#pick('FoldColumn', 'fg') .
+"   \' guibg=#343632'
+" exec 'hi! NormalStrongFont gui=italic,bold' .
+exec 'hi! NormalStrongFont gui=italic' .
   \' guifg=' . _self#highlight#pick('Normal', 'fg') .
   \' guibg=' . _self#highlight#pick('Normal', 'bg')
 
 exec 'hi! DefxCursorLine' .
   \' guibg=' . _self#highlight#pick('Visual', 'bg')
+  " \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
 
-exec 'hi! @punctuation.bracket' .
+exec 'hi! Comment gui=italic' .
+  \' guifg=' . _self#highlight#pick('Comment', 'fg') .
+  \' guibg=' . _self#highlight#pick('Comment', 'bg')
+exec 'hi! @string gui=italic' .
+  \' guibg=' . _self#highlight#pick('@string', 'bg') .
+  \' guifg=' . _self#highlight#pick('@string', 'fg')
+exec 'hi! @character gui=italic' .
+  \' guibg=' . _self#highlight#pick('@character', 'bg') .
+  \' guifg=' . _self#highlight#pick('@character', 'fg')
+exec 'hi! @number gui=italic' .
+  \' guibg=' . _self#highlight#pick('@number', 'bg') .
+  \' guifg=' . _self#highlight#pick('@number', 'fg')
+exec 'hi! @boolean gui=italic' .
+  \' guibg=' . _self#highlight#pick('@boolean', 'bg') .
+  \' guifg=' . _self#highlight#pick('@boolean', 'fg')
+exec 'hi! @float gui=italic' .
+  \' guibg=' . _self#highlight#pick('@float', 'bg') .
+  \' guifg=' . _self#highlight#pick('@float', 'fg')
+exec 'hi! @parameter gui=italic' .
+  \' guibg=' . _self#highlight#pick('@parameter', 'bg') .
+  \' guifg=' . _self#highlight#pick('@parameter', 'fg')
+exec 'hi! @punctuation.bracket gui=italic' .
   \' guifg=' . _self#highlight#pick('Normal', 'fg') .
   \' guibg=NONE'
-exec 'hi! @tag.attribute' .
+" exec 'hi! @function.builtin gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@function.builtin', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@function.builtin', 'fg')
+" exec 'hi! @function gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@function', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@function', 'fg')
+" exec 'hi! @function.macro gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@function.macro', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@function.macro', 'fg')
+" exec 'hi! @method gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@method', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@method', 'fg')
+" exec 'hi! @constructor gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@constructor', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@constructor', 'fg')
+" exec 'hi! @tag gui=bold' .
+"   \' guibg=' . _self#highlight#pick('@tag', 'bg') .
+"   \' guifg=' . _self#highlight#pick('@tag', 'fg')
+exec 'hi! @keyword gui=italic' .
+  \' guibg=' . _self#highlight#pick('@keyword', 'bg') .
+  \' guifg=' . _self#highlight#pick('@keyword', 'fg')
+exec 'hi! @include gui=italic' .
+  \' guibg=' . _self#highlight#pick('@include', 'bg') .
+  \' guifg=' . _self#highlight#pick('@include', 'fg')
+exec 'hi! @variable gui=italic' .
+  \' guibg=' . _self#highlight#pick('@variable', 'bg') .
+  \' guifg=' . _self#highlight#pick('@variable', 'fg')
+exec 'hi! @variable.builtin gui=italic' .
+  \' guibg=' . _self#highlight#pick('@variable.builtin', 'bg') .
+  \' guifg=' . _self#highlight#pick('@variable.builtin', 'fg')
+exec 'hi! @tag.attribute gui=italic' .
   \' guibg=' . _self#highlight#pick('@tag.attribute', 'bg') .
   \' guifg=' . _self#highlight#pick('@variable.builtin', 'fg')
 
@@ -146,7 +202,8 @@ exec 'hi! DefxIconsCopyIcon guibg=NONE' .
   \' guifg=' . _self#highlight#pick('WarningMsg', 'fg')
 exec 'hi! DefxIconsMoveIcon guibg=NONE' .
   \' guifg=' . _self#highlight#pick('ErrorMsg', 'fg')
-exec 'hi! Defx_filename_directory gui=italic' .
+" exec 'hi! Defx_filename_directory gui=bold,italic,underline' .
+exec 'hi! Defx_filename_directory gui=italic,underline' .
   \' guifg=' . _self#highlight#pick('PreProc', 'fg')
 
 exec 'hi! CocHighlightText' .
