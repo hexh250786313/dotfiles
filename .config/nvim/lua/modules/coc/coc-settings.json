@@ -96,11 +96,23 @@
   },
   "suggest.labelMaxLength": 30,
   "suggest.floatConfig": {
-    "border": false,
+    "border": true,
+    "rounded": false,
+    // "highlight": "Normal",
+    // "borderhighlight": "LspInfoBorder",
+    "winblend": 0
+  },
+  "suggest.pumFloatConfig": {
+    "border": true,
+    "rounded": false,
+    // "highlight": "Normal",
+    // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "floatFactory.floatConfig": {
-    "border": [0, 0, 0, 0], // or bool
+    "border": [1, 1, 1, 1], // or bool
+    // "highlight": "Normal",
+    // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "suggest.timeout": 5000,
