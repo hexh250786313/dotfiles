@@ -97,20 +97,21 @@
   "suggest.labelMaxLength": 30,
   "suggest.floatConfig": {
     "border": true,
-    "rounded": false,
+    "rounded": true,
     // "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "suggest.pumFloatConfig": {
     "border": true,
-    "rounded": false,
+    "rounded": true,
     // "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "floatFactory.floatConfig": {
     "border": [1, 1, 1, 1], // or bool
+    "rounded": true,
     // "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
