@@ -84,10 +84,7 @@ return packer.startup(function(use)
     keys = {{"n", "<leader>qB"}}
   })
   use("~/.config/nvim/_self/plugins/avoid-scrolling-when-switch-buffers")
-  use({
-    "chrisgrieser/nvim-early-retirement",
-    config = [[require("modules.buffer.plugins.nvim-early-retirement")]]
-  })
+  use({"chrisgrieser/nvim-early-retirement", config = [[require("modules.buffer.plugins.nvim-early-retirement")]]})
 
   -- ┌───────────────────────────────────────
   -- │  Code Module
@@ -131,6 +128,11 @@ return packer.startup(function(use)
   -- ┌───────────────────────────────────────
   -- │  Highlight Module
   -- └───────────────────────────────────────
+  use({
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+    requires = "nvim-treesitter/nvim-treesitter"
+  })
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
