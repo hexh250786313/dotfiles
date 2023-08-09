@@ -60,7 +60,14 @@
   "list.source.grep.command": "rg",
   "list.source.files.command": "rg",
   // "list.source.grep.args": ["-i", "--hidden", "--sort-files"],
-  "list.source.grep.args": ["--column", "--smart-case", "--hidden", "--sort-files", "--multiline", "--vimgrep"],
+  "list.source.grep.args": [
+    "--column",
+    "--smart-case",
+    "--hidden",
+    "--sort-files",
+    "--multiline",
+    "--vimgrep"
+  ],
   "list.source.grep.excludePatterns": ["**/.git/**"],
   "list.source.files.args": ["--files", "--hidden"],
   "list.source.files.excludePatterns": ["**/.git/**"],
@@ -180,7 +187,16 @@
       "command": "sqlfluff",
       "rootPatterns": [".git"], // For cwd
       "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
-      "args": ["lint", "--dialect", "mysql", "--format", "json", "--ignore", "parsing", "-"],
+      "args": [
+        "lint",
+        "--dialect",
+        "mysql",
+        "--format",
+        "json",
+        "--ignore",
+        "parsing",
+        "-"
+      ],
       "sourceName": "sqlfluff",
       "parseJson": {
         "errorsRoot": "[0].violations",
@@ -302,7 +318,12 @@
       "command": "./node_modules/.bin/stylelint",
       "rootPatterns": [".git"],
       "debounce": 550,
-      "args": ["-f", "compact", "--config", "/home/hexh/.config/nvim/_self/lang-configs/css/linter.js"],
+      "args": [
+        "-f",
+        "compact",
+        "--config",
+        "/home/hexh/.config/nvim/_self/lang-configs/css/linter.js"
+      ],
       "offsetLine": 0,
       "offsetColumn": 0,
       "sourceName": "stylelint",
@@ -328,7 +349,12 @@
       "command": "./node_modules/.bin/stylelint",
       "rootPatterns": [".git"],
       "debounce": 550,
-      "args": ["-f", "compact", "--config", "/home/hexh/.config/nvim/_self/lang-configs/less/linter.js"],
+      "args": [
+        "-f",
+        "compact",
+        "--config",
+        "/home/hexh/.config/nvim/_self/lang-configs/less/linter.js"
+      ],
       "offsetLine": 0,
       "offsetColumn": 0,
       "sourceName": "stylelint",
