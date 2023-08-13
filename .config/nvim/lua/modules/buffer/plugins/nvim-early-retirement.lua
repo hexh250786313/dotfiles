@@ -1,1 +1,1 @@
-require("early-retirement").setup {retirementAgeMins = 6, ignoreAltFile = false}
+require("early-retirement").setup {retirementAgeMins = 3, ignoreAltFile = false}
