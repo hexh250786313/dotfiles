@@ -105,21 +105,21 @@
   "suggest.floatConfig": {
     "border": true,
     "rounded": true,
-    // "highlight": "Normal",
+    "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "suggest.pumFloatConfig": {
     "border": true,
     "rounded": true,
-    // "highlight": "Normal",
+    "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "floatFactory.floatConfig": {
     "border": [1, 1, 1, 1], // or bool
     "rounded": true,
-    // "highlight": "Normal",
+    "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },

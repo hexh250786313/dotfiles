@@ -154,17 +154,22 @@ return packer.startup(function(use)
   use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})
   -- Theme
   use({
-    "rockyzhang24/arctic.nvim",
-    branch = "v2",
+    -- "rockyzhang24/arctic.nvim",
+    -- branch = "v2",
+    "mcchrish/zenbones.nvim",
     requires = {"rktjmp/lush.nvim"},
     as = "theme",
     config = function()
       vim.cmd([[
-        colorscheme arctic
         let g:gruvbox_material_better_performance = 0
         let g:gruvbox_material_background = 'hard'
         let g:gruvbox_material_foreground = 'original'
         set background=dark " 背景 "light" | "dark"
+        " ---> arctic
+        " colorscheme arctic
+        " ---> zenbones
+        colorscheme zenbones
+        autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
       ]])
     end
   })
