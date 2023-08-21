@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use({
     "skywind3000/asynctasks.vim",
     requires = "skywind3000/asyncrun.vim",
+    commit = "c304a574defa426f0b660c361fa01b556dd60d4d",
     config = [[require("modules.base.plugins.asynctasks")]]
   })
   use({"folke/which-key.nvim", config = [[require("modules.base.plugins.which-key")]]})
@@ -84,6 +85,7 @@ return packer.startup(function(use)
     keys = {{"n", "<leader>qB"}}
   })
   use("~/.config/nvim/_self/plugins/avoid-scrolling-when-switch-buffers")
+  use({"chrisgrieser/nvim-early-retirement", config = [[require("modules.buffer.plugins.nvim-early-retirement")]]})
 
   -- ┌───────────────────────────────────────
   -- │  Code Module
@@ -128,6 +130,11 @@ return packer.startup(function(use)
   -- │  Highlight Module
   -- └───────────────────────────────────────
   use({
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+    requires = "nvim-treesitter/nvim-treesitter"
+  })
+  use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     -- commit = "3c42fb9d702e1246313d2b5531b815595cb4d889",
@@ -148,16 +155,22 @@ return packer.startup(function(use)
   use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})
   -- Theme
   use({
-    "rockyzhang24/arctic.nvim",
+    -- "rockyzhang24/arctic.nvim",
+    -- branch = "v2",
+    "mcchrish/zenbones.nvim",
     requires = {"rktjmp/lush.nvim"},
     as = "theme",
     config = function()
       vim.cmd([[
-        colorscheme arctic
         let g:gruvbox_material_better_performance = 0
         let g:gruvbox_material_background = 'hard'
         let g:gruvbox_material_foreground = 'original'
         set background=dark " 背景 "light" | "dark"
+        " ---> arctic
+        " colorscheme arctic
+        " ---> zenbones
+        colorscheme zenbones
+        autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
       ]])
     end
   })

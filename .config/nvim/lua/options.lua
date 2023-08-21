@@ -40,7 +40,7 @@ end
 local optionList = {
   mouse = "a", -- 使用鼠标
   number = true, -- 显示行号, 如果开了, 则出现丑的要命的右 padding
-  relativenumber = true, -- 使用相对行号
+  relativenumber = false, -- 使用相对行号
   -- numberwidth = 2, -- 行号的宽度
   title = true, -- 任务栏显示标题
   hlsearch = true, -- 光标搜索
@@ -64,7 +64,7 @@ local optionList = {
   softtabstop = 2,
   laststatus = 3, -- 状态栏全局只展示一个
   timeout = true,
-  timeoutlen = 500,
+  timeoutlen = 2000,
   textwidth = 120,
   incsearch = true -- 高亮搜索
 }

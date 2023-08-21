@@ -10,11 +10,11 @@ wk.register({
 ---- 配置
 local api = vim.api
 vim.g.coc_global_extensions = {
-  "coc-css", "coc-diagnostic", "coc-html", "coc-json", "coc-lightbulb", "coc-lists", "coc-markdown-preview-enhanced",
-  "coc-marketplace", "coc-snippets", -- "coc-tsserver",
-  "coc-webview", "coc-yaml", "coc-markmap", "coc-angular", "coc-git", "@hexuhua/coc-replacement", "@yaegassy/coc-volar",
-  "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree", "@yaegassy/coc-tailwindcss3", "coc-styled-components",
-  "coc-cssmodules", "coc-typos", "@hexuhua/coc-list-files-mru", "@hexuhua/coc-copilot"
+  "coc-css", "coc-diagnostic", "coc-html", "coc-json", "coc-lists", "coc-markdown-preview-enhanced", "coc-marketplace",
+  "coc-snippets", "coc-webview", "coc-yaml", "coc-markmap", "coc-angular", "coc-git", "@hexuhua/coc-replacement",
+  "@yaegassy/coc-volar", "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree", "@yaegassy/coc-tailwindcss3",
+  "coc-styled-components", "coc-typos", "@hexuhua/coc-list-files-mru", "@hexuhua/coc-copilot"
+  -- "coc-lightbulb", "coc-tsserver", "coc-cssmodules",
 }
 
 -- coc 选择了 quickfix 打开后的回调

@@ -46,7 +46,7 @@
   "git.untrackedDecorator": " ✩",
   "git.conflictedDecorator": "⇡⇣",
   "git.virtualTextPrefix": "  ",
-  "list.height": 9,
+  "list.height": 6,
   "list.indicator": "❯",
   "list.menuAction": true,
   "list.source.location.defaultAction": "drop",
@@ -56,11 +56,18 @@
   "suggest.snippetIndicator": " ✩",
   "suggest.autoTrigger": "always",
   "suggest.virtualText": true,
-  "list.interactiveDebounceTime": 100, // only for interactive supported list
+  "list.interactiveDebounceTime": 2000, // only for interactive supported list
   "list.source.grep.command": "rg",
   "list.source.files.command": "rg",
   // "list.source.grep.args": ["-i", "--hidden", "--sort-files"],
-  "list.source.grep.args": ["--column", "--smart-case", "--hidden", "--sort-files", "--multiline", "--vimgrep"],
+  "list.source.grep.args": [
+    "--column",
+    "--smart-case",
+    "--hidden",
+    "--sort-files",
+    "--multiline",
+    "--vimgrep"
+  ],
   "list.source.grep.excludePatterns": ["**/.git/**"],
   "list.source.files.args": ["--files", "--hidden"],
   "list.source.files.excludePatterns": ["**/.git/**"],
@@ -96,11 +103,24 @@
   },
   "suggest.labelMaxLength": 30,
   "suggest.floatConfig": {
-    "border": false,
+    "border": true,
+    "rounded": true,
+    "highlight": "Normal",
+    // "borderhighlight": "LspInfoBorder",
+    "winblend": 0
+  },
+  "suggest.pumFloatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "Normal",
+    // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "floatFactory.floatConfig": {
-    "border": [0, 0, 0, 0], // or bool
+    "border": [1, 1, 1, 1], // or bool
+    "rounded": true,
+    "highlight": "Normal",
+    // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "suggest.timeout": 5000,
@@ -167,7 +187,16 @@
       "command": "sqlfluff",
       "rootPatterns": [".git"], // For cwd
       "debounce": 550, //  shouldBe: debounce 550 < CursorMoved start_time 1000 - (CursorHoldDelay(updatetime)  200 + systemDelay about 100)
-      "args": ["lint", "--dialect", "mysql", "--format", "json", "--ignore", "parsing", "-"],
+      "args": [
+        "lint",
+        "--dialect",
+        "mysql",
+        "--format",
+        "json",
+        "--ignore",
+        "parsing",
+        "-"
+      ],
       "sourceName": "sqlfluff",
       "parseJson": {
         "errorsRoot": "[0].violations",
@@ -289,7 +318,12 @@
       "command": "./node_modules/.bin/stylelint",
       "rootPatterns": [".git"],
       "debounce": 550,
-      "args": ["-f", "compact", "--config", "/home/hexh/.config/nvim/_self/lang-configs/css/linter.js"],
+      "args": [
+        "-f",
+        "compact",
+        "--config",
+        "/home/hexh/.config/nvim/_self/lang-configs/css/linter.js"
+      ],
       "offsetLine": 0,
       "offsetColumn": 0,
       "sourceName": "stylelint",
@@ -315,7 +349,12 @@
       "command": "./node_modules/.bin/stylelint",
       "rootPatterns": [".git"],
       "debounce": 550,
-      "args": ["-f", "compact", "--config", "/home/hexh/.config/nvim/_self/lang-configs/less/linter.js"],
+      "args": [
+        "-f",
+        "compact",
+        "--config",
+        "/home/hexh/.config/nvim/_self/lang-configs/less/linter.js"
+      ],
       "offsetLine": 0,
       "offsetColumn": 0,
       "sourceName": "stylelint",
