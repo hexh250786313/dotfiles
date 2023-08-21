@@ -1,0 +1,12 @@
+[Unit]
+Description=MPD Mpris
+
+[Service]
+ExecStart=/usr/bin/mpd-mpris
+ExecStop=killall -q mpd-mpris
+ExecReload=killall -q mpd-mpris && /usr/bin/mpd-mpris
+Restart=on-failure
+RestartSec=1s
+
+[Install]
+WantedBy=default.target
