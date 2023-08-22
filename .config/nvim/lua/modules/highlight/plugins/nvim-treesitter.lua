@@ -10,7 +10,7 @@ end
 require("nvim-treesitter.configs").setup {
   ensure_installed = {"javascript", "typescript", "css", "scss", "vue", "lua", "vim", "tsx", "markdown"},
   auto_install = false,
-  highlight = {enable = true, disable = disabler},
+  highlight = {enable = false, disable = disabler},
   incremental_selection = {enable = false, disable = disabler},
   textobjects = {
     select = {
