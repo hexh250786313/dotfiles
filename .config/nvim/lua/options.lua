@@ -21,20 +21,22 @@ vim.cmd("let $all_proxy ='http://" .. host .. ":4780'")
 vim.cmd("let $http_proxy ='http://" .. host .. ":4780'")
 vim.cmd("let $https_proxy ='http://" .. host .. ":4780'")
 
-if has("wsl") then
-  vim.g.clipboard = {
-    name = "win32yank_override",
-    copy = {["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf"},
-    paste = {["+"] = "win32yank.exe -o --lf", ["*"] = "win32yank.exe -o --lf"},
-    cache_enabled = 1
-  }
-else
-  vim.g.clipboard = {
-    name = "xsel_override",
-    copy = {["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary"},
-    paste = {["+"] = "xsel --output --clipboard", ["*"] = "xsel --output --primary"},
-    cache_enabled = 1
-  }
+if vim.fn.exists('$SSH_CLIENT') == 0 then
+  if has("wsl") then
+    vim.g.clipboard = {
+      name = "win32yank_override",
+      copy = {["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf"},
+      paste = {["+"] = "win32yank.exe -o --lf", ["*"] = "win32yank.exe -o --lf"},
+      cache_enabled = 1
+    }
+  else
+    vim.g.clipboard = {
+      name = "xsel_override",
+      copy = {["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary"},
+      paste = {["+"] = "xsel --output --clipboard", ["*"] = "xsel --output --primary"},
+      cache_enabled = 1
+    }
+  end
 end
 
 local optionList = {
