@@ -96,6 +96,7 @@ hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
 hi! link CocSearch Question
 hi! link CocPumMenu Pmenu
+autocmd VimEnter * exec 'hi! link CocInlayHint CocMenuSel'
 hi! link NormalNC Normal
 
 hi! link UfoCursorFoldedLine DiffChange
@@ -173,6 +174,8 @@ exec 'hi! CocFloating' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
+exec 'hi! CocSymbolLine gui=italic' .
+  \' guibg=' . _self#highlight#darken('StatusLine', 'bg')
 
 exec 'hi! DiagnosticError' .
   \' guifg=' . s:error .
@@ -217,5 +220,3 @@ exec 'hi! CocGitSignChange guifg=' . s:blue . ' guibg=NONE'
 exec 'hi! CocGitSignDelete guifg=' . s:red . ' guibg=NONE'
 exec 'hi! CocGitSignAdd guifg=' s:green . ' guibg=NONE'
 
-exec 'hi! CocSymbolLine gui=italic' .
-  \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
