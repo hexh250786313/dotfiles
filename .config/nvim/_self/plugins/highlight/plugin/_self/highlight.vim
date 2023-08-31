@@ -216,3 +216,6 @@ exec 'hi! CocHintSign' .
 exec 'hi! CocGitSignChange guifg=' . s:blue . ' guibg=NONE'
 exec 'hi! CocGitSignDelete guifg=' . s:red . ' guibg=NONE'
 exec 'hi! CocGitSignAdd guifg=' s:green . ' guibg=NONE'
+
+exec 'hi! CocSymbolLine gui=italic' .
+  \' guibg=' . _self#highlight#pick('StatusLine', 'bg')

@@ -201,10 +201,7 @@ return packer.startup(function(use)
   use({
     "sindrets/diffview.nvim",
     cmd = {"DiffviewFileHistory", "DiffviewOpen"},
-    keys = {
-      {"n", "<leader>gt"}, {"n", "<leader>gT"}
-      -- {"n", "<leader>gg"},
-    },
+    keys = {{"n", "<leader>gt"}, {"n", "<leader>gT"}, {"n", "<leader>gG"}},
     config = [[require("modules.git.plugins.diffview")]]
   })
   use({

@@ -13,7 +13,7 @@ vim.g.coc_global_extensions = {
   "coc-css", "coc-diagnostic", "coc-html", "coc-json", "coc-lists", "coc-markdown-preview-enhanced", "coc-marketplace",
   "coc-snippets", "coc-webview", "coc-yaml", "coc-markmap", "coc-angular", "coc-git", "@hexuhua/coc-replacement",
   "@yaegassy/coc-volar", "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree", "@yaegassy/coc-tailwindcss3",
-  "coc-styled-components", "coc-typos", "@hexuhua/coc-list-files-mru", "@hexuhua/coc-copilot"
+  "coc-styled-components", "coc-typos", "@hexuhua/coc-list-files-mru", "@hexuhua/coc-copilot", "coc-symbol-line"
   -- "coc-lightbulb", "coc-tsserver", "coc-cssmodules",
 }
 
@@ -120,3 +120,36 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "3<C-y>"
 endif
 ]])
+
+-- coc-symbol-line
+function _G.symbol_line()
+  local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+  local ok, line = pcall(vim.api.nvim_buf_get_var, bufnr, 'coc_symbol_line')
+  return ok and '%#CocSymbolLine# ' .. line or ''
+end
+if vim.fn.exists '&winbar' then
+  vim.api.nvim_create_autocmd({'CursorHold', 'WinEnter', 'BufWinEnter'}, {
+    callback = function()
+      if vim.b.coc_symbol_line and vim.bo.buftype == '' then
+        if vim.opt_local.winbar:get() == '' then vim.opt_local.winbar = '%!v:lua.symbol_line()' end
+      else
+        vim.opt_local.winbar = ''
+      end
+    end
+  })
+end
+
+-- 兼容 coc 和 winbar
+local CocGroup = vim.api.nvim_create_augroup('CocListCmdHeightFix', {clear = true})
+vim.api.nvim_create_autocmd('FileType', {
+  group = CocGroup,
+  pattern = 'list',
+  callback = function(args)
+    vim.api.nvim_create_autocmd('BufLeave', {
+      buffer = args.buf,
+      once = true,
+      group = CocGroup,
+      callback = function() vim.defer_fn(function() vim.o.cmdheight = 1 end, 1) end
+    })
+  end
+})
