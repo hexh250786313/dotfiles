@@ -174,8 +174,8 @@ autocmd VimEnter * exec 'hi! CocSymbolLine gui=italic' .
   \' guibg=' . _self#highlight#pick('lualine_c_normal', 'bg') .
   \' guifg=' . _self#highlight#pick('lualine_c_normal', 'fg')
 autocmd VimEnter * exec 'hi! CocInlayHint' .
-  \' guibg=' . _self#highlight#darken('lualine_c_normal', 'bg') .
-  \' guifg=' . _self#highlight#pick('lualine_c_normal', 'fg')
+  \' guibg=none' .
+  \' guifg=#393939'
 
 exec 'hi! DiagnosticError' .
   \' guifg=' . s:error .
