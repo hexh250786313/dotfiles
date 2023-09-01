@@ -96,7 +96,6 @@ hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
 hi! link CocSearch Question
 hi! link CocPumMenu Pmenu
-autocmd VimEnter * exec 'hi! link CocInlayHint CocMenuSel'
 hi! link NormalNC Normal
 
 hi! link UfoCursorFoldedLine DiffChange
@@ -155,9 +154,6 @@ exec 'hi! CocHighlightText' .
 exec 'hi! WinBar gui=bold' .
   \' guifg=' . _self#highlight#pick('StatusLine', 'fg') .
   \' guibg=none'
-exec 'hi! CocSymbolLine gui=bold' .
-  \' guifg=' . _self#highlight#pick('StatusLine', 'fg') .
-  \' guibg=none'
 exec 'hi! LightBulbVirtualText' .
   \' guibg=' . _self#highlight#pick('CursorLine', 'bg') .
   \' guifg=' . _self#highlight#pick('Special', 'fg')
@@ -174,8 +170,12 @@ exec 'hi! CocFloating' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
-exec 'hi! CocSymbolLine gui=italic' .
-  \' guibg=' . _self#highlight#darken('StatusLine', 'bg')
+autocmd VimEnter * exec 'hi! CocSymbolLine gui=italic' .
+  \' guibg=' . _self#highlight#pick('lualine_c_normal', 'bg') .
+  \' guifg=' . _self#highlight#pick('lualine_c_normal', 'fg')
+autocmd VimEnter * exec 'hi! CocInlayHint' .
+  \' guibg=' . _self#highlight#darken('lualine_c_normal', 'bg') .
+  \' guifg=' . _self#highlight#pick('lualine_c_normal', 'fg')
 
 exec 'hi! DiagnosticError' .
   \' guifg=' . s:error .
