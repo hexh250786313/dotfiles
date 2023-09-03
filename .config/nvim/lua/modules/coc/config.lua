@@ -138,18 +138,3 @@ if vim.fn.exists '&winbar' then
     end
   })
 end
-
--- 兼容 coc 和 winbar
-local CocGroup = vim.api.nvim_create_augroup('CocListCmdHeightFix', {clear = true})
-vim.api.nvim_create_autocmd('FileType', {
-  group = CocGroup,
-  pattern = 'list',
-  callback = function(args)
-    vim.api.nvim_create_autocmd('BufLeave', {
-      buffer = args.buf,
-      once = true,
-      group = CocGroup,
-      callback = function() vim.defer_fn(function() vim.o.cmdheight = 1 end, 1) end
-    })
-  end
-})
