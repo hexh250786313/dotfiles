@@ -117,7 +117,7 @@ if [[ ! -f /home/$ME/.local/share/fnm/fnm ]]; then
 fi
 export PATH="/home/$ME/.local/share/fnm:$PATH"
 # eval "`fnm env`"
-export DEFAULT_NODE_VERSION="v18.16.1"
+export DEFAULT_NODE_VERSION="v18.17.1"
 export LOWER_NODE_VERSION="v14.15.0"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
