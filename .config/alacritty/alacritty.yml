@@ -6,8 +6,10 @@ window:
   dimensions:
     # columns: 123
     # lines: 28
+    # columns: 150
+    # lines: 35
     columns: 150
-    lines: 35
+    lines: 36
   # position:
     # x: 850
     # y: 500
@@ -39,7 +41,7 @@ font:
   # family: CaskaydiaCove Nerd Font
   # style: Bold Italic
   # size: 14
-  size: 11.5
+  size: 10
   # offset:
     # x: -1
     # y: 6
