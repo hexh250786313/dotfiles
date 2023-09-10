@@ -85,7 +85,7 @@ return packer.startup(function(use)
     keys = {{"n", "<leader>qB"}}
   })
   use("~/.config/nvim/_self/plugins/avoid-scrolling-when-switch-buffers")
-  use({"chrisgrieser/nvim-early-retirement", config = [[require("modules.buffer.plugins.nvim-early-retirement")]]})
+  -- use({"chrisgrieser/nvim-early-retirement", config = [[require("modules.buffer.plugins.nvim-early-retirement")]]})
 
   -- ┌───────────────────────────────────────
   -- │  Code Module

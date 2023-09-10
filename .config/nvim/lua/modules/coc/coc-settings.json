@@ -47,6 +47,7 @@
   "git.conflictedDecorator": "⇡⇣",
   "git.virtualTextPrefix": "  ",
   "list.height": 6,
+  "list.maxPreviewHeight": 21,
   "list.indicator": "❯",
   "list.menuAction": true,
   "list.source.location.defaultAction": "drop",
