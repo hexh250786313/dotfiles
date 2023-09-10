@@ -177,6 +177,11 @@ autocmd VimEnter * exec 'hi! CocInlayHint' .
   \' guibg=none' .
   \' guifg=#393939'
 
+
+exec 'hi! UfoFoldedBg' .
+  \' guibg=none' .
+  \' guifg=none'
+
 exec 'hi! DiagnosticError' .
   \' guifg=' . s:error .
   \' guibg=' . _self#highlight#pick('DiagnosticError', 'bg')
