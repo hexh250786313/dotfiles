@@ -91,7 +91,7 @@
             }
         ],
         "target_uinput": "keyboard + mouse",
-        "output_symbol": "KEY_UP",
+        "output_symbol": "set(space, 0).h(KEY_UP)",
         "mapping_type": "key_macro"
     },
     {
