@@ -22,7 +22,6 @@ wk.register({
 ---------> 配置
 require("bufferline").setup {
   options = {
-    numbers = "ordinal",
     separator_style = {"", ""},
     indicator = {icon = "▌"},
     max_prefix_length = 100,
@@ -32,6 +31,34 @@ require("bufferline").setup {
       local filetype = vim.bo[buf_number].filetype
       if filetype == "defx" then return false end
       return true
-    end
+    end,
+    sort_by = function(buffer_a, buffer_b)
+      -- 读取本地文件中的最近访问文件列表
+      local recent_files = {}
+      local file = io.open("/home/hexh/.config/coc/mru", "r")
+      if file then
+        for line in file:lines() do table.insert(recent_files, line) end
+        file:close()
+      end
+
+      -- 获取 buffer_a 和 buffer_b 的文件名
+      local filename_a = vim.api.nvim_buf_get_name(buffer_a.id)
+      local filename_b = vim.api.nvim_buf_get_name(buffer_b.id)
+
+      -- vim.api.nvim_out_write("filename_a: " .. filename_a .. "\n")
+      -- vim.api.nvim_out_write("filename_b: " .. filename_b .. "\n")
+
+      -- 检查它们是否在最近访问文件列表中
+      local index_a = vim.fn.index(recent_files, filename_a)
+      local index_b = vim.fn.index(recent_files, filename_b)
+
+      -- vim.api.nvim_out_write("filename_a: " .. tostring(index_a) .. "\n")
+      -- vim.api.nvim_out_write("filename_b: " .. tostring(index_b) .. "\n")
+
+      if index_a == -1 or index_b == -1 then return buffer_a.id < buffer_b.id end
+
+      return index_a < index_b
+    end,
+    numbers = "none"
   }
 }
