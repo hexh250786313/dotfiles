@@ -1,1 +1,1 @@
-require("virt-column").setup({char = "▕"})
+require("virt-column").setup({char = "▕", highlight = "VirtColumn"})
