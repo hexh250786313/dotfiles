@@ -27,5 +27,6 @@ sd 'autocmd.*VimEnter.*call s:VimEnter\(\).*\n.*endif' 'autocmd VimEnter * call 
 sd '}\n.*set loading\(loading\)' '  this.mruFlag = true; } set loading(loading)' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 sd 'async drawItems\(\) \{' 'async drawItems(context) { var _a2; if (((_a2 = this.list) == null ? void 0 : _a2.name) === "filesMru") { if ((context == null ? void 0 : context.input.length) > 0 && this.mruFlag === true) { this.mruFlag = false; await this.loadItems(context); await this.drawItems(context); return; } if ((context == null ? void 0 : context.input.length) === 0 && this.mruFlag === false) { this.mruFlag = true; await this.loadItems(context); await this.drawItems(context); return; } }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 sd 'void this.worker.drawItems\(\);' 'void this.worker.drawItems(this.context);' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
+sd 'range: emptyRange\(range\) \? null' 'range: emptyRange(range) ? { start: range.start, end: { line: range.end.line, character: range.end.character + 1 } }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 
 # rm -rf ~/.config/coc/extensions/node_modules/coc-tsserver/snippets
