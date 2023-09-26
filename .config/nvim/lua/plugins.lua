@@ -77,7 +77,7 @@ return packer.startup(function(use)
     cmd = "Bdelete",
     config = [[require("modules.buffer.plugins.vim-bbye")]]
   })
-  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"theme"}})
+  -- use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"theme"}})
   use({"hoob3rt/lualine.nvim", config = [[require("modules.buffer.plugins.lualine")]], after = {"theme", "highlight"}})
   use({
     "~/.config/nvim/_self/plugins/delete-all-buffers",

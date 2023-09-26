@@ -24,6 +24,30 @@ local config = {
     lualine_y = {"progress"},
     lualine_z = {"location"}
   },
+  tabline = {
+    lualine_a = {
+      {
+        'buffers',
+        show_filename_only = true, -- Shows shortened relative path when set to false.
+        hide_filename_extension = true, -- Hide filename extension when set to true.
+        show_modified_status = true, -- Shows indicator when the buffer is modified.
+        mode = 2,
+        max_length = vim.o.columns * 9 / 10, -- Maximum width of buffers component,
+        use_mode_colors = false,
+        buffers_color = {
+          -- active = 'lualine_a_insert',
+          active = 'lualine_a_normal',
+          inactive = 'lualine_a_inactive'
+        },
+        symbols = {modified = ' ●', alternate_file = '#', directory = ''}
+      }
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {'tabs'}
+  },
   extensions = {"fugitive"}
 }
 
