@@ -123,7 +123,7 @@ return packer.startup(function(use)
     cmd = {"RnvimrToggle"},
     config = [[require("modules.file.plugins.rnvimr")]]
   })
-  use({"hexh250786313/defx-icons", after = "defx.nvim"})
+  -- use({"hexh250786313/defx-icons", after = "defx.nvim"})
   use({"junegunn/fzf", config = [[require("modules.file.plugins.fzf")]]})
 
   -- ┌───────────────────────────────────────
