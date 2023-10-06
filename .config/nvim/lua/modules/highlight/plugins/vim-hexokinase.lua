@@ -1,1 +1,1 @@
-vim.g.Hexokinase_highlighters = {"backgroundfull"}
+vim.g.Hexokinase_highlighters = { "backgroundfull" }

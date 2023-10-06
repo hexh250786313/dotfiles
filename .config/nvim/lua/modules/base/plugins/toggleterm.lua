@@ -1,7 +1,9 @@
 local fn = vim.fn
 local wk = require("which-key")
 
-local function get_color(group, attr) return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr) end
+local function get_color(group, attr)
+  return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr)
+end
 
 require("toggleterm").setup {
   size = function(term)
@@ -14,19 +16,19 @@ require("toggleterm").setup {
   start_in_insert = true,
   -- persist_mode = true,
   float_opts = {
-    border = {" ", " ", " ", " ", " ", " ", " ", " "}
+    border = { " ", " ", " ", " ", " ", " ", " ", " " },
     -- border = {"▃", "▃", "▃", "█", "▀", "▀", "▀", "█"}
     -- border = {"", "", "", "█", "", "", "", "█"}
     -- border = {"", "", "", "", "", "", "", ""}
   },
   highlights = {
-    NormalFloat = {link = "StatusLine"},
+    NormalFloat = { link = "StatusLine" },
     FloatBorder = {
-      guifg = get_color("StatusLine", "bg")
+      guifg = get_color("StatusLine", "bg"),
       -- guibg = get_color("", "fg"),
-    }
+    },
   },
-  auto_scroll = true
+  auto_scroll = true,
 }
 
 local Terminal = require("toggleterm.terminal").Terminal
@@ -42,9 +44,10 @@ local lazygit = Terminal:new({
   on_close = function(term)
     -- vim.cmd("startinsert!")
   end,
-  auto_scroll = false
+  auto_scroll = false,
 })
-local gitwebui = Terminal:new({cmd = "git webui --port=9989", direction = "horizontal", count = 6, auto_scroll = false})
+local gitwebui = Terminal:new(
+                   { cmd = "git webui --port=9989", direction = "horizontal", count = 6, auto_scroll = false })
 
 function _lazygit_toggle()
   vim.cmd("let g:floating_termnr = " .. 7)
@@ -57,13 +60,13 @@ function _gitwebui_toggle()
 end
 
 ---- 快捷键
-wk.register({mode = {"n"}, ["<leader>gl"] = {"<cmd>lua _lazygit_toggle()<cr>", "Git log"}})
+wk.register({ mode = { "n" }, ["<leader>gl"] = { "<cmd>lua _lazygit_toggle()<cr>", "Git log" } })
 
 -- vim.api.nvim_set_keymap("n", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leaer>gw", "<cmd>lua _gitwebui_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leaer>gw", "<cmd>lua _gitwebui_toggle()<CR>", { noremap = true, silent = true })
 
 function _G.set_terminal_config()
-  local opts = {noremap = true}
+  local opts = { noremap = true }
   vim.api.nvim_buf_set_keymap(0, "t", "<c-t>", [[<C-\><C-n>:q<cr>]], opts)
   vim.api.nvim_buf_set_keymap(0, "t", "<c-r>", [[<C-\><C-n>]], opts)
 
@@ -121,8 +124,12 @@ function M.watch_term(opts)
     local opt = vim.json.decode(opts.option)
     local next_termnr = opt.termnr
     local next_close = opt.close
-    if next_termnr then termnr = next_termnr end
-    if next_close then close = next_close end
+    if next_termnr then
+      termnr = next_termnr
+    end
+    if next_close then
+      close = next_close
+    end
   end
   vim.cmd("let g:floating_termnr = " .. termnr)
 
@@ -132,7 +139,7 @@ function M.watch_term(opts)
     direction = "horizontal",
     count = termnr,
     close_on_exit = close,
-    auto_scroll = true
+    auto_scroll = true,
   })
   _watch_term:toggle(opt)
 end
