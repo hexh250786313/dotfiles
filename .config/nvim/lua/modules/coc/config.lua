@@ -1,20 +1,40 @@
 ---- 快捷键
 local wk = require("which-key")
-wk.register({mode = {"n"}, ["<leader>/"] = {":CocList grep<cr>", "Grep globally"}})
-wk.register({mode = {"n"}, ["<leader>lr"] = {":CocListResume<cr>", "Resume list"}})
-wk.register({mode = {"n"}, ["<leader>r"] = {":CocCommand coc-replacement.replace<cr>", "Replace"}})
+wk.register({ mode = { "n" }, ["<leader>/"] = { ":CocList grep<cr>", "Grep globally" } })
+wk.register({ mode = { "n" }, ["<leader>lr"] = { ":CocListResume<cr>", "Resume list" } })
+wk.register({ mode = { "n" }, ["<leader>r"] = { ":CocCommand coc-replacement.replace<cr>", "Replace" } })
 wk.register({
-  mode = {"x"},
-  ["<leader>/"] = {":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally"}
+  mode = { "x" },
+  ["<leader>/"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
 })
 
 ---- 配置
 local api = vim.api
 vim.g.coc_global_extensions = {
-  "coc-css", "coc-diagnostic", "coc-html", "coc-json", "coc-lists", "coc-markdown-preview-enhanced", "coc-marketplace",
-  "coc-snippets", "coc-webview", "coc-yaml", "coc-markmap", "coc-angular", "coc-git", "@hexuhua/coc-replacement",
-  "@yaegassy/coc-volar", "@yaegassy/coc-marksman", "coc-tasks", "coc-todo-tree", "@yaegassy/coc-tailwindcss3",
-  "coc-styled-components", "coc-typos", "@hexuhua/coc-list-files-mru", "@hexuhua/coc-copilot", "coc-symbol-line"
+  "coc-css",
+  "coc-diagnostic",
+  "coc-html",
+  "coc-json",
+  "coc-lists",
+  "coc-markdown-preview-enhanced",
+  "coc-marketplace",
+  "coc-snippets",
+  "coc-webview",
+  "coc-yaml",
+  "coc-markmap",
+  "coc-angular",
+  "coc-git",
+  "@hexuhua/coc-replacement",
+  "@yaegassy/coc-volar",
+  "@yaegassy/coc-marksman",
+  "coc-tasks",
+  "coc-todo-tree",
+  "@yaegassy/coc-tailwindcss3",
+  "coc-styled-components",
+  "coc-typos",
+  "@hexuhua/coc-list-files-mru",
+  "@hexuhua/coc-copilot",
+  "coc-symbol-line",
   -- "coc-lightbulb", "coc-tsserver", "coc-cssmodules",
 }
 
@@ -22,8 +42,8 @@ vim.g.coc_global_extensions = {
 vim.g.coc_quickfix_open_command = "copen"
 
 -- 禁用默认插入模式下的 c-n keyword completion
-vim.api.nvim_set_keymap('i', '<C-n>', '<Nop>', {noremap = true})
-vim.api.nvim_set_keymap('i', '<C-p>', '<Nop>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-n>', '<Nop>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-p>', '<Nop>', { noremap = true })
 
 -- coc snippets 自动跳跃
 vim.g.coc_snippet_next = '<c-n>'
@@ -31,8 +51,8 @@ vim.g.coc_snippet_prev = '<c-p>'
 
 -- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
 vim.g.coc_enable_locationlist = 0
-api.nvim_create_autocmd({"User"},
-                        {pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location"})
+api.nvim_create_autocmd({ "User" },
+                        { pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location" })
 
 vim.cmd([[
 " 获取识别码
@@ -129,13 +149,15 @@ function _G.symbol_line()
   return ok and '%#CocSymbolLine# ' .. line or ''
 end
 if vim.fn.exists '&winbar' then
-  vim.api.nvim_create_autocmd({'CursorHold', 'WinEnter', 'BufWinEnter'}, {
+  vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
     callback = function()
       if vim.b.coc_symbol_line and vim.bo.buftype == '' then
-        if vim.opt_local.winbar:get() == '' then vim.opt_local.winbar = '%!v:lua.symbol_line()' end
+        if vim.opt_local.winbar:get() == '' then
+          vim.opt_local.winbar = '%!v:lua.symbol_line()'
+        end
       else
         vim.opt_local.winbar = ''
       end
-    end
+    end,
   })
 end

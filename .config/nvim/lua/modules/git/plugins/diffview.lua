@@ -1,10 +1,10 @@
 ---- 快捷键
 local wk = require("which-key")
 wk.register({
-  mode = {"n"},
-  ["<leader>gt"] = {"<cmd>DiffviewFileHistory %<cr>", "Git History"},
-  ["<leader>gT"] = {"<cmd>DiffviewFileHistory<cr>", "Git History for current file"},
-  ["<leader>gG"] = {"<cmd>DiffviewOpen<cr>", "Git status"}
+  mode = { "n" },
+  ["<leader>gt"] = { "<cmd>DiffviewFileHistory %<cr>", "Git History" },
+  ["<leader>gT"] = { "<cmd>DiffviewFileHistory<cr>", "Git History for current file" },
+  ["<leader>gG"] = { "<cmd>DiffviewOpen<cr>", "Git status" },
 })
 
 ---- 配置
@@ -15,11 +15,11 @@ require"diffview".setup {
     merge_tool = {
       -- Config for conflicted files in diff views during a merge or rebase.
       layout = "diff3_mixed",
-      disable_diagnostics = true -- Temporarily disable diagnostics for conflict buffers while in the view.
-    }
+      disable_diagnostics = true, -- Temporarily disable diagnostics for conflict buffers while in the view.
+    },
   },
-  file_history_panel = {win_config = {height = 9}},
-  file_panel = {listing_style = "list"},
+  file_history_panel = { win_config = { height = 9 } },
+  file_panel = { listing_style = "list" },
   hooks = {
     diff_buf_read = function(bufnr)
       -- Change local options in diff buffers
@@ -29,7 +29,7 @@ require"diffview".setup {
       vim.opt_local.wrap = false
       -- vim.opt_local.list = false
       -- vim.opt_local.colorcolumn = {120}
-    end
+    end,
   },
   keymaps = {
     view = {
@@ -40,11 +40,13 @@ require"diffview".setup {
       ["cb"] = actions.conflict_choose("all"),
       ["c1"] = actions.conflict_choose("base"),
       ["c0"] = actions.conflict_choose("none"),
-      ["o"] = function(opt) actions.goto_file_edit(opt) end,
+      ["o"] = function(opt)
+        actions.goto_file_edit(opt)
+      end,
       ["O"] = function(opt)
         actions.goto_file_edit(opt)
         vim.cmd(":call timer_start(50, { -> function(g:diffview_config_sid . 'CLOSE_TAB')() })")
-      end
+      end,
     },
     file_panel = {
       ["<c-j>"] = actions.select_next_entry,
@@ -54,11 +56,13 @@ require"diffview".setup {
       -- ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
       -- ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
       ["s"] = actions.toggle_stage_entry, -- Stage / unstage the selected entry.
-      ["o"] = function(opt) actions.goto_file_edit(opt) end,
+      ["o"] = function(opt)
+        actions.goto_file_edit(opt)
+      end,
       ["O"] = function(opt)
         actions.goto_file_edit(opt)
         vim.cmd(":call timer_start(50, { -> function(g:diffview_config_sid . 'CLOSE_TAB')() })")
-      end
+      end,
     },
     file_history_panel = {
       ["<c-j>"] = actions.select_next_entry,
@@ -67,13 +71,15 @@ require"diffview".setup {
       ["<down>"] = actions.scroll_view(0.01), -- Scroll the view down
       -- ["<up>"] = actions.scroll_view(-0.25), -- Scroll the view up
       -- ["<down>"] = actions.scroll_view(0.25), -- Scroll the view down
-      ["o"] = function(opt) actions.goto_file_edit(opt) end,
+      ["o"] = function(opt)
+        actions.goto_file_edit(opt)
+      end,
       ["O"] = function(opt)
         actions.goto_file_edit(opt)
         vim.cmd(":call timer_start(50, { -> function(g:diffview_config_sid . 'CLOSE_TAB')() })")
-      end
-    }
-  }
+      end,
+    },
+  },
 }
 
 vim.cmd([[

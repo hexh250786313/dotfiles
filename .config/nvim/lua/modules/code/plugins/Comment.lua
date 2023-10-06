@@ -3,23 +3,24 @@ local ft = require("Comment.ft")
 ---------> 快捷键
 local wk = require("which-key")
 wk.register({
-  mode = {"n"},
-  ["<leader>cy"] = {"yy:lua require('Comment.api').comment.linewise()<cr>", "Comment current line and yank"}
+  mode = { "n" },
+  ["<leader>cy"] = { "yy:lua require('Comment.api').comment.linewise()<cr>", "Comment current line and yank" },
 })
 wk.register({
-  mode = {"x"},
+  mode = { "x" },
   ["<leader>cy"] = {
-    ":<c-u>call function(g:comment_config_sid . 'YANK_AND_COMMENT')(visualmode())<cr>", "Comment current line and yank"
-  }
+    ":<c-u>call function(g:comment_config_sid . 'YANK_AND_COMMENT')(visualmode())<cr>",
+    "Comment current line and yank",
+  },
 })
 
 ---------> 配置
 require("Comment").setup({
-  toggler = {line = "<leader>cl", block = "<leader>cs"},
-  opleader = {line = "<space>cl", block = "<space>cs"}
+  toggler = { line = "<leader>cl", block = "<leader>cs" },
+  opleader = { line = "<space>cl", block = "<space>cs" },
 })
-ft({"javascript", "javascriptreact", "typescript", "typescriptreact"}, {"//%s", "/**%s*/"})
-ft({"json"}, {"//%s"})
+ft({ "javascript", "javascriptreact", "typescript", "typescriptreact" }, { "//%s", "/**%s*/" })
+ft({ "json" }, { "//%s" })
 
 vim.cmd([[
 " 获取识别码

@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
-local function has(os) return vim.fn.has(os) == 1 end
+local function has(os)
+  return vim.fn.has(os) == 1
+end
 
 -- coc 的配置目录路径，需要初始化时指定，所以放在这里
 vim.g.coc_config_home = "~/.config/nvim/lua/modules/coc/"
@@ -25,16 +27,16 @@ if vim.fn.exists('$SSH_CLIENT') == 0 then
   if has("wsl") then
     vim.g.clipboard = {
       name = "win32yank_override",
-      copy = {["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf"},
-      paste = {["+"] = "win32yank.exe -o --lf", ["*"] = "win32yank.exe -o --lf"},
-      cache_enabled = 1
+      copy = { ["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf" },
+      paste = { ["+"] = "win32yank.exe -o --lf", ["*"] = "win32yank.exe -o --lf" },
+      cache_enabled = 1,
     }
   else
     vim.g.clipboard = {
       name = "xsel_override",
-      copy = {["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary"},
-      paste = {["+"] = "xsel --output --clipboard", ["*"] = "xsel --output --primary"},
-      cache_enabled = 1
+      copy = { ["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary" },
+      paste = { ["+"] = "xsel --output --clipboard", ["*"] = "xsel --output --primary" },
+      cache_enabled = 1,
     }
   end
 end
@@ -68,7 +70,9 @@ local optionList = {
   timeout = true,
   timeoutlen = 2000,
   textwidth = 120,
-  incsearch = true -- 高亮搜索
+  incsearch = true, -- 高亮搜索
 }
 
-for k, v in pairs(optionList) do vim.opt[k] = v end
+for k, v in pairs(optionList) do
+  vim.opt[k] = v
+end

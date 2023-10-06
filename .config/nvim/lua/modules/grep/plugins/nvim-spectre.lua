@@ -1,10 +1,10 @@
 ---- 快捷键
 local wk = require("which-key")
 wk.register({
-  mode = {"n"},
-  ["<leader>?"] = {"<esc>:lua require('modules.grep.plugins.nvim-spectre').search_resume(true)<cr>", "Grep globally"}
+  mode = { "n" },
+  ["<leader>?"] = { "<esc>:lua require('modules.grep.plugins.nvim-spectre').search_resume(true)<cr>", "Grep globally" },
 })
-wk.register({mode = {"x"}, ["<leader>?"] = {"<esc>:lua require('spectre').open_visual()<cr>", "Grep globally"}})
+wk.register({ mode = { "x" }, ["<leader>?"] = { "<esc>:lua require('spectre').open_visual()<cr>", "Grep globally" } })
 
 ---- 配置
 local M = {}
@@ -31,29 +31,32 @@ require("spectre").setup({
     filename = "SpectreFilename",
     filedirectory = "SpectreFiledirectory",
     search = "CocWarningVirtualText",
-    replace = "CocErrorVirtualText"
+    replace = "CocErrorVirtualText",
   },
   mapping = {
     ["send_to_qf"] = {
       map = "<c-q>",
       cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR> | <cmd>lua require('spectre').close()<CR>",
-      desc = "send all item to quickfix"
+      desc = "send all item to quickfix",
     },
     ["run_replace"] = {
       map = "<c-s>",
       cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>",
-      desc = "replace all"
-    }
+      desc = "replace all",
+    },
   },
   find_engine = {
     ["rg"] = {
       cmd = "rg",
       args = {
         "--column", -- "--ignore-case",
-        "--hidden", "--multiline", "--sort-files", "--vimgrep" -- for result in same line, usually, it is not useful for searching but useful for replacing
-      }
-    }
-  }
+        "--hidden",
+        "--multiline",
+        "--sort-files",
+        "--vimgrep", -- for result in same line, usually, it is not useful for searching but useful for replacing
+      },
+    },
+  },
   -- default = {replace = {cmd = "oxi"}}
 })
 
@@ -72,7 +75,7 @@ M.search_resume = function(is_insert_mode)
     is_insert_mode = is_insert_mode,
     search_text = M.search_query,
     replace_text = M.replace_query,
-    path = M.path
+    path = M.path,
   })
 end
 

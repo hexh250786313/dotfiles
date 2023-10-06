@@ -7,14 +7,25 @@ require("indent_blankline").setup {
   show_current_context_start = false,
   show_first_indent_level = false, -- 是否展示第一级
   filetype_exclude = {
-    "help", "dashboard", "dashpreview", "NvimTree", "vista", "sagahover", "defx", "prompt", "TelescopePrompt", "",
-    "toggleterm", "list"
+    "help",
+    "dashboard",
+    "dashpreview",
+    "NvimTree",
+    "vista",
+    "sagahover",
+    "defx",
+    "prompt",
+    "TelescopePrompt",
+    "",
+    "toggleterm",
+    "list",
   },
   buftype_exclude = {
-    "terminal", "quickfix"
+    "terminal",
+    "quickfix",
     -- "nofile",
   },
-  char_highlight_list = {"IndentBlanklineIndent"}
+  char_highlight_list = { "IndentBlanklineIndent" },
 }
 
 ---------> autocmd
@@ -25,8 +36,10 @@ local function enableAutocmd()
     callback = function()
       local max_filesize = 50 * 1024 -- 50 KB
       local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()))
-      if ok and stats and stats.size < max_filesize then require("indent_blankline.commands").enable() end
-    end
+      if ok and stats and stats.size < max_filesize then
+        require("indent_blankline.commands").enable()
+      end
+    end,
   })
 
   vim.api.nvim_create_autocmd("BufReadPre", {
@@ -35,8 +48,10 @@ local function enableAutocmd()
     callback = function()
       require("indent_blankline.commands").disable()
       -- end
-    end
+    end,
   })
 end
 
-if vim.g.indent_blankline_enabled ~= false then enableAutocmd() end
+if vim.g.indent_blankline_enabled ~= false then
+  enableAutocmd()
+end
