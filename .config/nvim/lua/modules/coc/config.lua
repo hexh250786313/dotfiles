@@ -63,6 +63,12 @@ endfunction
 " 添加全局识别码
 let g:coc_config_sid = s:SID_PREFIX()
 
+" 展示函数的 signature help 同时刷新补全面板（showSignatureHelp 可能会带来一定性能问题）
+function! s:COC_REFRESH_AND_SIGNATURE_HELP()
+  call CocActionAsync('showSignatureHelp')
+  return coc#refresh() " 此处必须返回，否则 coc#refresh() 不生效
+endfunction
+
 " 展示文档
 function! s:SHOW_DOCUMENTATION()
   if (index(['vim','help'], &filetype) >= 0)
@@ -122,7 +128,8 @@ inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#pum#next(0) :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
-inoremap <silent><expr><c-l> coc#refresh()
+" inoremap <silent><expr><c-l> coc#refresh()
+inoremap <silent><expr><c-l> <SID>COC_REFRESH_AND_SIGNATURE_HELP()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
 inoremap <silent><expr> <c-j>
   \ coc#pum#visible() ? coc#pum#next(0) :
