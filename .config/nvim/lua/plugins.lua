@@ -77,7 +77,7 @@ return packer.startup(function(use)
     cmd = "Bdelete",
     config = [[require("modules.buffer.plugins.vim-bbye")]]
   })
-  use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"theme"}})
+  -- use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"theme"}})
   use({"hoob3rt/lualine.nvim", config = [[require("modules.buffer.plugins.lualine")]], after = {"theme", "highlight"}})
   use({
     "~/.config/nvim/_self/plugins/delete-all-buffers",
@@ -123,7 +123,7 @@ return packer.startup(function(use)
     cmd = {"RnvimrToggle"},
     config = [[require("modules.file.plugins.rnvimr")]]
   })
-  use({"hexh250786313/defx-icons", after = "defx.nvim"})
+  -- use({"hexh250786313/defx-icons", after = "defx.nvim"})
   use({"junegunn/fzf", config = [[require("modules.file.plugins.fzf")]]})
 
   -- ┌───────────────────────────────────────
@@ -150,6 +150,7 @@ return packer.startup(function(use)
   use({
     "lukas-reineke/indent-blankline.nvim",
     config = [[require("modules.highlight.plugins.indent-blankline")]],
+    commit = "9637670896b68805430e2f72cf5d16be5b97a22a",
     after = "theme"
   })
   use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})

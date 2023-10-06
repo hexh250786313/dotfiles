@@ -147,7 +147,8 @@ exec 'hi! DefxIconsCopyIcon guibg=NONE' .
 exec 'hi! DefxIconsMoveIcon guibg=NONE' .
   \' guifg=' . _self#highlight#pick('ErrorMsg', 'fg')
 exec 'hi! Defx_filename_directory gui=italic' .
-  \' guifg=' . _self#highlight#pick('PreProc', 'fg')
+  \' guifg=' . _self#highlight#pick('WarningMsg', 'fg')
+  " \' guifg=' . _self#highlight#pick('PreProc', 'fg')
 
 exec 'hi! CocHighlightText' .
   \' guibg=' . _self#highlight#pick('LspReferenceText', 'bg')

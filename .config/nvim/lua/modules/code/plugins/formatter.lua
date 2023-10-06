@@ -36,6 +36,7 @@ end
 require("formatter").setup({
   logging = true,
   filetype = {
+    html = {format_prettierd},
     typescriptreact = {format_prettierd},
     typescript = {format_prettierd},
     javascript = {format_prettierd},
