@@ -150,6 +150,7 @@ return packer.startup(function(use)
   use({
     "lukas-reineke/indent-blankline.nvim",
     config = [[require("modules.highlight.plugins.indent-blankline")]],
+    commit = "9637670896b68805430e2f72cf5d16be5b97a22a",
     after = "theme"
   })
   use({"lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]]})
