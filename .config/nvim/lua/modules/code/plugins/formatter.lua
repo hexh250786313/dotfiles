@@ -39,6 +39,14 @@ local function format_prettierd()
   }
 end
 
+local function format_nginxfmt()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+
+  return { exe = "nginxfmt", args = { "-p", "-" }, stdin = true }
+end
+
 require("formatter").setup({
   logging = true,
   filetype = {
@@ -54,6 +62,7 @@ require("formatter").setup({
     scss = { format_prettierd },
     less = { format_prettierd },
     vue = { format_prettierd },
+    nginx = { format_nginxfmt },
     lua = {
       function()
         if vim.api.nvim_buf_line_count(0) < 1 then
