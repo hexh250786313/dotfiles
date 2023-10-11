@@ -146,19 +146,19 @@ return packer.startup(function(use)
   -- ┌───────────────────────────────────────
   -- │  Highlight Module
   -- └───────────────────────────────────────
-  use({
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    after = "nvim-treesitter",
-    requires = "nvim-treesitter/nvim-treesitter",
-  })
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    -- commit = "3c42fb9d702e1246313d2b5531b815595cb4d889",
-    -- commit = "d4e48be88d9822d98c9194f5cc2778c9953afb66",
-    config = [[require("modules.highlight.plugins.nvim-treesitter")]],
-  })
-  use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
+  -- use({
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  --   after = "nvim-treesitter",
+  --   requires = "nvim-treesitter/nvim-treesitter",
+  -- })
+  -- use({
+  --   "nvim-treesitter/nvim-treesitter",
+  --   run = ":TSUpdate",
+  --   -- commit = "3c42fb9d702e1246313d2b5531b815595cb4d889",
+  --   -- commit = "d4e48be88d9822d98c9194f5cc2778c9953afb66",
+  --   config = [[require("modules.highlight.plugins.nvim-treesitter")]],
+  -- })
+  -- use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
   use({
     "RRethy/vim-hexokinase",
     config = [[require("modules.highlight.plugins.vim-hexokinase")]],
@@ -197,7 +197,12 @@ return packer.startup(function(use)
     "~/.config/nvim/_self/plugins/highlight",
     config = [[require("modules.highlight.plugins.highlight")]],
     -- 样式相关的插件都要比这个先启动
-    after = { "nvim-cursorword", "indent-blankline.nvim", "nvim-treesitter", "theme" },
+    after = {
+      "nvim-cursorword",
+      "indent-blankline.nvim",
+      -- "nvim-treesitter",
+      "theme",
+    },
   })
 
   -- ┌───────────────────────────────────────

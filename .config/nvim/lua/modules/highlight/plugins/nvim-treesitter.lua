@@ -16,7 +16,7 @@ require("nvim-treesitter.configs").setup {
   incremental_selection = { enable = false, disable = disabler },
   textobjects = {
     select = {
-      enable = true,
+      enable = false,
       lookahead = true,
       keymaps = {
         ["af"] = "@function.outer",
