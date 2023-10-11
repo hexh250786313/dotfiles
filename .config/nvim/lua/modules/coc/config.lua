@@ -35,7 +35,8 @@ vim.g.coc_global_extensions = {
   "@hexuhua/coc-list-files-mru",
   "@hexuhua/coc-copilot",
   "coc-symbol-line",
-  -- "coc-lightbulb", "coc-tsserver", "coc-cssmodules",
+  "coc-tsserver",
+  -- "coc-lightbulb", "coc-cssmodules",
 }
 
 -- coc 选择了 quickfix 打开后的回调

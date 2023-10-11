@@ -24,7 +24,7 @@ require"diffview".setup {
     diff_buf_read = function(bufnr)
       -- Change local options in diff buffers
       -- vim.cmd("call CocPrint(" .. bufnr .. ")")
-      vim.cmd(":IndentBlanklineDisable")
+      -- vim.cmd(":IndentBlanklineDisable")
       vim.cmd(":setlocal nocursorline")
       vim.opt_local.wrap = false
       -- vim.opt_local.list = false

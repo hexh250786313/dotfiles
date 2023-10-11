@@ -29,4 +29,5 @@ sd 'async drawItems\(\) \{' 'async drawItems(context) { var _a2; if (((_a2 = thi
 sd 'void this.worker.drawItems\(\);' 'void this.worker.drawItems(this.context);' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 sd 'range: emptyRange\(range\) \? null' 'range: emptyRange(range) ? { start: range.start, end: { line: range.end.line, character: range.end.character + 1 } }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 
+sd ' this\._map\.set\(file2' ' if (file2.startsWith("diffview")) return;this._map.set(file2' ~/.config/coc/extensions/node_modules/coc-tsserver/lib/index.js
 # rm -rf ~/.config/coc/extensions/node_modules/coc-tsserver/snippets

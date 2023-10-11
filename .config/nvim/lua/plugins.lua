@@ -164,13 +164,13 @@ return packer.startup(function(use)
     config = [[require("modules.highlight.plugins.vim-hexokinase")]],
     run = "make hexokinase",
   })
-  use({
-    "lukas-reineke/indent-blankline.nvim",
-    config = [[require("modules.highlight.plugins.indent-blankline")]],
-    commit = "9637670896b68805430e2f72cf5d16be5b97a22a",
-    after = "theme",
-  })
-  use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
+  -- use({
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   config = [[require("modules.highlight.plugins.indent-blankline")]],
+  --   commit = "9637670896b68805430e2f72cf5d16be5b97a22a",
+  --   after = "theme",
+  -- })
+  -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
     -- "rockyzhang24/arctic.nvim",
@@ -199,7 +199,7 @@ return packer.startup(function(use)
     -- 样式相关的插件都要比这个先启动
     after = {
       "nvim-cursorword",
-      "indent-blankline.nvim",
+      -- "indent-blankline.nvim",
       -- "nvim-treesitter",
       "theme",
     },
