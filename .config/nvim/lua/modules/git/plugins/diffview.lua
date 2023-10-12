@@ -27,6 +27,7 @@ require"diffview".setup {
       -- vim.cmd(":IndentBlanklineDisable")
       vim.cmd(":setlocal nocursorline")
       vim.opt_local.wrap = false
+      vim.opt_local.winbar = ''
       -- vim.opt_local.list = false
       -- vim.opt_local.colorcolumn = {120}
     end,

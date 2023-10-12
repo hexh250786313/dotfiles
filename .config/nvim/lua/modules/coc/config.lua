@@ -159,7 +159,8 @@ end
 if vim.fn.exists '&winbar' then
   vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
     callback = function()
-      if vim.b.coc_symbol_line and vim.bo.buftype == '' then
+      local is_diff = vim.wo.diff
+      if vim.b.coc_symbol_line and vim.bo.buftype == '' and not is_diff then
         if vim.opt_local.winbar:get() == '' then
           vim.opt_local.winbar = '%!v:lua.symbol_line()'
         end
