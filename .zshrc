@@ -241,6 +241,7 @@ lower_node_paths=(
   "h5-utils"
   "crm-login-web"
   "h5-api"
+  "h5-common"
 )
 use_lower_node() {
   current_path=$(pwd)
