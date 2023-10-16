@@ -31,3 +31,15 @@ endsnippet
 snippet try "try catch" i
 try { ${1} } catch(${2:e}) { ${3} }
 endsnippet
+
+snippet usee "useEffect" b
+useEffect(() => {
+  ${1}
+}, [${2}])
+endsnippet
+
+snippet usec "useCallback" i
+${3}useCallback(() => {
+  ${1}
+}, [${2}])
+endsnippet
