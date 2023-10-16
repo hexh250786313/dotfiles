@@ -48,7 +48,7 @@ setopt globdots
 setopt rm_starsilent
 
 # alias
-alias sudo="~/build/nvim.appimage"
+alias nvim="~/build/nvim.appimage"
 alias sudo="sudo "
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 alias editor=nvim
