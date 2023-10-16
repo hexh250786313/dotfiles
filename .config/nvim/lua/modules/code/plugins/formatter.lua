@@ -14,7 +14,15 @@ local function format_prettier()
     return {}
   end
 
-  return { exe = "prettier", args = { util.escape_path(util.get_current_buffer_file_path()) }, stdin = true }
+  return {
+    exe = "prettier",
+    args = {
+      '--stdin-filepath',
+      util.escape_path(util.get_current_buffer_file_path()),
+      -- util.escape_path(util.get_current_buffer_file_path())
+    },
+    stdin = true,
+  }
 end
 
 local function format_prettierd()
