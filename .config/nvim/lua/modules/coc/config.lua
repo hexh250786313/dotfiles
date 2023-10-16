@@ -35,7 +35,8 @@ vim.g.coc_global_extensions = {
   "@hexuhua/coc-list-files-mru",
   "@hexuhua/coc-copilot",
   "coc-symbol-line",
-  -- "coc-lightbulb", "coc-tsserver", "coc-cssmodules",
+  "coc-tsserver",
+  -- "coc-lightbulb", "coc-cssmodules",
 }
 
 -- coc 选择了 quickfix 打开后的回调
@@ -62,6 +63,12 @@ endfunction
 
 " 添加全局识别码
 let g:coc_config_sid = s:SID_PREFIX()
+
+" 展示函数的 signature help 同时刷新补全面板（showSignatureHelp 可能会带来一定性能问题）
+function! s:COC_REFRESH_AND_SIGNATURE_HELP()
+  call CocActionAsync('showSignatureHelp')
+  return coc#refresh() " 此处必须返回，否则 coc#refresh() 不生效
+endfunction
 
 " 展示文档
 function! s:SHOW_DOCUMENTATION()
@@ -122,7 +129,8 @@ inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#pum#next(0) :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
-inoremap <silent><expr><c-l> coc#refresh()
+" inoremap <silent><expr><c-l> coc#refresh()
+inoremap <silent><expr><c-l> <SID>COC_REFRESH_AND_SIGNATURE_HELP()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
 inoremap <silent><expr> <c-j>
   \ coc#pum#visible() ? coc#pum#next(0) :
@@ -151,7 +159,8 @@ end
 if vim.fn.exists '&winbar' then
   vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
     callback = function()
-      if vim.b.coc_symbol_line and vim.bo.buftype == '' then
+      local is_diff = vim.wo.diff
+      if vim.b.coc_symbol_line and vim.bo.buftype == '' and not is_diff then
         if vim.opt_local.winbar:get() == '' then
           vim.opt_local.winbar = '%!v:lua.symbol_line()'
         end

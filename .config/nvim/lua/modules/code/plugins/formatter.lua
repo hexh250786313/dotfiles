@@ -14,7 +14,15 @@ local function format_prettier()
     return {}
   end
 
-  return { exe = "prettier", args = { util.escape_path(util.get_current_buffer_file_path()) }, stdin = true }
+  return {
+    exe = "prettier",
+    args = {
+      '--stdin-filepath',
+      util.escape_path(util.get_current_buffer_file_path()),
+      -- util.escape_path(util.get_current_buffer_file_path())
+    },
+    stdin = true,
+  }
 end
 
 local function format_prettierd()
@@ -39,6 +47,14 @@ local function format_prettierd()
   }
 end
 
+local function format_nginxfmt()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+
+  return { exe = "nginxfmt", args = { "-p", "-" }, stdin = true }
+end
+
 require("formatter").setup({
   logging = true,
   filetype = {
@@ -54,6 +70,7 @@ require("formatter").setup({
     scss = { format_prettierd },
     less = { format_prettierd },
     vue = { format_prettierd },
+    nginx = { format_nginxfmt },
     lua = {
       function()
         if vim.api.nvim_buf_line_count(0) < 1 then
