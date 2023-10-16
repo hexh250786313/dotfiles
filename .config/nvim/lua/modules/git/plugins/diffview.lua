@@ -18,7 +18,19 @@ require"diffview".setup {
       disable_diagnostics = true, -- Temporarily disable diagnostics for conflict buffers while in the view.
     },
   },
-  file_history_panel = { win_config = { height = 9 } },
+  file_history_panel = {
+    -- win_config = { height = 9, width = 35, position = "top" },
+    win_config = function()
+      local c = { type = "float" }
+      local editor_width = vim.o.columns
+      local editor_height = vim.o.lines
+      c.width = math.min(200, editor_width)
+      c.height = math.min(33, editor_height)
+      c.col = math.floor(editor_width * 0.5 - c.width * 0.5)
+      c.row = math.floor(editor_height * 0.5 - c.height * 0.5)
+      return c
+    end,
+  },
   file_panel = { listing_style = "list" },
   hooks = {
     diff_buf_read = function(bufnr)
