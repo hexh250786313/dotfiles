@@ -3,6 +3,7 @@ local wk = require("which-key")
 wk.register({ mode = { "n" }, ["<leader>/"] = { ":CocList grep<cr>", "Grep globally" } })
 wk.register({ mode = { "n" }, ["<leader>lr"] = { ":CocListResume<cr>", "Resume list" } })
 wk.register({ mode = { "n" }, ["<leader>r"] = { ":CocCommand coc-replacement.replace<cr>", "Replace" } })
+wk.register({ mode = { "n" }, ["<leader>lw"] = { "<Plug>(coc-typos-fix)", "Fix typos" } })
 wk.register({
   mode = { "x" },
   ["<leader>/"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
