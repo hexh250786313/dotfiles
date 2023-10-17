@@ -175,20 +175,31 @@ return packer.startup(function(use)
   use({
     -- "rockyzhang24/arctic.nvim",
     -- branch = "v2",
-    "mcchrish/zenbones.nvim",
+    "folke/tokyonight.nvim",
     requires = { "rktjmp/lush.nvim" },
     as = "theme",
     config = function()
       vim.cmd([[
-        let g:gruvbox_material_better_performance = 0
+        let g:gruvbox_material_better_performance = 1
         let g:gruvbox_material_background = 'hard'
         let g:gruvbox_material_foreground = 'original'
-        set background=dark " 背景 "light" | "dark"
-        " ---> arctic
+        set background=light " 背景 "light" | "dark"
+
+        " ---> 主题：rockyzhang24/arctic.nvim
         " colorscheme arctic
-        " ---> zenbones
-        colorscheme zenbones
-        autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
+
+        " ---> 主题：mcchrish/zenbones.nvim
+        " colorscheme zenbones
+        " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
+
+        " ---> 主题：folke/tokyonight.nvim
+        colorscheme tokyonight-night
+
+        " ---> 主题：sainnhe/everforest
+        " let g:everforest_better_performance = 1
+        " let g:everforest_background = 'hard'
+        " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
+        " colorscheme everforest
       ]])
     end,
   })
