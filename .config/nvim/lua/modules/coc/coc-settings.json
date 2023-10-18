@@ -154,6 +154,8 @@
   "list.normalMappings": {
     "P": "do:previewtoggle",
     "<c-a>": "do:selectall",
+    "<c-s>": "do:switch",
+    "<c-o>": "do:jumpback",
     "<c-q>": "action:quickfix",
     // "<c-q>": "feedkeys:\\<tab>",
     "<tab>": "do:toggle",
@@ -164,6 +166,8 @@
   "list.insertMappings": {
     "<c-p>": "do:previewtoggle",
     "<c-a>": "do:selectall",
+    "<c-s>": "do:switch",
+    "<c-o>": "do:jumpback",
     "<c-q>": "action:quickfix",
     "<tab>": "do:toggle",
     // "<tab>": "do:togglemode", // 等于是 <c-i> 的行为, 终端无法区分 <tab> 和 <c-i>
@@ -389,10 +393,10 @@
       }
     },
     {
-      "tagName": "mark",
-      "regex": "@mark",
+      "tagName": "todo ",
+      "regex": "TODO",
       "icon": {
-        "text": "",
+        "text": "",
         "hlGroup": "CocInfoSign"
       }
     }
@@ -405,11 +409,11 @@
     "text": "",
     "hlGroup": "DefxIconsOpenedTreeIcon"
   },
+  "todo-tree.defaultView": "tagsOnly",
   "inlayHint.display": true,
   "inlayHint.enable": true,
   "inlayHint.enableParameter": true,
   "inlayHint.refreshOnInsertMode": true,
-  "todo-tree.defaultView": "tree",
   // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
   // "tsserver.log": "verbose",
   "typescript.suggest.completeFunctionCalls": false,
