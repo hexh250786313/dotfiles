@@ -98,6 +98,14 @@ return packer.startup(function(use)
     keys = { { "n", "<leader>qB" } },
   })
   use("~/.config/nvim/_self/plugins/avoid-scrolling-when-switch-buffers")
+  use {
+    'kevinhwang91/nvim-fundo',
+    requires = 'kevinhwang91/promise-async',
+    run = function()
+      require('fundo').install()
+    end,
+    config = [[require("modules.buffer.plugins.nvim-fundo")]],
+  }
   -- use({"chrisgrieser/nvim-early-retirement", config = [[require("modules.buffer.plugins.nvim-early-retirement")]]})
 
   -- ┌───────────────────────────────────────

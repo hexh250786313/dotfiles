@@ -153,7 +153,7 @@ exec 'hi! WinSeparator' .
   \' guifg=' . _self#highlight#pick('CursorLine', 'bg')
 exec 'hi! WinBar gui=bold' .
   \' guifg=' . _self#highlight#pick('StatusLine', 'fg') .
-  \' guibg=none'
+  \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 
 exec 'hi! CocHighlightText' .
   \' guibg=' . _self#highlight#pick('LspReferenceText', 'bg')
