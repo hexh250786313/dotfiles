@@ -106,6 +106,7 @@ return packer.startup(function(use)
     end,
     config = [[require("modules.buffer.plugins.nvim-fundo")]],
   }
+  use { 'lambdalisue/suda.vim', cmd = { "SudaWrite" } }
   -- use({"chrisgrieser/nvim-early-retirement", config = [[require("modules.buffer.plugins.nvim-early-retirement")]]})
 
   -- ┌───────────────────────────────────────
