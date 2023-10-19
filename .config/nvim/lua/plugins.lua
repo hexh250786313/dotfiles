@@ -303,7 +303,7 @@ return packer.startup(function(use)
     config = [[require("modules.motion.plugins.hop")]],
   })
   use({
-    "https://gitlab.com/yorickpeterse/nvim-window.git",
+    "yorickpeterse/nvim-window",
     config = [[require("modules.motion.plugins.nvim-window")]],
     keys = { { "n", "<leader>ww" } },
     -- after = "defx.nvim"
