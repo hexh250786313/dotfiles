@@ -149,12 +149,14 @@ exec 'hi! DefxIconsMoveIcon guibg=NONE' .
 exec 'hi! Defx_filename_directory gui=italic' .
   \' guifg=' . _self#highlight#pick('WarningMsg', 'fg')
   " \' guifg=' . _self#highlight#pick('PreProc', 'fg')
+exec 'hi! WinSeparator' .
+  \' guifg=' . _self#highlight#pick('CursorLine', 'bg')
+exec 'hi! WinBar gui=bold' .
+  \' guifg=' . _self#highlight#pick('StatusLine', 'fg') .
+  \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 
 exec 'hi! CocHighlightText' .
   \' guibg=' . _self#highlight#pick('LspReferenceText', 'bg')
-exec 'hi! WinBar gui=bold' .
-  \' guifg=' . _self#highlight#pick('StatusLine', 'fg') .
-  \' guibg=none'
 exec 'hi! LightBulbVirtualText' .
   \' guibg=' . _self#highlight#pick('CursorLine', 'bg') .
   \' guifg=' . _self#highlight#pick('Special', 'fg')

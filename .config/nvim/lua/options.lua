@@ -12,7 +12,6 @@ set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 set clipboard+=unnamedplus
 " let g:loaded_matchparen = 1 " 关闭括弧配对高亮
 set guifont=FiraCode\ Nerd\ Font:h12
-" set colorcolumn=+1
 let g:neovide_transparency = 0.9
 ]])
 

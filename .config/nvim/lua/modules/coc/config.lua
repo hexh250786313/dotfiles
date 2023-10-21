@@ -1,11 +1,60 @@
 ---- 快捷键
 local wk = require("which-key")
 wk.register({ mode = { "n" }, ["<leader>/"] = { ":CocList grep<cr>", "Grep globally" } })
-wk.register({ mode = { "n" }, ["<leader>lr"] = { ":CocListResume<cr>", "Resume list" } })
 wk.register({ mode = { "n" }, ["<leader>r"] = { ":CocCommand coc-replacement.replace<cr>", "Replace" } })
 wk.register({
   mode = { "x" },
   ["<leader>/"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
+})
+
+-- lsp
+wk.register({
+  mode = { "n" },
+  ["gr"] = { "<cmd>call CocActionAsync('jumpReferences')<cr>", "Go to references" },
+  ["gd"] = { "<cmd>call CocActionAsync('jumpDefinition')<cr>", "Go to definition" },
+  ["gh"] = { ":<c-u>call function(g:coc_config_sid . 'SHOW_DOCUMENTATION')()<cr>", "Show docs for item under cursor" },
+})
+
+-- files
+wk.register({ mode = { "n" }, ["<leader>f"] = { "<cmd>CocList --height=9 filesMru<cr>", "Open file picker" } })
+
+-- git
+wk.register({
+  mode = { "n" },
+  ["<leader>gs"] = { "<cmd>CocCommand git.chunkStage<cr>", "Stage git chunk" },
+  ["<leader>gu"] = { "<cmd>CocCommand git.chunkUndo<cr>", "Undo git chunk" },
+  ["<leader>gi"] = { "<cmd>CocCommand git.chunkInfo<cr>", "Show git chunk info" },
+  ["<leader>gd"] = { "<cmd>CocCommand git.diffCached<cr>", "Show git chunk diff info" },
+  ["[g"] = { "<Plug>(coc-git-prevchunk)", "Go to previous change" },
+  ["]g"] = { "<Plug>(coc-git-nextchunk)", "Go to next change" },
+})
+
+-- list
+wk.register({
+  mode = { "n" },
+  ["<leader>ld"] = { "<cmd>CocList --no-sort diagnostics<cr>", "Diagnostics list" },
+  ["<leader>lt"] = { "<cmd>CocList tasks<cr>", "Tasks list" },
+  ["<leader>ls"] = { "<cmd>CocList --no-sort services<cr>", "LSP Services list" },
+  ["<leader>lr"] = { ":CocListResume<cr>", "Resume list" },
+  ["<leader>lw"] = { ":CocList typos<cr>", "List typos" },
+})
+
+-- Actions
+wk.register({
+  mode = { "n" },
+  ["<leader>aa"] = { "<plug>(coc-codeaction-line)", "LSP CodeActions list for line" },
+  ["<leader>aA"] = { "<plug>(coc-codeaction-cursor)", "LSP CodeActions list for cursor" },
+  ["<leader>af"] = { "<Plug>(coc-fix-current)", "Try first quickfix action for diagnostics of current line" },
+  ["<leader>aF"] = { "<plug>(coc-codeaction)", "LSP CodeActions list for current file" },
+  ["<leader>as"] = { "<plug>(coc-codeaction-source)", "LSP CodeActions list for current file(source)" },
+  ["<leader>ar"] = { "<lug>(coc-codeaction-refactor)", "Get and run refactor code action(s) at current cursor" },
+  ["<leader>aw"] = { "<Plug>(coc-typos-fix)", "Fix typos" },
+})
+wk.register({ mode = { "x" }, ["<leader>aa"] = { "<plug>(coc-codeaction-selected)", "LSP CodeActions list" } })
+wk.register({
+  mode = { "x" },
+  ["<leader>ar"] = { "<plug>(coc-codeaction-refactor-selected)",
+                     "Get and run refactor code action(s) at current cursor" },
 })
 
 ---- 配置
