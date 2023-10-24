@@ -17,3 +17,5 @@ git:
     pager: delta --dark --paging=never
 services:
   'git.fpdev.tech': 'gitlab:git.fpdev.tech'
+os:
+  edit: '~/Downloads/nvim.appimage {{filename}}'
