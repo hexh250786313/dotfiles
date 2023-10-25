@@ -417,6 +417,7 @@
   // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
   // "tsserver.log": "verbose",
   "typescript.suggest.completeFunctionCalls": false,
+  "tsserver.useSyntaxServer": "auto",
   "tsserver.maxTsServerMemory": 16384,
   "tsserver.locale": "auto",
   "tsserver.useLocalTsdk": true,
