@@ -19,7 +19,8 @@ wk.register({
 
 local handler = function(virtText, lnum, endLnum, width)
   local newVirtText = {}
-  local endText = ("  %d "):format(endLnum - lnum)
+  -- local endText = ("  %d "):format(endLnum - lnum)
+  local endText = (" {} %d 行"):format(endLnum - lnum)
   local limitedWidth = width - vim.api.nvim_strwidth(endText)
   local pos = 0
   for _, chunk in ipairs(virtText) do
@@ -40,7 +41,12 @@ local handler = function(virtText, lnum, endLnum, width)
 end
 
 -- global handler
-require("ufo").setup({ fold_virt_text_handler = handler })
+require("ufo").setup({
+  fold_virt_text_handler = handler,
+  preview = {
+    mappings = { scrollU = '<up>', scrollD = '<down>', jumpTop = '[', jumpBot = ']' },
+  },
+})
 
 -- local bufnr = vim.api.nvim_get_current_buf()
 -- require("ufo").setVirtTextHandler(bufnr, handler)

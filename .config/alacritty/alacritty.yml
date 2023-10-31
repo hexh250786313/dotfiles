@@ -42,9 +42,9 @@ font:
   # style: Bold Italic
   # size: 14
   size: 10
-  # offset:
+  offset:
     # x: -1
-    # y: 6
+    y: 5
     # y: 3
 mouse:
   hide_when_typing: true

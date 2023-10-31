@@ -98,8 +98,6 @@ hi! link CocSearch Question
 hi! link CocPumMenu Pmenu
 hi! link NormalNC Normal
 
-hi! link UfoCursorFoldedLine DiffChange
-
 " hi! CursorWord gui=underline
 hi! CursorWord guibg=#303731 gui=none
 
@@ -173,6 +171,13 @@ exec 'hi! CocFloating' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
+exec 'hi! UfoCursorFoldedLine' .
+  \' guibg=' . _self#highlight#pick('DiffChange', 'bg') .
+  \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
+exec 'hi! UfoFoldedEllipsis' .
+  \' guibg=' . _self#highlight#pick('DiffChange', 'bg') .
+  \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
+
 autocmd VimEnter * exec 'hi! CocSymbolLine gui=italic' .
   \' guibg=' . _self#highlight#pick('lualine_c_normal', 'bg') .
   \' guifg=' . _self#highlight#pick('lualine_c_normal', 'fg')
