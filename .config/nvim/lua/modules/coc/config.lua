@@ -131,7 +131,7 @@ function! s:SHOW_DOCUMENTATION()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
+    call CocActionAsync('definitionHover')
   else
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif

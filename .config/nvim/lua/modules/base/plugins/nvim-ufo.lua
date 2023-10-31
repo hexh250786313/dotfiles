@@ -44,6 +44,7 @@ end
 require("ufo").setup({
   fold_virt_text_handler = handler,
   preview = {
+    win_config = { winblend = 0 },
     mappings = { scrollU = '<up>', scrollD = '<down>', jumpTop = '[', jumpBot = ']' },
   },
 })
