@@ -5,7 +5,8 @@ wk.register({ mode = { "n" }, ["<leader>?"] = { ":CocList grep<cr>", "Grep globa
 wk.register({ mode = { "n" }, ["<leader>r"] = { ":CocCommand coc-replacement.replace<cr>", "Replace" } })
 wk.register({
   mode = { "x" },
-  ["<leader>/"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
+  -- ["<leader>/"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
+  ["<leader>?"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
 })
 
 -- lsp
@@ -86,6 +87,7 @@ vim.g.coc_global_extensions = {
   "@hexuhua/coc-copilot",
   "coc-symbol-line",
   "coc-tsserver",
+  "coc-rust-analyzer",
   -- "coc-lightbulb", "coc-cssmodules",
 }
 
@@ -122,10 +124,14 @@ endfunction
 
 " 展示文档
 function! s:SHOW_DOCUMENTATION()
+  let winid = luaeval("require('ufo').peekFoldedLinesUnderCursor()")
+  if (winid)
+    return
+  endif
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
+    call CocActionAsync('definitionHover')
   else
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif

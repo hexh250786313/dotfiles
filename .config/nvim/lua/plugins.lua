@@ -185,7 +185,7 @@ return packer.startup(function(use)
     -- "rockyzhang24/arctic.nvim",
     -- branch = "v2",
     "folke/tokyonight.nvim",
-    requires = { "rktjmp/lush.nvim" },
+    -- requires = { "rktjmp/lush.nvim" },
     as = "theme",
     config = function()
       vim.cmd([[
@@ -279,7 +279,7 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "nvim-pack/nvim-spectre",
-    keys = {{"n", "<leader>/"}, {"x", "<leader>/"}},
+    keys = { { "n", "<leader>/" }, { "x", "<leader>/" } },
     -- keys = { { "n", "<leader>?" }, { "x", "<leader>?" } },
     config = [[require("modules.grep.plugins.nvim-spectre")]],
     run = "./build.sh",
