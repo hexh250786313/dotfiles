@@ -1,9 +1,9 @@
 local wk = require("which-key")
 
 vim.o.foldcolumn = "1"
-vim.o.foldlevel = 99
+vim.o.foldlevel = 9999
 -- vim.o.foldlevelstart = -1
-vim.o.foldlevelstart = 99
+vim.o.foldlevelstart = 9999
 vim.wo.foldenable = true
 -- vim.o.statuscolumn = '%=%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }%s%l%{" "}'
 -- vim.o.statuscolumn = '%=%l%s%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " " }%*'
