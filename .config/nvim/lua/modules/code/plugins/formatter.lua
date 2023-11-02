@@ -47,6 +47,14 @@ local function format_prettierd()
   }
 end
 
+local function format_taplo()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+
+  return { exe = "taplo", args = { "fmt", "-" }, stdin = true }
+end
+
 local function format_nginxfmt()
   if vim.api.nvim_buf_line_count(0) < 1 then
     return {}
@@ -71,6 +79,7 @@ require("formatter").setup({
     less = { format_prettierd },
     vue = { format_prettierd },
     nginx = { format_nginxfmt },
+    toml = { format_taplo },
     lua = {
       function()
         if vim.api.nvim_buf_line_count(0) < 1 then
