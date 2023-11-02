@@ -427,6 +427,9 @@
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+  "rust-analyzer.disableProgressNotifications": true,
+  "rust-analyzer.check.command": "clippy",
+  // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
     "taplo": {
       "command": "taplo",
