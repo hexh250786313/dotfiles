@@ -129,7 +129,12 @@ return packer.startup(function(use)
     },
     config = [[require("modules.code.plugins.Comment")]],
   })
-  use({ "github/copilot.vim", event = "InsertEnter", config = [[require("modules.code.plugins.copilot")]] })
+  use({
+    "github/copilot.vim",
+    -- event = "InsertEnter",
+    after = "coc.nvim",
+    config = [[require("modules.code.plugins.copilot")]],
+  })
 
   -- ┌───────────────────────────────────────
   -- │  File Module
