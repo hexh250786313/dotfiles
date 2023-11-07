@@ -178,6 +178,7 @@ return packer.startup(function(use)
     config = [[require("modules.highlight.plugins.vim-hexokinase")]],
     run = "make hexokinase",
   })
+  use({ "hexh250786313/yats.vim" })
   -- use({
   --   "lukas-reineke/indent-blankline.nvim",
   --   config = [[require("modules.highlight.plugins.indent-blankline")]],
