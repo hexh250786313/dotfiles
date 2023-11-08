@@ -77,8 +77,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # some env variable
 export LANG=en_US.UTF-8
-export EDITOR=nvim
-export REACT_EDITOR=nvim
+export EDITOR="zsh -i -c nvim"
+export REACT_EDITOR="zsh -i -c nvim"
 export OPENCV_LOG_LEVEL=ERROR
 # -------------------
 
@@ -133,7 +133,7 @@ plugins=(
 # -------------------
 
 # alias
-alias nvim=~/Downloads/nvim.appimage
+alias nvim=~/build/neovim/nvim.appimage
 alias sudo="sudo "
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 alias editor=nvim
@@ -290,3 +290,4 @@ add-zsh-hook chpwd _ls_on_cwd_change
 # test zsh speed end
 # zprof
 # -------------------
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
