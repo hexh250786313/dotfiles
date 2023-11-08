@@ -77,8 +77,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # some env variable
 export LANG=en_US.UTF-8
-export EDITOR="zsh -i -c nvim"
-export REACT_EDITOR="zsh -i -c nvim"
+export EDITOR=~/workspace/dotfiles/.config/my-config/sh/nvim.sh
+export REACT_EDITOR=~/workspace/dotfiles/.config/my-config/sh/nvim.sh
 export OPENCV_LOG_LEVEL=ERROR
 # -------------------
 
