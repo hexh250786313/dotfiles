@@ -242,6 +242,7 @@ lower_node_paths=(
   "crm-login-web"
   "h5-api"
   "h5-common"
+  "skywalking"
 )
 use_lower_node() {
   current_path=$(pwd)
