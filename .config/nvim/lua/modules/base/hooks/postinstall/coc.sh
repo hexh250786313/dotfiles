@@ -31,3 +31,6 @@ sd 'range: emptyRange\(range\) \? null' 'range: emptyRange(range) ? { start: ran
 
 sd ' this\._map\.set\(file2' ' if (file2.startsWith("diffview")) return;this._map.set(file2' ~/.config/coc/extensions/node_modules/coc-tsserver/lib/index.js
 # rm -rf ~/.config/coc/extensions/node_modules/coc-tsserver/snippets
+
+# 暂时解决 inlayHints 滞后的问题，ref https://github.com/neoclide/coc.nvim/issues/4782
+sd 'debounceInterval = getConditionValue\(100, 10\);' 'debounceInterval = getConditionValue(150, 10);' /home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
