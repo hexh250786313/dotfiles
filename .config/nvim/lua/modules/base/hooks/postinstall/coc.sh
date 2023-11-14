@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-src_file="/home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js"
-dest_file="/home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js.bak"
+src_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js"
+dest_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js.bak"
 
 if [ ! -e "$dest_file" ]; then
     cp "$src_file" "$dest_file"
