@@ -154,7 +154,8 @@ return packer.startup(function(use)
     cmd = { "RnvimrToggle" },
     config = [[require("modules.file.plugins.rnvimr")]],
   })
-  use({"hexh250786313/defx-icons", after = "defx.nvim"})
+  use({ "hexh250786313/defx-icons", after = "defx.nvim", branch = "hexh" })
+  use({ "~/.config/nvim/_self/plugins/port-defx-icons", after = "defx-icons" })
   use({ "junegunn/fzf", config = [[require("modules.file.plugins.fzf")]] })
 
   -- ┌───────────────────────────────────────
