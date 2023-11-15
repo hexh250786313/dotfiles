@@ -19,11 +19,11 @@ let s:link_icon = get(g:, 'defx_icons_link_icon', '')
 let s:move_icon = get(g:, 'defx_icons_move_icon', '')
 
 let s:extensions = extend({
-__REPLACE_1__
+__REPLACE_2__
       \ }, get(g:, 'defx_icons_extensions', {}))
 
 let s:exact_matches = extend({
-__REPLACE_2__
+__REPLACE_1__
       \ }, get(g:, 'defx_icons_exact_matches', {}))
 
 let s:pattern_matches = extend({ }, get(g:, 'defx_icon_pattern_matches', {}))
