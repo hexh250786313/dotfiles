@@ -186,6 +186,9 @@ autocmd VimEnter * exec 'hi! CocInlayHint' .
   \' guifg=#393939'
 
 
+exec 'hi! Folded' .
+  \' guibg=#171821' .
+  \' guifg=none'
 exec 'hi! UfoFoldedBg' .
   \' guibg=none' .
   \' guifg=none'
