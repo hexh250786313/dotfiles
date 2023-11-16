@@ -47,12 +47,46 @@ local function format_prettierd()
   }
 end
 
+local function format_taplo()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+
+  return { exe = "taplo", args = { "fmt", "-" }, stdin = true }
+end
+
 local function format_nginxfmt()
   if vim.api.nvim_buf_line_count(0) < 1 then
     return {}
   end
 
   return { exe = "nginxfmt", args = { "-p", "-" }, stdin = true }
+end
+
+local function format_rustfmt()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+
+  return { exe = "rustfmt", stdin = true }
+end
+
+local function format_lua()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+  return {
+    exe = "lua-format",
+    args = { "--config", "~/.config/nvim/_self/lang-configs/lua/formatter.conf" },
+    stdin = true,
+  }
+end
+
+local function format_pg()
+  if vim.api.nvim_buf_line_count(0) < 1 then
+    return {}
+  end
+  return { exe = "pg_format", args = { "-" }, stdin = true }
 end
 
 require("formatter").setup({
@@ -71,23 +105,10 @@ require("formatter").setup({
     less = { format_prettierd },
     vue = { format_prettierd },
     nginx = { format_nginxfmt },
-    lua = {
-      function()
-        if vim.api.nvim_buf_line_count(0) < 1 then
-          return {}
-        end
-        return {
-          exe = "lua-format",
-          args = { "--config", "~/.config/nvim/_self/lang-configs/lua/formatter.conf" },
-          stdin = true,
-        }
-      end,
-    },
-    sql = {
-      function()
-        return { exe = "pg_format", args = { "-" }, stdin = true }
-      end,
-    },
+    toml = { format_taplo },
+    rust = { format_rustfmt },
+    lua = { format_lua },
+    sql = { format_pg },
     zsh = { format_prettier },
     yaml = { format_prettier },
     sh = { format_prettier },

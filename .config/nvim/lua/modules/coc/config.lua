@@ -86,7 +86,7 @@ vim.g.coc_global_extensions = {
   "@hexuhua/coc-list-files-mru",
   "@hexuhua/coc-copilot",
   "coc-symbol-line",
-  "coc-tsserver",
+  -- "coc-tsserver",
   "coc-rust-analyzer",
   -- "coc-lightbulb", "coc-cssmodules",
 }

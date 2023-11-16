@@ -171,12 +171,6 @@ exec 'hi! CocFloating' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
-exec 'hi! UfoCursorFoldedLine' .
-  \' guibg=' . _self#highlight#pick('DiffChange', 'bg') .
-  \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
-exec 'hi! UfoFoldedEllipsis' .
-  \' guibg=' . _self#highlight#pick('DiffChange', 'bg') .
-  \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
 
 autocmd VimEnter * exec 'hi! CocSymbolLine gui=italic' .
   \' guibg=' . _self#highlight#pick('lualine_c_normal', 'bg') .
@@ -186,9 +180,19 @@ autocmd VimEnter * exec 'hi! CocInlayHint' .
   \' guifg=#393939'
 
 
+exec 'hi! Folded' .
+  \' guibg=#171821' .
+  \' guifg=none'
 exec 'hi! UfoFoldedBg' .
   \' guibg=none' .
   \' guifg=none'
+
+exec 'hi! UfoCursorFoldedLine' .
+  \' guibg=' . _self#highlight#pick('DiffChange', 'bg') .
+  \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
+autocmd VimEnter * exec 'hi! UfoFoldedEllipsis' .
+  \' guibg=' . _self#highlight#pick('Folded', 'bg') .
+  \' guifg=' . _self#highlight#pick('CocInlayHint', 'fg')
 
 exec 'hi! DiagnosticError' .
   \' guifg=' . s:error .

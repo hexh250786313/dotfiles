@@ -129,7 +129,12 @@ return packer.startup(function(use)
     },
     config = [[require("modules.code.plugins.Comment")]],
   })
-  use({ "github/copilot.vim", event = "InsertEnter", config = [[require("modules.code.plugins.copilot")]] })
+  use({
+    "github/copilot.vim",
+    -- event = "InsertEnter",
+    after = "coc.nvim",
+    config = [[require("modules.code.plugins.copilot")]],
+  })
 
   -- ┌───────────────────────────────────────
   -- │  File Module
@@ -149,7 +154,8 @@ return packer.startup(function(use)
     cmd = { "RnvimrToggle" },
     config = [[require("modules.file.plugins.rnvimr")]],
   })
-  -- use({"hexh250786313/defx-icons", after = "defx.nvim"})
+  use({ "hexh250786313/defx-icons", after = "defx.nvim", branch = "hexh" })
+  use({ "~/.config/nvim/_self/plugins/port-defx-icons", after = "defx-icons" })
   use({ "junegunn/fzf", config = [[require("modules.file.plugins.fzf")]] })
 
   -- ┌───────────────────────────────────────
@@ -173,6 +179,7 @@ return packer.startup(function(use)
     config = [[require("modules.highlight.plugins.vim-hexokinase")]],
     run = "make hexokinase",
   })
+  use({ "hexh250786313/yats.vim" })
   -- use({
   --   "lukas-reineke/indent-blankline.nvim",
   --   config = [[require("modules.highlight.plugins.indent-blankline")]],
