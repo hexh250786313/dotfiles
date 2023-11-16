@@ -20,7 +20,7 @@ wk.register({
 local handler = function(virtText, lnum, endLnum, width)
   local newVirtText = {}
   -- local endText = ("  %d "):format(endLnum - lnum)
-  local endText = ("   %d 行"):format(endLnum - lnum)
+  local endText = ("   已折叠 %d 行"):format(endLnum - lnum)
   local limitedWidth = width - vim.api.nvim_strwidth(endText)
   local pos = 0
   for _, chunk in ipairs(virtText) do
