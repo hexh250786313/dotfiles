@@ -144,7 +144,11 @@ return packer.startup(function(use)
     keys = { { "n", "<leader>e" } },
     cmd = { "Defx" },
     config = function()
-      require("modules.file.plugins.defx")
+      if vim.fn.has("wsl") == 1 then
+        require("modules.file.plugins.defx-wsl")
+      else
+        require("modules.file.plugins.defx")
+      end
       vim.cmd("ConfigLocalSource")
     end,
   })
