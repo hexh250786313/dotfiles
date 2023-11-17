@@ -171,6 +171,9 @@ exec 'hi! CocFloating' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
+exec 'hi! CocPumShortcut' .
+  \' guibg=' . _self#highlight#pick('Comment', 'bg')
+  \' guifg=' . _self#highlight#pick('Comment', 'fg')
 
 autocmd VimEnter * exec 'hi! CocSymbolLine gui=italic' .
   \' guibg=' . _self#highlight#pick('lualine_c_normal', 'bg') .

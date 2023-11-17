@@ -438,6 +438,7 @@
       "rootPatterns": ["*.toml", ".git"]
     },
     "typescript": {
+      "enable": false,
       "command": "typescript-language-server",
       "args": ["--stdio"],
       "rootPatterns": ["package.json", ".git", ".editorconfig"],
