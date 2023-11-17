@@ -429,6 +429,7 @@
   "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
   "rust-analyzer.disableProgressNotifications": true,
   "rust-analyzer.check.command": "clippy",
+  "Lua.diagnostics.globals": ["vim"],
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
     "taplo": {
