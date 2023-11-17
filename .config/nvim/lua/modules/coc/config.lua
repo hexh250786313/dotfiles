@@ -88,7 +88,9 @@ vim.g.coc_global_extensions = {
   "coc-symbol-line",
   "coc-tsserver",
   "coc-rust-analyzer",
-  -- "coc-lightbulb", "coc-cssmodules",
+  "coc-sumneko-lua",
+  -- "coc-lightbulb",
+  -- "coc-cssmodules",
 }
 
 -- coc 选择了 quickfix 打开后的回调

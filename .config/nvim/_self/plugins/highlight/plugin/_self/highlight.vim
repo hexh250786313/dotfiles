@@ -171,7 +171,7 @@ exec 'hi! CocFloating' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 exec 'hi! CocFloatDividingLine' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
-exec 'hi! CocPumShortcut' .
+exec 'hi! CocPumShortcut gui=bold' .
   \' guibg=' . _self#highlight#pick('Comment', 'bg')
   \' guifg=' . _self#highlight#pick('Comment', 'fg')
 
