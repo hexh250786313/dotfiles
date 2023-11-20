@@ -1,5 +1,5 @@
 {
-  "semanticTokens.enable": true,
+  "semanticTokens.enable": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
   "session.directory": "~/.vimsessions",
   "diagnostic.virtualTextPrefix": "  ",
