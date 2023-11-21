@@ -1,10 +1,10 @@
 #!/bin/zsh
 
 src_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js"
-dest_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js.bak"
+dist_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js.bak"
 
-if [ ! -e "$dest_file" ]; then
-    cp "$src_file" "$dest_file"
+if [ ! -e "$dist_file" ]; then
+    cp "$src_file" "$dist_file"
 fi
 
 # for release
@@ -21,8 +21,8 @@ fi
 # 这个的问题在于，导致无法输入中文，所以注释掉先
 # sd 'if\(now-this\.plugTs<\d+\)\{return;\}else\{this\.plugTs=now;\}' 'if(now-this.plugTs<20){return;}else{this.plugTs=now;}' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 
-# for both
-sd 'autocmd.*VimEnter.*call s:VimEnter\(\).*\n.*endif' 'autocmd VimEnter * call s:VimEnter()\n    else\n      call s:VimEnter()\n    endif' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/plugin/coc.vim
+# for both，已修复，注释掉
+# sd 'autocmd.*VimEnter.*call s:VimEnter\(\).*\n.*endif' 'autocmd VimEnter * call s:VimEnter()\n    else\n      call s:VimEnter()\n    endif' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/plugin/coc.vim
 
 sd '}\n.*set loading\(loading\)' '  this.mruFlag = true; } set loading(loading)' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 sd 'async drawItems\(\) \{' 'async drawItems(context) { var _a2; if (((_a2 = this.list) == null ? void 0 : _a2.name) === "filesMru") { if ((context == null ? void 0 : context.input.length) > 0 && this.mruFlag === true) { this.mruFlag = false; await this.loadItems(context); await this.drawItems(context); return; } if ((context == null ? void 0 : context.input.length) === 0 && this.mruFlag === false) { this.mruFlag = true; await this.loadItems(context); await this.drawItems(context); return; } }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js

@@ -243,7 +243,7 @@ return packer.startup(function(use)
     "neoclide/coc.nvim",
     branch = "master",
     config = [[require("modules.coc.config")]],
-    run = "rm -rf /home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build && yarn install --frozen-lockfile",
+    run = "rm -rf /home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build && npm ci",
     -- 这个事件是 nvim-config-local 完成后的事件
     -- 这里要保证 coc.nvim 在本地配置加载完后才加载 coc
     event = "User ConfigLocalFinished",
