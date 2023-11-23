@@ -1,6 +1,6 @@
 tilda_config_version="1.5.4"
 command=""
-font="JetBrainsMono Nerd Font Mono 11.5"
+font="JetBrainsMono NF 11.5"
 key="<Super>grave"
 addtab_key="<Shift><Control>t"
 fullscreen_key="F11"
