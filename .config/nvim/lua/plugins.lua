@@ -46,7 +46,7 @@ return packer.startup(function(use)
   use({ "dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]] })
   use({ "kevinhwang91/nvim-bqf", config = [[require("modules.base.plugins.nvim-bqf")]], requires = "junegunn/fzf" })
   use({ "kyazdani42/nvim-web-devicons" })
-  -- use({ "nvim-lua/plenary.nvim" })
+  use({ "nvim-lua/plenary.nvim" })
   use({ "akinsho/toggleterm.nvim", config = [[require("modules.base.plugins.toggleterm")]] })
   use({ "gelguy/wilder.nvim", config = [[require("modules.base.plugins.wilder")]], event = "CmdlineEnter" })
   use({
