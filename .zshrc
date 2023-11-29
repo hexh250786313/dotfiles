@@ -133,7 +133,7 @@ plugins=(
 # -------------------
 
 # alias
-alias nvim=~/build/neovim/nvim.appimage
+# alias nvim=~/build/neovim/nvim.appimage
 alias sudo="sudo "
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 alias editor=nvim

@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use({
     "skywind3000/asynctasks.vim",
     requires = "skywind3000/asyncrun.vim",
-    commit = "c304a574defa426f0b660c361fa01b556dd60d4d",
+    -- commit = "c304a574defa426f0b660c361fa01b556dd60d4d",
     config = [[require("modules.base.plugins.asynctasks")]],
   })
   use({ "folke/which-key.nvim", config = [[require("modules.base.plugins.which-key")]] })
