@@ -284,18 +284,6 @@ return packer.startup(function(use)
     end,
   })
   use({ "xiyaowong/nvim-cursorword" })
-  use({
-    "brenton-leighton/multiple-cursors.nvim",
-    config = [[require("modules.text.plugins.multiple-cursors")]],
-    keys = {
-      { "n", "<c-Down>" },
-      { "i", "<c-Down>" },
-      { "n", "<c-Up>" },
-      { "i", "<c-Up>" },
-      { "n", "<c-LeftMouse>" },
-      { "i", "<c-LeftMouse>" },
-    },
-  })
 
   -- ┌───────────────────────────────────────
   -- │  Grep Module
