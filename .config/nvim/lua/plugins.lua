@@ -58,7 +58,7 @@ return packer.startup(function(use)
   use({
     "skywind3000/asynctasks.vim",
     requires = "skywind3000/asyncrun.vim",
-    commit = "c304a574defa426f0b660c361fa01b556dd60d4d",
+    -- commit = "c304a574defa426f0b660c361fa01b556dd60d4d",
     config = [[require("modules.base.plugins.asynctasks")]],
   })
   use({ "folke/which-key.nvim", config = [[require("modules.base.plugins.which-key")]] })
@@ -243,7 +243,7 @@ return packer.startup(function(use)
     "neoclide/coc.nvim",
     branch = "master",
     config = [[require("modules.coc.config")]],
-    run = "rm -rf /home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build && yarn install --frozen-lockfile",
+    run = "rm -rf /home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build && npm ci",
     -- 这个事件是 nvim-config-local 完成后的事件
     -- 这里要保证 coc.nvim 在本地配置加载完后才加载 coc
     event = "User ConfigLocalFinished",
@@ -284,18 +284,6 @@ return packer.startup(function(use)
     end,
   })
   use({ "xiyaowong/nvim-cursorword" })
-  use({
-    "brenton-leighton/multiple-cursors.nvim",
-    config = [[require("modules.text.plugins.multiple-cursors")]],
-    keys = {
-      { "n", "<c-Down>" },
-      { "i", "<c-Down>" },
-      { "n", "<c-Up>" },
-      { "i", "<c-Up>" },
-      { "n", "<c-LeftMouse>" },
-      { "i", "<c-LeftMouse>" },
-    },
-  })
 
   -- ┌───────────────────────────────────────
   -- │  Grep Module
