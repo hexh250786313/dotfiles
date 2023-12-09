@@ -1,6 +1,6 @@
 tilda_config_version="1.5.4"
 command=""
-font="JetBrainsMono NF 11.5"
+font="JetBrainsMono NFM 11.5"
 key="<Super>grave"
 addtab_key="<Shift><Control>t"
 fullscreen_key="F11"
@@ -67,7 +67,7 @@ cursor_red=64507
 cursor_green=61937
 cursor_blue=51143
 width_percentage=2147483647
-height_percentage=1190350185
+height_percentage=1213757757
 scroll_history_infinite=true
 scroll_on_output=false
 notebook_border=false
