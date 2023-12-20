@@ -178,12 +178,13 @@ return packer.startup(function(use)
   --   config = [[require("modules.highlight.plugins.nvim-treesitter")]],
   -- })
   -- use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
-  use({
-    "RRethy/vim-hexokinase",
-    config = [[require("modules.highlight.plugins.vim-hexokinase")]],
-    run = "make hexokinase",
-  })
   use({ "hexh250786313/yats.vim" })
+  use({
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require'colorizer'.setup()
+    end,
+  })
   -- use({
   --   "lukas-reineke/indent-blankline.nvim",
   --   config = [[require("modules.highlight.plugins.indent-blankline")]],
@@ -313,12 +314,12 @@ return packer.startup(function(use)
     keys = { { "n", "f" }, { "v", "f" } },
     config = [[require("modules.motion.plugins.hop")]],
   })
-  use({
-    "yorickpeterse/nvim-window",
-    config = [[require("modules.motion.plugins.nvim-window")]],
-    keys = { { "n", "<leader>ww" } },
-    -- after = "defx.nvim"
-  })
+  -- use({
+  --   "yorickpeterse/nvim-window",
+  --   config = [[require("modules.motion.plugins.nvim-window")]],
+  --   keys = { { "n", "<leader>ww" } },
+  --   -- after = "defx.nvim"
+  -- })
   use({ "karb94/neoscroll.nvim", config = [[require("modules.motion.plugins.neoscroll")]] })
 
   if PACKER_BOOTSTRAP then
