@@ -420,7 +420,7 @@
   "tsserver.useSyntaxServer": "auto",
   "tsserver.maxTsServerMemory": 16384,
   "tsserver.locale": "auto",
-  "tsserver.useLocalTsdk": true,
+  "tsserver.useLocalTsdk": false,
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
