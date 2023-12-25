@@ -160,7 +160,6 @@ return packer.startup(function(use)
   })
   use({ "hexh250786313/defx-icons", after = "defx.nvim", branch = "hexh" })
   use({ "~/.config/nvim/_self/plugins/port-defx-icons", after = "defx-icons" })
-  use({ "junegunn/fzf", config = [[require("modules.file.plugins.fzf")]] })
 
   -- ┌───────────────────────────────────────
   -- │  Highlight Module
@@ -238,6 +237,16 @@ return packer.startup(function(use)
   })
 
   -- ┌───────────────────────────────────────
+  -- │  FZF Module
+  -- └───────────────────────────────────────
+  use({
+    "ibhagwan/fzf-lua",
+    config = [[require("modules.fzf.plugins.fzf-lua")]],
+    keys = { { "n", "<leader>/" }, { "x", "<leader>/" }, { "n", "<leader>F" } },
+  })
+  use({ "junegunn/fzf", config = [[require("modules.fzf.plugins.fzf")]] })
+
+  -- ┌───────────────────────────────────────
   -- │  CoC Module
   -- └───────────────────────────────────────
   use({
@@ -291,8 +300,8 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "nvim-pack/nvim-spectre",
-    keys = { { "n", "<leader>/" }, { "x", "<leader>/" } },
-    -- keys = { { "n", "<leader>?" }, { "x", "<leader>?" } },
+    -- keys = { { "n", "<leader>/" }, { "x", "<leader>/" } },
+    keys = { { "n", "<leader>?" }, { "x", "<leader>?" } },
     config = [[require("modules.grep.plugins.nvim-spectre")]],
     run = "./build.sh",
   })

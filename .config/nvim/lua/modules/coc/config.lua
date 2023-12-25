@@ -1,12 +1,12 @@
 ---- 快捷键
 local wk = require("which-key")
 -- wk.register({ mode = { "n" }, ["<leader>/"] = { ":CocList grep<cr>", "Grep globally" } })
-wk.register({ mode = { "n" }, ["<leader>?"] = { ":CocList grep<cr>", "Grep globally" } })
+-- wk.register({ mode = { "n" }, ["<leader>?"] = { ":CocList grep<cr>", "Grep globally" } })
 wk.register({ mode = { "n" }, ["<leader>r"] = { ":CocCommand coc-replacement.replace<cr>", "Replace" } })
 wk.register({
   mode = { "x" },
   -- ["<leader>/"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
-  ["<leader>?"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
+  -- ["<leader>?"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
 })
 
 -- lsp
@@ -19,7 +19,7 @@ wk.register({
 })
 
 -- files
-wk.register({ mode = { "n" }, ["<leader>f"] = { "<cmd>CocList --height=9 filesMru<cr>", "Open file picker" } })
+-- wk.register({ mode = { "n" }, ["<leader>f"] = { "<cmd>CocList --height=9 filesMru<cr>", "Open file picker" } })
 
 -- git
 wk.register({
@@ -148,6 +148,7 @@ endfunction
 
 " 从选中的文本中搜索
 function! s:GREP_FROM_SELECTED(type)
+  " 暂存寄存器的内容
   let saved_unnamed_register = @@
   if a:type ==# 'v'
     normal! `<v`>y
@@ -161,7 +162,8 @@ function! s:GREP_FROM_SELECTED(type)
   let wordA = substitute(@@, '\', '\\\\\', 'g')
   let wordB = substitute(wordA, '\.', '\\.', 'g')
   let wordC = substitute(wordB, '\$', '\\$', 'g')
-  let word1 = substitute(wordC, '\n$', '', 'g')
+  let wordD = substitute(wordC, '\n$', '', 'g')
+  let word1 = substitute(wordD, '\\+', '\\\\+', 'g')
   let word2 = escape(word1, '| ')
   let word3 = substitute(word2, '(', '\\(', 'g')
   let word4 = substitute(word3, ')', '\\)', 'g')
@@ -172,15 +174,16 @@ function! s:GREP_FROM_SELECTED(type)
   let word7 = substitute(word6, ']', '\\]', 'g')
   let word8 = substitute(word7, '[', '\\[', 'g')
   let word9 = substitute(word8, '-', '\\-', 'g')
-  let word10 = substitute(word9, 'iuo', 'iuo', 'g')
   let word10 = substitute(word9, '*', '\\*', 'g')
   let word11 = substitute(word10, '+', '\\+', 'g')
   let word12 = substitute(word11, '?', '\\?', 'g')
   let word13 = substitute(word12, '\^', '\\^', 'g')
   let word = word13
 
+  " 恢复寄存器的内容
   let @@ = saved_unnamed_register
   execute 'CocList -A grep ' . word
+  " lua require('fzf-lua').live_grep({ search = vim.fn.eval("word"), no_esc=true })
 endfunction
 
 " coc#pum#next(0) 0 是不插入文本，1 是插入
