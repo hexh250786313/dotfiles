@@ -72,4 +72,10 @@ require('fzf-lua').setup({
     builtin = { ["<down>"] = "preview-page-down", ["<up>"] = "preview-page-up", ["<c-p>"] = "toggle-preview" },
     fzf = { ['CTRL-Q'] = 'select-all+accept', ["CTRL-P"] = "toggle-preview" },
   },
+  winopts = {
+    preview = {
+      vertical = 'down:66%',
+      layout = 'vertical', -- horizontal | vertical | flex
+    },
+  },
 })
