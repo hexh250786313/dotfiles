@@ -4,6 +4,7 @@ gui:
   showRandomTip: false
   mouseEvents: false
   showFileTree: false
+  language: zh-CN
 keybinding:
   universal:
     quit: '<c-c>'
