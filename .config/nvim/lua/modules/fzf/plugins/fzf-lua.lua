@@ -1,3 +1,5 @@
+require("modules.fzf.plugins.lsp");
+
 ---- 快捷键
 local wk = require("which-key")
 wk.register({
@@ -79,3 +81,43 @@ require('fzf-lua').setup({
     },
   },
 })
+
+local fn = vim.fn
+local fzf_lua = require("fzf-lua")
+local builtin = require("fzf-lua.previewer.builtin")
+local wk = require("which-key")
+
+local LspPreviewer = builtin.base:extend()
+
+function LspPreviewer:new(o, opts, fzf_win)
+  LspPreviewer.super.new(self, o, opts, fzf_win)
+  setmetatable(self, LspPreviewer)
+  return self
+end
+
+function LspPreviewer:populate_preview_buf(entry_str)
+  local tmpbuf = self:get_tmp_buffer()
+  vim.api.nvim_buf_set_lines(tmpbuf, 0, -1, false, { string.format("SELECTED FILE: %s", entry_str) })
+  self:set_preview_buf(tmpbuf)
+  self.win:update_scrollbar()
+end
+
+local function is_ready(feature)
+  if vim.g.coc_service_initialized ~= 1 then
+    print('Coc is not ready!')
+    return
+  end
+
+  if feature and not fn.CocHasProvider(feature) then
+    print('Coc: server does not support ' .. feature)
+    return
+  end
+
+  return true
+end
+
+local function test()
+  fzf_lua.fzf_exec("rg --files", { previewer = LspPreviewer, prompt = "Select file> " })
+end
+
+wk.register({ mode = { "n" }, ["<leader>g]"] = { test, "Git log" } })

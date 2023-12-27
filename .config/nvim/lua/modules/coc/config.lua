@@ -12,7 +12,7 @@ wk.register({
 -- lsp
 wk.register({
   mode = { "n" },
-  ["gr"] = { "<cmd>call CocActionAsync('jumpReferences')<cr>", "Go to references" },
+  -- ["gr"] = { "<cmd>call CocActionAsync('jumpReferences')<cr>", "Go to references" },
   ["gd"] = { "<cmd>call CocActionAsync('jumpDefinition')<cr>", "Go to definition" },
   ["gD"] = { "<cmd>call CocActionAsync('jumpImplementation')<cr>", "Go to implementations" },
   ["gh"] = { ":<c-u>call function(g:coc_config_sid . 'SHOW_DOCUMENTATION')()<cr>", "Show docs for item under cursor" },
