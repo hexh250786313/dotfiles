@@ -17,15 +17,15 @@ function LspPreviewer:new(o, opts, fzf_win)
 end
 
 -- 组合字符串
-local function format_string(filename, col, lnum)
-  return string.format("%s | %d col %d | ", filename, col, lnum)
+local function format_string(filename, lnum, col, text)
+  return string.format("%s | %d col %d | %s", filename, lnum, col, text)
 end
 
 -- 分解字符串
 local function parse_string(formatted_string)
-  local pattern = "(.+) | (%d+) col (%d+) | "
-  local extracted_filename, extracted_col, extracted_lnum = string.match(formatted_string, pattern)
-  return extracted_filename, tonumber(extracted_col), tonumber(extracted_lnum)
+  local pattern = "(.+) | (%d+) col (%d+) | (.+)"
+  local extracted_filename, extracted_lnum, extracted_col, extracted_text = string.match(formatted_string, pattern)
+  return extracted_filename, tonumber(extracted_lnum), tonumber(extracted_col), extracted_text
 end
 -- 检查 coc 是否已经初始化
 local function is_ready(feature)
@@ -84,13 +84,22 @@ local locations_to_items = function(locs)
       l.uri = l.targetUri
       l.range = l.targetRange
     end
-    -- local bufnr = vim.uri_to_bufnr(l.uri)
-    -- vim.fn.bufload(bufnr)
+    local bufnr = vim.uri_to_bufnr(l.uri)
+    local was_buffer_previously_opend = api.nvim_buf_is_loaded(bufnr)
+    local line = ''
+
+    if not was_buffer_previously_opend then
+      -- 没有打开过 buffer，使用 vim.fn.readfile 读取文件内容
+      local content = vim.fn.readfile(vim.uri_to_fname(l.uri))
+      line = content[l.range.start.line + 1]
+    else
+      -- 已有 buffer，使用 api.nvim_buf_get_lines 读取文件内容
+      line = (api.nvim_buf_get_lines(bufnr, l.range.start.line, l.range.start.line + 1, false) or { '' })[1]
+    end
+
     local filename = vim.uri_to_fname(l.uri)
     local row = l.range.start.line
-    -- local line = (api.nvim_buf_get_lines(bufnr, row, row + 1, false) or { '' })[1]
-    -- items[#items + 1] = { filename = filename, lnum = row + 1, col = l.range.start.character + 1, text = line }
-    items[#items + 1] = { filename = filename, lnum = row + 1, col = l.range.start.character + 1 }
+    items[#items + 1] = { filename = filename, lnum = row + 1, col = l.range.start.character + 1, text = line }
   end
 
   return items
@@ -100,7 +109,7 @@ end
 function LspPreviewer:populate_preview_buf(display_str)
   local tmpbuf = self:get_tmp_buffer()
 
-  local filename, col, lnum = parse_string(display_str)
+  local _, lnum, col = parse_string(display_str)
 
   local target = get_target_store(display_str)
   local uri = target.source.uri
@@ -133,7 +142,7 @@ function LspPreviewer:populate_preview_buf(display_str)
                                  range['end'].character)
 
   self:set_preview_buf(tmpbuf)
-  self.win:update_scrollbar()
+  self.win:update_scrollbar(true)
 
   -- 找到 tmpbuf 对应窗口，设置光标位置
   local winnr = vim.fn.bufwinid(tmpbuf)
@@ -151,6 +160,41 @@ local function jump_to_location(selected)
   local target = get_target_store(display_str)
 
   vim.lsp.util.jump_to_location(target.source)
+  store = {}
+end
+
+-- to quickfix
+local function send_selected_to_qf(selected, opts)
+  local all_items = {}
+  -- 如果 selected 长度只有一个，则打开全部
+  if selected and #selected ~= 1 then
+    for _, str in ipairs(selected) do
+      local target = get_target_store(str)
+      all_items[#all_items + 1] = target.item
+    end
+  else
+    all_items = store.items
+  end
+  local qf_list = {}
+  local lsp_ranges = {}
+  local title = string.format("[FzfLua] lsp references")
+
+  for _, item in ipairs(all_items) do
+    local target = get_target_store(item.display)
+    local source = target.source
+    print(vim.inspect(source))
+    table.insert(qf_list, { filename = get_filename(item.filename), lnum = item.lnum, col = item.col, text = item.text })
+    table.insert(lsp_ranges, source.range)
+  end
+
+  vim.fn.setqflist({}, " ",
+                   { nr = "$", items = qf_list, title = title, context = { bqf = { lsp_ranges_hl = lsp_ranges } } })
+  if type(opts.copen) == "function" then
+    opts.copen(selected, opts)
+  elseif opts.copen ~= false then
+    vim.cmd(opts.copen or "botright copen")
+  end
+
   store = {}
 end
 
@@ -179,7 +223,7 @@ local function lsp_reference()
   for _, result in ipairs(results) do
     local filename = get_filename(result.filename)
 
-    local str = format_string(filename, result.col, result.lnum)
+    local str = format_string(filename, result.lnum, result.col, result.text)
     strings[#strings + 1] = str
 
     result.display = str
@@ -187,7 +231,10 @@ local function lsp_reference()
 
   store.items = results;
 
-  fzf_lua.fzf_exec(strings, { previewer = LspPreviewer, actions = { ['enter'] = jump_to_location } })
+  fzf_lua.fzf_exec(strings, {
+    previewer = LspPreviewer,
+    actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
+  })
 end
 
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
