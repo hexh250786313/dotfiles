@@ -1,6 +1,6 @@
 gui:
   scrollHeight: 1
-  showCommandLog: false
+  showCommandLog: true
   showRandomTip: false
   mouseEvents: false
   showFileTree: false
