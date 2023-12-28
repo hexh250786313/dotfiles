@@ -69,7 +69,7 @@ endfunction
 ]])
 
 require('fzf-lua').setup({
-  -- 'fzf-native', -- 使用 fzf 本身的预览框预览，但是展示的是实际写入的文件，而不是 neovim 的 buffer，所以不推荐开
+  'fzf-native', -- 使用 fzf 本身的预览框预览，但是展示的是实际写入的文件，而不是 neovim 的 buffer，所以不推荐开
   keymap = {
     builtin = { ["<down>"] = "preview-page-down", ["<up>"] = "preview-page-up", ["<c-p>"] = "toggle-preview" },
     fzf = { ['CTRL-A'] = 'toggle-all', ['CTRL-Q'] = 'select-all+accept', ["CTRL-P"] = "toggle-preview" },
@@ -81,42 +81,3 @@ require('fzf-lua').setup({
     },
   },
 })
-
-local fn = vim.fn
-local fzf_lua = require("fzf-lua")
-local builtin = require("fzf-lua.previewer.builtin")
-
-local LspPreviewer = builtin.base:extend()
-
-function LspPreviewer:new(o, opts, fzf_win)
-  LspPreviewer.super.new(self, o, opts, fzf_win)
-  setmetatable(self, LspPreviewer)
-  return self
-end
-
-function LspPreviewer:populate_preview_buf(entry_str)
-  local tmpbuf = self:get_tmp_buffer()
-  vim.api.nvim_buf_set_lines(tmpbuf, 0, -1, false, { string.format("SELECTED FILE: %s", entry_str) })
-  self:set_preview_buf(tmpbuf)
-  self.win:update_scrollbar()
-end
-
-local function is_ready(feature)
-  if vim.g.coc_service_initialized ~= 1 then
-    print('Coc is not ready!')
-    return
-  end
-
-  if feature and not fn.CocHasProvider(feature) then
-    print('Coc: server does not support ' .. feature)
-    return
-  end
-
-  return true
-end
-
-local function test()
-  fzf_lua.fzf_exec("rg --files", { previewer = LspPreviewer, prompt = "Select file> " })
-end
-
-wk.register({ mode = { "n" }, ["<leader>g]"] = { test, "Git log" } })
