@@ -60,7 +60,7 @@ function _gitwebui_toggle()
 end
 
 ---- 快捷键
--- wk.register({ mode = { "n" }, ["<leader>gl"] = { "<cmd>lua _lazygit_toggle()<cr>", "Git log" } })
+wk.register({ mode = { "n" }, ["<leader>gl"] = { "<cmd>lua _lazygit_toggle()<cr>", "Git log" } })
 wk.register({ mode = { "n" }, ["<leader>gG"] = { "<cmd>lua _lazygit_toggle()<cr>", "Git log" } })
 
 -- vim.api.nvim_set_keymap("n", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
