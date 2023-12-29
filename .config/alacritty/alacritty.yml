@@ -50,7 +50,8 @@ mouse:
   hide_when_typing: true
 cursor:
   style:
-    blinking: Always
+    # blinking: Always
+    blinking: Off
     # blink_interval: 500
 schemes:
   codedark2: &code_dark_2
