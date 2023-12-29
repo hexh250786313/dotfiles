@@ -17,6 +17,37 @@ function LspPreviewer:new(o, opts, fzf_win)
   return self
 end
 
+-- 定义设置高亮的函数
+local function highlight_lsp_range(bufnr, ns_id, hl_group, target)
+  local function apply_highlight(range)
+    local start_line = range.start.line
+    local start_char = range.start.character
+    local end_line = range["end"].line
+    local end_char = range["end"].character
+
+    -- 如果起始行和结束行相同，则为单行高亮
+    if start_line == end_line then
+      vim.api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, start_line, start_char, end_char)
+    else
+      -- 否则为多行高亮
+      for line = start_line, end_line do
+        local col_start = (line == start_line) and start_char or 0
+        local col_end = (line == end_line) and end_char or -1
+        vim.api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, line, col_start, col_end)
+      end
+    end
+  end
+
+  local range = target.range
+
+  -- 如果存在 targetRange，则对 targetRange 高亮
+  if target.targetRange then
+    range = target.targetRange
+  end
+
+  apply_highlight(range)
+end
+
 -- 组合字符串
 local function format_string(filename, lnum, col, text)
   return string.format("%s | %d col %d | %s", filename, lnum, col, text)
@@ -132,8 +163,6 @@ function LspPreviewer:populate_preview_buf(display_str)
     api.nvim_buf_delete(bufnr, { force = true })
   end
 
-  local range = target.source.range
-
   -- 设置内容
   vim.api.nvim_buf_set_lines(tmpbuf, 0, -1, false, content)
   -- 设置 filetype
@@ -146,9 +175,8 @@ function LspPreviewer:populate_preview_buf(display_str)
     -- 相当于 local winnr = vim.fn.bufwinid(tmpbuf) 的 winnr
     api.nvim_win_set_cursor(0, { lnum, col - 1 })
     fn.clearmatches()
-    -- 高亮 range
-    vim.api.nvim_buf_add_highlight(tmpbuf, -1, 'LspReferenceText', range.start.line, range.start.character,
-                                   range['end'].character)
+    -- 高亮
+    highlight_lsp_range(tmpbuf, -1, 'LspReferenceText', target.source)
     self.orig_pos = api.nvim_win_get_cursor(0) -- 给 LspPreviewer:scroll() 用的原始光标位置，用于判断是否需要设置 cursorline
     utils.zz()
   end)
@@ -185,7 +213,6 @@ local function send_selected_to_qf(selected, opts)
   for _, item in ipairs(all_items) do
     local target = get_target_store(item.display)
     local source = target.source
-    print(vim.inspect(source))
     table.insert(qf_list, { filename = get_filename(item.filename), lnum = item.lnum, col = item.col, text = item.text })
     table.insert(lsp_ranges, source.range)
   end
@@ -243,8 +270,6 @@ local function list_or_jump(provider, has_jump)
   end
 
   store.items = results;
-
-  print(vim.inspect(strings))
 
   fzf_lua.fzf_exec(strings, {
     previewer = LspPreviewer,
