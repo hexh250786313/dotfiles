@@ -27,13 +27,13 @@ local function highlight_lsp_range(bufnr, ns_id, hl_group, target)
 
     -- 如果起始行和结束行相同，则为单行高亮
     if start_line == end_line then
-      vim.api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, start_line, start_char, end_char)
+      api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, start_line, start_char, end_char)
     else
       -- 否则为多行高亮
       for line = start_line, end_line do
         local col_start = (line == start_line) and start_char or 0
         local col_end = (line == end_line) and end_char or -1
-        vim.api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, line, col_start, col_end)
+        api.nvim_buf_add_highlight(bufnr, ns_id, hl_group, line, col_start, col_end)
       end
     end
   end
@@ -76,7 +76,7 @@ end
 
 -- 获取移除 cwd 的 filename
 local function get_filename(path)
-  local cwd = vim.fn.getcwd()
+  local cwd = fn.getcwd()
   if not string.match(cwd, "/$") then
     cwd = cwd .. "/"
   end
@@ -121,8 +121,8 @@ local locations_to_items = function(locs)
     local line = ''
 
     if not was_buffer_previously_opend then
-      -- 没有打开过 buffer，使用 vim.fn.readfile 读取文件内容
-      local content = vim.fn.readfile(vim.uri_to_fname(l.uri))
+      -- 没有打开过 buffer，使用 fn.readfile 读取文件内容
+      local content = fn.readfile(vim.uri_to_fname(l.uri))
       line = content[l.range.start.line + 1]
     else
       -- 已有 buffer，使用 api.nvim_buf_get_lines 读取文件内容
@@ -147,13 +147,13 @@ function LspPreviewer:populate_preview_buf(display_str)
   local uri = target.source.uri
 
   -- 先查询 buffer 是否已经打开，如果已经打开，读取 buffer 的内容
-  -- 否则，使用 vim.fn.readfile 读取文件内容
+  -- 否则，使用 fn.readfile 读取文件内容
   local content = {}
   local filetype = ''
 
   local bufnr = vim.uri_to_bufnr(uri)
   local was_buffer_previously_opend = api.nvim_buf_is_loaded(bufnr)
-  vim.fn.bufload(bufnr)
+  fn.bufload(bufnr)
 
   -- 打开 buffer，获取内容和 filetype，如果 buffer 已经打开，不会重复打开
   -- 获取完毕后，如果之前未打开，关闭 buffer
@@ -164,15 +164,15 @@ function LspPreviewer:populate_preview_buf(display_str)
   end
 
   -- 设置内容
-  vim.api.nvim_buf_set_lines(tmpbuf, 0, -1, false, content)
+  api.nvim_buf_set_lines(tmpbuf, 0, -1, false, content)
   -- 设置 filetype
-  vim.api.nvim_buf_set_option(tmpbuf, 'filetype', filetype)
+  api.nvim_buf_set_option(tmpbuf, 'filetype', filetype)
   self:set_preview_buf(tmpbuf)
 
   -- 设置高亮和光标位置
   pcall(api.nvim_win_call, self.win.preview_winid, function()
     -- 这个回调中 0 就是当前窗口的 编号：
-    -- 相当于 local winnr = vim.fn.bufwinid(tmpbuf) 的 winnr
+    -- 相当于 local winnr = fn.bufwinid(tmpbuf) 的 winnr
     api.nvim_win_set_cursor(0, { lnum, col - 1 })
     fn.clearmatches()
     -- 高亮
@@ -217,7 +217,7 @@ local function send_selected_to_qf(selected, opts)
     table.insert(lsp_ranges, source.range)
   end
 
-  vim.fn.setqflist({}, " ",
+  fn.setqflist({}, " ",
                    { nr = "$", items = qf_list, title = title, context = { bqf = { lsp_ranges_hl = lsp_ranges } } })
   if type(opts.copen) == "function" then
     opts.copen(selected, opts)
