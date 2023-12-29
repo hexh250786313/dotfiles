@@ -5,6 +5,7 @@ local builtin = require("fzf-lua.previewer.builtin")
 local wk = require("which-key")
 local utils = require "fzf-lua.utils"
 local CocAction = fn.CocAction
+local CocActionAsync = fn.CocActionAsync
 local LspPreviewer = builtin.base:extend()
 
 local store = { results = {}, items = {} }
@@ -200,21 +201,31 @@ local function send_selected_to_qf(selected, opts)
   store = {}
 end
 
--- lsp_reference
-local function lsp_reference()
+-- list_or_jump
+local function list_or_jump(provider, has_jump)
+  local action = provider .. "s" -- definition, definitions：provider + 's'
   store = {}
-  if not is_ready('reference') then
+  if not is_ready(provider) then
     return
   end
 
-  local refs = CocAction('references', false)
-  if type(refs) ~= 'table' or vim.tbl_isempty(refs) then
+  local tables = CocAction(action)
+  if type(tables) ~= 'table' then
     return
   end
 
-  store.source = refs;
+  if vim.tbl_isempty(tables) then
+    print("Not found")
+    return
+  end
+  if has_jump and #tables == 1 then
+    CocActionAsync('runCommand', 'workspace.openLocation', nil, tables[1])
+    return
+  end
 
-  local results = locations_to_items(refs);
+  store.source = tables;
+
+  local results = locations_to_items(tables);
 
   if not results or vim.tbl_isempty(results) then
     return
@@ -233,10 +244,26 @@ local function lsp_reference()
 
   store.items = results;
 
+  print(vim.inspect(strings))
+
   fzf_lua.fzf_exec(strings, {
     previewer = LspPreviewer,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
   })
 end
 
+local function lsp_reference()
+  list_or_jump('reference', true)
+end
+
+local function lsp_implementation()
+  list_or_jump('implementation', true)
+end
+
+local function lsp_definition()
+  list_or_jump('definition', true)
+end
+
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
+wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
+wk.register({ mode = { "n" }, ["gD"] = { lsp_implementation, "Go to implementations" } })

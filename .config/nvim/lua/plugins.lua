@@ -242,7 +242,14 @@ return packer.startup(function(use)
   use({
     "ibhagwan/fzf-lua",
     config = [[require("modules.fzf.plugins.fzf-lua")]],
-    keys = { { "n", "<leader>/" }, { "x", "<leader>/" }, { "n", "<leader>F" }, { "n", "gr" } },
+    keys = {
+      { "n", "<leader>/" },
+      { "x", "<leader>/" },
+      { "n", "<leader>F" },
+      { "n", "gr" },
+      { "n", "gd" },
+      { "n", "gD" },
+    },
   })
   use({ "junegunn/fzf", config = [[require("modules.fzf.plugins.fzf")]] })
 
