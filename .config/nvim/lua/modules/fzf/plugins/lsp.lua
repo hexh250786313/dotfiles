@@ -137,20 +137,22 @@ function LspPreviewer:populate_preview_buf(display_str)
   vim.api.nvim_buf_set_lines(tmpbuf, 0, -1, false, content)
   -- 设置 filetype
   vim.api.nvim_buf_set_option(tmpbuf, 'filetype', filetype)
-  -- 高亮 range
-  vim.api.nvim_buf_add_highlight(tmpbuf, -1, 'LspReferenceText', range.start.line, range.start.character,
-                                 range['end'].character)
-
   self:set_preview_buf(tmpbuf)
+
+  -- 设置高亮和光标位置
+  pcall(api.nvim_win_call, self.win.preview_winid, function()
+    -- 这个回调中 0 就是当前窗口的 编号：
+    -- 相当于 local winnr = vim.fn.bufwinid(tmpbuf) 的 winnr
+    api.nvim_win_set_cursor(0, { lnum, col - 1 })
+    fn.clearmatches()
+    -- 高亮 range
+    vim.api.nvim_buf_add_highlight(tmpbuf, -1, 'LspReferenceText', range.start.line, range.start.character,
+                                   range['end'].character)
+    self.orig_pos = api.nvim_win_get_cursor(0) -- 给 LspPreviewer:scroll() 用的原始光标位置，用于判断是否需要设置 cursorline
+    utils.zz()
+  end)
+
   self.win:update_scrollbar(true)
-
-  -- 找到 tmpbuf 对应窗口，设置光标位置
-  local winnr = vim.fn.bufwinid(tmpbuf)
-  if winnr == -1 then
-    return
-  end
-
-  vim.api.nvim_win_set_cursor(winnr, { lnum, col - 1 })
 end
 
 -- 选中后跳转到对应的位置
