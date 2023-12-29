@@ -35,7 +35,7 @@ wk.register({
 -- list
 wk.register({
   mode = { "n" },
-  ["<leader>ld"] = { "<cmd>CocList --no-sort diagnostics<cr>", "Diagnostics list" },
+  -- ["<leader>ld"] = { "<cmd>CocList --no-sort diagnostics<cr>", "Diagnostics list" },
   ["<leader>lt"] = { "<cmd>CocList tasks<cr>", "Tasks list" },
   ["<leader>ls"] = { "<cmd>CocList --no-sort services<cr>", "LSP Services list" },
   ["<leader>lr"] = { ":CocListResume<cr>", "Resume list" },

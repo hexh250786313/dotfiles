@@ -50,7 +50,8 @@ end
 
 -- 组合字符串
 local function format_string(filename, lnum, col, text)
-  return string.format("%s | %d col %d | %s", filename, lnum, col, text)
+  local str = utils.ansi_from_hl("DefxIconsDefaultIcon", "| %d col %d |")
+  return string.format("%s " .. str .. " %s", filename, lnum, col, text)
 end
 
 -- 分解字符串
@@ -217,8 +218,7 @@ local function send_selected_to_qf(selected, opts)
     table.insert(lsp_ranges, source.range)
   end
 
-  fn.setqflist({}, " ",
-                   { nr = "$", items = qf_list, title = title, context = { bqf = { lsp_ranges_hl = lsp_ranges } } })
+  fn.setqflist({}, " ", { nr = "$", items = qf_list, title = title, context = { bqf = { lsp_ranges_hl = lsp_ranges } } })
   if type(opts.copen) == "function" then
     opts.copen(selected, opts)
   elseif opts.copen ~= false then
@@ -262,11 +262,78 @@ local function list_or_jump(provider, has_jump)
 
   for _, result in ipairs(results) do
     local filename = get_filename(result.filename)
+    filename = utils.ansi_from_hl("Directory", filename)
+    local text = utils.ansi_from_hl("Comment", result.text)
 
-    local str = format_string(filename, result.lnum, result.col, result.text)
+    local str = format_string(filename, result.lnum, result.col, text)
     strings[#strings + 1] = str
 
-    result.display = str
+    result.display = utils.strip_ansi_coloring(str)
+  end
+
+  store.items = results;
+
+  fzf_lua.fzf_exec(strings, {
+    previewer = LspPreviewer,
+    actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
+  })
+end
+
+-- diagnostic
+local function diagnostic()
+  store = {}
+
+  if not is_ready() then
+    return
+  end
+
+  local tables = CocAction('diagnosticList')
+
+  if type(tables) ~= 'table' or vim.tbl_isempty(tables) then
+    return
+  end
+
+  local source = {}
+
+  for _, t in ipairs(tables) do
+    table.insert(source, t.location)
+  end
+
+  store.source = source
+
+  local results = locations_to_items(source);
+
+  if not results or vim.tbl_isempty(results) then
+    return
+  end
+
+  local strings = {}
+
+  for i, result in ipairs(results) do
+    local filename = get_filename(result.filename)
+    filename = utils.ansi_from_hl("Comment", filename)
+    local target = tables[i]
+    local severity = "[" .. target.severity .. "]"
+    local message = target.message
+    if target.severity == "Error" then
+      severity = utils.ansi_from_hl("ErrorMsg", severity)
+      message = utils.ansi_from_hl("ErrorMsg", message)
+    elseif target.severity == "Warning" then
+      severity = utils.ansi_from_hl("WarningMsg", "[Warn]")
+      message = utils.ansi_from_hl("WarningMsg", message)
+    elseif target.severity == "Information" then
+      severity = utils.ansi_from_hl("Directory", "[Info]")
+      message = utils.ansi_from_hl("Directory", message)
+    elseif target.severity == "Hint" then
+      severity = utils.ansi_from_hl("Directory", severity)
+      message = utils.ansi_from_hl("Directory", message)
+    end
+    -- local text = "[" .. target.source .. "] " .. severity .. " " .. target.message
+    local text = "[" .. target.source .. "] " .. message .. " " .. severity
+    local str = format_string(filename, result.lnum, result.col, text)
+    strings[#strings + 1] = str
+
+    result.display = utils.strip_ansi_coloring(str)
   end
 
   store.items = results;
@@ -292,3 +359,4 @@ end
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
+wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic, "Go to implementations" } })
