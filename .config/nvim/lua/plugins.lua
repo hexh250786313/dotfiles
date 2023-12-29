@@ -248,7 +248,7 @@ return packer.startup(function(use)
       { "n", "<leader>F" },
       { "n", "gr" },
       { "n", "gd" },
-      { "n", "gD" },
+      { "n", "gi" },
     },
   })
   use({ "junegunn/fzf", config = [[require("modules.fzf.plugins.fzf")]] })
@@ -282,7 +282,7 @@ return packer.startup(function(use)
   use({
     "tpope/vim-fugitive",
     cmd = { "Git" },
-    keys = { { "n", "<leader>gg" } },
+    -- keys = { { "n", "<leader>gg" } },
     config = [[require("modules.git.plugins.vim-fugitive")]],
   })
 

@@ -291,4 +291,4 @@ end
 
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
-wk.register({ mode = { "n" }, ["gD"] = { lsp_implementation, "Go to implementations" } })
+wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
