@@ -97,6 +97,7 @@ hi! link CocListMode StatusLine
 hi! link CocSearch Question
 hi! link CocPumMenu Pmenu
 hi! link NormalNC Normal
+hi! link CopilotSuggestion DefxIconsDefaultIcon
 
 " hi! CursorWord gui=underline
 hi! CursorWord guibg=#303731 gui=none
