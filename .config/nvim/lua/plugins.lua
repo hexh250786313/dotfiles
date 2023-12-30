@@ -193,27 +193,24 @@ return packer.startup(function(use)
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
-    -- "rockyzhang24/arctic.nvim",
-    -- branch = "v2",
-    "folke/tokyonight.nvim",
-    -- requires = { "rktjmp/lush.nvim" },
+    "rockyzhang24/arctic.nvim",
+    branch = "v2",
+    -- "folke/tokyonight.nvim",
+    requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
     as = "theme",
     config = function()
       vim.cmd([[
-        let g:gruvbox_material_better_performance = 1
-        let g:gruvbox_material_background = 'hard'
-        let g:gruvbox_material_foreground = 'original'
         set background=light " 背景 "light" | "dark"
 
         " ---> 主题：rockyzhang24/arctic.nvim
-        " colorscheme arctic
+        colorscheme arctic
 
         " ---> 主题：mcchrish/zenbones.nvim
         " colorscheme zenbones
         " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
 
         " ---> 主题：folke/tokyonight.nvim
-        colorscheme tokyonight-night
+        " colorscheme tokyonight-night
 
         " ---> 主题：sainnhe/everforest
         " let g:everforest_better_performance = 1
