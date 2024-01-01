@@ -45,12 +45,12 @@ wk.register({
 -- Actions
 wk.register({
   mode = { "n" },
-  ["<leader>aa"] = { "<plug>(coc-codeaction-line)", "LSP CodeActions list for line" },
-  ["<leader>aA"] = { "<plug>(coc-codeaction-cursor)", "LSP CodeActions list for cursor" },
+  -- ["<leader>aa"] = { "<plug>(coc-codeaction-line)", "LSP CodeActions list for line" },
+  -- ["<leader>aA"] = { "<plug>(coc-codeaction-cursor)", "LSP CodeActions list for cursor" },
   ["<leader>af"] = { "<Plug>(coc-fix-current)", "Try first quickfix action for diagnostics of current line" },
-  ["<leader>aF"] = { "<plug>(coc-codeaction)", "LSP CodeActions list for current file" },
-  ["<leader>as"] = { "<plug>(coc-codeaction-source)", "LSP CodeActions list for current file(source)" },
-  ["<leader>ar"] = { "<lug>(coc-codeaction-refactor)", "Get and run refactor code action(s) at current cursor" },
+  -- ["<leader>aF"] = { "<plug>(coc-codeaction)", "LSP CodeActions list for current file" },
+  -- ["<leader>as"] = { "<plug>(coc-codeaction-source)", "LSP CodeActions list for current file(source)" },
+  -- ["<leader>ar"] = { "<lug>(coc-codeaction-refactor)", "Get and run refactor code action(s) at current cursor" },
   ["<leader>aw"] = { "<Plug>(coc-typos-fix)", "Fix typos" },
 })
 wk.register({ mode = { "x" }, ["<leader>aa"] = { "<plug>(coc-codeaction-selected)", "LSP CodeActions list" } })

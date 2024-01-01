@@ -344,6 +344,68 @@ local function diagnostic()
   })
 end
 
+local function exec_code_action(display_strs)
+  utils.fzf_exit()
+  if display_strs == nil or #display_strs ~= 1 then
+    return
+  end
+  local display_str = display_strs[1]
+  -- 格式为 "<index>. <title>"，把 index 提取出来
+  local index = string.match(display_str, "(%d+).")
+  local target = store.source[tonumber(index)]
+  if not target then
+    return
+  end
+  CocAction('doCodeAction', target)
+  store = {}
+end
+
+local function handle_code_action(mode)
+  store = {}
+  if not is_ready('codeAction') then
+    return
+  end
+  local results = CocAction('codeActions', mode)
+  if type(results) ~= 'table' then
+    return
+  end
+
+  if vim.tbl_isempty(results) then
+    print('No available code actions')
+    return
+  end
+
+  store.source = results
+
+  local strings = {}
+
+  for index, result in ipairs(results) do
+    strings[#strings + 1] = index .. ". " .. result.title
+  end
+
+  fzf_lua.fzf_exec(strings, { actions = { ['enter'] = exec_code_action }, winopts = { height = 0.21, width = 0.33 } })
+end
+
+local function code_action_line()
+  handle_code_action('line')
+end
+
+local function code_action_cursor()
+  handle_code_action('cursor')
+end
+
+local function code_action_file()
+  handle_code_action(nil)
+end
+
+local function code_action_source()
+  handle_code_action('source')
+end
+
+local function code_action_refactor()
+  handle_code_action('refactor')
+end
+
 local function lsp_reference()
   list_or_jump('reference', true)
 end
@@ -360,3 +422,11 @@ wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
 wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic, "Go to implementations" } })
+wk.register({ mode = { "n" }, ["<leader>aA"] = { code_action_line, "LSP CodeActions list for line" } })
+wk.register({ mode = { "n" }, ["<leader>aa"] = { code_action_cursor, "LSP CodeActions list for cursor" } })
+wk.register({ mode = { "n" }, ["<leader>aF"] = { code_action_file, "LSP CodeActions list for file" } })
+wk.register({ mode = { "n" }, ["<leader>as"] = { code_action_source, "LSP CodeActions list for current file(source)" } })
+wk.register({
+  mode = { "n" },
+  ["<leader>ar"] = { code_action_refactor, "Get and run refactor code action(s) at current cursor" },
+})
