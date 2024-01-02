@@ -24,12 +24,16 @@ fi
 # for both，已修复，注释掉
 # sd 'autocmd.*VimEnter.*call s:VimEnter\(\).*\n.*endif' 'autocmd VimEnter * call s:VimEnter()\n    else\n      call s:VimEnter()\n    endif' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/plugin/coc.vim
 
-sd '}\n.*set loading\(loading\)' '  this.mruFlag = true; } set loading(loading)' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
-sd 'async drawItems\(\) \{' 'async drawItems(context) { var _a2; if (((_a2 = this.list) == null ? void 0 : _a2.name) === "filesMru") { if ((context == null ? void 0 : context.input.length) > 0 && this.mruFlag === true) { this.mruFlag = false; await this.loadItems(context); await this.drawItems(context); return; } if ((context == null ? void 0 : context.input.length) === 0 && this.mruFlag === false) { this.mruFlag = true; await this.loadItems(context); await this.drawItems(context); return; } }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
-sd 'void this.worker.drawItems\(\);' 'void this.worker.drawItems(this.context);' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
+# =========== mru hack 用的，换成使用 fzf 实现
+# sd '}\n.*set loading\(loading\)' '  this.mruFlag = true; } set loading(loading)' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
+# sd 'async drawItems\(\) \{' 'async drawItems(context) { var _a2; if (((_a2 = this.list) == null ? void 0 : _a2.name) === "filesMru") { if ((context == null ? void 0 : context.input.length) > 0 && this.mruFlag === true) { this.mruFlag = false; await this.loadItems(context); await this.drawItems(context); return; } if ((context == null ? void 0 : context.input.length) === 0 && this.mruFlag === false) { this.mruFlag = true; await this.loadItems(context); await this.drawItems(context); return; } }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
+# sd 'void this.worker.drawItems\(\);' 'void this.worker.drawItems(this.context);' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
+# ==================
+
 sd 'range: emptyRange\(range\) \? null' 'range: emptyRange(range) ? { start: range.start, end: { line: range.end.line, character: range.end.character + 1 } }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 
 # cd /mnt/baymax-app-h5-kyc/dist/h5web/kyc/static/js; file="personalComponent.fa7b2f1f.chunk.js"; [ -f $file ] && mv $file $file.bak || cp $file.bak $file; echo ""; ls -a | grep -e $file; echo ""
+# 解决diffview 报错
 file="$HOME/.config/coc/extensions/node_modules/coc-tsserver/lib/index.js"; [ -f $file ] && sd ' this\._map\.set\(file2' ' if (file2.startsWith("diffview")) return;this._map.set(file2' $file
 rm -rf ~/.config/coc/extensions/node_modules/coc-tsserver/snippets
 

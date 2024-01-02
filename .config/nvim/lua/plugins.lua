@@ -160,7 +160,6 @@ return packer.startup(function(use)
   })
   use({ "hexh250786313/defx-icons", after = "defx.nvim", branch = "hexh" })
   use({ "~/.config/nvim/_self/plugins/port-defx-icons", after = "defx-icons" })
-  use({ "junegunn/fzf", config = [[require("modules.file.plugins.fzf")]] })
 
   -- ┌───────────────────────────────────────
   -- │  Highlight Module
@@ -178,12 +177,13 @@ return packer.startup(function(use)
   --   config = [[require("modules.highlight.plugins.nvim-treesitter")]],
   -- })
   -- use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
-  use({
-    "RRethy/vim-hexokinase",
-    config = [[require("modules.highlight.plugins.vim-hexokinase")]],
-    run = "make hexokinase",
-  })
   use({ "hexh250786313/yats.vim" })
+  use({
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require'colorizer'.setup()
+    end,
+  })
   -- use({
   --   "lukas-reineke/indent-blankline.nvim",
   --   config = [[require("modules.highlight.plugins.indent-blankline")]],
@@ -193,27 +193,24 @@ return packer.startup(function(use)
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
-    -- "rockyzhang24/arctic.nvim",
-    -- branch = "v2",
-    "folke/tokyonight.nvim",
-    -- requires = { "rktjmp/lush.nvim" },
+    "rockyzhang24/arctic.nvim",
+    branch = "v2",
+    -- "folke/tokyonight.nvim",
+    requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
     as = "theme",
     config = function()
       vim.cmd([[
-        let g:gruvbox_material_better_performance = 1
-        let g:gruvbox_material_background = 'hard'
-        let g:gruvbox_material_foreground = 'original'
         set background=light " 背景 "light" | "dark"
 
         " ---> 主题：rockyzhang24/arctic.nvim
-        " colorscheme arctic
+        colorscheme arctic
 
         " ---> 主题：mcchrish/zenbones.nvim
         " colorscheme zenbones
         " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
 
         " ---> 主题：folke/tokyonight.nvim
-        colorscheme tokyonight-night
+        " colorscheme tokyonight-night
 
         " ---> 主题：sainnhe/everforest
         " let g:everforest_better_performance = 1
@@ -237,6 +234,29 @@ return packer.startup(function(use)
   })
 
   -- ┌───────────────────────────────────────
+  -- │  FZF Module
+  -- └───────────────────────────────────────
+  use({
+    "ibhagwan/fzf-lua",
+    config = [[require("modules.fzf.plugins.fzf-lua")]],
+    keys = {
+      { "n", "<leader>/" },
+      { "x", "<leader>/" },
+      { "n", "<leader>F" },
+      { "n", "<leader>ld" },
+      { "n", "<leader>aa" },
+      { "n", "<leader>aA" },
+      { "n", "<leader>aF" },
+      { "n", "<leader>as" },
+      { "n", "<leader>ar" },
+      { "n", "gr" },
+      { "n", "gd" },
+      { "n", "gi" },
+    },
+  })
+  use({ "junegunn/fzf", config = [[require("modules.fzf.plugins.fzf")]] })
+
+  -- ┌───────────────────────────────────────
   -- │  CoC Module
   -- └───────────────────────────────────────
   use({
@@ -255,13 +275,17 @@ return packer.startup(function(use)
   use({
     "sindrets/diffview.nvim",
     cmd = { "DiffviewFileHistory", "DiffviewOpen" },
-    keys = { { "n", "<leader>gt" }, { "n", "<leader>gT" }, { "n", "<leader>gG" } },
+    keys = {
+      { "n", "<leader>gt" },
+      { "n", "<leader>gT" },
+      -- { "n", "<leader>gG" }
+    },
     config = [[require("modules.git.plugins.diffview")]],
   })
   use({
     "tpope/vim-fugitive",
     cmd = { "Git" },
-    keys = { { "n", "<leader>gg" } },
+    -- keys = { { "n", "<leader>gg" } },
     config = [[require("modules.git.plugins.vim-fugitive")]],
   })
 
@@ -290,8 +314,8 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "nvim-pack/nvim-spectre",
-    keys = { { "n", "<leader>/" }, { "x", "<leader>/" } },
-    -- keys = { { "n", "<leader>?" }, { "x", "<leader>?" } },
+    -- keys = { { "n", "<leader>/" }, { "x", "<leader>/" } },
+    keys = { { "n", "<leader>?" }, { "x", "<leader>?" } },
     config = [[require("modules.grep.plugins.nvim-spectre")]],
     run = "./build.sh",
   })
@@ -313,12 +337,12 @@ return packer.startup(function(use)
     keys = { { "n", "f" }, { "v", "f" } },
     config = [[require("modules.motion.plugins.hop")]],
   })
-  use({
-    "yorickpeterse/nvim-window",
-    config = [[require("modules.motion.plugins.nvim-window")]],
-    keys = { { "n", "<leader>ww" } },
-    -- after = "defx.nvim"
-  })
+  -- use({
+  --   "yorickpeterse/nvim-window",
+  --   config = [[require("modules.motion.plugins.nvim-window")]],
+  --   keys = { { "n", "<leader>ww" } },
+  --   -- after = "defx.nvim"
+  -- })
   use({ "karb94/neoscroll.nvim", config = [[require("modules.motion.plugins.neoscroll")]] })
 
   if PACKER_BOOTSTRAP then

@@ -1,4 +1,6 @@
 {
+  "copilot.enablePreselect": false,
+  "colors.enable": true,
   "semanticTokens.enable": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
   "session.directory": "~/.vimsessions",
@@ -11,7 +13,7 @@
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "coc.preferences.maxFileSize": "5MB",
+  "coc.preferences.maxFileSize": "1MB",
   "snippets.extends": {
     "javascript": ["javascript", "basedjs"],
     "typescript": ["typescript", "basedjs"],
@@ -420,7 +422,7 @@
   "tsserver.useSyntaxServer": "auto",
   "tsserver.maxTsServerMemory": 16384,
   "tsserver.locale": "auto",
-  "tsserver.useLocalTsdk": true,
+  "tsserver.useLocalTsdk": false,
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,

@@ -24,8 +24,8 @@ require"diffview".setup {
       local c = { type = "float" }
       local editor_width = vim.o.columns
       local editor_height = vim.o.lines
-      c.width = math.min(200, editor_width)
-      c.height = math.min(33, editor_height)
+      c.width = math.min(99, editor_width)
+      c.height = math.min(21, editor_height)
       c.col = math.floor(editor_width * 0.5 - c.width * 0.5)
       c.row = math.floor(editor_height * 0.5 - c.height * 0.5)
       return c
