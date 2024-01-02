@@ -528,18 +528,22 @@ local function symbol()
     strings[#strings + 1] = string
     s.uri = uri
     items[#items + 1] = {
-      icon = icon,
-      kind = kind,
-      text = text,
+      lnum = s.lnum,
+      col = s.col,
+      text = s.text,
       position = position,
       display = utils.strip_ansi_coloring(string),
+      filename = vim.uri_to_fname(s.uri),
     }
   end
 
   store.source = symbols
   store.items = items
 
-  fzf_lua.fzf_exec(strings, { previewer = SymbolPreviewr, actions = { ['enter'] = jump_to_location } })
+  fzf_lua.fzf_exec(strings, {
+    previewer = SymbolPreviewr,
+    actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
+  })
 end
 
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
