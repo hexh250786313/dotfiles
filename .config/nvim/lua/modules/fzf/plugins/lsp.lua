@@ -418,10 +418,38 @@ local function lsp_definition()
   list_or_jump('definition', true)
 end
 
+local function symbol()
+  store = {}
+  if not is_ready('documentSymbol') then
+    return
+  end
+
+  local current_buf = api.nvim_get_current_buf()
+  local symbols = CocAction('documentSymbols', current_buf)
+  if type(symbols) ~= 'table' or vim.tbl_isempty(symbols) then
+    return
+  end
+
+  store.source = symbols
+
+  local strings = {}
+
+  for _, s in ipairs(symbols) do
+    print(vim.inspect(s))
+    local kind = '[' .. s.kind .. ']'
+    local text = s.text
+    strings[#strings + 1] = kind .. " " .. text
+  end
+
+  print(vim.inspect(strings))
+  fzf_lua.fzf_exec(strings)
+end
+
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
 wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic, "Go to implementations" } })
+wk.register({ mode = { "n" }, ["<leader>ls"] = { symbol, "Go to implementations" } })
 wk.register({ mode = { "n" }, ["<leader>aA"] = { code_action_line, "LSP CodeActions list for line" } })
 wk.register({ mode = { "n" }, ["<leader>aa"] = { code_action_cursor, "LSP CodeActions list for cursor" } })
 wk.register({ mode = { "n" }, ["<leader>aF"] = { code_action_file, "LSP CodeActions list for file" } })
