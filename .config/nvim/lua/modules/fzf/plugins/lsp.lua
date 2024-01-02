@@ -149,7 +149,6 @@ local function getNewPreviewer(string_parser)
     local _, lnum, col = string_parser(display_str)
 
     local target = get_target_store(display_str)
-    print(vim.inspect(target))
     local uri = target.source.uri
 
     -- 先查询 buffer 是否已经打开，如果已经打开，读取 buffer 的内容
