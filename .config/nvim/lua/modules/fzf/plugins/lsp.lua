@@ -549,7 +549,7 @@ end
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
-wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic, "Go to implementations" } })
+wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic, "Diagnostic list" } })
 wk.register({ mode = { "n" }, ["<leader>ls"] = { symbol, "LSP document symbols" } })
 wk.register({ mode = { "n" }, ["<leader>aA"] = { code_action_line, "LSP CodeActions list for line" } })
 wk.register({ mode = { "n" }, ["<leader>aa"] = { code_action_cursor, "LSP CodeActions list for cursor" } })
