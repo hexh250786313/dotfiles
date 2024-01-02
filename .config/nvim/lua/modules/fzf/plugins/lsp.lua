@@ -6,16 +6,8 @@ local wk = require("which-key")
 local utils = require "fzf-lua.utils"
 local CocAction = fn.CocAction
 local CocActionAsync = fn.CocActionAsync
-local LspPreviewer = builtin.base:extend()
 
 local store = { results = {}, items = {} }
-
--- 初始化自定义 previewer
-function LspPreviewer:new(o, opts, fzf_win)
-  LspPreviewer.super.new(self, o, opts, fzf_win)
-  setmetatable(self, LspPreviewer)
-  return self
-end
 
 -- 定义设置高亮的函数
 local function highlight_lsp_range(bufnr, ns_id, hl_group, target)
@@ -87,8 +79,9 @@ local function get_filename(path)
 end
 
 -- 从 store 中获取对应的结果
-local function get_target_store(str)
+local function get_target_store(string)
   -- 从 store.items 找到对应的结果，记录目标 index
+  local str = utils.strip_ansi_coloring(string)
   local index = -1
   for i, item in ipairs(store.items) do
     if item.display == str then
@@ -138,52 +131,80 @@ local locations_to_items = function(locs)
   return items
 end
 
--- 重写 previewer 的 populate_preview_buf 方法
-function LspPreviewer:populate_preview_buf(display_str)
-  local tmpbuf = self:get_tmp_buffer()
+-- previewer refactor
+local function getNewPreviewer(string_parser)
+  local previewer = builtin.base:extend()
 
-  local _, lnum, col = parse_string(display_str)
-
-  local target = get_target_store(display_str)
-  local uri = target.source.uri
-
-  -- 先查询 buffer 是否已经打开，如果已经打开，读取 buffer 的内容
-  -- 否则，使用 fn.readfile 读取文件内容
-  local content = {}
-  local filetype = ''
-
-  local bufnr = vim.uri_to_bufnr(uri)
-  local was_buffer_previously_opend = api.nvim_buf_is_loaded(bufnr)
-  fn.bufload(bufnr)
-
-  -- 打开 buffer，获取内容和 filetype，如果 buffer 已经打开，不会重复打开
-  -- 获取完毕后，如果之前未打开，关闭 buffer
-  content = api.nvim_buf_get_lines(bufnr, 0, -1, false)
-  filetype = api.nvim_buf_get_option(bufnr, 'filetype')
-  if not was_buffer_previously_opend then
-    api.nvim_buf_delete(bufnr, { force = true })
+  -- 初始化自定义 previewer
+  function previewer:new(o, opts, fzf_win)
+    previewer.super.new(self, o, opts, fzf_win)
+    setmetatable(self, previewer)
+    return self
   end
 
-  -- 设置内容
-  api.nvim_buf_set_lines(tmpbuf, 0, -1, false, content)
-  -- 设置 filetype
-  api.nvim_buf_set_option(tmpbuf, 'filetype', filetype)
-  self:set_preview_buf(tmpbuf)
+  -- 重写 previewer 的 populate_preview_buf 方法
+  function previewer:populate_preview_buf(display_str)
+    local tmpbuf = self:get_tmp_buffer()
 
-  -- 设置高亮和光标位置
-  pcall(api.nvim_win_call, self.win.preview_winid, function()
-    -- 这个回调中 0 就是当前窗口的 编号：
-    -- 相当于 local winnr = fn.bufwinid(tmpbuf) 的 winnr
-    api.nvim_win_set_cursor(0, { lnum, col - 1 })
-    fn.clearmatches()
-    -- 高亮
-    highlight_lsp_range(tmpbuf, -1, 'LspReferenceText', target.source)
-    self.orig_pos = api.nvim_win_get_cursor(0) -- 给 LspPreviewer:scroll() 用的原始光标位置，用于判断是否需要设置 cursorline
-    utils.zz()
-  end)
+    local _, lnum, col = string_parser(display_str)
 
-  self.win:update_scrollbar(true)
+    local target = get_target_store(display_str)
+    print(vim.inspect(target))
+    local uri = target.source.uri
+
+    -- 先查询 buffer 是否已经打开，如果已经打开，读取 buffer 的内容
+    -- 否则，使用 fn.readfile 读取文件内容
+    local content = {}
+    local filetype = ''
+
+    local bufnr = vim.uri_to_bufnr(uri)
+    local was_buffer_previously_opend = api.nvim_buf_is_loaded(bufnr)
+    fn.bufload(bufnr)
+
+    -- 打开 buffer，获取内容和 filetype，如果 buffer 已经打开，不会重复打开
+    -- 获取完毕后，如果之前未打开，关闭 buffer
+    content = api.nvim_buf_get_lines(bufnr, 0, -1, false)
+    filetype = api.nvim_buf_get_option(bufnr, 'filetype')
+    if not was_buffer_previously_opend then
+      api.nvim_buf_delete(bufnr, { force = true })
+    end
+
+    -- 设置内容
+    api.nvim_buf_set_lines(tmpbuf, 0, -1, false, content)
+    -- 设置 filetype
+    api.nvim_buf_set_option(tmpbuf, 'filetype', filetype)
+    self:set_preview_buf(tmpbuf)
+
+    -- 设置高亮和光标位置
+    pcall(api.nvim_win_call, self.win.preview_winid, function()
+      -- 这个回调中 0 就是当前窗口的 编号：
+      -- 相当于 local winnr = fn.bufwinid(tmpbuf) 的 winnr
+      api.nvim_win_set_cursor(0, { lnum, col - 1 })
+      fn.clearmatches()
+      -- 高亮
+      highlight_lsp_range(tmpbuf, -1, 'LspReferenceText', target.source)
+      self.orig_pos = api.nvim_win_get_cursor(0) -- 给 previewer:scroll() 用的原始光标位置，用于判断是否需要设置 cursorline
+      utils.zz()
+    end)
+
+    self.win:update_scrollbar(true)
+  end
+
+  return previewer
 end
+
+local function parse_symbol_string(str)
+  -- format: "s [Keyword] if (true) <lnum> col <col>"
+  -- 提取 lnum 和 col
+  local pattern = "(.+) (%d+) col (%d+)"
+  local display_str = utils.strip_ansi_coloring(str)
+  local _, lnum, col = string.match(display_str, pattern)
+
+  return '', tonumber(lnum), tonumber(col)
+end
+
+local CommonPreviewr = getNewPreviewer(parse_string)
+local SymbolPreviewr = getNewPreviewer(parse_symbol_string)
 
 -- 选中后跳转到对应的位置
 local function jump_to_location(selected)
@@ -191,7 +212,7 @@ local function jump_to_location(selected)
   local display_str = selected[1]
   local target = get_target_store(display_str)
 
-  vim.lsp.util.jump_to_location(target.source)
+  vim.lsp.util.jump_to_location(target.source, "utf-8")
   store = {}
 end
 
@@ -274,7 +295,7 @@ local function list_or_jump(provider, has_jump)
   store.items = results;
 
   fzf_lua.fzf_exec(strings, {
-    previewer = LspPreviewer,
+    previewer = CommonPreviewr,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
   })
 end
@@ -339,7 +360,7 @@ local function diagnostic()
   store.items = results;
 
   fzf_lua.fzf_exec(strings, {
-    previewer = LspPreviewer,
+    previewer = CommonPreviewr,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
   })
 end
@@ -386,6 +407,68 @@ local function handle_code_action(mode)
   fzf_lua.fzf_exec(strings, { actions = { ['enter'] = exec_code_action }, winopts = { height = 0.21, width = 0.33 } })
 end
 
+local function get_lsp_icon(kind)
+  local icons = {
+    Keyword = "",
+    Variable = "",
+    Value = "",
+    Operator = "Ψ",
+    Constructor = "",
+    Function = "ƒ",
+    Reference = "",
+    Constant = "󰏿",
+    Method = "",
+    Struct = "",
+    Class = "",
+    Interface = "",
+    Text = "",
+    Enum = "",
+    EnumMember = "",
+    Module = "",
+    Color = "",
+    Property = "",
+    Field = "",
+    Unit = "",
+    Event = "",
+    File = "󰈤",
+    Folder = "",
+    Snippet = "",
+    TypeParameter = "󰈩",
+    Default = "",
+  }
+
+  local highlight = {
+    Keyword = "CocSymbolKeyword",
+    Variable = "CocSymbolVariable",
+    Value = "CocSymbolValue",
+    Operator = "CocSymbolOperator",
+    Constructor = "CocSymbolConstructor",
+    Function = "CocSymbolFunction",
+    Reference = "CocSymbolReference",
+    Constant = "CocSymbolConstant",
+    Method = "CocSymbolMethod",
+    Struct = "CocSymbolStruct",
+    Class = "CocSymbolClass",
+    Interface = "CocSymbolInterface",
+    Text = "CocSymbolText",
+    Enum = "CocSymbolEnum",
+    EnumMember = "CocSymbolEnumMember",
+    Module = "CocSymbolModule",
+    Color = "CocSymbolColor",
+    Property = "CocSymbolProperty",
+    Field = "CocSymbolField",
+    Unit = "CocSymbolUnit",
+    Event = "CocSymbolEvent",
+    File = "CocSymbolFile",
+    Folder = "CocSymbolFolder",
+    Snippet = "CocSymbolSnippet",
+    TypeParameter = "CocSymbolTypeParameter",
+    Default = "CocSymbolDefault",
+  }
+
+  return utils.ansi_from_hl(highlight[kind] or highlight.Default, icons[kind] or icons.Default)
+end
+
 local function code_action_line()
   handle_code_action('line')
 end
@@ -418,10 +501,52 @@ local function lsp_definition()
   list_or_jump('definition', true)
 end
 
+local function symbol()
+  store = {}
+  if not is_ready('documentSymbol') then
+    return
+  end
+
+  local current_buf = api.nvim_get_current_buf()
+  local symbols = CocAction('documentSymbols', current_buf)
+  if type(symbols) ~= 'table' or vim.tbl_isempty(symbols) then
+    return
+  end
+
+  local current_bufnr = api.nvim_get_current_buf()
+  local uri = vim.uri_from_bufnr(current_bufnr)
+
+  local strings = {}
+  local items = {}
+
+  for _, s in ipairs(symbols) do
+    local icon = utils.ansi_from_hl("WarningMsg", get_lsp_icon(s.kind))
+    local kind = utils.ansi_from_hl("DefxIconsDefaultIcon", '[' .. s.kind .. ']');
+    local text = utils.ansi_from_hl("Directory", s.text)
+    local position = utils.ansi_from_hl("DefxIconsDefaultIcon", s.lnum .. ' col ' .. s.col)
+    local string = icon .. " " .. kind .. " " .. text .. " " .. position
+    strings[#strings + 1] = string
+    s.uri = uri
+    items[#items + 1] = {
+      icon = icon,
+      kind = kind,
+      text = text,
+      position = position,
+      display = utils.strip_ansi_coloring(string),
+    }
+  end
+
+  store.source = symbols
+  store.items = items
+
+  fzf_lua.fzf_exec(strings, { previewer = SymbolPreviewr, actions = { ['enter'] = jump_to_location } })
+end
+
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
 wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic, "Go to implementations" } })
+wk.register({ mode = { "n" }, ["<leader>ls"] = { symbol, "LSP document symbols" } })
 wk.register({ mode = { "n" }, ["<leader>aA"] = { code_action_line, "LSP CodeActions list for line" } })
 wk.register({ mode = { "n" }, ["<leader>aa"] = { code_action_cursor, "LSP CodeActions list for cursor" } })
 wk.register({ mode = { "n" }, ["<leader>aF"] = { code_action_file, "LSP CodeActions list for file" } })

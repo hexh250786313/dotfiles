@@ -244,6 +244,7 @@ return packer.startup(function(use)
       { "x", "<leader>/" },
       { "n", "<leader>F" },
       { "n", "<leader>ld" },
+      { "n", "<leader>ls" },
       { "n", "<leader>aa" },
       { "n", "<leader>aA" },
       { "n", "<leader>aF" },
