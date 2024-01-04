@@ -239,7 +239,7 @@ let s:extensions = extend({
       \ 'test.ts': { 'icon': '', 'color': '519aba', 'term_color': '74', },
       \ 'test.tsx': { 'icon': '', 'color': '1354bf', 'term_color': '26', },
       \ 'tex': { 'icon': '󰙩', 'color': '3D6117', 'term_color': '22', },
-      \ 'tf': { 'icon': '', 'color': '5F43E9', 'term_color': '93', },
+      \ 'tf': { 'icon': '', 'color': '5F43E9', 'term_color': '93', },
       \ 'tfvars': { 'icon': '', 'color': '5F43E9', 'term_color': '93', },
       \ 'toml': { 'icon': '', 'color': 'ffffff', 'term_color': '231', },
       \ 'tres': { 'icon': '', 'color': 'cbcb41', 'term_color': '185', },
