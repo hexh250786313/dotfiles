@@ -248,6 +248,37 @@ local function send_selected_to_qf(selected, opts)
   store = {}
 end
 
+-- 如果 CocAction(action) 三秒后还没有响应，则执行 CocRestart
+local function CocActionWithTimeout(action)
+  local result = nil
+  local completed = false
+
+  -- 定义回调函数
+  local cb = function(_, res)
+    result = res
+    completed = true
+  end
+
+  -- 调用异步函数
+  CocActionAsync(action, nil, nil, nil, nil, nil, cb)
+
+  -- 使用 vim.wait 等待异步操作完成或超时
+  -- vim.wait 接受三个参数: 超时时间（毫秒），检查条件的函数和轮询间隔（毫秒）
+  local timeout = 3000 -- 3秒超时
+  local waited = vim.wait(timeout, function()
+    return completed -- 当异步操作完成时返回 true
+  end, 50) -- 每10毫秒检查一次
+
+  -- 检查是否因为超时而退出
+  if not waited then
+    -- 超时情况下重启 CoC
+    vim.cmd("CocRestart")
+    print("CocAction timeout, restart CoC")
+  end
+
+  return result
+end
+
 -- list_or_jump
 local function list_or_jump(provider, has_jump)
   local action = provider .. "s" -- definition, definitions：provider + 's'
@@ -256,7 +287,8 @@ local function list_or_jump(provider, has_jump)
     return
   end
 
-  local tables = CocAction(action)
+  local tables = CocActionWithTimeout(action)
+
   if type(tables) ~= 'table' then
     return
   end

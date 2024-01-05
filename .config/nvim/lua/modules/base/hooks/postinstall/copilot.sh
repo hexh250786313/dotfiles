@@ -8,7 +8,7 @@ sd "(?s)if len\(text\) > 1.*?let data\.virt_text \+= \[\[' '], \[annot, s:annot_
 # if !coc#pum#visible()
 #  call coc#start()
 # endif
-sd " +call nvim_buf_set_extmark\(0, copilot#NvimNs\(\), line\('\.'\)-1, col\('\.'\)-1, data\)" "call nvim_buf_set_extmark(0, copilot#NvimNs(), line('.')-1, col('.')-1, data)\nif !coc#pum#visible()\n  call coc#start()\nendif" /home/hexh/.local/share/nvim/site/pack/packer/opt/copilot.vim/autoload/copilot.vim
+# sd " +call nvim_buf_set_extmark\(0, copilot#NvimNs\(\), line\('\.'\)-1, col\('\.'\)-1, data\)" "call nvim_buf_set_extmark(0, copilot#NvimNs(), line('.')-1, col('.')-1, data)\nif !coc#pum#visible()\n  call coc#start()\nendif" /home/hexh/.local/share/nvim/site/pack/packer/opt/copilot.vim/autoload/copilot.vim
 
 if [ -f ~/Documents/nutstore/share/copilot/copilot.sh ]; then
   ~/Documents/nutstore/share/copilot/copilot.sh
