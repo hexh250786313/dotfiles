@@ -123,6 +123,9 @@ local locations_to_items = function(locs)
       line = (api.nvim_buf_get_lines(bufnr, l.range.start.line, l.range.start.line + 1, false) or { '' })[1]
     end
 
+    -- 移除开头空格
+    line = string.gsub(line, "^%s+", "")
+
     local filename = vim.uri_to_fname(l.uri)
     local row = l.range.start.line
     items[#items + 1] = { filename = filename, lnum = row + 1, col = l.range.start.character + 1, text = line }
