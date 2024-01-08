@@ -131,8 +131,9 @@ return packer.startup(function(use)
   })
   use({
     "github/copilot.vim",
-    -- event = "InsertEnter",
-    after = "coc.nvim",
+    -- event = "InsertEnter", -- 不能懒加载，否则插件的 maptab 会先于配置执行，导致 copilot_no_maps 不生效
+    -- after = "coc.nvim", -- 不能懒加载，否则插件的 maptab 会先于配置执行，导致 copilot_no_maps 不生效
+    -- 或者可以把配置放到 options 去，不过不太好
     config = [[require("modules.code.plugins.copilot")]],
   })
 

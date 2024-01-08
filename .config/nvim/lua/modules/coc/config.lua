@@ -187,8 +187,12 @@ function! s:GREP_FROM_SELECTED(type)
 endfunction
 
 " coc#pum#next(0) 0 是不插入文本，1 是插入
+" inoremap <silent><expr> <Tab>
+"   \ coc#pum#visible() ? coc#pum#next(0) :
+"   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
+"   \ coc#refresh()
 inoremap <silent><expr> <Tab>
-  \ coc#pum#visible() ? coc#pum#next(0) :
+  \ coc#pum#visible() ? coc#_select_confirm() :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
 " inoremap <silent><expr><c-l> coc#refresh()
@@ -199,8 +203,9 @@ inoremap <silent><expr> <c-j>
   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
   \ coc#refresh()
 inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(0) : "\<C-k>"
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" 回车选择当前项
+" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
+"  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "3<C-e>"
