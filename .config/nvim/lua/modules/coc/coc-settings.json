@@ -1,4 +1,12 @@
 {
+  "copilot.triggerCharacters": [
+    ".",
+    "/",
+    "@",
+    " ",
+    "*",
+    "<"
+  ],
   "colors.enable": true,
   "semanticTokens.enable": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
