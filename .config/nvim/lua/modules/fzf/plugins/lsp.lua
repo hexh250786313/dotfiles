@@ -535,18 +535,7 @@ local function lsp_definition()
   list_or_jump('definition', true)
 end
 
-local function symbol()
-  store = {}
-  if not is_ready('documentSymbol') then
-    return
-  end
-
-  local current_buf = api.nvim_get_current_buf()
-  local symbols = CocAction('documentSymbols', current_buf)
-  if type(symbols) ~= 'table' or vim.tbl_isempty(symbols) then
-    return
-  end
-
+local function get_symbols(symbols)
   local current_bufnr = api.nvim_get_current_buf()
   local uri = vim.uri_from_bufnr(current_bufnr)
 
@@ -565,7 +554,7 @@ local function symbol()
       lnum = s.lnum,
       col = s.col,
       text = s.text,
-      position = position,
+      position = utils.strip_ansi_coloring(position),
       display = utils.strip_ansi_coloring(string),
       filename = vim.uri_to_fname(s.uri),
     }
@@ -576,8 +565,42 @@ local function symbol()
 
   fzf_lua.fzf_exec(strings, {
     previewer = SymbolPreviewr,
-    actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
+    actions = {
+      ['enter'] = jump_to_location,
+      ['ctrl-q'] = send_selected_to_qf,
+      ['ctrl-x'] = function(selected)
+        utils.fzf_exit()
+        local next_source = {}
+
+        for _, str in ipairs(selected) do
+          local target = get_target_store(str)
+          table.insert(next_source, target.source)
+        end
+
+        -- 根据 next_source 里 item 的 lnum 从小到大排序
+        table.sort(next_source, function(a, b)
+          return a.lnum < b.lnum
+        end)
+
+        get_symbols(next_source)
+      end,
+    },
   })
+end
+
+local function symbol()
+  store = {}
+  if not is_ready('documentSymbol') then
+    return
+  end
+
+  local current_buf = api.nvim_get_current_buf()
+  local symbols = CocAction('documentSymbols', current_buf)
+  if type(symbols) ~= 'table' or vim.tbl_isempty(symbols) then
+    return
+  end
+
+  get_symbols(symbols)
 end
 
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
