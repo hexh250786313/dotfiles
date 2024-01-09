@@ -438,7 +438,7 @@ local function handle_code_action(mode)
     strings[#strings + 1] = index .. ". " .. result.title
   end
 
-  fzf_lua.fzf_exec(strings, { actions = { ['enter'] = exec_code_action }, winopts = { height = 0.21, width = 0.33 } })
+  fzf_lua.fzf_exec(strings, { actions = { ['enter'] = exec_code_action }, winopts = { height = 0.21 } })
 end
 
 local function get_lsp_icon(kind)
