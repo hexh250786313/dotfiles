@@ -1,6 +1,6 @@
 {
   "copilot.enablePreselect": true,
-  "copilot.autoUpdateCompletion": false,
+  "copilot.autoUpdateCompletion": true,
   "colors.enable": true,
   "semanticTokens.enable": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
