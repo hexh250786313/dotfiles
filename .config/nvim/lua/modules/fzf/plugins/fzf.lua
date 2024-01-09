@@ -22,7 +22,7 @@ function! s:SHORT_PATH() abort
 endfunction
 
 function! s:FZF(...)
-  let l:opts = fzf#wrap('FZF', { 'options': ['--multi', '--reverse', '--prompt=' . s:SHORT_PATH() ] })
+  let l:opts = fzf#wrap('FZF', { 'options': ['--multi', '--reverse', '--prompt=' . s:SHORT_PATH(), '--cycle' ] })
   let args = copy(a:000)
   let cwd = getcwd()
   if len(args) == 1
@@ -31,7 +31,7 @@ function! s:FZF(...)
     let opts.source = g:fzf_source
   else
     " 没有指定 source 的情况下，默认使用 mru/fd 动态切换源
-    let opts = fzf#wrap('FZF', { 'options': ['--multi', '--reverse', '--prompt=' . s:SHORT_PATH(), '--bind=' . 'change:reload($HOME/.config/nvim/lua/modules/fzf/plugins/dynamic_fzf_source.sh ' . cwd . ' {q})' ] })
+    let opts = fzf#wrap('FZF', { 'options': ['--cycle', '--multi', '--reverse', '--prompt=' . s:SHORT_PATH(), '--bind=' . 'change:reload($HOME/.config/nvim/lua/modules/fzf/plugins/dynamic_fzf_source.sh ' . cwd . ' {q})' ] })
     let opts.source = "perl -ne 'print substr(\$_, length(\"" . cwd . "/\")) if m{^" . cwd . "/} && !$seen{\$_}++' ~/.config/coc/mru"
   endif
   call fzf#run(opts)
