@@ -370,6 +370,8 @@ local function diagnostic()
     local target = tables[i]
     local severity = "[" .. target.severity .. "]"
     local message = target.message
+    -- 把 \n 替换为 ↵
+    message = string.gsub(message, "\n", "↵")
     if target.severity == "Error" then
       severity = utils.ansi_from_hl("ErrorMsg", severity)
       message = utils.ansi_from_hl("ErrorMsg", message)
