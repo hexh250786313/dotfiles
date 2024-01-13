@@ -334,6 +334,7 @@ let s:exact_matches = extend({
       \ 'rakefile': { 'icon': '', 'color': '701516', 'term_color': '52', },
       \ 'rmd': { 'icon': '', 'color': '519aba', 'term_color': '74', },
       \ 'svelte.config.js': { 'icon': '', 'color': 'ff3e00', 'term_color': '196', },
+      \ 'tailwind.config.js': { 'icon': '󱏿', 'color': '20c2e3', 'term_color': '45', },
       \ 'tsconfig.json': { 'icon': '', 'color': '519aba', 'term_color': '74', },
       \ 'unlicense': { 'icon': '', 'color': 'd0bf41', 'term_color': '185', },
       \ 'vagrantfile$': { 'icon': '', 'color': '1563FF', 'term_color': '27', },
