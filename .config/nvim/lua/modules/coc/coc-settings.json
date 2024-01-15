@@ -1,10 +1,15 @@
 {
-  "copilot.enablePreselect": false,
+  // "copilot.autoUpdateCompletion": true,
+  // "copilot.enablePreselect": false,
+  // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
+  // "css.completion.triggerPropertyValueCompletion": false,
+  // "scss.completion.triggerPropertyValueCompletion": false,
   "colors.enable": true,
   "semanticTokens.enable": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
   "session.directory": "~/.vimsessions",
   "diagnostic.virtualTextPrefix": "  ",
+  "suggest.triggerCompletionWait": 50, // 和 copilot.vim 的 copilot_idle_delay 配合使用（设成一样的值）也许有效，可以降低补全源堵塞 nvim 的概率
   // "diagnostic.errorSign": "",
   // "diagnostic.warningSign": "",
   // "diagnostic.hintSign": "",
@@ -59,7 +64,7 @@
   "list.source.grep.useLiteral": false,
   "suggest.snippetIndicator": " ✩",
   "suggest.autoTrigger": "always",
-  "suggest.virtualText": true,
+  "suggest.virtualText": false,
   "list.interactiveDebounceTime": 2000, // only for interactive supported list
   "list.source.grep.command": "rg",
   "list.source.files.command": "rg",
