@@ -1,8 +1,9 @@
 {
-  "copilot.autoUpdateCompletion": true,
-  "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
-  "css.completion.triggerPropertyValueCompletion": false,
-  "scss.completion.triggerPropertyValueCompletion": false,
+  // "copilot.autoUpdateCompletion": true,
+  // "copilot.enablePreselect": false,
+  // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
+  // "css.completion.triggerPropertyValueCompletion": false,
+  // "scss.completion.triggerPropertyValueCompletion": false,
   "colors.enable": true,
   "semanticTokens.enable": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",

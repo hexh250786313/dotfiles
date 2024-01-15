@@ -1,10 +1,16 @@
 #!/bin/zsh
 
 src_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js"
-dist_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js.bak"
+bak_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js.bak"
 
-if [ ! -e "$dist_file" ]; then
-    cp "$src_file" "$dist_file"
+# 如果没有备份，就备份一下
+if [ ! -e "$bak_file" ]; then
+    cp "$src_file" "$bak_file"
+fi
+
+# 如果有备份，就用备份覆盖源文件
+if [ -e "$bak_file" ]; then
+    cp "$bak_file" "$src_file"
 fi
 
 # for release
@@ -30,6 +36,7 @@ fi
 # sd 'void this.worker.drawItems\(\);' 'void this.worker.drawItems(this.context);' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 # ==================
 
+# 增加 grep preview 指示位置标记，标记第一个字符
 sd 'range: emptyRange\(range\) \? null' 'range: emptyRange(range) ? { start: range.start, end: { line: range.end.line, character: range.end.character + 1 } }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
 
 # cd /mnt/baymax-app-h5-kyc/dist/h5web/kyc/static/js; file="personalComponent.fa7b2f1f.chunk.js"; [ -f $file ] && mv $file $file.bak || cp $file.bak $file; echo ""; ls -a | grep -e $file; echo ""
@@ -39,3 +46,6 @@ rm -rf ~/.config/coc/extensions/node_modules/coc-tsserver/snippets
 
 # 暂时解决 inlayHints 滞后的问题，ref https://github.com/neoclide/coc.nvim/issues/4782
 sd 'debounceInterval = getConditionValue\(100, 10\);' 'debounceInterval = getConditionValue(150, 10);' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
+
+# completion item confirm 后，item.command 触发了长任务导致 nvim 堵塞冻结，解决方案是把 await 去掉
+sd 'if \(commands_default.has\(item.command.command\)\) \{\n.*await commands_default.execute\(item.command\);\n.*\}' 'if (commands_default.has(item.command.command)) { commands_default.execute(item.command); }' ~/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js
