@@ -137,6 +137,7 @@ lower_node_paths=(
   "h5-design"
   "h5-utils"
   "h5-api"
+  "h5-kyc"
 )
 use_lower_node() {
   current_path=$(pwd)

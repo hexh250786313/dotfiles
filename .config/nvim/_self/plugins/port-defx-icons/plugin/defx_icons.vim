@@ -14,9 +14,9 @@ let s:directory_symlink_icon = get(g:, 'defx_icons_directory_symlink_icon', '
 let s:root_opened_tree_icon = get(g:, 'defx_icons_root_opened_tree_icon', '')
 let s:nested_closed_tree_icon = get(g: ,'defx_icons_nested_closed_tree_icon', '')
 let s:nested_opened_tree_icon = get(g: ,'defx_icons_nested_opened_tree_icon', '')
-let s:copy_icon = get(g:, 'defx_icons_copy_icon', '')
+let s:copy_icon = get(g:, 'defx_icons_copy_icon', '󰆏')
 let s:link_icon = get(g:, 'defx_icons_link_icon', '')
-let s:move_icon = get(g:, 'defx_icons_move_icon', '')
+let s:move_icon = get(g:, 'defx_icons_move_icon', '󰆐')
 
 let s:extensions = extend({
       \ 'Dockerfile': { 'icon': '󰡨', 'color': '458ee6', 'term_color': '68', },
