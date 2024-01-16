@@ -1,9 +1,10 @@
 gui:
   scrollHeight: 1
-  showCommandLog: false
+  showCommandLog: true
   showRandomTip: false
   mouseEvents: false
   showFileTree: false
+  language: zh-CN
 keybinding:
   universal:
     quit: '<c-c>'
@@ -18,4 +19,5 @@ git:
 services:
   'git.fpdev.tech': 'gitlab:git.fpdev.tech'
 os:
-  edit: '~/Downloads/nvim.appimage {{filename}}'
+  # edit: '~/Downloads/nvim.appimage {{filename}}'
+  edit: 'nvim {{filename}}'
