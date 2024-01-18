@@ -1,5 +1,6 @@
 {
   "copilot.autoUpdateCompletion": false,
+  "copilot.triggerCharacters": [],
   // "copilot.enablePreselect": false,
   // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
   // "css.completion.triggerPropertyValueCompletion": false,
@@ -113,21 +114,21 @@
   "suggest.labelMaxLength": 30,
   "suggest.floatConfig": {
     "border": true,
-    "rounded": true,
+    "rounded": false,
     "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "suggest.pumFloatConfig": {
     "border": true,
-    "rounded": true,
+    "rounded": false,
     "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
   },
   "floatFactory.floatConfig": {
     "border": [1, 1, 1, 1], // or bool
-    "rounded": true,
+    "rounded": false,
     "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
     "winblend": 0
