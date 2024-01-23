@@ -191,9 +191,13 @@ endfunction
 "   \ coc#pum#visible() ? coc#pum#next(0) :
 "   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
 "   \ coc#refresh()
+" inoremap <silent><expr> <Tab>
+"   \ coc#pum#visible() ? coc#_select_confirm() :
+"   \ <SID>CHECK_BACKSPACE() ? copilot#Accept("\<Tab>") :
+"   \ coc#refresh()
 inoremap <silent><expr> <Tab>
   \ coc#pum#visible() ? coc#_select_confirm() :
-  \ <SID>CHECK_BACKSPACE() ? copilot#Accept("\<Tab>") :
+  \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
 " inoremap <silent><expr><c-l> coc#refresh()
 inoremap <silent><expr><c-l> <SID>COC_REFRESH_AND_SIGNATURE_HELP()
