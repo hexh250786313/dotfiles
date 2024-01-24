@@ -76,6 +76,7 @@ require('fzf-lua').setup({
   },
   fzf_opts = { ['--cycle'] = '' },
   winopts = {
+    border = 'single',
     preview = {
       vertical = 'down:66%',
       layout = 'vertical', -- horizontal | vertical | flex
