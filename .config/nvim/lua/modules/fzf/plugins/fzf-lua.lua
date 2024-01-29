@@ -69,7 +69,7 @@ endfunction
 ]])
 
 require('fzf-lua').setup({
-  'fzf-native', -- 使用 fzf 本身的预览框预览，但是展示的是实际写入的文件，而不是 neovim 的 buffer，所以不推荐开
+  -- 'fzf-native', -- 使用 fzf 本身的预览框预览，但是展示的是实际写入的文件，而不是 neovim 的 buffer，所以不推荐开
   keymap = {
     builtin = { ["<down>"] = "preview-page-down", ["<up>"] = "preview-page-up", ["<c-p>"] = "toggle-preview" },
     fzf = { ['CTRL-A'] = 'toggle-all', ['CTRL-Q'] = 'select-all+accept', ["CTRL-P"] = "toggle-preview" },
