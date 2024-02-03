@@ -49,6 +49,3 @@ sd 'debounceInterval = getConditionValue\(100, 10\);' 'debounceInterval = getCon
 
 # completion item confirm 后，item.command 触发了长任务导致 nvim 堵塞冻结，解决方案是把 await 去掉
 sd 'if \(commands_default.has\(item.command.command\)\) \{\n.*await commands_default.execute\(item.command\);\n.*\}' 'if (commands_default.has(item.command.command)) { commands_default.execute(item.command); }' $src_file
-
-# 临时，让 coc.nvim 的 diagnostic 可以支持 filetype
-sd 'if \(ft === ""\)' 'if (diagnostic.filetype) { filetype = diagnostic.filetype } else if (ft === "")' $src_file
