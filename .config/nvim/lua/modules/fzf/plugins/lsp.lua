@@ -368,6 +368,10 @@ local function diagnostic()
     local filename = get_filename(result.filename)
     filename = utils.ansi_from_hl("Comment", filename)
     local target = tables[i]
+    -- 跳过 target.source 为 coc-pretty-ts-errors
+    if target.source == "pretty-ts-errors" then
+      goto continue
+    end
     local severity = "[" .. target.severity .. "]"
     local message = target.message
     -- 把 \n 替换为 ↵
@@ -391,6 +395,7 @@ local function diagnostic()
     strings[#strings + 1] = str
 
     result.display = utils.strip_ansi_coloring(str)
+      ::continue::
   end
 
   store.items = results;
