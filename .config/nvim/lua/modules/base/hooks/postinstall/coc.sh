@@ -49,3 +49,6 @@ sd 'debounceInterval = getConditionValue\(100, 10\);' 'debounceInterval = getCon
 
 # completion item confirm 后，item.command 触发了长任务导致 nvim 堵塞冻结，解决方案是把 await 去掉
 sd 'if \(commands_default.has\(item.command.command\)\) \{\n.*await commands_default.execute\(item.command\);\n.*\}' 'if (commands_default.has(item.command.command)) { commands_default.execute(item.command); }' $src_file
+
+# md 格式列表层级对齐错误
+sd 'this.o.list\(body, ordered, this.tab\);' 'this.o.list(body, ordered);' $src_file
