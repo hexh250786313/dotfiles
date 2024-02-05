@@ -127,6 +127,7 @@ let s:extensions = extend({
       \ 'import': { 'icon': '', 'color': 'ECECEC', 'term_color': '255', },
       \ 'ini': { 'icon': '', 'color': '6d8086', 'term_color': '66', },
       \ 'ino': { 'icon': '', 'color': '56b6c2', 'term_color': '73', },
+      \ 'ipynb': { 'icon': '', 'color': '51a0cf', 'term_color': '74', },
       \ 'java': { 'icon': '', 'color': 'cc3e44', 'term_color': '167', },
       \ 'jl': { 'icon': '', 'color': 'a270ba', 'term_color': '133', },
       \ 'jpeg': { 'icon': '', 'color': 'a074c4', 'term_color': '140', },
