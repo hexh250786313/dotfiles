@@ -102,6 +102,8 @@ hi! link CopilotSuggestion DefxIconsDefaultIcon
 " hi! CursorWord gui=underline
 hi! CursorWord guibg=#303731 gui=none
 
+hi! link PrettyTsErrorType DefxIconsDefaultIcon
+
 exec 'hi! DiffAdd guibg=' . s:green_bg . ' guifg=NONE'
 exec 'hi! DiffChange guibg=' . s:blue_bg . ' guifg=NONE'
 exec 'hi! DiffDelete guibg=' . s:red_bg . ' guifg=NONE'
