@@ -170,14 +170,14 @@ return packer.startup(function(use)
   --   after = "nvim-treesitter",
   --   requires = "nvim-treesitter/nvim-treesitter",
   -- })
-  -- use({
-  --   "nvim-treesitter/nvim-treesitter",
-  --   run = ":TSUpdate",
-  --   -- commit = "3c42fb9d702e1246313d2b5531b815595cb4d889",
-  --   -- commit = "d4e48be88d9822d98c9194f5cc2778c9953afb66",
-  --   config = [[require("modules.highlight.plugins.nvim-treesitter")]],
-  -- })
-  -- use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    -- commit = "3c42fb9d702e1246313d2b5531b815595cb4d889",
+    -- commit = "d4e48be88d9822d98c9194f5cc2778c9953afb66",
+    config = [[require("modules.highlight.plugins.nvim-treesitter")]],
+  })
+  use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
   use({ "hexh250786313/yats.vim" })
   use({
     "NvChad/nvim-colorizer.lua",

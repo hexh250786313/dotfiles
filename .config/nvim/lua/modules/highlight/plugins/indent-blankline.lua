@@ -1,5 +1,5 @@
 ---------> 配置
-vim.g.indent_blankline_enabled = false
+vim.g.indent_blankline_enabled = true
 vim.opt.list = true
 require("indent_blankline").setup {
   space_char_blankline = " ",

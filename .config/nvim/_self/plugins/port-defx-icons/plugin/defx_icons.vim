@@ -353,6 +353,7 @@ let s:exact_matches = extend({
       \ 'vagrantfile$': { 'icon': '', 'color': '1563FF', 'term_color': '27', },
       \ 'webpack': { 'icon': '󰜫', 'color': '519aba', 'term_color': '74', },
       \ 'workspace': { 'icon': '', 'color': '89e051', 'term_color': '113', },
+      \ 'build.zig.zon': { 'icon': '', 'color': 'f69a1b', 'term_color': '172', },
       \ }, get(g:, 'defx_icons_exact_matches', {}))
 
 let s:pattern_matches = extend({ }, get(g:, 'defx_icon_pattern_matches', {}))
