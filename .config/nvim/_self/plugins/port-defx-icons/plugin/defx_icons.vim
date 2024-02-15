@@ -127,6 +127,7 @@ let s:extensions = extend({
       \ 'import': { 'icon': '', 'color': 'ECECEC', 'term_color': '255', },
       \ 'ini': { 'icon': '', 'color': '6d8086', 'term_color': '66', },
       \ 'ino': { 'icon': '', 'color': '56b6c2', 'term_color': '73', },
+      \ 'ipynb': { 'icon': '', 'color': '51a0cf', 'term_color': '74', },
       \ 'java': { 'icon': '', 'color': 'cc3e44', 'term_color': '167', },
       \ 'jl': { 'icon': '', 'color': 'a270ba', 'term_color': '133', },
       \ 'jpeg': { 'icon': '', 'color': 'a074c4', 'term_color': '140', },
@@ -352,6 +353,7 @@ let s:exact_matches = extend({
       \ 'vagrantfile$': { 'icon': '', 'color': '1563FF', 'term_color': '27', },
       \ 'webpack': { 'icon': '󰜫', 'color': '519aba', 'term_color': '74', },
       \ 'workspace': { 'icon': '', 'color': '89e051', 'term_color': '113', },
+      \ 'build.zig.zon': { 'icon': '', 'color': 'f69a1b', 'term_color': '172', },
       \ }, get(g:, 'defx_icons_exact_matches', {}))
 
 let s:pattern_matches = extend({ }, get(g:, 'defx_icon_pattern_matches', {}))
