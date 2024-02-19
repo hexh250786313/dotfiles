@@ -173,6 +173,7 @@ let s:extensions = extend({
       \ 'nim': { 'icon': '', 'color': 'f3d400', 'term_color': '220', },
       \ 'nix': { 'icon': '', 'color': '7ebae4', 'term_color': '110', },
       \ 'nswag': { 'icon': '', 'color': '85ea2d', 'term_color': '112', },
+      \ 'nu': { 'icon': '>', 'color': '3aa675', 'term_color': '36', },
       \ 'ogg': { 'icon': '', 'color': '66D8EF', 'term_color': '45', },
       \ 'opus': { 'icon': '󰈣', 'color': 'F88A02', 'term_color': '208', },
       \ 'org': { 'icon': '', 'color': '77AA99', 'term_color': '73', },
