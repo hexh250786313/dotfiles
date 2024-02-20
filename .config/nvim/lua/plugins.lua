@@ -194,8 +194,9 @@ return packer.startup(function(use)
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
-    "rockyzhang24/arctic.nvim",
-    branch = "v2",
+    "ofirgall/ofirkai.nvim",
+    -- "rockyzhang24/arctic.nvim",
+    -- branch = "v2",
     -- "folke/tokyonight.nvim",
     requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
     as = "theme",
@@ -203,8 +204,11 @@ return packer.startup(function(use)
       vim.cmd([[
         set background=light " 背景 "light" | "dark"
 
+        " ---> 主题：ofirgall/ofirkai.nvim
+        colorscheme ofirkai
+
         " ---> 主题：rockyzhang24/arctic.nvim
-        colorscheme arctic
+        " colorscheme arctic
 
         " ---> 主题：mcchrish/zenbones.nvim
         " colorscheme zenbones
