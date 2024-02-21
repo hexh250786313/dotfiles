@@ -45,7 +45,8 @@ file="$HOME/.config/coc/extensions/node_modules/coc-tsserver/lib/index.js"; [ -f
 rm -rf ~/.config/coc/extensions/node_modules/coc-tsserver/snippets
 
 # 暂时解决 inlayHints 滞后的问题，ref https://github.com/neoclide/coc.nvim/issues/4782
-sd 'debounceInterval = getConditionValue\(100, 10\);' 'debounceInterval = getConditionValue(150, 10);' $src_file
+# 已修复
+# sd 'debounceInterval = getConditionValue\(100, 10\);' 'debounceInterval = getConditionValue(150, 10);' $src_file
 
 # completion item confirm 后，item.command 触发了长任务导致 nvim 堵塞冻结，解决方案是把 await 去掉
 sd 'if \(commands_default.has\(item.command.command\)\) \{\n.*await commands_default.execute\(item.command\);\n.*\}' 'if (commands_default.has(item.command.command)) { commands_default.execute(item.command); }' $src_file
