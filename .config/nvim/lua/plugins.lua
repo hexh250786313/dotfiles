@@ -198,30 +198,36 @@ return packer.startup(function(use)
     -- "rockyzhang24/arctic.nvim",
     -- branch = "v2",
     -- "folke/tokyonight.nvim",
-    requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
+    -- requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
     as = "theme",
     config = function()
+      vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
+
+      ---> 主题：ofirgall/ofirkai.nvim
+      vim.cmd("colorscheme ofirkai")
+      local scheme = require('ofirkai.design').scheme
+      vim.cmd("autocmd VimEnter * exec 'hi! FoldColumn guibg=" .. scheme.background .. " guifg=" .. scheme.white .. "'")
+
+      ---> 主题：rockyzhang24/arctic.nvim
+      -- vim.cmd([[ colorscheme arctic ]])
+
+      ---> 主题：mcchrish/zenbones.nvim
       vim.cmd([[
-        set background=light " 背景 "light" | "dark"
+      " colorscheme zenbones
+      " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
+      ]])
 
-        " ---> 主题：ofirgall/ofirkai.nvim
-        colorscheme ofirkai
+      ---> 主题：folke/tokyonight.nvim
+      vim.cmd([[
+      " colorscheme tokyonight
+      ]])
 
-        " ---> 主题：rockyzhang24/arctic.nvim
-        " colorscheme arctic
-
-        " ---> 主题：mcchrish/zenbones.nvim
-        " colorscheme zenbones
-        " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
-
-        " ---> 主题：folke/tokyonight.nvim
-        " colorscheme tokyonight-night
-
-        " ---> 主题：sainnhe/everforest
-        " let g:everforest_better_performance = 1
-        " let g:everforest_background = 'hard'
-        " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
-        " colorscheme everforest
+      ---> 主题：sainnhe/everforest
+      vim.cmd([[
+      " let g:everforest_better_performance = 1
+      " let g:everforest_background = 'hard'
+      " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
+      " colorscheme everforest
       ]])
     end,
   })
