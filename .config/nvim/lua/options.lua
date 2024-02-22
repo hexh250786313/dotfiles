@@ -70,7 +70,7 @@ local optionList = {
   timeoutlen = 2000,
   textwidth = 120,
   incsearch = true, -- 高亮搜索
-  guicursor = 'i:ver25,n:hor20,v:hor20', -- 光标样式：n：下划线，v：下划线，i：竖线
+  -- guicursor = 'i:ver25,n:hor20,v:hor20', -- 光标样式：n：下划线，v：下划线，i：竖线
 }
 
 for k, v in pairs(optionList) do

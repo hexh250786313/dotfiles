@@ -202,12 +202,12 @@ inoremap <silent><expr> <Tab>
   \ coc#refresh()
 " inoremap <silent><expr><c-l> coc#refresh()
 inoremap <silent><expr><c-l> <SID>COC_REFRESH_AND_SIGNATURE_HELP()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
+inoremap <silent><expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
 inoremap <silent><expr> <c-j>
   \ coc#pum#visible() ? coc#pum#next(0) :
   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
   \ coc#refresh()
-inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(0) : "\<C-k>"
+inoremap <silent><expr><c-k> coc#pum#visible() ? coc#pum#prev(0) : "\<C-k>"
 " 回车选择当前项
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
 "  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"

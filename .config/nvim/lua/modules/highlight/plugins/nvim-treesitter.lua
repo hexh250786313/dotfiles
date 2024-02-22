@@ -10,7 +10,7 @@ local disabler = function(lang, bufnr)
 end
 
 require("nvim-treesitter.configs").setup {
-  ensure_installed = { "javascript", "typescript", "css", "scss", "vue", "lua", "vim", "tsx", "markdown" },
+  ensure_installed = { "javascript", "typescript", "css", "scss", "vue", "lua", "vim", "tsx", "markdown", "html" },
   auto_install = false,
   highlight = { enable = true, disable = disabler },
   incremental_selection = { enable = false, disable = disabler },

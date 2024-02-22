@@ -194,30 +194,40 @@ return packer.startup(function(use)
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
-    "rockyzhang24/arctic.nvim",
-    branch = "v2",
-    -- "folke/tokyonight.nvim",
-    requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
+    -- "ofirgall/ofirkai.nvim",
+    -- "rockyzhang24/arctic.nvim",
+    -- branch = "v2",
+    "folke/tokyonight.nvim",
+    -- requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
     as = "theme",
     config = function()
+      vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
+
+      ---> 主题：ofirgall/ofirkai.nvim
+      -- vim.cmd("colorscheme ofirkai")
+      -- local scheme = require('ofirkai.design').scheme
+      -- vim.cmd("autocmd VimEnter * exec 'hi! FoldColumn guibg=" .. scheme.background .. " guifg=" .. scheme.white .. "'")
+
+      ---> 主题：rockyzhang24/arctic.nvim
+      -- vim.cmd([[ colorscheme arctic ]])
+
+      ---> 主题：mcchrish/zenbones.nvim
       vim.cmd([[
-        set background=light " 背景 "light" | "dark"
+      " colorscheme zenbones
+      " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
+      ]])
 
-        " ---> 主题：rockyzhang24/arctic.nvim
-        colorscheme arctic
+      ---> 主题：folke/tokyonight.nvim
+      vim.cmd([[
+      colorscheme tokyonight-night
+      ]])
 
-        " ---> 主题：mcchrish/zenbones.nvim
-        " colorscheme zenbones
-        " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
-
-        " ---> 主题：folke/tokyonight.nvim
-        " colorscheme tokyonight-night
-
-        " ---> 主题：sainnhe/everforest
-        " let g:everforest_better_performance = 1
-        " let g:everforest_background = 'hard'
-        " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
-        " colorscheme everforest
+      ---> 主题：sainnhe/everforest
+      vim.cmd([[
+      " let g:everforest_better_performance = 1
+      " let g:everforest_background = 'hard'
+      " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
+      " colorscheme everforest
       ]])
     end,
   })
@@ -239,6 +249,8 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "ibhagwan/fzf-lua",
+    -- commit = "a5b32c30ece070d0417c2f41751fa11248c4e5de", -- windows support 之后无效
+    commit = "91ec17b4fd0d810599f054eef08db967a0457fbf",
     config = [[require("modules.fzf.plugins.fzf-lua")]],
     keys = {
       { "n", "<leader>/" },
