@@ -56,12 +56,12 @@ let g:defaultnormalgb=_self#highlight#pick('Normal', 'bg')
 " 全局 Normal 不能设置 gui, 但是 winhighlight 可以
 " 不透明
 let g:hlnormalstate=1
-" set cursorline
+set cursorline
 
 " 透明
 " let g:hlnormalstate=0
 " hi! Normal guibg=NONE
-set nocursorline
+" set nocursorline
 
 let s:green = '#b8bb26'
 let s:blue = '#83a598'
