@@ -22,6 +22,9 @@
   "diagnostic.hintSign": "",
   "coc.preferences.maxFileSize": "1MB",
   "snippets.extends": {
+    "less": ["basedcss"],
+    "css": ["basedcss"],
+    "scss": ["basedcss"],
     "javascript": ["javascript", "basedjs"],
     "typescript": ["typescript", "basedjs"],
     "javascriptreact": ["javascript", "javascriptreact", "basedjs", "basedjsx"],
