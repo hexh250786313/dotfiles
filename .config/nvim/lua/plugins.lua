@@ -194,19 +194,19 @@ return packer.startup(function(use)
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
-    "ofirgall/ofirkai.nvim",
+    -- "ofirgall/ofirkai.nvim",
     -- "rockyzhang24/arctic.nvim",
     -- branch = "v2",
-    -- "folke/tokyonight.nvim",
+    "folke/tokyonight.nvim",
     -- requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
     as = "theme",
     config = function()
       vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
 
       ---> 主题：ofirgall/ofirkai.nvim
-      vim.cmd("colorscheme ofirkai")
-      local scheme = require('ofirkai.design').scheme
-      vim.cmd("autocmd VimEnter * exec 'hi! FoldColumn guibg=" .. scheme.background .. " guifg=" .. scheme.white .. "'")
+      -- vim.cmd("colorscheme ofirkai")
+      -- local scheme = require('ofirkai.design').scheme
+      -- vim.cmd("autocmd VimEnter * exec 'hi! FoldColumn guibg=" .. scheme.background .. " guifg=" .. scheme.white .. "'")
 
       ---> 主题：rockyzhang24/arctic.nvim
       -- vim.cmd([[ colorscheme arctic ]])
@@ -219,7 +219,7 @@ return packer.startup(function(use)
 
       ---> 主题：folke/tokyonight.nvim
       vim.cmd([[
-      " colorscheme tokyonight
+      colorscheme tokyonight-night
       ]])
 
       ---> 主题：sainnhe/everforest
