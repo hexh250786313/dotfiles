@@ -197,8 +197,8 @@ return packer.startup(function(use)
     -- "ofirgall/ofirkai.nvim",
     -- "rockyzhang24/arctic.nvim",
     -- branch = "v2",
-    "folke/tokyonight.nvim",
     -- requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
+    "folke/tokyonight.nvim",
     as = "theme",
     config = function()
       vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
