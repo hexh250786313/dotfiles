@@ -4,29 +4,116 @@ if (not status) then
   return
 end
 
+local colors = {
+  background = vim.fn.synIDattr(vim.fn.hlID('StatusLine'), 'bg', 'gui'),
+  error = vim.fn.synIDattr(vim.fn.hlID('DiagnosticError'), 'fg', 'gui'),
+  hint = vim.fn.synIDattr(vim.fn.hlID('DiagnosticHint'), 'fg', 'gui'),
+  info = vim.fn.synIDattr(vim.fn.hlID('DiagnosticInfo'), 'fg', 'gui'),
+  warn = vim.fn.synIDattr(vim.fn.hlID('DiagnosticWarn'), 'fg', 'gui'),
+}
+
+local colorscheme = vim.g.colors_name
+
+local empty = require('lualine.component'):extend()
+function empty:draw(default_highlight)
+  self.status = ''
+  self.applied_separator = ''
+  self:apply_highlights(default_highlight)
+  self:apply_section_separators()
+  return self.status
+end
+
+-- 设置每个项之间的分隔
+local function process_sections(sections)
+  for name, section in pairs(sections) do
+    local left = name:sub(9, 10) < 'x'
+    for pos = 1, name ~= 'lualine_z' and #section or #section - 1 do
+      table.insert(section, pos * 2, { empty, color = { fg = colors.background, bg = colors.background } })
+    end
+    for id, comp in ipairs(section) do
+      if type(comp) ~= 'table' then
+        comp = { comp }
+        section[id] = comp
+      end
+      comp.separator = left and { right = '' } or { left = '' }
+    end
+  end
+  return sections
+end
+
 local config = {
   options = {
-    section_separators = { left = "▓░", right = "░▓" },
-    component_separators = { left = " ", right = " " },
+    -- 原创渐变
+    -- section_separators = { left = "▓░", right = "░▓" },
+    -- component_separators = { left = " ", right = " " },
+    -- 斜主题
+    component_separators = '',
+    section_separators = { left = '', right = '' },
   },
-  sections = {
-    lualine_a = { "mode" },
-    lualine_b = { "g:coc_git_status" },
-    lualine_c = {
+  -- 如果不想要斜分割，就去掉 process_sections
+  sections = process_sections {
+    lualine_a = {
+      {
+        "mode",
+        fmt = function(str)
+          -- 定义模式到字符的映射
+          local mode_map = {
+            -- ['NORMAL'] = 'N',
+            -- ['INSERT'] = 'I',
+            -- ['VISUAL'] = 'V',
+            -- ['V-LINE'] = 'VL',
+            -- ['V-BLOCK'] = 'VB',
+            -- ['SELECT'] = 'S',
+            -- ['REPLACE'] = 'R',
+            -- ['COMMAND'] = 'C',
+            -- 改成 NerdFont 图标更好看
+            ['NORMAL'] = '',
+            ['INSERT'] = '',
+            ['VISUAL'] = '',
+            ['V-LINE'] = '',
+            ['V-BLOCK'] = '',
+            ['SELECT'] = '',
+            ['REPLACE'] = '',
+            ['COMMAND'] = '',
+          }
+          -- 返回映射后的字符，如果没有找到映射，则返回原字符串
+          return mode_map[str] or str
+        end,
+      },
+    },
+    lualine_b = {
+      { "g:coc_git_status" },
       { "diff", colored = true, symbols = { added = "+", modified = "~", removed = "-" } },
       {
         "diagnostics",
         sources = { "coc" },
         diagnostics_color = {
-          error = "DiagnosticError",
-          warn = "DiagnosticWarn",
-          info = "DiagnosticInfo",
-          hint = "DiagnosticHint",
+          -- error = "DiagnosticError",
+          -- warn = "DiagnosticWarn",
+          -- info = "DiagnosticInfo",
+          -- hint = "DiagnosticHint",
+          error = { bg = colors.error, fg = colors.background },
+          warn = { bg = colors.warn, fg = colors.background },
+          info = { bg = colors.info, fg = colors.background },
+          hint = { bg = colors.hint, fg = colors.background },
         },
-        symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:", ok = "O:" },
+        symbols = {
+          -- error = "E:",
+          -- warn = "W:",
+          -- info = "I:",
+          -- hint = "H:",
+          -- ok = "O:"
+          -- 改成 NerdFont 版本更好看
+          error = " ",
+          warn = " ",
+          info = " ",
+          hint = " ",
+          ok = " ",
+        },
       },
-      { "filename", path = 1 },
+      { "filename", path = 4 },
     },
+    lualine_c = {},
     lualine_x = { "g:coc_status", "encoding", "filetype" },
     lualine_y = { "progress" },
     lualine_z = { "location" },
@@ -65,8 +152,6 @@ local function can_require(path)
   end
   return false
 end
-
-local colorscheme = vim.g.colors_name
 
 if can_require("lualine.themes" .. colorscheme) then
   config.options.theme = require("lualine.themes" .. colorscheme)
