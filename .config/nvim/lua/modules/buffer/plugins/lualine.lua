@@ -41,6 +41,18 @@ local function process_sections(sections)
   return sections
 end
 
+local function search_result()
+  if vim.v.hlsearch == 0 then
+    return ''
+  end
+  local last_search = vim.fn.getreg('/')
+  if not last_search or last_search == '' then
+    return ''
+  end
+  local searchcount = vim.fn.searchcount { maxcount = 9999 }
+  return last_search .. '(' .. searchcount.current .. '/' .. searchcount.total .. ')'
+end
+
 local config = {
   options = {
     -- 原创渐变
@@ -114,7 +126,7 @@ local config = {
       { "filename", path = 4 },
     },
     lualine_c = {},
-    lualine_x = { "g:coc_status", "encoding", "filetype" },
+    lualine_x = { "g:coc_status", "encoding", search_result, "filetype" },
     lualine_y = { "progress" },
     lualine_z = { "location" },
   },
