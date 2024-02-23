@@ -35,8 +35,8 @@ size = 10
 family = "MonaspiceNe NFM"
 style = "r"
 
-[font.offset]
-y = 5
+# [font.offset]
+# y = 5
 
 [mouse]
 hide_when_typing = true
