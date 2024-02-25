@@ -318,6 +318,7 @@ let s:exact_matches = extend({
       \ 'avif': { 'icon': '', 'color': 'a074c4', 'term_color': '140', },
       \ 'brewfile': { 'icon': '', 'color': '701516', 'term_color': '52', },
       \ 'build': { 'icon': '', 'color': '89e051', 'term_color': '113', },
+      \ 'checkhealth': { 'icon': '󰓙', 'color': '75B4FB', 'term_color': '75', },
       \ 'cmakelists.txt': { 'icon': '', 'color': '6d8086', 'term_color': '66', },
       \ 'commit_editmsg': { 'icon': '', 'color': '41535b', 'term_color': '239', },
       \ 'compose.yaml': { 'icon': '󰡨', 'color': '458ee6', 'term_color': '68', },
