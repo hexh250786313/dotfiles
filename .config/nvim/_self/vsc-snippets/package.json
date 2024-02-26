@@ -1,0 +1,70 @@
+{
+  "name": "@self/vsc-snippets",
+  "main": "lib/index.js",
+  "engines": {
+    "coc": "^0.0.82"
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "lua",
+        "path": "./snippets/lua.json"
+      },
+      {
+        "language": "less",
+        "path": "./snippets/basiccss.json"
+      },
+      {
+        "language": "css",
+        "path": "./snippets/basiccss.json"
+      },
+      {
+        "language": "scss",
+        "path": "./snippets/basiccss.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/basicjs.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/basicjs.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/javascriptreact.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/basicjs.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescript.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/typescriptreact.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/basicjs.json"
+      }
+    ]
+  }
+}
