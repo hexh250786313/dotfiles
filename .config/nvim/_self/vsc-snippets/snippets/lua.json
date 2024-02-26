@@ -1,0 +1,7 @@
+{
+  "Variable": {
+    "prefix": "local",
+    "body": ["local ${1:varName} = ${2:varValue}"],
+    "description": "Create a local variable"
+  }
+}

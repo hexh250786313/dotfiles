@@ -1,0 +1,18 @@
+snippet comp "React Component" b
+import { ComponentType } from 'react';
+import Style from './index.module.less';
+
+interface ${1:Comp}Props {}
+
+const _${1:Comp}: ComponentType<${1:Comp}Props> = (props) => {
+    return (
+        <div className={Style['container']}>
+            <div className={Style['main']}>hello, 42</div>
+        </div>
+    );
+};
+
+const ${1:Comp} = _${1:Comp};
+
+export default ${1:Comp};
+endsnippet
