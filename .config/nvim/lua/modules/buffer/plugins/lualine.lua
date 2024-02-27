@@ -95,7 +95,7 @@ local config = {
     },
     lualine_b = {
       { "g:coc_git_status" },
-      { "diff", colored = true, symbols = { added = "+", modified = "~", removed = "-" } },
+      { "diff", colored = true, symbols = { added = "+", modified = "~", removed = "-" } }, -- 不知道为什么一保存就消失
       {
         "diagnostics",
         sources = { "coc" },
