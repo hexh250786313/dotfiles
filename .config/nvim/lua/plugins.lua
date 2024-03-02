@@ -333,7 +333,8 @@ return packer.startup(function(use)
     config = [[require("modules.grep.plugins.nvim-spectre")]],
     run = "./build.sh",
   })
-  use({ "hexh250786313/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
+  -- use({ "hexh250786313/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
+  use({ "romainl/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
   use({ "bronson/vim-visual-star-search", keys = { { "n", "*" }, { "v", "*" } } })
   use({
     "ggVGc/vim-fuzzysearch",
