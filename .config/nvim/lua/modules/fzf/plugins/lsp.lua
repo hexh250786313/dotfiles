@@ -111,16 +111,21 @@ local locations_to_items = function(locs)
       l.range = l.targetRange
     end
     local bufnr = vim.uri_to_bufnr(l.uri)
-    local was_buffer_previously_opend = api.nvim_buf_is_loaded(bufnr)
     local line = ''
-
+    -- 判断是否真是存在的文件
+    local is_file = fn.filereadable(vim.uri_to_fname(l.uri))
+    if is_file == 0 then
+      -- 如果不是真实存在，则 load
+      fn.bufload(bufnr)
+    end
+    local was_buffer_previously_opend = api.nvim_buf_is_loaded(bufnr)
     if not was_buffer_previously_opend then
       -- 没有打开过 buffer，使用 fn.readfile 读取文件内容
       local content = fn.readfile(vim.uri_to_fname(l.uri))
       line = content[l.range.start.line + 1]
     else
       -- 已有 buffer，使用 api.nvim_buf_get_lines 读取文件内容
-      line = (api.nvim_buf_get_lines(bufnr, l.range.start.line, l.range.start.line + 1, false) or { '' })[1]
+      line = (api.nvim_buf_get_lines(bufnr, l.range.start.line, l.range.start.line + 1, false) or { '' })[1] or ''
     end
 
     -- 移除开头空格
@@ -395,7 +400,7 @@ local function diagnostic()
     strings[#strings + 1] = str
 
     result.display = utils.strip_ansi_coloring(str)
-      ::continue::
+    ::continue::
   end
 
   store.items = results;
