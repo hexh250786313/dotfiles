@@ -219,6 +219,12 @@ local function jump_to_location(selected)
   local display_str = selected[1]
   local target = get_target_store(display_str)
 
+  local is_file = fn.filereadable(vim.uri_to_fname(target.source.uri))
+  if is_file == 0 then
+    -- 如果不是真实存在，则直接打开文件
+    vim.cmd("e " .. vim.uri_to_fname(target.source.uri))
+    return
+  end
   vim.lsp.util.jump_to_location(target.source, "utf-8")
   store = {}
 end
