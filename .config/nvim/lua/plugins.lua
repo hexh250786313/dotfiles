@@ -198,8 +198,8 @@ return packer.startup(function(use)
     -- "rockyzhang24/arctic.nvim",
     -- branch = "v2",
     -- requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
-    -- "folke/tokyonight.nvim",
-    "https://github.com/pbrisbin/vim-colors-off",
+    "folke/tokyonight.nvim",
+    -- "https://github.com/pbrisbin/vim-colors-off",
     as = "theme",
     config = function()
       vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
@@ -220,12 +220,12 @@ return packer.startup(function(use)
 
       ---> 主题：folke/tokyonight.nvim
       vim.cmd([[
-      " colorscheme tokyonight-night
+      colorscheme tokyonight-night
       ]])
 
       ---> 主题：pbrisbin/vim-colors-off
       vim.cmd([[
-      colorscheme off
+      " colorscheme off
       ]])
 
       ---> 主题：sainnhe/everforest
