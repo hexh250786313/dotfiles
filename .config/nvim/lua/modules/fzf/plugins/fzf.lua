@@ -37,6 +37,17 @@ function! s:FZF(...)
   call fzf#run(opts)
 endfunction
 
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+endfunction
+
+let g:fzf_action =
+\ { 'ctrl-q': function('s:build_quickfix_list'),
+\ }
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all'
+
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Comment'],
   \ 'bg':      ['bg', 'StatusLine'],
