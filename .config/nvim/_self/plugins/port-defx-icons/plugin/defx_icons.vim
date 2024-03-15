@@ -213,7 +213,7 @@ let s:extensions = extend({
       \ 'rlib': { 'icon': '', 'color': 'dea584', 'term_color': '216', },
       \ 'rmd': { 'icon': '', 'color': '519aba', 'term_color': '74', },
       \ 'rproj': { 'icon': '󰗆', 'color': '358a5b', 'term_color': '29', },
-      \ 'rs': { 'icon': '', 'color': 'dea584', 'term_color': '216', },
+      \ 'rs': { 'icon': '', 'color': 'dea584', 'term_color': '216', },
       \ 'rss': { 'icon': '', 'color': 'FB9D3B', 'term_color': '215', },
       \ 'sass': { 'icon': '', 'color': 'f55385', 'term_color': '204', },
       \ 'sbt': { 'icon': '', 'color': 'cc3e44', 'term_color': '167', },
