@@ -32,7 +32,8 @@ TERM = "alacritty"
 size = 10
 
 [font.normal]
-family = "MonaspiceNe NFM"
+# family = "MonaspiceNe NFM"
+family = "CaskaydiaMono NFM"
 style = "r"
 
 # [font.offset]
