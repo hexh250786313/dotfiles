@@ -5,7 +5,7 @@ imap <silent><script><expr> <c-o> copilot#Accept("\<Tab>")
 let g:copilot_no_maps = v:true
 let g:copilot_no_tab_map = v:true
 let g:copilot_idle_delay = 50
-let g:copilot_auth_provider_url = 'https://cocopilot.org'
+" let g:copilot_auth_provider_url = 'https://cocopilot.org'
 let g:copilot_filetypes = {
   \   'markdown': v:true,
   \ }
