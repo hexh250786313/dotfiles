@@ -194,15 +194,19 @@ return packer.startup(function(use)
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
+    "catppuccin/nvim",
     -- "ofirgall/ofirkai.nvim",
     -- "rockyzhang24/arctic.nvim",
     -- branch = "v2",
     -- requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
-    "folke/tokyonight.nvim",
+    -- "folke/tokyonight.nvim",
     -- "https://github.com/pbrisbin/vim-colors-off",
     as = "theme",
     config = function()
       vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
+
+      ---> 主题：catppuccin/nvim
+      vim.cmd([[ colorscheme catppuccin ]])
 
       ---> 主题：ofirgall/ofirkai.nvim
       -- vim.cmd("colorscheme ofirkai")
@@ -220,7 +224,7 @@ return packer.startup(function(use)
 
       ---> 主题：folke/tokyonight.nvim
       vim.cmd([[
-      colorscheme tokyonight-night
+      " colorscheme tokyonight-night
       ]])
 
       ---> 主题：pbrisbin/vim-colors-off
