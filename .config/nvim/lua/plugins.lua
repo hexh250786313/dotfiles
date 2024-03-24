@@ -194,7 +194,6 @@ return packer.startup(function(use)
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
-    -- "rose-pine/neovim",
     "catppuccin/nvim",
     -- "ofirgall/ofirkai.nvim",
     -- "rockyzhang24/arctic.nvim",
@@ -205,9 +204,6 @@ return packer.startup(function(use)
     as = "theme",
     config = function()
       vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
-
-      ---> 主题：rose-pine/neovim
-      -- vim.cmd([[ colorscheme rose-pine ]])
 
       ---> 主题：catppuccin/nvim
       vim.cmd([[ colorscheme catppuccin ]])
