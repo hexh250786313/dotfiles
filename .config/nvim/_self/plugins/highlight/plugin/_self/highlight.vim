@@ -241,16 +241,16 @@ autocmd InsertLeave * exec 'hi! CocWarningVirtualText guifg=' . s:warning . ' gu
 autocmd InsertLeave * exec 'hi! CocInfoVirtualText guifg=' . s:info . ' guibg=' . s:info_bg
 autocmd InsertLeave * exec 'hi! CocHintVirtualText guifg=' . s:hint . ' guibg=' . s:hint_bg
 
-exec 'hi! CocErrorSign' .
+exec 'hi! CocErrorSign gui=bold,Italic' .
   \' guifg=' . s:error .
   \' guibg=NONE'
-exec 'hi! CocWarningSign' .
+exec 'hi! CocWarningSign gui=bold,Italic' .
   \' guifg=' . s:warning .
   \' guibg=NONE'
-exec 'hi! CocInfoSign' .
+exec 'hi! CocInfoSign gui=bold,Italic' .
   \' guifg=' . s:info .
   \' guibg=NONE'
-exec 'hi! CocHintSign' .
+exec 'hi! CocHintSign gui=bold,Italic' .
   \' guifg=' . s:hint .
   \' guibg=NONE'
 
