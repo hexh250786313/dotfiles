@@ -71,23 +71,23 @@ local config = {
         fmt = function(str)
           -- 定义模式到字符的映射
           local mode_map = {
-            -- ['NORMAL'] = 'N',
-            -- ['INSERT'] = 'I',
-            -- ['VISUAL'] = 'V',
-            -- ['V-LINE'] = 'VL',
-            -- ['V-BLOCK'] = 'VB',
-            -- ['SELECT'] = 'S',
-            -- ['REPLACE'] = 'R',
-            -- ['COMMAND'] = 'C',
+            ['NORMAL'] = 'N',
+            ['INSERT'] = 'I',
+            ['VISUAL'] = 'V',
+            ['V-LINE'] = 'VL',
+            ['V-BLOCK'] = 'VB',
+            ['SELECT'] = 'S',
+            ['REPLACE'] = 'R',
+            ['COMMAND'] = 'C',
             -- 改成 NerdFont 图标更好看
-            ['NORMAL'] = '',
-            ['INSERT'] = '',
-            ['VISUAL'] = '',
-            ['V-LINE'] = '',
-            ['V-BLOCK'] = '',
-            ['SELECT'] = '',
-            ['REPLACE'] = '',
-            ['COMMAND'] = '',
+            -- ['NORMAL'] = '',
+            -- ['INSERT'] = '',
+            -- ['VISUAL'] = '',
+            -- ['V-LINE'] = '',
+            -- ['V-BLOCK'] = '',
+            -- ['SELECT'] = '',
+            -- ['REPLACE'] = '',
+            -- ['COMMAND'] = '',
           }
           -- 返回映射后的字符，如果没有找到映射，则返回原字符串
           return mode_map[str] or str
