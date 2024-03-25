@@ -223,6 +223,7 @@ let s:extensions = extend({
       \ 'sbt': { 'icon': '', 'color': 'cc3e44', 'term_color': '167', },
       \ 'scad': { 'icon': '', 'color': 'f9d72c', 'term_color': '220', },
       \ 'scala': { 'icon': '', 'color': 'cc3e44', 'term_color': '167', },
+      \ 'sc': { 'icon': '', 'color': 'cc3e44', 'term_color': '167', },
       \ 'scm': { 'icon': '󰘧', 'color': 'eeeeee', 'term_color': '255', },
       \ 'scss': { 'icon': '', 'color': 'f55385', 'term_color': '204', },
       \ 'sh': { 'icon': '', 'color': '4d5a5e', 'term_color': '240', },
