@@ -2,8 +2,11 @@
 -- 除了 autocmd 处对大文件进行处理, 这里也不能省略
 local disabler = function(lang, bufnr)
   local max_filesize = 50 * 1024 -- 50 KB
-  local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
-  if ok and stats and stats.size > max_filesize then
+  local lcount = vim.api.nvim_buf_line_count(bufnr)
+  local bytes = vim.api.nvim_buf_get_offset(bufnr, lcount)
+  -- stats.size 的值等于 bytes，但是 nvim_buf_get_offset 看起来语法漂亮点
+  -- local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(bufnr))
+  if bytes > max_filesize then
     return true
   end
   return false
