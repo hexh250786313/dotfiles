@@ -82,4 +82,5 @@ require('fzf-lua').setup({
       layout = 'vertical', -- horizontal | vertical | flex
     },
   },
+  previewers = { builtin = { treesitter = { enable = false } } },
 })

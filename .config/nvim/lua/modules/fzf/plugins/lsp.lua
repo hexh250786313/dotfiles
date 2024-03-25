@@ -179,7 +179,8 @@ local function getNewPreviewer(string_parser)
     -- 设置内容
     api.nvim_buf_set_lines(tmpbuf, 0, -1, false, content)
     -- 设置 filetype
-    api.nvim_buf_set_option(tmpbuf, 'filetype', filetype)
+    -- api.nvim_buf_set_option(tmpbuf, 'filetype', filetype) -- 使用 filetype 会启用 treesitter
+    api.nvim_buf_set_option(tmpbuf, 'syntax', filetype)      -- 使用 syntax 不会启用 treesitter，用普通的语法高亮
     self:set_preview_buf(tmpbuf)
 
     -- 设置高亮和光标位置
