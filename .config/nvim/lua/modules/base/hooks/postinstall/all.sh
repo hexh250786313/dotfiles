@@ -7,3 +7,4 @@ sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/coc.sh
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/nvim-bqf.sh
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/copilot.sh
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/vim-surround.sh
+sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/fzf-lua.sh
