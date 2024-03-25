@@ -21,6 +21,8 @@ function! s:SHORT_PATH() abort
   return empty(short) ? '~'.slash : short . (short =~ escape(slash, '\').'$' ? '' : slash)
 endfunction
 
+let g:fzf_layout = { 'window': { 'width': 0.77, 'height': 0.86 } }
+
 function! s:FZF(...)
   let l:opts = fzf#wrap('FZF', { 'options': ['--multi', '--reverse', '--prompt=' . s:SHORT_PATH(), '--cycle' ] })
   let args = copy(a:000)
@@ -31,7 +33,17 @@ function! s:FZF(...)
     let opts.source = g:fzf_source
   else
     " 没有指定 source 的情况下，默认使用 mru/fd 动态切换源
-    let opts = fzf#wrap('FZF', { 'options': ['--cycle', '--multi', '--reverse', '--prompt=' . s:SHORT_PATH(), '--bind=' . 'change:reload($HOME/.config/nvim/lua/modules/fzf/plugins/dynamic_fzf_source.sh ' . cwd . ' {q})' ] })
+    let opts = fzf#wrap('FZF', { 'options': [
+    \ '--bind', 'ctrl-p:toggle-preview',
+    \ '--bind', 'up:preview-up,down:preview-down',
+    \ '--preview', 'COLORTERM=truecolor bat --style=numbers --color=always --line-range :100 {}',
+    \ '--preview-window', 'right:50%',
+    \ '--cycle',
+    \ '--multi',
+    \ '--reverse',
+    \ '--prompt=' . s:SHORT_PATH(),
+    \ '--bind=' . 'change:reload($HOME/.config/nvim/lua/modules/fzf/plugins/dynamic_fzf_source.sh ' . cwd . ' {q})'
+    \] })
     let opts.source = "perl -ne 'print substr(\$_, length(\"" . cwd . "/\")) if m{^" . cwd . "/} && !$seen{\$_}++' ~/.config/coc/mru"
   endif
   call fzf#run(opts)
@@ -62,4 +74,4 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 ]])
-  -- \ 'border':  ['bg', 'StatusLine'],
+-- \ 'border':  ['bg', 'StatusLine'],
