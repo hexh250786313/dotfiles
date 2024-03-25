@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+coc_dir="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim"
 src_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js"
 bak_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js.bak"
 
@@ -53,3 +54,7 @@ sd 'if \(commands_default.has\(item.command.command\)\) \{\n.*await commands_def
 
 # md 格式列表层级对齐错误 已经修复
 # sd 'this.o.list\(body, ordered, this.tab\);' 'this.o.list(body, ordered);' $src_file
+
+# 解决 lualine 抽搐
+sd '<C-R>=coc#snippet#jump' '<cmd>call coc#snippet#jump' $coc_dir/autoload/coc/snippet.vim
+sd '<Esc>:call coc#snippet#jump' '<Esc><cmd>call coc#snippet#jump' $coc_dir/autoload/coc/snippet.vim
