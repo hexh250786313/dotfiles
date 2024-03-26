@@ -128,6 +128,11 @@ endfunction
 
 " 展示文档
 function! s:SHOW_DOCUMENTATION()
+  " 如果存在浮动窗口则关闭
+  if coc#float#has_float() > 0
+    call coc#float#close_all()
+    return
+  endif
   let winid = luaeval("require('ufo').peekFoldedLinesUnderCursor()")
   if (winid)
     return
