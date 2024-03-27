@@ -207,15 +207,16 @@ return packer.startup(function(use)
       vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
 
       ---> 主题：rose-pine/neovim
+      require("rose-pine").setup({ highlight_groups = { ["@punctuation.bracket.typescript"] = { fg = 'subtle' } } })
       vim.cmd([[ colorscheme rose-pine ]])
 
       ---> 主题：catppuccin/nvim
       -- vim.cmd([[ colorscheme catppuccin ]])
 
       ---> 主题：ofirgall/ofirkai.nvim
-      -- vim.cmd("colorscheme ofirkai")
       -- local scheme = require('ofirkai.design').scheme
       -- vim.cmd("autocmd VimEnter * exec 'hi! FoldColumn guibg=" .. scheme.background .. " guifg=" .. scheme.white .. "'")
+      -- vim.cmd("colorscheme ofirkai")
 
       ---> 主题：rockyzhang24/arctic.nvim
       -- vim.cmd([[ colorscheme arctic ]])
