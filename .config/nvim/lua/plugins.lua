@@ -207,12 +207,11 @@ return packer.startup(function(use)
       vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
 
       ---> 主题：rose-pine/neovim
-      require("rose-pine").setup({
-        highlight_groups = {
-          ["@punctuation.bracket.typescript"] = { fg = 'subtle' },
-          ["@punctuation.bracket.tsx"] = { fg = 'subtle' },
-        },
-      })
+      vim.cmd([[
+      autocmd VimEnter * exec 'hi! @punctuation.bracket' .
+        \' guibg=' . _self#highlight#pick('@punctuation', 'bg') .
+        \' guifg=' . _self#highlight#pick('@punctuation', 'fg')
+      ]])
       vim.cmd([[ colorscheme rose-pine ]])
 
       ---> 主题：catppuccin/nvim
