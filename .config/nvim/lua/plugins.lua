@@ -201,19 +201,23 @@ return packer.startup(function(use)
     -- branch = "v2",
     -- requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
     -- "folke/tokyonight.nvim",
-    -- "https://github.com/pbrisbin/vim-colors-off",
+    -- "pbrisbin/vim-colors-off",
     as = "theme",
     config = function()
       vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
 
       ---> 主题：rose-pine/neovim
-      require("rose-pine").setup({ highlight_groups = { ["@punctuation.bracket.typescript"] = { fg = 'subtle' } } })
-      vim.cmd([[ colorscheme rose-pine ]])
+      vim.cmd([[
+      colorscheme rose-pine
+      autocmd VimEnter * exec 'hi! @punctuation.bracket' .
+        \' guibg=' . _self#highlight#pick('@punctuation', 'bg') .
+        \' guifg=' . _self#highlight#pick('@punctuation', 'fg')
+      ]])
 
       ---> 主题：catppuccin/nvim
       -- vim.cmd([[ colorscheme catppuccin ]])
 
-      ---> 主题：ofirgall/ofirkai.nvim
+      -- -> 主题：ofirgall/ofirkai.nvim
       -- local scheme = require('ofirkai.design').scheme
       -- vim.cmd("autocmd VimEnter * exec 'hi! FoldColumn guibg=" .. scheme.background .. " guifg=" .. scheme.white .. "'")
       -- vim.cmd("colorscheme ofirkai")
@@ -221,29 +225,15 @@ return packer.startup(function(use)
       ---> 主题：rockyzhang24/arctic.nvim
       -- vim.cmd([[ colorscheme arctic ]])
 
-      ---> 主题：mcchrish/zenbones.nvim
-      vim.cmd([[
-      " colorscheme zenbones
-      " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
-      ]])
-
       ---> 主题：folke/tokyonight.nvim
-      vim.cmd([[
-      " colorscheme tokyonight-night
-      ]])
+      -- vim.cmd([[
+      -- colorscheme tokyonight-night
+      -- ]])
 
       ---> 主题：pbrisbin/vim-colors-off
-      vim.cmd([[
-      " colorscheme off
-      ]])
-
-      ---> 主题：sainnhe/everforest
-      vim.cmd([[
-      " let g:everforest_better_performance = 1
-      " let g:everforest_background = 'hard'
-      " autocmd VimEnter * exec 'hi! link CocMenuSel CocListLine'
-      " colorscheme everforest
-      ]])
+      -- vim.cmd([[
+      -- colorscheme off
+      -- ]])
     end,
   })
   -- Theme End

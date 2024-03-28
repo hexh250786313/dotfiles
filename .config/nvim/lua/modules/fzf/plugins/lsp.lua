@@ -4,7 +4,7 @@ local fzf_lua = require("fzf-lua")
 local builtin = require("fzf-lua.previewer.builtin")
 local wk = require("which-key")
 local utils = require "fzf-lua.utils"
-local CocAction = fn.CocAction
+-- local CocAction = fn.CocAction
 local CocActionAsync = fn.CocActionAsync
 
 local store = { results = {}, items = {} }
@@ -352,17 +352,20 @@ local function list_or_jump(provider, has_jump)
 end
 
 -- diagnostic
-local function diagnostic()
+local function diagnostic(filter)
   store = {}
 
   if not is_ready() then
     return
   end
 
-  local tables = CocAction('diagnosticList')
+  local tables = CocActionWithTimeout('diagnosticList')
 
   if type(tables) ~= 'table' or vim.tbl_isempty(tables) then
     return
+  end
+  if filter then
+    tables = filter(tables)
   end
 
   local source = {}
@@ -416,7 +419,32 @@ local function diagnostic()
   end
 
   store.items = results;
+  return strings;
+end
 
+local function diagnostic_from_current_buffer()
+  local function filter (results)
+    local current_bufnr = api.nvim_get_current_buf()
+    local current_file_path = vim.uri_to_fname(vim.uri_from_bufnr(current_bufnr))
+    local table = {}
+    for _, result in ipairs(results) do
+      if result.file == current_file_path then
+        table[#table + 1] = result
+      end
+    end
+    print(vim.inspect(table))
+    return table
+  end
+
+  local strings = diagnostic(filter)
+  fzf_lua.fzf_exec(strings, {
+    previewer = CommonPreviewr,
+    actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
+  })
+end
+
+local function diagnostic_from_workspace()
+  local strings = diagnostic()
   fzf_lua.fzf_exec(strings, {
     previewer = CommonPreviewr,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
@@ -435,7 +463,7 @@ local function exec_code_action(display_strs)
   if not target then
     return
   end
-  CocAction('doCodeAction', target)
+  CocActionAsync('doCodeAction', target)
   store = {}
 end
 
@@ -444,7 +472,7 @@ local function handle_code_action(mode)
   if not is_ready('codeAction') then
     return
   end
-  local results = CocAction('codeActions', mode)
+  local results = CocActionAsync('codeActions', mode)
   if type(results) ~= 'table' then
     return
   end
@@ -619,7 +647,7 @@ local function symbol()
   end
 
   local current_buf = api.nvim_get_current_buf()
-  local symbols = CocAction('documentSymbols', current_buf)
+  local symbols = CocActionAsync('documentSymbols', current_buf)
   if type(symbols) ~= 'table' or vim.tbl_isempty(symbols) then
     return
   end
@@ -630,7 +658,8 @@ end
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
-wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic, "Diagnostic list" } })
+wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic_from_current_buffer, "LSP diagnostics from current buffer" } })
+wk.register({ mode = { "n" }, ["<leader>lD"] = { diagnostic_from_workspace, "LSP diagnostics from workspace" } })
 wk.register({ mode = { "n" }, ["<leader>ls"] = { symbol, "LSP document symbols" } })
 wk.register({ mode = { "n" }, ["<leader>aA"] = { code_action_line, "LSP CodeActions list for line" } })
 wk.register({ mode = { "n" }, ["<leader>aa"] = { code_action_cursor, "LSP CodeActions list for cursor" } })
