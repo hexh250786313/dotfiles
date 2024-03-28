@@ -4,7 +4,7 @@ local fzf_lua = require("fzf-lua")
 local builtin = require("fzf-lua.previewer.builtin")
 local wk = require("which-key")
 local utils = require "fzf-lua.utils"
-local CocAction = fn.CocAction
+-- local CocAction = fn.CocAction
 local CocActionAsync = fn.CocActionAsync
 
 local store = { results = {}, items = {} }
@@ -359,7 +359,7 @@ local function diagnostic()
     return
   end
 
-  local tables = CocAction('diagnosticList')
+  local tables = CocActionWithTimeout('diagnosticList')
 
   if type(tables) ~= 'table' or vim.tbl_isempty(tables) then
     return
@@ -435,7 +435,7 @@ local function exec_code_action(display_strs)
   if not target then
     return
   end
-  CocAction('doCodeAction', target)
+  CocActionAsync('doCodeAction', target)
   store = {}
 end
 
@@ -444,7 +444,7 @@ local function handle_code_action(mode)
   if not is_ready('codeAction') then
     return
   end
-  local results = CocAction('codeActions', mode)
+  local results = CocActionAsync('codeActions', mode)
   if type(results) ~= 'table' then
     return
   end
@@ -619,7 +619,7 @@ local function symbol()
   end
 
   local current_buf = api.nvim_get_current_buf()
-  local symbols = CocAction('documentSymbols', current_buf)
+  local symbols = CocActionAsync('documentSymbols', current_buf)
   if type(symbols) ~= 'table' or vim.tbl_isempty(symbols) then
     return
   end
