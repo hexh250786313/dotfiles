@@ -215,4 +215,3 @@ edit-command-line() {
 }
 
 bindkey '^X' edit-command-line
-eval "$(gh copilot alias -- zsh)"
