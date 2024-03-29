@@ -133,7 +133,7 @@ plugins=(
 # -------------------
 
 # alias
-# alias nvim=~/build/neovim/nvim.appimage
+alias nvim=~/build/nvim.appimage
 alias sudo="sudo "
 alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 alias editor=nvim
@@ -163,7 +163,7 @@ alias createfile="source ~/.config/my-config/sh/create-file-or-directory.sh"
 
 # fnm
 # a better nvm
-export DEFAULT_NODE_VERSION="v18.17.1"
+export DEFAULT_NODE_VERSION="v18.20.0"
 export LOWER_NODE_VERSION="v14.21.3"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
