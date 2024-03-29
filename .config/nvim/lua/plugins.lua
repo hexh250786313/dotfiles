@@ -253,9 +253,9 @@ return packer.startup(function(use)
   -- │  FZF Module
   -- └───────────────────────────────────────
   use({
-    "ibhagwan/fzf-lua",
+    "hexh250786313/fzf-lua",
     -- commit = "a5b32c30ece070d0417c2f41751fa11248c4e5de", -- windows support 之后无效
-    commit = "91ec17b4fd0d810599f054eef08db967a0457fbf",
+    -- commit = "91ec17b4fd0d810599f054eef08db967a0457fbf",
     config = [[require("modules.fzf.plugins.fzf-lua")]],
     keys = {
       { "n", "<leader>/" },
