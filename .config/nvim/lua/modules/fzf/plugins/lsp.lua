@@ -370,6 +370,9 @@ local function diagnostic(filter)
   if vim.tbl_isempty(tables) then
     return
   end
+  if filter then
+    tables = filter(tables)
+  end
 
   local source = {}
 

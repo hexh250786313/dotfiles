@@ -1,5 +1,8 @@
 local fn = vim.fn
 
+local theme_config = require('modules.highlight.themes.__theme-config')
+local theme = theme_config.get_current_theme()
+
 local packer_install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(packer_install_path)) > 0 then
@@ -179,6 +182,7 @@ return packer.startup(function(use)
   })
   use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
   use({ "hexh250786313/yats.vim" })
+  use({ "hexh250786313/vim-svelte-plugin" })
   use({
     "NvChad/nvim-colorizer.lua",
     config = function()
@@ -194,46 +198,14 @@ return packer.startup(function(use)
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
-    "rose-pine/neovim",
-    -- "catppuccin/nvim",
-    -- "ofirgall/ofirkai.nvim",
-    -- "rockyzhang24/arctic.nvim",
-    -- branch = "v2",
-    -- requires = { "rktjmp/lush.nvim" }, -- 需要的插件：rockyzhang24/arctic.nvim
-    -- "folke/tokyonight.nvim",
-    -- "pbrisbin/vim-colors-off",
+    theme.name,
+    branch = theme.branch,
+    requires = theme.requires,
     as = "theme",
     config = function()
-      vim.cmd([[ set background=dark " 背景 "light" | "dark" ]])
-
-      ---> 主题：rose-pine/neovim
-      vim.cmd([[
-      colorscheme rose-pine
-      autocmd VimEnter * exec 'hi! @punctuation.bracket' .
-        \' guibg=' . _self#highlight#pick('@punctuation', 'bg') .
-        \' guifg=' . _self#highlight#pick('@punctuation', 'fg')
-      ]])
-
-      ---> 主题：catppuccin/nvim
-      -- vim.cmd([[ colorscheme catppuccin ]])
-
-      -- -> 主题：ofirgall/ofirkai.nvim
-      -- local scheme = require('ofirkai.design').scheme
-      -- vim.cmd("autocmd VimEnter * exec 'hi! FoldColumn guibg=" .. scheme.background .. " guifg=" .. scheme.white .. "'")
-      -- vim.cmd("colorscheme ofirkai")
-
-      ---> 主题：rockyzhang24/arctic.nvim
-      -- vim.cmd([[ colorscheme arctic ]])
-
-      ---> 主题：folke/tokyonight.nvim
-      -- vim.cmd([[
-      -- colorscheme tokyonight-night
-      -- ]])
-
-      ---> 主题：pbrisbin/vim-colors-off
-      -- vim.cmd([[
-      -- colorscheme off
-      -- ]])
+      theme_config = require('modules.highlight.themes.__theme-config')
+      theme = theme_config.get_current_theme()
+      theme.setup()
     end,
   })
   -- Theme End
