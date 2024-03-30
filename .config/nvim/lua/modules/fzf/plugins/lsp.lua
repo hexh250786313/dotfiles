@@ -361,7 +361,13 @@ local function diagnostic(filter)
 
   local tables = CocActionWithTimeout('diagnosticList')
 
-  if type(tables) ~= 'table' or vim.tbl_isempty(tables) then
+  if type(tables) ~= 'table' then
+    return
+  end
+  if filter then
+    tables = filter(tables)
+  end
+  if vim.tbl_isempty(tables) then
     return
   end
   if filter then
@@ -432,11 +438,13 @@ local function diagnostic_from_current_buffer()
         table[#table + 1] = result
       end
     end
-    print(vim.inspect(table))
     return table
   end
 
   local strings = diagnostic(filter)
+  if type(strings) ~= 'table' or vim.tbl_isempty(strings) then
+    return
+  end
   fzf_lua.fzf_exec(strings, {
     previewer = CommonPreviewr,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
@@ -445,6 +453,9 @@ end
 
 local function diagnostic_from_workspace()
   local strings = diagnostic()
+  if type(strings) ~= 'table' or vim.tbl_isempty(strings) then
+    return
+  end
   fzf_lua.fzf_exec(strings, {
     previewer = CommonPreviewr,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
