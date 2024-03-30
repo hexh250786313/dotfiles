@@ -481,13 +481,6 @@
   "Lua.diagnostics.globals": ["vim"],
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
-    "svelte": {
-      "enable": true,
-      "command": "svelteserver",
-      "args": ["--stdio"],
-      "rootPatterns": ["package.json", ".git", ".editorconfig"],
-      "filetypes": ["svelte"]
-    },
     "taplo": {
       "command": "taplo",
       "args": ["lsp", "stdio"],
