@@ -1,4 +1,5 @@
 {
+  "svelte.enable-ts-plugin": true,
   "copilot.kindLabel": "COP",
   "copilot.autoUpdateCompletion": false,
   "copilot.triggerCharacters": [],
