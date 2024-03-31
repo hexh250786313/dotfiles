@@ -184,7 +184,7 @@ local function getNewPreviewer(string_parser)
     local max_filesize = 50 * 1024 -- 50 KB
     if bytes <= max_filesize then
       -- api.nvim_buf_set_option(tmpbuf, 'filetype', filetype) -- 使用 filetype 会启用 treesitter
-      api.nvim_buf_set_option(tmpbuf, 'syntax', filetype)      -- 使用 syntax 不会启用 treesitter，用普通的语法高亮
+      api.nvim_buf_set_option(tmpbuf, 'syntax', filetype) -- 使用 syntax 不会启用 treesitter，用普通的语法高亮
     end
     self:set_preview_buf(tmpbuf)
 
@@ -268,30 +268,25 @@ local function send_selected_to_qf(selected, opts)
   store = {}
 end
 
--- 如果 CocAction(action) 三秒后还没有响应，则执行 CocRestart
-local function CocActionWithTimeout(action)
+local function CocActionWithTimeout(type, ...)
   local result = nil
   local completed = false
 
-  -- 定义回调函数
-  local cb = function(_, res)
+  local args = { ... }
+  table.insert(args, 1, type)
+  table.insert(args, function(_, res)
     result = res
     completed = true
-  end
+  end)
 
-  -- 调用异步函数
-  CocActionAsync(action, nil, nil, nil, nil, nil, cb)
+  CocActionAsync(unpack(args))
 
-  -- 使用 vim.wait 等待异步操作完成或超时
-  -- vim.wait 接受三个参数: 超时时间（毫秒），检查条件的函数和轮询间隔（毫秒）
-  local timeout = 3000 -- 3秒超时
+  local timeout = 3000
   local waited = vim.wait(timeout, function()
-    return completed -- 当异步操作完成时返回 true
-  end, 50) -- 每10毫秒检查一次
+    return completed
+  end, 50)
 
-  -- 检查是否因为超时而退出
   if not waited then
-    -- 超时情况下重启 CoC
     vim.cmd("CocRestart")
     print("CocAction timeout, restart CoC")
   end
@@ -429,7 +424,7 @@ local function diagnostic(filter)
 end
 
 local function diagnostic_from_current_buffer()
-  local function filter (results)
+  local function filter(results)
     local current_bufnr = api.nvim_get_current_buf()
     local current_file_path = vim.uri_to_fname(vim.uri_from_bufnr(current_bufnr))
     local table = {}
@@ -483,7 +478,7 @@ local function handle_code_action(mode)
   if not is_ready('codeAction') then
     return
   end
-  local results = CocActionAsync('codeActions', mode)
+  local results = CocActionWithTimeout('codeActions', mode)
   if type(results) ~= 'table' then
     return
   end
@@ -658,7 +653,7 @@ local function symbol()
   end
 
   local current_buf = api.nvim_get_current_buf()
-  local symbols = CocActionAsync('documentSymbols', current_buf)
+  local symbols = CocActionWithTimeout('documentSymbols', current_buf)
   if type(symbols) ~= 'table' or vim.tbl_isempty(symbols) then
     return
   end
@@ -669,7 +664,8 @@ end
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
-wk.register({ mode = { "n" }, ["<leader>ld"] = { diagnostic_from_current_buffer, "LSP diagnostics from current buffer" } })
+wk.register({ mode = { "n" },
+              ["<leader>ld"] = { diagnostic_from_current_buffer, "LSP diagnostics from current buffer" } })
 wk.register({ mode = { "n" }, ["<leader>lD"] = { diagnostic_from_workspace, "LSP diagnostics from workspace" } })
 wk.register({ mode = { "n" }, ["<leader>ls"] = { symbol, "LSP document symbols" } })
 wk.register({ mode = { "n" }, ["<leader>aA"] = { code_action_line, "LSP CodeActions list for line" } })
