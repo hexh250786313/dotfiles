@@ -181,11 +181,11 @@ return packer.startup(function(use)
     config = [[require("modules.highlight.plugins.nvim-treesitter")]],
   })
   use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
-  use({
-    "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-    config = [[require("modules.highlight.plugins.rainbow-delimiters")]],
-  })
+  -- use({
+  --   "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+  --   requires = { "nvim-treesitter/nvim-treesitter" },
+  --   config = [[require("modules.highlight.plugins.rainbow-delimiters")]],
+  -- })
   use({ "hexh250786313/yats.vim" })
   use({ "hexh250786313/vim-svelte-plugin" })
   use({
