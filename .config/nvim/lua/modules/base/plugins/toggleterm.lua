@@ -23,7 +23,8 @@ require("toggleterm").setup {
     -- border = {"", "", "", "", "", "", "", ""}
   },
   highlights = {
-    NormalFloat = { link = "StatusLine" },
+    -- NormalFloat = { link = "StatusLine" },
+    NormalFloat = { link = "Normal" },
     FloatBorder = {
       -- guifg = get_color("StatusLine", "bg"),
       guifg = get_color("Normal", "fg"),
