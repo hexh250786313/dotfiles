@@ -49,13 +49,13 @@ function! s:FZF(...)
   call fzf#run(opts)
 endfunction
 
-function! s:build_quickfix_list(lines)
+function! s:BUILD_QUICKFIX_LIST(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
 endfunction
 
 let g:fzf_action =
-\ { 'ctrl-q': function('s:build_quickfix_list'),
+\ { 'ctrl-q': function('s:BUILD_QUICKFIX_LIST'),
 \ }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all'
