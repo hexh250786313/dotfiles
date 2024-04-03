@@ -5,7 +5,7 @@ local wk = require("which-key")
 wk.register({
   mode = { "n" },
   ["<leader>/"] = {
-    "<cmd>lua require('fzf-lua').live_grep_native({ cmd = 'rg --column --ignore-case --hidden --multiline --sort-files --vimgrep', no_esc = true, resume = true })<cr>",
+    "<cmd>lua require('fzf-lua').live_grep_native({ cmd = 'rg --column --ignore-case --hidden --multiline --sort-files --vimgrep', no_esc = true, resume = true, actions = { ['ctrl-q'] = { fn = require('fzf-lua.actions').file_edit_or_qf } } })<cr>",
     "Grep globally",
   },
   ["<leader>F"] = {
@@ -64,7 +64,17 @@ function! s:GREP_FROM_SELECTED(type)
   " 恢复寄存器的内容
   let @@ = saved_unnamed_register
   " no_esc 是不转义的意思，就是不使用 fzf-lua 的转义
-  lua require('fzf-lua').live_grep_native({ cmd = "rg --column --ignore-case --hidden --multiline --sort-files --vimgrep", search = vim.fn.eval("word"), no_esc = true, resume = true })
+lua <<EOF
+  require('fzf-lua').live_grep_native({
+    cmd = "rg --column --ignore-case --hidden --multiline --sort-files --vimgrep",
+    search = vim.fn.eval("word"),
+    no_esc = true,
+    resume = true,
+    actions = {
+      ["ctrl-q"] = { fn = require("fzf-lua.actions").file_edit_or_qf }
+    }
+  })
+EOF
 endfunction
 ]])
 
@@ -72,7 +82,11 @@ require('fzf-lua').setup({
   -- 'fzf-native', -- 使用 fzf 本身的预览框预览，但是展示的是实际写入的文件，而不是 neovim 的 buffer，所以不推荐开
   keymap = {
     builtin = { ["<down>"] = "preview-page-down", ["<up>"] = "preview-page-up", ["<c-p>"] = "toggle-preview" },
-    fzf = { ['CTRL-A'] = 'toggle-all', ['CTRL-Q'] = 'select-all+accept', ["CTRL-P"] = "toggle-preview" },
+    fzf = {
+      ['CTRL-A'] = 'toggle-all',
+      -- ['CTRL-Q'] = 'select-all+accept',
+      ["CTRL-P"] = "toggle-preview",
+    },
   },
   fzf_opts = { ['--cycle'] = '' },
   winopts = {
