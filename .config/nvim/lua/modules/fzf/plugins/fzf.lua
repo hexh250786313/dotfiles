@@ -62,16 +62,17 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all'
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Comment'],
-  \ 'bg':      ['bg', 'StatusLine'],
+  \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'DiagnosticInfo'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'StatusLine'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
   \ 'hl+':     ['fg', 'Statement'],
   \ 'info':    ['fg', 'PreProc'],
   \ 'prompt':  ['fg', 'DiagnosticHint'],
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
+  \ 'border':  ['fg', 'Normal'],
   \ 'header':  ['fg', 'Comment'] }
 ]])
--- \ 'border':  ['bg', 'StatusLine'],
+-- \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'], -- 选中行的背景 + 箭头前面那一列奇怪的竖线
+-- \ 'border':  ['bg', 'StatusLine'], -- 边框
