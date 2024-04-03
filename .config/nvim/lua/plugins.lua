@@ -303,7 +303,7 @@ return packer.startup(function(use)
       require("nvim-autopairs").setup {}
     end,
   })
-  use({ "xiyaowong/nvim-cursorword" })
+  use({ "xiyaowong/nvim-cursorword", config = [[ require("modules.text.plugins.nvim-cursorword") ]] })
 
   -- ┌───────────────────────────────────────
   -- │  Grep Module

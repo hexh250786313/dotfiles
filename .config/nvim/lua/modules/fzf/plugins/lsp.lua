@@ -238,14 +238,15 @@ end
 -- to quickfix
 local function send_selected_to_qf(selected, opts)
   local all_items = {}
-  -- 如果 selected 长度只有一个，则打开全部
+  -- 如果 selected 长度只有一个，则 send 一个
   if selected and #selected ~= 1 then
     for _, str in ipairs(selected) do
       local target = get_target_store(str)
       all_items[#all_items + 1] = target.item
     end
   else
-    all_items = store.items
+    -- all_items = store.items -- send 全部
+    all_items = { store.items[1] } -- send 一个
   end
   local qf_list = {}
   local lsp_ranges = {}
