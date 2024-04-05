@@ -227,15 +227,15 @@ exec 'hi! CocHintVirtualText' .
   \' guifg=' . s:hint .
   \' guibg=' . s:hint_bg
 
-" 插入模式的时候让上述 coc 相关的 VirtualText 变为不可视，正常模式下恢复，透明模式下无效，因为不知道怎么获取透明模式下的 Normal 的背景色
+" 插入模式的时候让上述 coc 相关的 VirtualText 变为不可视，正常模式下恢复，其实就是变为 CursorLine 的背景一个颜色
 autocmd InsertEnter * exec 'hi! CocErrorVirtualText guibg=NONE' .
-  \' guifg=' . _self#highlight#pick('Normal', 'bg')
+  \' guifg=' . _self#highlight#pick('CursorLine', 'bg')
 autocmd InsertEnter * exec 'hi! CocWarningVirtualText guibg=NONE' .
-  \' guifg=' . _self#highlight#pick('Normal', 'bg')
+  \' guifg=' . _self#highlight#pick('CursorLine', 'bg')
 autocmd InsertEnter * exec 'hi! CocInfoVirtualText guibg=NONE' .
-  \' guifg=' . _self#highlight#pick('Normal', 'bg')
+  \' guifg=' . _self#highlight#pick('CursorLine', 'bg')
 autocmd InsertEnter * exec 'hi! CocHintVirtualText guibg=NONE' .
-  \' guifg=' . _self#highlight#pick('Normal', 'bg')
+  \' guifg=' . _self#highlight#pick('CursorLine', 'bg')
 autocmd InsertLeave * exec 'hi! CocErrorVirtualText guifg=' . s:error . ' guibg=' . s:error_bg
 autocmd InsertLeave * exec 'hi! CocWarningVirtualText guifg=' . s:warning . ' guibg=' . s:warning_bg
 autocmd InsertLeave * exec 'hi! CocInfoVirtualText guifg=' . s:info . ' guibg=' . s:info_bg
