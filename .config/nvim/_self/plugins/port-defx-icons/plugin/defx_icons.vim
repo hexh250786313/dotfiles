@@ -33,6 +33,7 @@ let s:extensions = extend({
       \ 'bazel': { 'icon': '', 'color': '89e051', 'term_color': '113', },
       \ 'bib': { 'icon': '󱉟', 'color': 'cbcb41', 'term_color': '185', },
       \ 'bmp': { 'icon': '', 'color': 'a074c4', 'term_color': '140', },
+      \ 'blp': { 'icon': '󰺾', 'color': '5796E2', 'term_color': '68', },
       \ 'bzl': { 'icon': '', 'color': '89e051', 'term_color': '113', },
       \ 'c': { 'icon': '', 'color': '599eff', 'term_color': '111', },
       \ 'c++': { 'icon': '', 'color': 'f34b7d', 'term_color': '204', },
