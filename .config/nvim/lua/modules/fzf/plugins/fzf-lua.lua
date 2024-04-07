@@ -12,6 +12,10 @@ wk.register({
     "<cmd>lua require('fzf-lua').files({ cmd = 'fd --type f --hidden', winopts = { preview = { hidden = 'hidden' } } })<cr>",
     "Grep globally",
   },
+  ["?"] = {
+    "<cmd>lua require('fzf-lua').grep_curbuf({ resume = true })<cr>",
+    "Grep in current buffer",
+  },
 })
 wk.register({
   mode = { "x" },

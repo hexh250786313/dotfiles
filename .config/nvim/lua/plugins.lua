@@ -248,6 +248,7 @@ return packer.startup(function(use)
       { "n", "gr" },
       { "n", "gd" },
       { "n", "gi" },
+      { "n", "?" }
     },
   })
   use({ "junegunn/fzf", config = [[require("modules.fzf.plugins.fzf")]] })
@@ -318,12 +319,12 @@ return packer.startup(function(use)
   -- use({ "hexh250786313/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
   use({ "romainl/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
   use({ "bronson/vim-visual-star-search", keys = { { "n", "*" }, { "v", "*" } } })
-  use({
-    "ggVGc/vim-fuzzysearch",
-    cmd = "FuzzySearch",
-    keys = { { "n", "?" } },
-    config = [[require("modules.grep.plugins.vim-fuzzysearch")]],
-  })
+  -- use({
+  --   "ggVGc/vim-fuzzysearch",
+  --   cmd = "FuzzySearch",
+  --   keys = { { "n", "?" } },
+  --   config = [[require("modules.grep.plugins.vim-fuzzysearch")]],
+  -- })
 
   -- ┌───────────────────────────────────────
   -- │  Motion Module
