@@ -13,6 +13,7 @@ set clipboard+=unnamedplus
 " let g:loaded_matchparen = 1 " 关闭括弧配对高亮
 set guifont=FiraCode\ Nerd\ Font:h12
 let g:neovide_transparency = 0.9
+au BufEnter * set noro
 ]])
 
 local myNodePath = os.getenv("MY_NODE_PATH")
