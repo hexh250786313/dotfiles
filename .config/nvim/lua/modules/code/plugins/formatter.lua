@@ -89,6 +89,28 @@ local function format_pg()
   return { exe = "pg_format", args = { "-" }, stdin = true }
 end
 
+local function shfmt()
+  local shiftwidth = vim.opt.shiftwidth:get()
+  local expandtab = vim.opt.expandtab:get()
+
+  if not expandtab then
+    shiftwidth = 0
+  end
+
+  return { exe = "shfmt", args = { "-i", shiftwidth }, stdin = true }
+end
+
+local function beautysh()
+  local shiftwidth = vim.opt.shiftwidth:get()
+  local expandtab = vim.opt.expandtab:get()
+
+  if not expandtab then
+    shiftwidth = 0
+  end
+
+  return { exe = "beautysh", args = { "-i", shiftwidth, "-" }, stdin = true }
+end
+
 require("formatter").setup({
   logging = true,
   filetype = {
@@ -109,8 +131,8 @@ require("formatter").setup({
     rust = { format_rustfmt },
     lua = { format_lua },
     sql = { format_pg },
-    zsh = { format_prettier },
+    zsh = { beautysh },
     yaml = { format_prettier },
-    sh = { format_prettier },
+    sh = { shfmt },
   },
 })
