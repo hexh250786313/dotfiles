@@ -258,7 +258,7 @@ let s:extensions = extend({
       \ 'test.jsx': { 'icon': '', 'color': '20c2e3', 'term_color': '45', },
       \ 'test.ts': { 'icon': '', 'color': '519aba', 'term_color': '74', },
       \ 'test.tsx': { 'icon': '', 'color': '1354bf', 'term_color': '26', },
-      \ 'tex': { 'icon': '󰙩', 'color': '3D6117', 'term_color': '22', },
+      \ 'tex': { 'icon': '', 'color': '3D6117', 'term_color': '22', },
       \ 'tf': { 'icon': '', 'color': '5F43E9', 'term_color': '93', },
       \ 'tfvars': { 'icon': '', 'color': '5F43E9', 'term_color': '93', },
       \ 'toml': { 'icon': '', 'color': '9c4221', 'term_color': '124', },
