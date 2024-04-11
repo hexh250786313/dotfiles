@@ -1,7 +1,7 @@
 {
   "svelte.enable-ts-plugin": true,
   "copilot.kindLabel": "COP",
-  "copilot.autoUpdateCompletion": false,
+  "copilot.autoUpdateCompletion": true,
   "copilot.triggerCharacters": [],
   // "copilot.enablePreselect": false,
   // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
