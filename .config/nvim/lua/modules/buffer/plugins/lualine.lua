@@ -64,7 +64,8 @@ local config = {
     section_separators = { left = '', right = '' },
   },
   -- 如果不想要斜分割，就去掉 process_sections
-  sections = process_sections {
+  -- sections = process_sections {
+  sections = {
     lualine_a = {
       {
         "mode",

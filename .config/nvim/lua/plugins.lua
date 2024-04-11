@@ -138,6 +138,7 @@ return packer.startup(function(use)
     -- after = "coc.nvim", -- 不能懒加载，否则插件的 maptab 会先于配置执行，导致 copilot_no_maps 不生效
     -- 或者可以把配置放到 options 去，不过不太好
     config = [[require("modules.code.plugins.copilot")]],
+    commit = "7097b09e52621a97d11f254e04de5e5a0f26e5f5"
   })
 
   -- ┌───────────────────────────────────────

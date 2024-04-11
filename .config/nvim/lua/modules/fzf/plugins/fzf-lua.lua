@@ -13,7 +13,7 @@ wk.register({
     "Grep globally",
   },
   ["?"] = {
-    "<cmd>lua require('fzf-lua').grep_curbuf({ resume = true })<cr>",
+    "<cmd>lua require('fzf-lua').grep_curbuf({ resume = true, actions = { ['ctrl-q'] = { fn = require('fzf-lua.actions').file_edit_or_qf } } })<cr>",
     "Grep in current buffer",
   },
 })
@@ -88,7 +88,7 @@ require('fzf-lua').setup({
     builtin = { ["<down>"] = "preview-page-down", ["<up>"] = "preview-page-up", ["<c-p>"] = "toggle-preview" },
     fzf = {
       ['CTRL-A'] = 'toggle-all',
-      -- ['CTRL-Q'] = 'select-all+accept',
+      ['CTRL-Q'] = 'select-all+accept',
       ["CTRL-P"] = "toggle-preview",
     },
   },
