@@ -1,5 +1,6 @@
 {
   "svelte.enable-ts-plugin": true,
+  "copilot.showStatus": true,
   "copilot.kindLabel": "COP",
   "copilot.autoUpdateCompletion": true,
   // "copilot.enablePreselect": false,
