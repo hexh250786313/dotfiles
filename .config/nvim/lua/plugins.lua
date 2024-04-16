@@ -139,6 +139,17 @@ return packer.startup(function(use)
     -- 或者可以把配置放到 options 去，不过不太好
     config = [[require("modules.code.plugins.copilot")]],
   })
+  use({
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    requires = {
+      { "github/copilot.vim" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    cmd = { "CopilotChatOpen" },
+    after = "copilot.vim",
+    config = [[require("modules.code.plugins.CopilotChat")]],
+  })
 
   -- ┌───────────────────────────────────────
   -- │  File Module
@@ -248,7 +259,7 @@ return packer.startup(function(use)
       { "n", "gr" },
       { "n", "gd" },
       { "n", "gi" },
-      { "n", "?" }
+      { "n", "?" },
     },
   })
   use({ "junegunn/fzf", config = [[require("modules.fzf.plugins.fzf")]] })

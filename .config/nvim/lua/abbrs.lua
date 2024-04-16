@@ -14,7 +14,7 @@ endfunction
 
 call <SID>SETUP_COMMAND_ABBRS('ch',  'checkhealth')
 call <SID>SETUP_COMMAND_ABBRS('cl',  'CocList')
-call <SID>SETUP_COMMAND_ABBRS('cc',  'CocCommand')
+call <SID>SETUP_COMMAND_ABBRS('cc',  'CopilotChatOpen')
 call <SID>SETUP_COMMAND_ABBRS('cr',  'CocRestart')
 call <SID>SETUP_COMMAND_ABBRS('pu',  'PackerUpdate')
 call <SID>SETUP_COMMAND_ABBRS('pc',  'call ' . g:base_config_sid . 'COMPILE()')
