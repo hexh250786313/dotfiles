@@ -353,7 +353,11 @@ return packer.startup(function(use)
   --   keys = { { "n", "<leader>ww" } },
   --   -- after = "defx.nvim"
   -- })
-  use({ "karb94/neoscroll.nvim", config = [[require("modules.motion.plugins.neoscroll")]] })
+  use({
+    "karb94/neoscroll.nvim",
+    config = [[require("modules.motion.plugins.neoscroll")]],
+    commit = "21d52973bde32db998fc8b6590f87eb3c3c6d8e4",
+  })
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
