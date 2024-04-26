@@ -12,8 +12,9 @@ export CONFIG_DIR="/home/$ME/.config"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/home/$ME/.local/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
-export PATH="$HOME/go/bin:$PATH:"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export GOPATH="$HOME/go"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 # proxy
 # export all_proxy="socks5://$MY_HOST:4780"
