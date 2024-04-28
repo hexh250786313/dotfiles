@@ -122,7 +122,7 @@ local locations_to_items = function(locs)
     if not was_buffer_previously_opend then
       -- 没有打开过 buffer，使用 fn.readfile 读取文件内容
       local content = fn.readfile(vim.uri_to_fname(l.uri))
-      line = content[l.range.start.line + 1]
+      line = content[l.range.start.line + 1] or ''
     else
       -- 已有 buffer，使用 api.nvim_buf_get_lines 读取文件内容
       line = (api.nvim_buf_get_lines(bufnr, l.range.start.line, l.range.start.line + 1, false) or { '' })[1] or ''
