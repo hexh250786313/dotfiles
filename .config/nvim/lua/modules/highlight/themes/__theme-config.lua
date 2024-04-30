@@ -1,7 +1,7 @@
 -- theme-config.lua
 local M = {}
 
-local theme = require('modules/highlight/themes/rose-pine-neovim')
+local theme = require('modules/highlight/themes/catppuccin-nvim')
 
 function M.get_current_theme()
   vim.cmd([[
