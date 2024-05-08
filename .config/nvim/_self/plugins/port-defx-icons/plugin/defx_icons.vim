@@ -42,6 +42,8 @@ let s:extensions = extend({
       \ 'bat': { 'icon': '', 'color': 'C1F12E', 'term_color': '191', },
       \ 'bazel': { 'icon': '', 'color': '89e051', 'term_color': '113', },
       \ 'bib': { 'icon': '󱉟', 'color': 'cbcb41', 'term_color': '185', },
+      \ 'bicep': { 'icon': '', 'color': '519aba', 'term_color': '74', },
+      \ 'bicepparam': { 'icon': '', 'color': '9f74b3', 'term_color': '133', },
       \ 'bin': { 'icon': '', 'color': '9F0500', 'term_color': '124', },
       \ 'blade.php': { 'icon': '', 'color': 'f05340', 'term_color': '203', },
       \ 'blend': { 'icon': '󰂫', 'color': 'ea7600', 'term_color': '208', },
