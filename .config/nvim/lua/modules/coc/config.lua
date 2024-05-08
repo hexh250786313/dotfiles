@@ -88,6 +88,7 @@ vim.g.coc_global_extensions = {
   "@hexuhua/coc-copilot",
   -- "coc-symbol-line",
   "coc-tsserver",
+  "coc-go",
   "coc-svelte",
   "coc-pretty-ts-errors",
   "coc-rust-analyzer",

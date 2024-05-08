@@ -26,6 +26,7 @@ require("nvim-treesitter.configs").setup {
     "html",
     "markdown_inline",
     "svelte",
+    "go"
   },
   auto_install = false,
   highlight = { enable = true, disable = disabler },

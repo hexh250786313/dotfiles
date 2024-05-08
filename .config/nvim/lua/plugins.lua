@@ -139,6 +139,17 @@ return packer.startup(function(use)
     -- 或者可以把配置放到 options 去，不过不太好
     config = [[require("modules.code.plugins.copilot")]],
   })
+  use({
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    requires = {
+      { "github/copilot.vim" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    cmd = { "CopilotChatOpen" },
+    after = "copilot.vim",
+    config = [[require("modules.code.plugins.CopilotChat")]],
+  })
 
   -- ┌───────────────────────────────────────
   -- │  File Module
@@ -239,6 +250,7 @@ return packer.startup(function(use)
       { "x", "<leader>/" },
       { "n", "<leader>F" },
       { "n", "<leader>ld" },
+      { "n", "<leader>lD" },
       { "n", "<leader>ls" },
       { "n", "<leader>aa" },
       { "n", "<leader>aA" },
@@ -248,7 +260,7 @@ return packer.startup(function(use)
       { "n", "gr" },
       { "n", "gd" },
       { "n", "gi" },
-      { "n", "?" }
+      { "n", "?" },
     },
   })
   use({ "junegunn/fzf", config = [[require("modules.fzf.plugins.fzf")]] })
@@ -341,7 +353,11 @@ return packer.startup(function(use)
   --   keys = { { "n", "<leader>ww" } },
   --   -- after = "defx.nvim"
   -- })
-  use({ "karb94/neoscroll.nvim", config = [[require("modules.motion.plugins.neoscroll")]] })
+  use({
+    "karb94/neoscroll.nvim",
+    config = [[require("modules.motion.plugins.neoscroll")]],
+    commit = "21d52973bde32db998fc8b6590f87eb3c3c6d8e4",
+  })
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
