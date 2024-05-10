@@ -240,22 +240,22 @@ endif
 ]])
 
 -- coc-symbol-line
-function _G.symbol_line()
-  local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
-  local ok, line = pcall(vim.api.nvim_buf_get_var, bufnr, 'coc_symbol_line')
-  return ok and '%#CocSymbolLine# ' .. line or ''
-end
-if vim.fn.exists '&winbar' then
-  vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
-    callback = function()
-      local is_diff = vim.wo.diff
-      if vim.b.coc_symbol_line and vim.bo.buftype == '' and not is_diff then
-        if vim.opt_local.winbar:get() == '' then
-          vim.opt_local.winbar = '%!v:lua.symbol_line()'
-        end
-      else
-        vim.opt_local.winbar = ''
-      end
-    end,
-  })
-end
+-- function _G.symbol_line()
+--   local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+--   local ok, line = pcall(vim.api.nvim_buf_get_var, bufnr, 'coc_symbol_line')
+--   return ok and '%#CocSymbolLine# ' .. line or ''
+-- end
+-- if vim.fn.exists '&winbar' then
+--   vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
+--     callback = function()
+--       local is_diff = vim.wo.diff
+--       if vim.b.coc_symbol_line and vim.bo.buftype == '' and not is_diff then
+--         if vim.opt_local.winbar:get() == '' then
+--           vim.opt_local.winbar = '%!v:lua.symbol_line()'
+--         end
+--       else
+--         vim.opt_local.winbar = ''
+--       end
+--     end,
+--   })
+-- end
