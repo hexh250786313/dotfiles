@@ -1,6 +1,7 @@
 local api = vim.api
 local fn = vim.fn
 local fzf_lua = require("fzf-lua")
+local fzf_lua_config = require("fzf-lua.config")
 local builtin = require("fzf-lua.previewer.builtin")
 local wk = require("which-key")
 local utils = require "fzf-lua.utils"
@@ -341,10 +342,13 @@ local function list_or_jump(provider, has_jump)
 
   store.items = results;
 
-  fzf_lua.fzf_exec(strings, {
+  local opts = {
     previewer = CommonPreviewr,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
-  })
+  }
+
+  local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
+  return fzf_lua.fzf_exec(strings, normalized_opts)
 end
 
 -- diagnostic
@@ -441,10 +445,15 @@ local function diagnostic_from_current_buffer()
   if type(strings) ~= 'table' or vim.tbl_isempty(strings) then
     return
   end
-  fzf_lua.fzf_exec(strings, {
+
+  local opts = {
     previewer = CommonPreviewr,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
-  })
+  }
+
+  local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
+
+  fzf_lua.fzf_exec(strings, normalized_opts)
 end
 
 local function diagnostic_from_workspace()
@@ -452,10 +461,15 @@ local function diagnostic_from_workspace()
   if type(strings) ~= 'table' or vim.tbl_isempty(strings) then
     return
   end
-  fzf_lua.fzf_exec(strings, {
+
+  local opts = {
     previewer = CommonPreviewr,
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
-  })
+  }
+
+  local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
+
+  fzf_lua.fzf_exec(strings, normalized_opts)
 end
 
 local function exec_code_action(display_strs)
@@ -622,7 +636,7 @@ local function get_symbols(symbols)
   store.source = symbols
   store.items = items
 
-  fzf_lua.fzf_exec(strings, {
+  local opts = {
     previewer = SymbolPreviewr,
     actions = {
       ['enter'] = jump_to_location,
@@ -644,7 +658,11 @@ local function get_symbols(symbols)
         get_symbols(next_source)
       end,
     },
-  })
+  }
+
+  local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
+
+  fzf_lua.fzf_exec(strings, normalized_opts)
 end
 
 local function symbol()
