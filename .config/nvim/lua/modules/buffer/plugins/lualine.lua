@@ -56,6 +56,7 @@ end
 
 local config = {
   options = {
+    disabled_filetypes = {},
     -- 原创渐变
     -- section_separators = { left = "▓░", right = "░▓" },
     -- component_separators = { left = " ", right = " " },
@@ -156,6 +157,38 @@ local config = {
   --   lualine_y = {},
   --   lualine_z = {'tabs'}
   -- },
+  winbar = {
+    lualine_a = { { "filename", path = 1 } },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {
+      {
+        'buffers',
+        show_filename_only = true, -- Shows shortened relative path when set to false.
+        -- hide_filename_extension = true, -- Hide filename extension when set to true.
+        show_modified_status = true, -- Shows indicator when the buffer is modified.
+        mode = 0,
+        max_length = vim.o.columns * 9 / 10, -- Maximum width of buffers component,
+        use_mode_colors = false,
+        buffers_color = {
+          -- active = 'lualine_a_insert',
+          active = 'lualine_a_normal',
+          inactive = 'lualine_a_inactive',
+        },
+        symbols = { modified = ' ●', alternate_file = '[A] ', directory = '' },
+      },
+    },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  inactive_winbar = {
+    lualine_a = { { "filename", path = 1 } },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
+  },
   extensions = { "fugitive" },
 }
 

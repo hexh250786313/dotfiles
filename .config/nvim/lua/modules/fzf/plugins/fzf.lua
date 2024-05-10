@@ -37,7 +37,7 @@ function! s:FZF(...)
     \ '--bind', 'ctrl-p:toggle-preview',
     \ '--bind', 'up:preview-up,down:preview-down',
     \ '--preview', 'COLORTERM=truecolor bat --style=numbers --color=always --line-range :100 {}',
-    \ '--preview-window', 'right:50%',
+    \ '--preview-window', 'bottom:50%',
     \ '--cycle',
     \ '--multi',
     \ '--reverse',

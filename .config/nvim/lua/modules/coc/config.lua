@@ -203,18 +203,28 @@ endfunction
 "   \ coc#pum#visible() ? coc#_select_confirm() :
 "   \ <SID>CHECK_BACKSPACE() ? copilot#Accept("\<Tab>") :
 "   \ coc#refresh()
+" inoremap <silent><expr> <Tab>
+"   \ coc#pum#visible() ? coc#_select_confirm() :
+"   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
+"   \ coc#refresh()
 inoremap <silent><expr> <Tab>
+  \ exists('b:_copilot.suggestions') ? copilot#Accept("\<Tab>") :
   \ coc#pum#visible() ? coc#_select_confirm() :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
 " inoremap <silent><expr><c-l> coc#refresh()
 inoremap <silent><expr><c-l> <SID>COC_REFRESH_AND_SIGNATURE_HELP()
 inoremap <silent><expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
+" inoremap <silent><expr> <c-j>
+"   \ coc#pum#visible() ? "<cmd>call coc#pum#_navigate(1,0)<cr>" :
+"   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
+"   \ coc#refresh()
+" inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
 inoremap <silent><expr> <c-j>
-  \ coc#pum#visible() ? "<cmd>call coc#pum#_navigate(1,0)<cr>" :
+  \ coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(1,0)<cr>" :
   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
   \ coc#refresh()
-inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
+inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
 " 回车选择当前项
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
 "  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -230,22 +240,22 @@ endif
 ]])
 
 -- coc-symbol-line
-function _G.symbol_line()
-  local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
-  local ok, line = pcall(vim.api.nvim_buf_get_var, bufnr, 'coc_symbol_line')
-  return ok and '%#CocSymbolLine# ' .. line or ''
-end
-if vim.fn.exists '&winbar' then
-  vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
-    callback = function()
-      local is_diff = vim.wo.diff
-      if vim.b.coc_symbol_line and vim.bo.buftype == '' and not is_diff then
-        if vim.opt_local.winbar:get() == '' then
-          vim.opt_local.winbar = '%!v:lua.symbol_line()'
-        end
-      else
-        vim.opt_local.winbar = ''
-      end
-    end,
-  })
-end
+-- function _G.symbol_line()
+--   local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+--   local ok, line = pcall(vim.api.nvim_buf_get_var, bufnr, 'coc_symbol_line')
+--   return ok and '%#CocSymbolLine# ' .. line or ''
+-- end
+-- if vim.fn.exists '&winbar' then
+--   vim.api.nvim_create_autocmd({ 'CursorHold', 'WinEnter', 'BufWinEnter' }, {
+--     callback = function()
+--       local is_diff = vim.wo.diff
+--       if vim.b.coc_symbol_line and vim.bo.buftype == '' and not is_diff then
+--         if vim.opt_local.winbar:get() == '' then
+--           vim.opt_local.winbar = '%!v:lua.symbol_line()'
+--         end
+--       else
+--         vim.opt_local.winbar = ''
+--       end
+--     end,
+--   })
+-- end
