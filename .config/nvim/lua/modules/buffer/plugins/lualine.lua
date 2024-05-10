@@ -56,7 +56,7 @@ end
 
 local config = {
   options = {
-    disabled_filetypes = { winbar = { 'fugitiveblame' } },
+    disabled_filetypes = {},
     -- 原创渐变
     -- section_separators = { left = "▓░", right = "░▓" },
     -- component_separators = { left = " ", right = " " },
@@ -178,6 +178,14 @@ local config = {
         symbols = { modified = ' ●', alternate_file = '[A] ', directory = '' },
       },
     },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  inactive_winbar = {
+    lualine_a = { { "filename", path = 1 } },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {},
   },
