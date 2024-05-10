@@ -208,7 +208,7 @@ endfunction
 "   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
 "   \ coc#refresh()
 inoremap <silent><expr> <Tab>
-  \ exists('b:_copilot.suggestions') ? copilot#Accept("\<Tab>") :
+  \ exists('b:_copilot') && has_key(b:_copilot, 'suggestions') && !empty(b:_copilot['suggestions']) ? copilot#Accept("\<Tab>") :
   \ coc#pum#visible() ? coc#_select_confirm() :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
