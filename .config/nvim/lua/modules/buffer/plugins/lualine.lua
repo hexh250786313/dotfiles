@@ -56,6 +56,7 @@ end
 
 local config = {
   options = {
+    disabled_filetypes = { winbar = { 'fugitiveblame' } },
     -- 原创渐变
     -- section_separators = { left = "▓░", right = "░▓" },
     -- component_separators = { left = " ", right = " " },
