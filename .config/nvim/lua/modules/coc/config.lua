@@ -203,15 +203,15 @@ endfunction
 "   \ coc#pum#visible() ? coc#_select_confirm() :
 "   \ <SID>CHECK_BACKSPACE() ? copilot#Accept("\<Tab>") :
 "   \ coc#refresh()
-" inoremap <silent><expr> <Tab>
-"   \ coc#pum#visible() ? coc#_select_confirm() :
-"   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
-"   \ coc#refresh()
 inoremap <silent><expr> <Tab>
-  \ exists('b:_copilot') && has_key(b:_copilot, 'suggestions') && !empty(b:_copilot['suggestions']) ? copilot#Accept("\<Tab>") :
   \ coc#pum#visible() ? coc#_select_confirm() :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
+" inoremap <silent><expr> <Tab>
+"   \ exists('b:_copilot') && has_key(b:_copilot, 'suggestions') && !empty(b:_copilot['suggestions']) ? copilot#Accept("\<Tab>") :
+"   \ coc#pum#visible() ? coc#_select_confirm() :
+"   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
+"   \ coc#refresh()
 " inoremap <silent><expr><c-l> coc#refresh()
 inoremap <silent><expr><c-l> <SID>COC_REFRESH_AND_SIGNATURE_HELP()
 inoremap <silent><expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
