@@ -114,9 +114,9 @@ bindkey -r "^j" # disable c-j to return
 bindkey -r "^k" # disable c-k
 
 # fnm
-if [[ ! -f /home/$ME/.local/share/fnm/fnm ]]; then
-  curl -fsSL https://fnm.vercel.app/install | zsh
-fi
+# if [[ ! -f /home/$ME/.local/share/fnm ]]; then
+#   curl -fsSL https://fnm.vercel.app/install | zsh
+# fi
 export PATH="/home/$ME/.local/share/fnm:$PATH"
 # eval "`fnm env`"
 export DEFAULT_NODE_VERSION="v18.20.0"
