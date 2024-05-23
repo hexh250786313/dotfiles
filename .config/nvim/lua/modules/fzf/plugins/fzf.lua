@@ -44,7 +44,11 @@ function! s:FZF(...)
     \ '--prompt=' . s:SHORT_PATH(),
     \ '--bind=' . 'change:reload($HOME/.config/nvim/lua/modules/fzf/plugins/dynamic_fzf_source.sh ' . cwd . ' {q})'
     \] })
-    let opts.source = "perl -ne 'print substr(\$_, length(\"" . cwd . "/\")) if m{^" . cwd . "/} && !$seen{\$_}++' ~/.config/coc/mru"
+    " 1. 移除重复行
+    " 2. 去掉 cwd
+    " let opts.source = "perl -ne 'print substr(\$_, length(\"" . cwd . "/\")) if m{^" . cwd . "/} && !$seen{\$_}++' ~/.config/coc/mru"
+    " 3. 基于上述功能功能的基础上过滤了 .hexh-git-branches 的文件
+    let opts.source = "perl -ne 'print substr(\$_, length(\"" . cwd . "/\")) if m{^" . cwd . "/} && !$seen{\$_}++ && !m{^" . cwd . "/.hexh-git-branches}' ~/.config/coc/mru"
   endif
   call fzf#run(opts)
 endfunction
