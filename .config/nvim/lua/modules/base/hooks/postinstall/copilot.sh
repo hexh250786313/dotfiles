@@ -1,5 +1,5 @@
 # 不插入虚拟文本
-# sd '.*function!.*s:UpdatePreview.*abort.*\n.*try' 'function! s:UpdatePreview() abort\n  return\n  try' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot.vim
+sd '.*function!.*s:UpdatePreview.*abort.*\n.*try' 'function! s:UpdatePreview() abort\n  return\n  try' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot.vim
 sd '=\["\\n"\]' '=["\\n\\n\\n"]' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/dist/agent.js
 sd 'stop=\[`\n`]' 'stop=[`\n\n\n`]' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/dist/agent.js
 # 移除多行虚拟文本，让他只展示一行
