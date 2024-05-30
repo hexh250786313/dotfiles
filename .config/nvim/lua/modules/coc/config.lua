@@ -220,11 +220,17 @@ inoremap <silent><expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
 "   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
 "   \ coc#refresh()
 " inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
+" inoremap <silent><expr> <c-j>
+"   \ coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(1,0)<cr>" :
+"   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
+"   \ coc#refresh()
+inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
 inoremap <silent><expr> <c-j>
-  \ coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(1,0)<cr>" :
+  \ coc#pum#visible() ? "<cmd>call coc#pum#_navigate(1,0)<cr>" :
   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
   \ coc#refresh()
-inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
+inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
+" inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
 " 回车选择当前项
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
 "  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
