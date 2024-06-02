@@ -1,12 +1,12 @@
 ---- 快捷键
 local wk = require("which-key")
--- wk.register({ mode = { "n" }, ["<leader>/"] = { ":CocList grep<cr>", "Grep globally" } })
--- wk.register({ mode = { "n" }, ["<leader>?"] = { ":CocList grep<cr>", "Grep globally" } })
-wk.register({ mode = { "n" }, ["<leader>r"] = { ":CocCommand coc-replacement.replace<cr>", "Replace" } })
+-- wk.register({ mode = { "n" }, ["<leader>/"] = { "<cmd>CocList grep<cr>", "Grep globally" } })
+-- wk.register({ mode = { "n" }, ["<leader>?"] = { "<cmd>CocList grep<cr>", "Grep globally" } })
+wk.register({ mode = { "n" }, ["<leader>r"] = { "<cmd>CocCommand coc-replacement.replace<cr>", "Replace" } })
 wk.register({
   mode = { "x" },
-  -- ["<leader>/"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
-  -- ["<leader>?"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
+  -- ["<leader>/"] = { "<cmd>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
+  -- ["<leader>?"] = { "<cmd>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
 })
 
 -- lsp
@@ -15,7 +15,7 @@ wk.register({
   -- ["gr"] = { "<cmd>call CocActionAsync('jumpReferences')<cr>", "Go to references" },
   -- ["gd"] = { "<cmd>call CocActionAsync('jumpDefinition')<cr>", "Go to definition" },
   -- ["gD"] = { "<cmd>call CocActionAsync('jumpImplementation')<cr>", "Go to implementations" },
-  ["gh"] = { ":<c-u>call function(g:coc_config_sid . 'SHOW_DOCUMENTATION')()<cr>", "Show docs for item under cursor" },
+  ["gh"] = { "<cmd>call function(g:coc_config_sid . 'SHOW_DOCUMENTATION')()<cr>", "Show docs for item under cursor" },
 })
 
 -- files
@@ -38,8 +38,8 @@ wk.register({
   -- ["<leader>ld"] = { "<cmd>CocList --no-sort diagnostics<cr>", "Diagnostics list" },
   ["<leader>lt"] = { "<cmd>CocList tasks<cr>", "Tasks list" },
   -- ["<leader>ls"] = { "<cmd>CocList --no-sort services<cr>", "LSP Services list" },
-  ["<leader>lr"] = { ":CocListResume<cr>", "Resume list" },
-  ["<leader>lw"] = { ":CocList typos<cr>", "List typos" },
+  ["<leader>lr"] = { "<cmd>CocListResume<cr>", "Resume list" },
+  ["<leader>lw"] = { "<cmd>CocList typos<cr>", "List typos" },
 })
 
 -- Actions
@@ -85,7 +85,7 @@ vim.g.coc_global_extensions = {
   "coc-styled-components",
   "coc-typos",
   -- "@hexuhua/coc-list-files-mru",
-  "@hexuhua/coc-copilot",
+  -- "@hexuhua/coc-copilot",
   -- "coc-symbol-line",
   "coc-tsserver",
   "coc-go",
@@ -203,15 +203,15 @@ endfunction
 "   \ coc#pum#visible() ? coc#_select_confirm() :
 "   \ <SID>CHECK_BACKSPACE() ? copilot#Accept("\<Tab>") :
 "   \ coc#refresh()
-" inoremap <silent><expr> <Tab>
-"   \ coc#pum#visible() ? coc#_select_confirm() :
-"   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
-"   \ coc#refresh()
 inoremap <silent><expr> <Tab>
-  \ exists('b:_copilot.suggestions') ? copilot#Accept("\<Tab>") :
   \ coc#pum#visible() ? coc#_select_confirm() :
   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
   \ coc#refresh()
+" inoremap <silent><expr> <Tab>
+"   \ exists('b:_copilot') && has_key(b:_copilot, 'suggestions') && !empty(b:_copilot['suggestions']) ? copilot#Accept("\<Tab>") :
+"   \ coc#pum#visible() ? coc#_select_confirm() :
+"   \ <SID>CHECK_BACKSPACE() ? "\<Tab>" :
+"   \ coc#refresh()
 " inoremap <silent><expr><c-l> coc#refresh()
 inoremap <silent><expr><c-l> <SID>COC_REFRESH_AND_SIGNATURE_HELP()
 inoremap <silent><expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
@@ -220,11 +220,17 @@ inoremap <silent><expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
 "   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
 "   \ coc#refresh()
 " inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
+" inoremap <silent><expr> <c-j>
+"   \ coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(1,0)<cr>" :
+"   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
+"   \ coc#refresh()
+inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
 inoremap <silent><expr> <c-j>
-  \ coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(1,0)<cr>" :
+  \ coc#pum#visible() ? "<cmd>call coc#pum#_navigate(1,0)<cr>" :
   \ <SID>CHECK_BACKSPACE() ? "\<c-j>" :
   \ coc#refresh()
-inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
+inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
+" inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr><cmd>call coc#pum#_navigate(0,0)<cr>" : "\<C-k>"
 " 回车选择当前项
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
 "  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -232,8 +238,10 @@ inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call copilot#Dismiss()<cr
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "3<C-e>"
   nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "3<C-y>"
-  inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
-  inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
+  " inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
+  " inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
+  inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "<cmd> call coc#float#scroll(1, 1)\<cr>" : "\<Down>"
+  inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "<cmd> call coc#float#scroll(0, 1)\<cr>" : "\<Up>"
   vnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "3<C-e>"
   vnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "3<C-y>"
 endif
