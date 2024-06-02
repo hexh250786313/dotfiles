@@ -1,12 +1,12 @@
 ---- 快捷键
 local wk = require("which-key")
--- wk.register({ mode = { "n" }, ["<leader>/"] = { ":CocList grep<cr>", "Grep globally" } })
--- wk.register({ mode = { "n" }, ["<leader>?"] = { ":CocList grep<cr>", "Grep globally" } })
-wk.register({ mode = { "n" }, ["<leader>r"] = { ":CocCommand coc-replacement.replace<cr>", "Replace" } })
+-- wk.register({ mode = { "n" }, ["<leader>/"] = { "<cmd>CocList grep<cr>", "Grep globally" } })
+-- wk.register({ mode = { "n" }, ["<leader>?"] = { "<cmd>CocList grep<cr>", "Grep globally" } })
+wk.register({ mode = { "n" }, ["<leader>r"] = { "<cmd>CocCommand coc-replacement.replace<cr>", "Replace" } })
 wk.register({
   mode = { "x" },
-  -- ["<leader>/"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
-  -- ["<leader>?"] = { ":<c-u>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
+  -- ["<leader>/"] = { "<cmd>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
+  -- ["<leader>?"] = { "<cmd>exec 'call ' . g:coc_config_sid . 'GREP_FROM_SELECTED(visualmode())'<cr>", "Grep globally" },
 })
 
 -- lsp
@@ -15,7 +15,7 @@ wk.register({
   -- ["gr"] = { "<cmd>call CocActionAsync('jumpReferences')<cr>", "Go to references" },
   -- ["gd"] = { "<cmd>call CocActionAsync('jumpDefinition')<cr>", "Go to definition" },
   -- ["gD"] = { "<cmd>call CocActionAsync('jumpImplementation')<cr>", "Go to implementations" },
-  ["gh"] = { ":<c-u>call function(g:coc_config_sid . 'SHOW_DOCUMENTATION')()<cr>", "Show docs for item under cursor" },
+  ["gh"] = { "<cmd>call function(g:coc_config_sid . 'SHOW_DOCUMENTATION')()<cr>", "Show docs for item under cursor" },
 })
 
 -- files
@@ -38,8 +38,8 @@ wk.register({
   -- ["<leader>ld"] = { "<cmd>CocList --no-sort diagnostics<cr>", "Diagnostics list" },
   ["<leader>lt"] = { "<cmd>CocList tasks<cr>", "Tasks list" },
   -- ["<leader>ls"] = { "<cmd>CocList --no-sort services<cr>", "LSP Services list" },
-  ["<leader>lr"] = { ":CocListResume<cr>", "Resume list" },
-  ["<leader>lw"] = { ":CocList typos<cr>", "List typos" },
+  ["<leader>lr"] = { "<cmd>CocListResume<cr>", "Resume list" },
+  ["<leader>lw"] = { "<cmd>CocList typos<cr>", "List typos" },
 })
 
 -- Actions
