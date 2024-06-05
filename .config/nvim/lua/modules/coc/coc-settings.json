@@ -88,7 +88,7 @@
   "list.source.grep.excludePatterns": ["**/.git/**"],
   "list.source.files.args": ["--files", "--hidden"],
   "list.source.files.excludePatterns": ["**/.git/**"],
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": true,
   "suggest.completionItemKindLabels": {
     "keyword": "KEY",
