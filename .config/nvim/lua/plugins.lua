@@ -270,7 +270,7 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     -- "neoclide/coc.nvim",
-    "hexh250786313/coc.nvim",
+    "~/workspace/hexh/coc.nvim",
     branch = "master",
     config = [[require("modules.coc.config")]],
     run = "rm -rf /home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build && npm ci",
