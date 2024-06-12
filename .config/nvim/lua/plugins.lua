@@ -47,7 +47,7 @@ return packer.startup(function(use)
   })
   use({ "wbthomason/packer.nvim" })
   use({ "dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]] })
-  use({ "kevinhwang91/nvim-bqf", config = [[require("modules.base.plugins.nvim-bqf")]], requires = "junegunn/fzf" })
+  use({ "kevinhwang91/nvim-bqf", config = [[require("modules.base.plugins.nvim-bqf")]], requires = "~/.fzf" })
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "akinsho/toggleterm.nvim", config = [[require("modules.base.plugins.toggleterm")]] })
@@ -117,7 +117,8 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "mhartington/formatter.nvim",
-    keys = { { "n", "<leader>cf" }, { "x", "<leader>cf" } },
+    -- keys = { { "n", "<leader>cf" }, { "x", "<leader>cf" } },
+    -- event = "User ConfigLocalFinished",
     config = [[require("modules.code.plugins.formatter")]],
   })
   use({
@@ -263,7 +264,7 @@ return packer.startup(function(use)
       { "n", "?" },
     },
   })
-  use({ "junegunn/fzf", config = [[require("modules.fzf.plugins.fzf")]] })
+  use({ "~/.fzf", as = "fzf" ,config = [[require("modules.fzf.plugins.fzf")]] })
 
   -- ┌───────────────────────────────────────
   -- │  CoC Module
