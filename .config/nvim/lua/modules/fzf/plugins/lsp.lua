@@ -10,6 +10,15 @@ local CocActionAsync = fn.CocActionAsync
 
 local store = { results = {}, items = {} }
 
+-- 关闭所有的浮动窗口
+local function close_all_coc_floats()
+  vim.api.nvim_exec([[
+    if coc#float#has_float() > 0
+      call coc#float#close_all()
+    endif
+  ]], false)
+end
+
 -- 定义设置高亮的函数
 local function highlight_lsp_range(bufnr, ns_id, hl_group, target)
   local function apply_highlight(range)
@@ -429,6 +438,7 @@ local function diagnostic(filter)
 end
 
 local function diagnostic_from_current_buffer()
+  close_all_coc_floats()
   local function filter(results)
     local current_bufnr = api.nvim_get_current_buf()
     local current_file_path = vim.uri_to_fname(vim.uri_from_bufnr(current_bufnr))
@@ -457,6 +467,7 @@ local function diagnostic_from_current_buffer()
 end
 
 local function diagnostic_from_workspace()
+  close_all_coc_floats()
   local strings = diagnostic()
   if type(strings) ~= 'table' or vim.tbl_isempty(strings) then
     return
@@ -577,34 +588,42 @@ local function get_lsp_icon(kind)
 end
 
 local function code_action_line()
+  close_all_coc_floats()
   handle_code_action('line')
 end
 
 local function code_action_cursor()
+  close_all_coc_floats()
   handle_code_action('cursor')
 end
 
 local function code_action_file()
+  close_all_coc_floats()
   handle_code_action(nil)
 end
 
 local function code_action_source()
+  close_all_coc_floats()
   handle_code_action('source')
 end
 
 local function code_action_refactor()
+  close_all_coc_floats()
   handle_code_action('refactor')
 end
 
 local function lsp_reference()
+  close_all_coc_floats()
   list_or_jump('reference', true)
 end
 
 local function lsp_implementation()
+  close_all_coc_floats()
   list_or_jump('implementation', true)
 end
 
 local function lsp_definition()
+  close_all_coc_floats()
   list_or_jump('definition', true)
 end
 
@@ -666,6 +685,7 @@ local function get_symbols(symbols)
 end
 
 local function symbol()
+  close_all_coc_floats()
   store = {}
   if not is_ready('documentSymbol') then
     return
