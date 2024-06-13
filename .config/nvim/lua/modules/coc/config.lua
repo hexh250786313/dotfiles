@@ -21,6 +21,9 @@ wk.register({
 -- files
 -- wk.register({ mode = { "n" }, ["<leader>f"] = { "<cmd>CocList --height=9 filesMru<cr>", "Open file picker" } })
 
+-- code
+wk.register({ mode = { "n" }, ["<leader>cf"] = { "<cmd>call CocActionAsync('format')<CR>", "Format code" } })
+
 -- git
 wk.register({
   mode = { "n" },

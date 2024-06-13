@@ -117,7 +117,7 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "mhartington/formatter.nvim",
-    -- keys = { { "n", "<leader>cf" }, { "x", "<leader>cf" } },
+    keys = { { "x", "<leader>cf" } },
     -- event = "User ConfigLocalFinished",
     config = [[require("modules.code.plugins.formatter")]],
   })
@@ -264,7 +264,7 @@ return packer.startup(function(use)
       { "n", "?" },
     },
   })
-  use({ "~/.fzf", as = "fzf" ,config = [[require("modules.fzf.plugins.fzf")]] })
+  use({ "~/.fzf", as = "fzf", config = [[require("modules.fzf.plugins.fzf")]] })
 
   -- ┌───────────────────────────────────────
   -- │  CoC Module

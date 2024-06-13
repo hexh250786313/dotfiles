@@ -1,4 +1,15 @@
 {
+  "volar.disableFormatting": true,
+  "json.format.enable": false,
+  "javascript.format.enable": false,
+  "svelte.plugin.svelte.format.enable": false,
+  "Lua.format.enable": false,
+  "css.format.enable": false,
+  "yaml.format.enable": false,
+  "html.format.enable": false,
+  "scss.format.enable": false,
+  "less.format.enable": false,
+  "typescript.format.enable": false,
   "suggest.insertMode": "insert",
   "svelte.enable-ts-plugin": true,
   "copilot.kindLabel": "COP",
@@ -230,6 +241,70 @@
     "css": "csslint",
     "less": "lesslint",
     "scss": "scsslint"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "html": "prettierd",
+    "typescriptreact": "prettierd",
+    "typescript": "prettierd",
+    "javascript": "prettierd",
+    "javascriptreact": "prettierd",
+    "markdown": "prettierd",
+    "json": "prettierd",
+    "jsonc": "prettierd",
+    "css": "prettierd",
+    "scss": "prettierd",
+    "less": "prettierd",
+    "vue": "prettierd",
+    "nginx": "nginxfmt",
+    "lua": "luafmt",
+    "sql": "pg",
+    "zsh": "beautysh",
+    "yaml": "prettier",
+    "sh": "shfmt"
+  },
+  "diagnostic-languageserver.formatters": {
+    "prettierd": {
+      "command": "prettierd",
+      "args": ["%filename"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "nginxfmt": {
+      "command": "nginxfmt",
+      "args": ["-p", "-"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "luafmt": {
+      "command": "lua-format",
+      "args": ["--config", "/home/hexh/.config/nvim/_self/lang-configs/lua/formatter.conf"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "pg": {
+      "command": "pg_format",
+      "args": ["-"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "beautysh": {
+      "command": "beautysh",
+      "args": ["-i", 2, "-"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "prettier": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filename"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "shfmt": {
+      "command": "shfmt",
+      "args": ["-i", 2],
+      "isStdout": true,
+      "isStderr": true
+    }
   },
   "diagnostic-languageserver.linters": {
     // 不知道为什么 --stdin-file-path stdin 模式它没有提供 col 和 line，有点傻逼，只能用命令行输出模式来解析，但是
