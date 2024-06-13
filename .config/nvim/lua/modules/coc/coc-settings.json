@@ -232,6 +232,34 @@
     "scss": "scsslint"
   },
   "diagnostic-languageserver.linters": {
+    // 不知道为什么 --stdin-file-path stdin 模式它没有提供 col 和 line，有点傻逼，只能用命令行输出模式来解析，但是
+    // 这样就无法对文件变动进行实时检查，所以意义不大，等以后官方增加了 col 和 line 再考虑
+    // 另外记得 stdin 模式下不能在 args 中使用 %file，否则 diagnostic-languageserver 不会进行标准输入，换成 %filename 即可
+    "biome": {
+      "command": "npx",
+      "isStderr": true,
+      "rootPatterns": [".git"],
+      "debounce": 550,
+      "args": ["biome", "lint", "%file"],
+      "sourceName": "biome",
+      "formatLines": 999,
+      "formatPattern": [
+        "^.*?(\\d+):(\\d+)\u0020(\\S+)\u0020+(\\S*).*(\n.*?)+\u0020\u0020×\u0020(.*)(\n.*?)+((\u0020\u0020i\u0020.+\n.*\n)+)",
+        {
+          "line": 1,
+          "column": 2,
+          "message": [6, "\n\n", 8],
+          "sourceName": 3,
+          // "sourceNameFilter": true,
+          // "endLine": 5,
+          // "endColumn": 3,
+          "security": 4
+        }
+      ],
+      "securities": {
+        "FIXABLE": "warning"
+      }
+    },
     "sqlfluff": {
       "command": "sqlfluff",
       "rootPatterns": [".git"], // For cwd
