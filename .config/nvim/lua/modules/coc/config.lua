@@ -96,6 +96,7 @@ vim.g.coc_global_extensions = {
   "coc-pretty-ts-errors",
   "coc-rust-analyzer",
   "coc-sumneko-lua",
+  "coc-biome",
   -- "coc-lightbulb",
   -- "coc-cssmodules",
 }
