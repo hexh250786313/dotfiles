@@ -1,5 +1,6 @@
 # requirement
-export MY_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+# export MY_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+export MY_HOST=$(ip route show | grep -i default | awk '{ print $3}')
 unset HOST
 export CONFIG_DIR="/home/$ME/.config"
 export ME="hexh"
