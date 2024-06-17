@@ -27,7 +27,8 @@ require("nvim-treesitter.configs").setup {
     "markdown_inline",
     "svelte",
     "go",
-    "rust"
+    "rust",
+    "vimdoc"
   },
   auto_install = false,
   highlight = { enable = true, disable = disabler },

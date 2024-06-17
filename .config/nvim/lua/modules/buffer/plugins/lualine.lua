@@ -200,8 +200,11 @@ local function can_require(path)
   return false
 end
 
-if can_require("lualine.themes" .. colorscheme) then
-  config.options.theme = require("lualine.themes" .. colorscheme)
+if can_require("lualine.themes." .. colorscheme) then
+  local theme = require("lualine.themes." .. colorscheme)
+  theme.insert.a = theme.normal.a
+  theme.insert.b = theme.normal.b
+  config.options.theme = theme
 end
 
 lualine.setup(config)
