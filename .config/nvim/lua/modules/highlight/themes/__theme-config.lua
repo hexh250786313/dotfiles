@@ -1,7 +1,8 @@
 -- theme-config.lua
 local M = {}
 
-local theme = require('modules/highlight/themes/catppuccin-nvim')
+-- local theme = require('modules/highlight/themes/catppuccin-nvim')
+local theme = require('modules/highlight/themes/rockyzhang24-arctic')
 
 function M.get_current_theme()
   vim.cmd([[
