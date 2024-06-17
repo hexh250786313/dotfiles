@@ -92,6 +92,7 @@ hi! SignColumn guibg=NONE
 hi! EndOfBuffer guibg=NONE
 
 hi! link CocFloating Normal
+hi! link CocFloatDividingLine Normal
 hi! link CocListPath StatusLine
 hi! link CocListMode StatusLine
 hi! link CocSearch Question
@@ -173,8 +174,8 @@ exec 'hi! CocListLine' .
   " \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
 exec 'hi! CocFloating' .
   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
-exec 'hi! CocFloatDividingLine' .
-  \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
+" exec 'hi! CocFloatDividingLine' .
+"   \' guibg=' . _self#highlight#pick('StatusLine', 'bg')
 exec 'hi! CocPumShortcut gui=bold' .
   \' guibg=' . _self#highlight#pick('Comment', 'bg')
   \' guifg=' . _self#highlight#pick('Comment', 'fg')
