@@ -217,3 +217,7 @@ edit-command-line() {
 }
 
 bindkey '^X' edit-command-line
+
+### Misc
+export BAT_THEME="arctic"
+# export BAT_THEME="CatppuccinMocha"
