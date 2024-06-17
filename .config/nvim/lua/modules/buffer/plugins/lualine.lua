@@ -204,6 +204,7 @@ if can_require("lualine.themes." .. colorscheme) then
   local theme = require("lualine.themes." .. colorscheme)
   theme.command.a = theme.normal.a
   theme.command.b = theme.normal.b
+  theme.terminal.a = theme.normal.a
   config.options.theme = theme
 end
 
