@@ -55,20 +55,30 @@ let g:defaultnormalgb=_self#highlight#pick('Normal', 'bg')
 
 " 全局 Normal 不能设置 gui, 但是 winhighlight 可以
 " 不透明
-" let g:hlnormalstate=1
+let g:hlnormalstate=1
 set cursorline
 
 " 透明
-let g:hlnormalstate=0
-hi! Normal guibg=NONE
+" let g:hlnormalstate=0
+" hi! Normal guibg=NONE
 " set nocursorline
 
-let s:green = '#b8bb26'
-let s:blue = '#83a598'
-let s:red = '#fb4934'
-let s:green_bg = '#32361a'
-let s:blue_bg = '#0d3138'
-let s:red_bg = '#3c1f1e'
+if &background == "dark"
+  let s:green = '#b8bb26'
+  let s:blue = '#83a598'
+  let s:red = '#fb4934'
+  let s:green_bg = '#32361a'
+  let s:blue_bg = '#0d3138'
+  let s:red_bg = '#3c1f1e'
+else
+  let s:green = '#D7E7B1'
+  let s:blue = '#99CCFF'
+  let s:red = '#FF8282'
+  let s:green_bg = '#EBF1DD'
+  let s:blue_bg = '#E0E6F8'
+  let s:red_bg = '#FFCCCC'
+endif
+
 
 let s:error = _self#highlight#pick('ErrorMsg', 'fg')
 let s:error_bg = _self#highlight#darken('ErrorMsg', 'fg')
@@ -78,14 +88,6 @@ let s:info = _self#highlight#pick('Directory', 'fg')
 let s:info_bg = _self#highlight#darken('Directory', 'fg')
 let s:hint = _self#highlight#pick('Directory', 'fg')
 let s:hint_bg = _self#highlight#darken('Directory', 'fg')
-
-" autocmd VimEnter * exec 'hi! IndentBlanklineContextStart gui=none' .
-"   \' guifg=' . _self#highlight#pick('IndentBlanklineContextStart', 'fg') .
-"   \' guibg=' . _self#highlight#pick('IndentBlanklineContextStart', 'bg')
-" autocmd VimEnter * exec 'hi! IndentBlanklineIndent guifg=#393734 gui=nocombine'
-" autocmd VimEnter * exec 'hi! IndentBlanklineContextChar guifg=#554f49 gui=nocombine'
-hi! IndentBlanklineIndent guifg=#393734 gui=nocombine
-hi! IndentBlanklineContextChar guifg=#554f49 gui=nocombine
 
 hi! LineNr guibg=NONE
 hi! SignColumn guibg=NONE
@@ -102,7 +104,11 @@ hi! link CopilotSuggestion DefxIconsDefaultIcon
 hi! link CocUnusedHighlight DiagnosticUnnecessary
 
 " hi! CursorWord gui=underline
-hi! CursorWord guibg=#303731 gui=none
+if &background == "dark"
+  hi! CursorWord guibg=#303731
+else
+  hi! CursorWord guibg=#D3D3D3
+endif
 
 hi! link PrettyTsErrorType DefxIconsDefaultIcon
 
@@ -111,9 +117,15 @@ exec 'hi! DiffChange guibg=' . s:blue_bg . ' guifg=NONE'
 exec 'hi! DiffDelete guibg=' . s:red_bg . ' guifg=NONE'
 exec 'hi! @text.diff.add guibg=NONE guifg=' . s:green
 exec 'hi! @text.diff.delete guibg=NONE guifg=' . s:red
-exec 'hi! DiffText' .
-  \' guifg=none' .
-  \' guibg=' . _self#highlight#darken('DiffChange', 'bg')
+if &background == "dark"
+  exec 'hi! DiffText' .
+    \' guifg=none' .
+    \' guibg=' . _self#highlight#darken('DiffChange', 'bg')
+else
+  exec 'hi! DiffText' .
+    \' guifg=none' .
+    \' guibg=' . s:blue
+endif
 exec 'hi! VirtColumn' .
   \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
 exec 'hi SpellBad guifg=' . s:error .
@@ -163,8 +175,8 @@ exec 'hi! CocHighlightText' .
 exec 'hi! LightBulbVirtualText' .
   \' guibg=' . _self#highlight#pick('CursorLine', 'bg') .
   \' guifg=' . _self#highlight#pick('Special', 'fg')
-exec 'hi! CocMenuSel' .
-  \' guibg=' . _self#highlight#pick('Question', 'bg')
+exec 'hi! CocMenuSel gui=bold' .
+  \' guibg=' . _self#highlight#pick('PmenuSel', 'bg')
   " \' guibg=' . _self#highlight#pick('DiffAdd', 'bg')
 exec 'hi! WilderBorder' .
   \' guifg=' . _self#highlight#pick('Visual', 'bg') .
@@ -183,14 +195,27 @@ exec 'hi! CocPumShortcut gui=bold' .
 autocmd VimEnter * exec 'hi! CocSymbolLine gui=italic' .
   \' guibg=' . _self#highlight#pick('lualine_c_normal', 'bg') .
   \' guifg=' . _self#highlight#pick('lualine_c_normal', 'fg')
-autocmd VimEnter * exec 'hi! CocInlayHint' .
-  \' guibg=none' .
-  \' guifg=#393939'
 
+if &background == "dark"
+  autocmd VimEnter * exec 'hi! CocInlayHint' .
+    \' guibg=none' .
+    \' guifg=#393939'
+else
+  autocmd VimEnter * exec 'hi! CocInlayHint' .
+    \' guibg=none' .
+    \' guifg=#D0D0D0'
+endif
 
-exec 'hi! Folded' .
-  \' guibg=#171821' .
-  \' guifg=none'
+if &background == "dark"
+  exec 'hi! Folded' .
+    \' guibg=#171821' .
+    \' guifg=none'
+else
+  exec 'hi! Folded' .
+    \' guibg=#a8b1ba' .
+    \' guifg=none'
+endif
+
 exec 'hi! UfoFoldedBg' .
   \' guibg=none' .
   \' guifg=none'

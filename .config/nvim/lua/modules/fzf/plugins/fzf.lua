@@ -67,6 +67,7 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all'
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Comment'],
   \ 'bg':      ['bg', 'Normal'],
+  \ 'bg+':     ['bg', 'CocMenuSel', 'CocMenuSel'],
   \ 'hl':      ['fg', 'DiagnosticInfo'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'StatusLine'],
   \ 'hl+':     ['fg', 'Statement'],
