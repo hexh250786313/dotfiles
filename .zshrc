@@ -219,5 +219,7 @@ edit-command-line() {
 bindkey '^X' edit-command-line
 
 ### Misc
-export BAT_THEME="arctic"
+# 记得更换完主题后执行，否则不生效：bat cache --build
+# export BAT_THEME="arctic"
 # export BAT_THEME="CatppuccinMocha"
+export BAT_THEME="CatppuccinLatte" # 适合白色背景
