@@ -266,6 +266,7 @@
     "prettierd": {
       "command": "prettierd",
       "args": ["%filename"],
+      "rootPatterns": ["package.json"],
       "isStdout": true,
       "isStderr": true
     },
