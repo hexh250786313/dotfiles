@@ -69,9 +69,6 @@ fi
 if [[ ! -d $ZSH_CUSTOM/plugins/F-Sy-H ]]; then
   git clone https://github.com/z-shell/F-Sy-H.git $ZSH_CUSTOM/plugins/F-Sy-H
 fi
-if [[ ! -d ~/.git-webui ]]; then
-  wget -O - https://raw.githubusercontent.com/alberthier/git-webui/master/install/installer.sh | zsh
-fi
 if [[ ! -f ~/.warprc ]]; then
   ln -s ~/workspace/dotfiles/.warprc ~/.warprc
 fi
