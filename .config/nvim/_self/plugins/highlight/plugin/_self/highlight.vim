@@ -79,7 +79,6 @@ else
   let s:red_bg = '#FFCCCC'
 endif
 
-
 let s:error = _self#highlight#pick('ErrorMsg', 'fg')
 let s:error_bg = _self#highlight#darken('ErrorMsg', 'fg')
 let s:warning = _self#highlight#pick('WarningMsg', 'fg')
@@ -110,7 +109,12 @@ else
   hi! CursorWord guibg=#D3D3D3
 endif
 
-hi! link PrettyTsErrorType DefxIconsDefaultIcon
+" hi! link PrettyTsErrorType DefxIconsDefaultIcon
+if &background == "dark"
+  hi! PrettyTsErrorType guifg=#393939
+else
+  hi! PrettyTsErrorType guifg=#D0D0D0
+endif
 
 exec 'hi! DiffAdd guibg=' . s:green_bg . ' guifg=NONE'
 exec 'hi! DiffChange guibg=' . s:blue_bg . ' guifg=NONE'
