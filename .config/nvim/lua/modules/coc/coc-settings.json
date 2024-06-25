@@ -1,5 +1,4 @@
 {
-  "coc.preferences.extensionUpdateUIInTab": true,
   "volar.disableFormatting": true,
   "json.format.enable": false,
   "javascript.format.enable": false,
