@@ -188,7 +188,7 @@
   "suggest.defaultSortMethod": "none",
   "coc.source.file.ignoreHidden": false,
   "git.conflict.enabled": false,
-  "suggest.selection": "recentlyUsedByPrefix",
+  "suggest.selection": "first",
   "lightbulb.enableSign": false,
   "lightbulb.virtualTextPosition": "eol",
   "notification.statusLineProgress": true,
