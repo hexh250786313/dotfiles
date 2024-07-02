@@ -255,7 +255,6 @@ if &background == "dark"
 else
   hi! PrettyTsErrorType guifg=#D0D0D0  guibg=NONE gui=NONE
 endif
-hi! link CocMarkdownCode Comment
 
 " 插入模式的时候让上述 coc 相关的 VirtualText 变为不可视，正常模式下恢复，其实就是变为 CursorLine 的背景一个颜色
 autocmd InsertEnter * exec 'hi! CocErrorVirtualText guibg=NONE' .
