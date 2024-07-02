@@ -1,4 +1,6 @@
 {
+  // "pretty-ts-errors.serverName": "vtsls",
+  // "pretty-ts-errors.sourceName": "ts",
   "coc.preferences.extensionUpdateUIInTab": true,
   "volar.disableFormatting": true,
   "json.format.enable": false,
@@ -538,7 +540,7 @@
   },
   "todo-tree.defaultView": "tagsOnly",
   "inlayHint.display": true,
-  "inlayHint.enable": false,
+  "inlayHint.enable": true,
   "inlayHint.enableParameter": true,
   "inlayHint.refreshOnInsertMode": true,
   // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
@@ -557,6 +559,7 @@
   "rust-analyzer.disableProgressNotifications": true,
   "rust-analyzer.check.command": "clippy",
   "Lua.diagnostics.globals": ["vim"],
+  "tsserver.enable": true,
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
     "taplo": {
@@ -598,6 +601,37 @@
         "typescript.inlayHints.includeInlayFunctionLikeReturnTypeHints": true,
         "typescript.inlayHints.includeInlayPropertyDeclarationTypeHints": true,
         "typescript.inlayHints.includeInlayVariableTypeHintsWhenTypeMatchesName": true
+      }
+    },
+    "vtsls": {
+      "enable": false,
+      "command": "vtsls",
+      "args": ["--stdio"],
+      "rootPatterns": ["package.json", ".git", ".editorconfig"],
+      // "trace.server": "verbose",
+      "filetypes": [
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "typescript.tsx",
+        "javascript.jsx"
+      ],
+      "disabledFeatures": ["formatting"],
+      "initializationOptions": {},
+      "settings": {
+        "typescript.format.enable": false,
+        "typescript.tsserver.useSyntaxServer": "auto",
+        "typescript.suggest.completeFunctionCalls": false,
+        "typescript.tsdk": "/home/hexh/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib",
+        "typescript.tsserver.maxTsServerMemory": 16384,
+        "typescript.inlayHints.parameterTypes.enabled": true,
+        "typescript.inlayHints.variableTypes.enabled": true,
+        "typescript.inlayHints.enumMemberValues.enabled": true,
+        "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+        "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+        "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+        "vtsls.autoUseWorkspaceTsdk": true
       }
     }
   }
