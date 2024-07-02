@@ -109,13 +109,6 @@ else
   hi! CursorWord guibg=#D3D3D3
 endif
 
-" hi! link PrettyTsErrorType DefxIconsDefaultIcon
-if &background == "dark"
-  hi! PrettyTsErrorType guifg=#393939
-else
-  hi! PrettyTsErrorType guifg=#D0D0D0
-endif
-
 exec 'hi! DiffAdd guibg=' . s:green_bg . ' guifg=NONE'
 exec 'hi! DiffChange guibg=' . s:blue_bg . ' guifg=NONE'
 exec 'hi! DiffDelete guibg=' . s:red_bg . ' guifg=NONE'
@@ -256,6 +249,13 @@ exec 'hi! CocInfoVirtualText' .
 exec 'hi! CocHintVirtualText' .
   \' guifg=' . s:hint .
   \' guibg=' . s:hint_bg
+
+if &background == "dark"
+  hi! PrettyTsErrorType guifg=#393939 guibg=NONE gui=NONE
+else
+  hi! PrettyTsErrorType guifg=#D0D0D0  guibg=NONE gui=NONE
+endif
+hi! link CocMarkdownCode Comment
 
 " 插入模式的时候让上述 coc 相关的 VirtualText 变为不可视，正常模式下恢复，其实就是变为 CursorLine 的背景一个颜色
 autocmd InsertEnter * exec 'hi! CocErrorVirtualText guibg=NONE' .
