@@ -80,7 +80,7 @@ vim.g.coc_global_extensions = {
   "coc-angular",
   "coc-git",
   "@hexuhua/coc-replacement",
-  -- "@yaegassy/coc-volar",
+  "@yaegassy/coc-volar",
   "@yaegassy/coc-marksman",
   "coc-tasks",
   "coc-todo-tree",
