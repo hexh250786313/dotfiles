@@ -43,7 +43,8 @@
     "typescript": ["typescript", "basicjs"],
     "javascriptreact": ["javascript", "javascriptreact", "basicjs", "basicjsx"],
     "typescriptreact": ["typescript", "typescriptreact", "basicjs", "basicjsx"],
-    "vue": ["vue", "javascript", "typescript"]
+    "vue": ["vue", "javascript", "typescript"],
+    "markdown": ["misc"]
   },
   "outline.autoPreview": true,
   "outline.sortBy": "position",
