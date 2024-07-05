@@ -64,6 +64,10 @@
       {
         "language": "typescriptreact",
         "path": "./snippets/basicjs.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./snippets/markdown.json"
       }
     ]
   }
