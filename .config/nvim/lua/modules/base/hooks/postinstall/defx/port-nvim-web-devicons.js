@@ -1,8 +1,8 @@
 const fs = require("fs");
 const HOME = require("os").homedir();
 
-// const target = `${HOME}/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua/nvim-web-devicons/icons-default.lua`;
-const target = `${HOME}/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua/nvim-web-devicons/icons-light.lua`;
+const target = `${HOME}/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua/nvim-web-devicons/icons-default.lua`;
+// const target = `${HOME}/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua/nvim-web-devicons/icons-light.lua`;
 const template = `${__dirname}/template.vim`;
 
 const luaData = fs.readFileSync(target, "utf8");

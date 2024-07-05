@@ -283,7 +283,7 @@ exec 'hi! CocHintSign gui=bold,Italic' .
   \' guifg=' . s:hint .
   \' guibg=NONE'
 
-exec 'hi! CocGitSignChange guifg=' . s:blue . ' guibg=NONE'
-exec 'hi! CocGitSignDelete guifg=' . s:red . ' guibg=NONE'
-exec 'hi! CocGitSignAdd guifg=' s:green . ' guibg=NONE'
+exec 'hi! CocGitSignChange guifg=' . s:blue_bg . ' guibg=NONE'
+exec 'hi! CocGitSignDelete guifg=' . s:red_bg . ' guibg=NONE'
+exec 'hi! CocGitSignAdd guifg=' s:green_bg . ' guibg=NONE'
 
