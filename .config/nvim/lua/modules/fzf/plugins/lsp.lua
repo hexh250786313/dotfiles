@@ -404,9 +404,9 @@ local function diagnostic(filter)
     filename = utils.ansi_from_hl("Comment", filename)
     local target = tables[i]
     -- 跳过 target.source 为 coc-pretty-ts-errors
-    if target.source == "pretty-ts-errors" then
-      goto continue
-    end
+    -- if target.source == "pretty-ts-errors" then
+    --   goto continue
+    -- end
     local severity = "[" .. target.severity .. "]"
     local message = target.message
     -- 把 \n 替换为 ↵
