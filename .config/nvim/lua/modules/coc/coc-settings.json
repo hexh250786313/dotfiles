@@ -582,7 +582,7 @@
         "typescript.tsx",
         "javascript.jsx"
       ],
-      "disabledFeatures": ["progress"],
+      "disabledFeatures": ["formatting"],
       "initializationOptions": {
         "maxTsServerMemory": 16384,
         "tsserver": {
@@ -620,6 +620,7 @@
       "disabledFeatures": ["formatting"],
       "initializationOptions": {},
       "settings": {
+        "typescript.locale": "en", // 必须要传这个值，否则 vtsls 的补全会报错，不知道为什么
         "typescript.format.enable": false,
         "typescript.tsserver.useSyntaxServer": "auto",
         "typescript.suggest.completeFunctionCalls": false,
