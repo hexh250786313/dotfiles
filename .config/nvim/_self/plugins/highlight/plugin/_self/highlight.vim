@@ -71,12 +71,12 @@ if &background == "dark"
   let s:blue_bg = '#0d3138'
   let s:red_bg = '#3c1f1e'
 else
-  let s:green = '#D7E7B1'
+  let s:green = '#C7DDC5'
   let s:blue = '#99CCFF'
-  let s:red = '#FF8282'
-  let s:green_bg = '#EBF1DD'
+  let s:red = '#E7BCC8'
+  let s:green_bg = '#D5E5D6'
   let s:blue_bg = '#E0E6F8'
-  let s:red_bg = '#FFCCCC'
+  let s:red_bg = '#EACFD8'
 endif
 
 let s:error = _self#highlight#pick('ErrorMsg', 'fg')
