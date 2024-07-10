@@ -316,7 +316,7 @@
     "biome": {
       "command": "npx",
       "isStderr": true,
-      "rootPatterns": [".git"],
+      "rootPatterns": [".git", "biome.json"],
       "debounce": 550,
       "args": ["biome", "lint", "--stdin-file-path", "%filename"],
       "sourceName": "biome",
