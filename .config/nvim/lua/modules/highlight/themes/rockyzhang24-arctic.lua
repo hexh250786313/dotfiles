@@ -7,7 +7,6 @@ M.requires = { "rktjmp/lush.nvim" }
 function M.setup()
   vim.cmd([[
   colorscheme arctic
-  hi! link CocMarkdownCode Comment
   ]])
 end
 
