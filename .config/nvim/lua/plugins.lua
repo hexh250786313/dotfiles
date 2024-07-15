@@ -61,10 +61,13 @@ return packer.startup(function(use)
   use({
     "skywind3000/asynctasks.vim",
     requires = "skywind3000/asyncrun.vim",
-    -- commit = "c304a574defa426f0b660c361fa01b556dd60d4d",
     config = [[require("modules.base.plugins.asynctasks")]],
   })
-  use({ "folke/which-key.nvim", config = [[require("modules.base.plugins.which-key")]], commit = "0539da005b98b02cf730c1d9da82b8e8edb1c2d2" })
+  use({
+    "folke/which-key.nvim",
+    config = [[require("modules.base.plugins.which-key")]],
+    commit = "0539da005b98b02cf730c1d9da82b8e8edb1c2d2",
+  })
   use({
     "klen/nvim-config-local",
     config = [[require("modules.base.plugins.nvim-config-local")]],
@@ -188,8 +191,6 @@ return packer.startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    -- commit = "3c42fb9d702e1246313d2b5531b815595cb4d889",
-    -- commit = "d4e48be88d9822d98c9194f5cc2778c9953afb66",
     config = [[require("modules.highlight.plugins.nvim-treesitter")]],
   })
   use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
@@ -237,8 +238,6 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "ibhagwan/fzf-lua",
-    -- commit = "a5b32c30ece070d0417c2f41751fa11248c4e5de", -- windows support 之后无效
-    -- commit = "91ec17b4fd0d810599f054eef08db967a0457fbf",
     config = [[require("modules.fzf.plugins.fzf-lua")]],
     keys = {
       { "n", "<leader>/" },
