@@ -21,4 +21,4 @@ services:
   'git.fpdev.tech': 'gitlab:git.fpdev.tech'
 os:
   # edit: '~/Downloads/nvim.appimage {{filename}}'
-  edit: 'nvim {{filename}}'
+  edit: 'nvim {{filename}} -c "call timer_start(1000, {-> execute(\"CocDisable\")})"'
