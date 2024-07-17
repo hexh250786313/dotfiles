@@ -191,7 +191,7 @@ local function getNewPreviewer(string_parser)
     -- 设置语法高亮
     local lcount = vim.api.nvim_buf_line_count(tmpbuf)
     local bytes = vim.api.nvim_buf_get_offset(tmpbuf, lcount)
-    local max_filesize = 50 * 1024 -- 50 KB
+    local max_filesize = 500 * 1024 -- 500K
     if bytes <= max_filesize then
       -- api.nvim_buf_set_option(tmpbuf, 'filetype', filetype) -- 使用 filetype 会启用 treesitter
       api.nvim_buf_set_option(tmpbuf, 'syntax', filetype) -- 使用 syntax 不会启用 treesitter，用普通的语法高亮

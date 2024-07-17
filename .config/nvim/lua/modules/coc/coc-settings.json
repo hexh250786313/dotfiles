@@ -20,7 +20,7 @@
   // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
   // "css.completion.triggerPropertyValueCompletion": false,
   // "scss.completion.triggerPropertyValueCompletion": false,
-  "colors.enable": false,
+  "colors.enable": true,
   "semanticTokens.enable": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/_self/ultisnips",
   "session.directory": "~/.vimsessions",
@@ -34,7 +34,7 @@
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "coc.preferences.maxFileSize": "10MB",
+  "coc.preferences.maxFileSize": "5MB",
   "snippets.extends": {
     "less": ["basiccss"],
     "css": ["basiccss"],

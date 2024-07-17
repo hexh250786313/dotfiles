@@ -201,7 +201,11 @@ return packer.startup(function(use)
   -- })
   use({ "hexh250786313/yats.vim" })
   use({ "hexh250786313/vim-svelte-plugin" })
-  use({ "NvChad/nvim-colorizer.lua", config = [[require("modules.highlight.plugins.nvim-colorizer")]] })
+  use({
+    "NvChad/nvim-colorizer.lua",
+    cmd = { "ColorizerToggle" },
+    config = [[require("modules.highlight.plugins.nvim-colorizer")]],
+  })
   -- use({ "lukas-reineke/virt-column.nvim", config = [[require("modules.highlight.plugins.virt-column")]] })
   -- Theme
   use({
