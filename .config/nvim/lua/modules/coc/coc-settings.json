@@ -16,7 +16,6 @@
   "suggest.insertMode": "insert",
   "svelte.enable-ts-plugin": true,
   "copilot.kindLabel": "cpil",
-  "copilot.autoUpdateCompletion": true,
   "copilot.enablePreselect": false,
   // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
   // "css.completion.triggerPropertyValueCompletion": false,
