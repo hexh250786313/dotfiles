@@ -307,9 +307,9 @@ end
 
 -- list_or_jump
 local function list_or_jump(provider, has_jump)
-  local action = provider .. "s" -- definition, definitions：provider + 's'
+  local action = provider
   store = {}
-  if not is_ready(provider) then
+  if not is_ready() then
     return
   end
 
@@ -614,17 +614,22 @@ end
 
 local function lsp_reference()
   close_all_coc_floats()
-  list_or_jump('reference', true)
+  list_or_jump('references', true)
 end
 
 local function lsp_implementation()
   close_all_coc_floats()
-  list_or_jump('implementation', true)
+  list_or_jump('implementations', true)
 end
 
 local function lsp_definition()
   close_all_coc_floats()
-  list_or_jump('definition', true)
+  list_or_jump('definitions', true)
+end
+
+local function diagnostic_related_info()
+  close_all_coc_floats()
+  list_or_jump('diagnosticRelatedInformation', true)
 end
 
 local function get_symbols(symbols)
@@ -702,6 +707,7 @@ end
 
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
+wk.register({ mode = { "n" }, ["gD"] = { diagnostic_related_info, "Go to diagnostic related information" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
 wk.register({ mode = { "n" },
               ["<leader>ld"] = { diagnostic_from_current_buffer, "LSP diagnostics from current buffer" } })

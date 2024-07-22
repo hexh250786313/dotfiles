@@ -252,6 +252,7 @@ return packer.startup(function(use)
       { "n", "<leader>ar" },
       { "n", "gr" },
       { "n", "gd" },
+      { "n", "gD" },
       { "n", "gi" },
       { "n", "?" },
     },
@@ -262,8 +263,8 @@ return packer.startup(function(use)
   -- │  CoC Module
   -- └───────────────────────────────────────
   use({
-    -- "neoclide/coc.nvim",
-    "~/workspace/hexh/coc.nvim",
+    "neoclide/coc.nvim",
+    -- "~/workspace/hexh/coc.nvim",
     -- "hexh250786313/coc.nvim",
     -- branch = "feat/incompletionSource",
     config = [[require("modules.coc.config")]],
