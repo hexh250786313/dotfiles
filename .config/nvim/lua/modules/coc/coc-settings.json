@@ -1,6 +1,5 @@
 {
   "pretty-ts-errors.serverName": "vtsls",
-  "pretty-ts-errors.separateDiagnostics": true,
   "coc.preferences.extensionUpdateUIInTab": true,
   "volar.disableFormatting": true,
   "json.format.enable": false,
