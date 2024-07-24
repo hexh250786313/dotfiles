@@ -168,17 +168,27 @@
     "winblend": 0
   },
   "suggest.pumFloatConfig": {
-    "border": true,
+    // 旧的：
+    // "border": true,
+    // "rounded": true,
+    // "highlight": "Normal",
+    // // "borderhighlight": "LspInfoBorder",
+    // "winblend": 0
+    // 新的：
     "rounded": true,
-    "highlight": "Normal",
-    // "borderhighlight": "LspInfoBorder",
+    "highlight": "CocPumMenu",
     "winblend": 0
   },
   "floatFactory.floatConfig": {
-    "border": [1, 1, 1, 1], // or bool
+    // 旧的：
+    // "border": [1, 1, 1, 1], // or bool
+    // "rounded": true,
+    // "highlight": "Normal",
+    // // "borderhighlight": "LspInfoBorder",
+    // "winblend": 0,
+    // 新的：
     "rounded": true,
-    "highlight": "Normal",
-    // "borderhighlight": "LspInfoBorder",
+    "highlight": "NormalFloat",
     "winblend": 0
   },
   "suggest.timeout": 5000,
