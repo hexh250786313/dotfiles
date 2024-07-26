@@ -12,6 +12,7 @@ keybinding:
     scrollDownMain-alt1: '<down>'
     prevItem: '<c-k>'
     nextItem: '<c-j>'
+    openDiffTool: '<c-d>'
 git:
   paging:
     colorArg: always

@@ -1,5 +1,5 @@
 # 不插入虚拟文本
-# sd '.*function!.*s:UpdatePreview.*abort.*\n.*try' 'function! s:UpdatePreview() abort\nlet ft = &filetype\nif ft !=# "copilot-chat"\nreturn\nendif\n  try' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot.vim
+sd '.*function!.*s:UpdatePreview.*abort.*\n.*try' 'function! s:UpdatePreview() abort\nlet ft = &filetype\nif ft !=# "copilot-chat"\nreturn\nendif\n  try' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot.vim
 # 优化多行插入
 sd '=\["\\n"\]' '=["\\n\\n\\n"]' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/dist/language-server.js
 sd 'stop=\[`\n`]' 'stop=[`\n\n\n`]' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/dist/language-server.js

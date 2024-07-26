@@ -1,4 +1,5 @@
 {
+  // "copilot.triggerCharacters": [],
   "pretty-ts-errors.serverName": "vtsls",
   "coc.preferences.extensionUpdateUIInTab": true,
   "volar.disableFormatting": true,
@@ -15,7 +16,6 @@
   "suggest.insertMode": "insert",
   "svelte.enable-ts-plugin": true,
   "copilot.kindLabel": "cpil",
-  "copilot.enablePreselect": false,
   // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
   // "css.completion.triggerPropertyValueCompletion": false,
   // "scss.completion.triggerPropertyValueCompletion": false,
