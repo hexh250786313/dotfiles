@@ -21,7 +21,7 @@ function! s:SHORT_PATH() abort
   return empty(short) ? '~'.slash : short . (short =~ escape(slash, '\').'$' ? '' : slash)
 endfunction
 
-let g:fzf_layout = { 'window': { 'width': 0.77, 'height': 0.86 } }
+let g:fzf_layout = { 'window': { 'width': 0.80, 'height': 0.87 } }
 
 function! s:FZF(...)
   let l:opts = fzf#wrap('FZF', { 'options': ['--multi', '--reverse', '--prompt=' . s:SHORT_PATH(), '--cycle' ] })

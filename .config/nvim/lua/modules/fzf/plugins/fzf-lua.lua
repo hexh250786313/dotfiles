@@ -99,6 +99,7 @@ require('fzf-lua').setup({
       vertical = 'down:66%',
       layout = 'vertical', -- horizontal | vertical | flex
     },
+    backdrop = false, -- 背景是否改变颜色
   },
   previewers = {
     builtin = {
