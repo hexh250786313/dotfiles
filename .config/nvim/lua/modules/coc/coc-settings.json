@@ -523,7 +523,7 @@
   // "codeLens.position": "top"
   "todo-tree.tags": [
     {
-      "tagName": "todo",
+      "tagName": "@todo",
       "regex": "@todo",
       "icon": {
         "text": "",
@@ -531,7 +531,7 @@
       }
     },
     {
-      "tagName": "todo ",
+      "tagName": "TODO ",
       "regex": "TODO",
       "icon": {
         "text": "",
