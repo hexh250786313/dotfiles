@@ -21,11 +21,14 @@ wk.register({
 -- files
 -- wk.register({ mode = { "n" }, ["<leader>f"] = { "<cmd>CocList --height=9 filesMru<cr>", "Open file picker" } })
 
+-- code
+wk.register({ mode = { "n" }, ["<leader>cf"] = { "<cmd>call CocActionAsync('format')<CR>", "Format code" } })
+
 -- git
 wk.register({
   mode = { "n" },
   ["<leader>gs"] = { "<cmd>CocCommand git.chunkStage<cr>", "Stage git chunk" },
-  ["<leader>gu"] = { "<cmd>CocCommand git.chunkUndo<cr>", "Undo git chunk" },
+  ["<leader>gu"] = { "<cmd>call function(g:coc_config_sid . 'GIT_CHUNK_UNDO')()<cr>", "Undo git chunk" },
   ["<leader>gi"] = { "<cmd>CocCommand git.chunkInfo<cr>", "Show git chunk info" },
   ["<leader>gd"] = { "<cmd>CocCommand git.diffCached<cr>", "Show git chunk diff info" },
   ["[g"] = { "<Plug>(coc-git-prevchunk)", "Go to previous change" },
@@ -85,7 +88,8 @@ vim.g.coc_global_extensions = {
   "coc-styled-components",
   "coc-typos",
   -- "@hexuhua/coc-list-files-mru",
-  -- "@hexuhua/coc-copilot",
+  "@hexuhua/coc-copilot",
+  "coc-highlight",
   -- "coc-symbol-line",
   "coc-tsserver",
   "coc-go",
@@ -93,6 +97,7 @@ vim.g.coc_global_extensions = {
   "coc-pretty-ts-errors",
   "coc-rust-analyzer",
   "coc-sumneko-lua",
+  "coc-biome",
   -- "coc-lightbulb",
   -- "coc-cssmodules",
 }
@@ -126,6 +131,15 @@ let g:coc_config_sid = s:SID_PREFIX()
 function! s:COC_REFRESH_AND_SIGNATURE_HELP()
   call CocActionAsync('showSignatureHelp')
   return coc#refresh() " 此处必须返回，否则 coc#refresh() 不生效
+endfunction
+
+" git undo
+function! s:GIT_CHUNK_UNDO()
+  " 如果存在浮动窗口则关闭
+  if coc#float#has_float() > 0
+    call coc#float#close_all()
+  endif
+  exec 'CocCommand git.chunkUndo'
 endfunction
 
 " 展示文档

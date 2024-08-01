@@ -2,7 +2,7 @@ local util = require "formatter.util"
 
 ---------> 快捷键
 local wk = require("which-key")
-wk.register({ mode = { "n" }, ["<leader>cf"] = { "<cmd>Format<cr>", "Format code" } })
+-- wk.register({ mode = { "n" }, ["<leader>cf"] = { "<cmd>Format<cr>", "Format code" } })
 wk.register({
   mode = { "x" },
   ["<leader>cf"] = { ":'<,'>Format<cr><esc>", "Format code" }, -- 这里不要用 <cmd>

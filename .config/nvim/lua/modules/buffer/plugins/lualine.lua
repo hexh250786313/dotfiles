@@ -126,7 +126,7 @@ local config = {
           ok = " ",
         },
       },
-      { "filename", path = 4 },
+      -- { "filename", path = 4 },
     },
     lualine_c = {},
     lualine_x = { "g:coc_status", "encoding", search_result, "filetype" },
@@ -200,8 +200,19 @@ local function can_require(path)
   return false
 end
 
-if can_require("lualine.themes" .. colorscheme) then
-  config.options.theme = require("lualine.themes" .. colorscheme)
+if can_require("lualine.themes." .. colorscheme) then
+  local theme = require("lualine.themes." .. colorscheme)
+  if not theme.command then
+    theme.command = {}
+  end
+  theme.command.a = theme.normal.a
+  theme.command.b = theme.normal.b
+
+  if not theme.terminal then
+    theme.terminal = {}
+  end
+  theme.terminal.a = theme.normal.a
+  config.options.theme = theme
 end
 
 lualine.setup(config)

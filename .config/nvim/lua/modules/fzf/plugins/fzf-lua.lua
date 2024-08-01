@@ -99,12 +99,14 @@ require('fzf-lua').setup({
       vertical = 'down:66%',
       layout = 'vertical', -- horizontal | vertical | flex
     },
+    backdrop = false, -- 背景是否改变颜色
   },
   previewers = {
     builtin = {
       treesitter = { enable = false },
       syntax_limit_l = 0, -- syntax limit (lines), 0=nolimit
-      syntax_limit_b = 50 * 1024, -- syntax limit (bytes), 0=nolimit
+      -- 约 500K
+      syntax_limit_b = 500 * 1024, -- syntax limit (bytes), 0=nolimit
     },
   },
 })

@@ -1,9 +1,21 @@
 {
+  // "copilot.triggerCharacters": [],
+  "pretty-ts-errors.serverName": "vtsls",
+  "coc.preferences.extensionUpdateUIInTab": true,
+  "volar.disableFormatting": true,
+  "json.format.enable": false,
+  "javascript.format.enable": false,
+  "svelte.plugin.svelte.format.enable": false,
+  "Lua.format.enable": false,
+  "css.format.enable": false,
+  "yaml.format.enable": false,
+  "html.format.enable": false,
+  "scss.format.enable": false,
+  "less.format.enable": false,
+  "typescript.format.enable": false,
   "suggest.insertMode": "insert",
   "svelte.enable-ts-plugin": true,
-  "copilot.kindLabel": "COP",
-  "copilot.autoUpdateCompletion": true,
-  // "copilot.enablePreselect": false,
+  "copilot.kindLabel": "cpil",
   // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
   // "css.completion.triggerPropertyValueCompletion": false,
   // "scss.completion.triggerPropertyValueCompletion": false,
@@ -21,7 +33,7 @@
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "coc.preferences.maxFileSize": "1MB",
+  "coc.preferences.maxFileSize": "5MB",
   "snippets.extends": {
     "less": ["basiccss"],
     "css": ["basiccss"],
@@ -30,7 +42,8 @@
     "typescript": ["typescript", "basicjs"],
     "javascriptreact": ["javascript", "javascriptreact", "basicjs", "basicjsx"],
     "typescriptreact": ["typescript", "typescriptreact", "basicjs", "basicjsx"],
-    "vue": ["vue", "javascript", "typescript"]
+    "vue": ["vue", "javascript", "typescript"],
+    "markdown": ["misc"]
   },
   "outline.autoPreview": true,
   "outline.sortBy": "position",
@@ -88,35 +101,35 @@
   "list.source.grep.excludePatterns": ["**/.git/**"],
   "list.source.files.args": ["--files", "--hidden"],
   "list.source.files.excludePatterns": ["**/.git/**"],
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.virtualTextCurrentLineOnly": true,
   "suggest.completionItemKindLabels": {
-    "keyword": "KEY",
-    "variable": "VAR",
-    "value": "VAL",
-    "operator": "OPR",
-    "constructor": "CON",
-    "function": "FUN",
-    "reference": "REF",
-    "constant": "CST",
-    "method": "MET",
-    "struct": "STR",
-    "class": "CLS",
-    "interface": "INT",
-    "text": "TXT",
-    "enum": "ENM",
-    "enumMember": "EMM",
-    "module": "MOD",
-    "color": "CLR",
-    "property": "PRT",
-    "field": "FLD",
-    "unit": "UNT",
-    "event": "EVT",
-    "file": "FIL",
-    "folder": "FOL",
-    "snippet": "SNI",
-    "typeParameter": "TPR",
-    "default": "DEF"
+    "keyword": "kwrd",
+    "variable": "var",
+    "value": "val",
+    "operator": "opr",
+    "constructor": "ctor",
+    "function": "func",
+    "reference": "ref",
+    "constant": "cnst",
+    "method": "meth",
+    "struct": "stru",
+    "class": "clas",
+    "interface": "intf",
+    "text": "txt",
+    "enum": "enum",
+    "enumMember": "emem",
+    "module": "modu",
+    "color": "colr",
+    "property": "prop",
+    "field": "fld",
+    "unit": "unit",
+    "event": "evnt",
+    "file": "file",
+    "folder": "fold",
+    "snippet": "snip",
+    "typeParameter": "tparam",
+    "default": "deflt"
   },
   // "suggest.completionItemKindLabels": {
   //   "keyword": "",
@@ -155,29 +168,39 @@
     "winblend": 0
   },
   "suggest.pumFloatConfig": {
-    "border": true,
+    // 旧的：
+    // "border": true,
+    // "rounded": true,
+    // "highlight": "Normal",
+    // // "borderhighlight": "LspInfoBorder",
+    // "winblend": 0
+    // 新的：
     "rounded": true,
-    "highlight": "Normal",
-    // "borderhighlight": "LspInfoBorder",
+    "highlight": "CocPumMenu",
     "winblend": 0
   },
   "floatFactory.floatConfig": {
-    "border": [1, 1, 1, 1], // or bool
+    // 旧的：
+    // "border": [1, 1, 1, 1], // or bool
+    // "rounded": true,
+    // "highlight": "Normal",
+    // // "borderhighlight": "LspInfoBorder",
+    // "winblend": 0,
+    // 新的：
     "rounded": true,
-    "highlight": "Normal",
-    // "borderhighlight": "LspInfoBorder",
+    "highlight": "NormalFloat",
     "winblend": 0
   },
   "suggest.timeout": 5000,
   "coc.preferences.extensionUpdateCheck": "never",
   "diagnostic.checkCurrentLine": false,
-  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": false, // 会导致自定义语言服务器超级卡
   "git.semanticCommit.scope": false,
   "suggest.detailField": "abbr",
   "suggest.defaultSortMethod": "none",
   "coc.source.file.ignoreHidden": false,
   "git.conflict.enabled": false,
-  "suggest.selection": "recentlyUsedByPrefix",
+  "suggest.selection": "first",
   "lightbulb.enableSign": false,
   "lightbulb.virtualTextPosition": "eol",
   "notification.statusLineProgress": true,
@@ -231,7 +254,98 @@
     "less": "lesslint",
     "scss": "scsslint"
   },
+  "diagnostic-languageserver.formatFiletypes": {
+    "html": "prettierd",
+    "typescriptreact": "prettierd",
+    "typescript": "prettierd",
+    "javascript": "prettierd",
+    "javascriptreact": "prettierd",
+    "markdown": "prettierd",
+    "json": "prettierd",
+    "jsonc": "prettierd",
+    "css": "prettierd",
+    "scss": "prettierd",
+    "less": "prettierd",
+    "vue": "prettierd",
+    "nginx": "nginxfmt",
+    "lua": "luafmt",
+    "sql": "pg",
+    "zsh": "beautysh",
+    "yaml": "prettier",
+    "sh": "shfmt"
+  },
+  "diagnostic-languageserver.formatters": {
+    "prettierd": {
+      "command": "prettierd",
+      "args": ["%filename"],
+      "rootPatterns": ["package.json"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "nginxfmt": {
+      "command": "nginxfmt",
+      "args": ["-p", "-"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "luafmt": {
+      "command": "lua-format",
+      "args": ["--config", "/home/hexh/.config/nvim/_self/lang-configs/lua/formatter.conf"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "pg": {
+      "command": "pg_format",
+      "args": ["-"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "beautysh": {
+      "command": "beautysh",
+      "args": ["-i", 2, "-"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "prettier": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filename"],
+      "isStdout": true,
+      "isStderr": true
+    },
+    "shfmt": {
+      "command": "shfmt",
+      "args": ["-i", 2],
+      "isStdout": true,
+      "isStderr": true
+    }
+  },
   "diagnostic-languageserver.linters": {
+    // 另外记得 stdin 模式下不能在 args 中使用 %file，否则 diagnostic-languageserver 不会进行标准输入，换成 %filename 即可
+    "biome": {
+      "command": "npx",
+      "isStderr": true,
+      "rootPatterns": [".git", "biome.json"],
+      "debounce": 550,
+      "args": ["biome", "lint", "--stdin-file-path", "%filename"],
+      "sourceName": "biome",
+      "formatLines": 999,
+      "formatPattern": [
+        "^.*?(\\d+):(\\d+)\u0020(\\S+)\u0020+(\\S*).*(\n.*?)+\u0020\u0020×\u0020(.*)(\n.*?)+((\u0020\u0020i\u0020.+\n.*\n)+)",
+        {
+          "line": 1,
+          "column": 2,
+          "message": [6, "\n\n", 8],
+          "sourceName": 3,
+          // "sourceNameFilter": true,
+          // "endLine": 5,
+          // "endColumn": 3,
+          "security": 4
+        }
+      ],
+      "securities": {
+        "FIXABLE": "warning"
+      }
+    },
     "sqlfluff": {
       "command": "sqlfluff",
       "rootPatterns": [".git"], // For cwd
@@ -409,7 +523,7 @@
   // "codeLens.position": "top"
   "todo-tree.tags": [
     {
-      "tagName": "todo",
+      "tagName": "@todo",
       "regex": "@todo",
       "icon": {
         "text": "",
@@ -417,7 +531,7 @@
       }
     },
     {
-      "tagName": "todo ",
+      "tagName": "TODO ",
       "regex": "TODO",
       "icon": {
         "text": "",
@@ -454,6 +568,7 @@
   "rust-analyzer.disableProgressNotifications": true,
   "rust-analyzer.check.command": "clippy",
   "Lua.diagnostics.globals": ["vim"],
+  "tsserver.enable": false,
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
     "taplo": {
@@ -476,11 +591,11 @@
         "typescript.tsx",
         "javascript.jsx"
       ],
-      "disabledFeatures": ["progress"],
+      "disabledFeatures": ["documentFormatting", "formatting", "documentRangeFormatting", "documentOnTypeFormatting"],
       "initializationOptions": {
         "maxTsServerMemory": 16384,
         "tsserver": {
-          // "path": "/home/hexh/.local/share/fnm/node-versions/v18.20.0/installation/lib/node_modules/typescript/lib/tsserver.js"
+          "path": "/home/hexh/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib/tsserver.js"
           // "trace": "verbose"
           // "logVerbosity": "verbose"
         }
@@ -495,6 +610,38 @@
         "typescript.inlayHints.includeInlayFunctionLikeReturnTypeHints": true,
         "typescript.inlayHints.includeInlayPropertyDeclarationTypeHints": true,
         "typescript.inlayHints.includeInlayVariableTypeHintsWhenTypeMatchesName": true
+      }
+    },
+    "vtsls": {
+      "enable": true,
+      "command": "vtsls",
+      "args": ["--stdio"],
+      "rootPatterns": ["package.json", ".git", ".editorconfig"],
+      // "trace.server": "verbose",
+      "filetypes": [
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "typescript.tsx",
+        "javascript.jsx"
+      ],
+      "disabledFeatures": ["documentFormatting", "formatting", "documentRangeFormatting", "documentOnTypeFormatting"],
+      "initializationOptions": {},
+      "settings": {
+        "typescript.locale": "en", // 必须要传这个值，否则 vtsls 的补全会报错，不知道为什么
+        "typescript.format.enable": false,
+        "typescript.tsserver.useSyntaxServer": "auto",
+        "typescript.suggest.completeFunctionCalls": false,
+        "typescript.tsdk": "/home/hexh/.config/coc/extensions/node_modules/coc-tsserver/node_modules/typescript/lib",
+        "typescript.tsserver.maxTsServerMemory": 16384,
+        "typescript.inlayHints.parameterTypes.enabled": true,
+        "typescript.inlayHints.variableTypes.enabled": true,
+        "typescript.inlayHints.enumMemberValues.enabled": true,
+        "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+        "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+        "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+        "vtsls.autoUseWorkspaceTsdk": true
       }
     }
   }

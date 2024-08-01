@@ -10,6 +10,15 @@ local CocActionAsync = fn.CocActionAsync
 
 local store = { results = {}, items = {} }
 
+-- 关闭所有的浮动窗口
+local function close_all_coc_floats()
+  vim.api.nvim_exec([[
+    if coc#float#has_float() > 0
+      call coc#float#close_all()
+    endif
+  ]], false)
+end
+
 -- 定义设置高亮的函数
 local function highlight_lsp_range(bufnr, ns_id, hl_group, target)
   local function apply_highlight(range)
@@ -182,7 +191,7 @@ local function getNewPreviewer(string_parser)
     -- 设置语法高亮
     local lcount = vim.api.nvim_buf_line_count(tmpbuf)
     local bytes = vim.api.nvim_buf_get_offset(tmpbuf, lcount)
-    local max_filesize = 50 * 1024 -- 50 KB
+    local max_filesize = 500 * 1024 -- 500K
     if bytes <= max_filesize then
       -- api.nvim_buf_set_option(tmpbuf, 'filetype', filetype) -- 使用 filetype 会启用 treesitter
       api.nvim_buf_set_option(tmpbuf, 'syntax', filetype) -- 使用 syntax 不会启用 treesitter，用普通的语法高亮
@@ -298,9 +307,9 @@ end
 
 -- list_or_jump
 local function list_or_jump(provider, has_jump)
-  local action = provider .. "s" -- definition, definitions：provider + 's'
+  local action = provider
   store = {}
-  if not is_ready(provider) then
+  if not is_ready() then
     return
   end
 
@@ -395,9 +404,9 @@ local function diagnostic(filter)
     filename = utils.ansi_from_hl("Comment", filename)
     local target = tables[i]
     -- 跳过 target.source 为 coc-pretty-ts-errors
-    if target.source == "pretty-ts-errors" then
-      goto continue
-    end
+    -- if target.source == "pretty-ts-errors" then
+    --   goto continue
+    -- end
     local severity = "[" .. target.severity .. "]"
     local message = target.message
     -- 把 \n 替换为 ↵
@@ -429,6 +438,7 @@ local function diagnostic(filter)
 end
 
 local function diagnostic_from_current_buffer()
+  close_all_coc_floats()
   local function filter(results)
     local current_bufnr = api.nvim_get_current_buf()
     local current_file_path = vim.uri_to_fname(vim.uri_from_bufnr(current_bufnr))
@@ -457,6 +467,7 @@ local function diagnostic_from_current_buffer()
 end
 
 local function diagnostic_from_workspace()
+  close_all_coc_floats()
   local strings = diagnostic()
   if type(strings) ~= 'table' or vim.tbl_isempty(strings) then
     return
@@ -516,32 +527,32 @@ end
 
 local function get_lsp_icon(kind)
   local icons = {
-    Keyword = "KEY",
-    Variable = "VAR",
-    Value = "VAL",
-    Operator = "OPR",
-    Constructor = "CON",
-    Function = "FUN",
-    Reference = "REF",
-    Constant = "CST",
-    Method = "MET",
-    Struct = "STR",
-    Class = "CLS",
-    Interface = "INT",
-    Text = "TXT",
-    Enum = "ENM",
-    EnumMember = "EMM",
-    Module = "MOD",
-    Color = "CLR",
-    Property = "PRT",
-    Field = "FLD",
-    Unit = "UNT",
-    Event = "EVT",
-    File = "FIL",
-    Folder = "FOL",
-    Snippet = "SNI",
-    TypeParameter = "TPR",
-    Default = "DEF",
+    Keyword = "kwrd",
+    Variable = "var",
+    Value = "val",
+    Operator = "opr",
+    Constructor = "ctor",
+    Function = "func",
+    Reference = "ref",
+    Constant = "cnst",
+    Method = "meth",
+    Struct = "stru",
+    Class = "clas",
+    Interface = "intf",
+    Text = "txt",
+    Enum = "enum",
+    EnumMember = "emem",
+    Module = "modu",
+    Color = "colr",
+    Property = "prop",
+    Field = "fld",
+    Unit = "unit",
+    Event = "evnt",
+    File = "file",
+    Folder = "fold",
+    Snippet = "snip",
+    TypeParameter = "tparam",
+    Default = "deflt",
   }
 
   local highlight = {
@@ -577,35 +588,48 @@ local function get_lsp_icon(kind)
 end
 
 local function code_action_line()
+  close_all_coc_floats()
   handle_code_action('line')
 end
 
 local function code_action_cursor()
+  close_all_coc_floats()
   handle_code_action('cursor')
 end
 
 local function code_action_file()
+  close_all_coc_floats()
   handle_code_action(nil)
 end
 
 local function code_action_source()
+  close_all_coc_floats()
   handle_code_action('source')
 end
 
 local function code_action_refactor()
+  close_all_coc_floats()
   handle_code_action('refactor')
 end
 
 local function lsp_reference()
-  list_or_jump('reference', true)
+  close_all_coc_floats()
+  list_or_jump('references', true)
 end
 
 local function lsp_implementation()
-  list_or_jump('implementation', true)
+  close_all_coc_floats()
+  list_or_jump('implementations', true)
 end
 
 local function lsp_definition()
-  list_or_jump('definition', true)
+  close_all_coc_floats()
+  list_or_jump('definitions', true)
+end
+
+local function diagnostic_related_info()
+  close_all_coc_floats()
+  list_or_jump('diagnosticRelatedInformation', true)
 end
 
 local function get_symbols(symbols)
@@ -666,6 +690,7 @@ local function get_symbols(symbols)
 end
 
 local function symbol()
+  close_all_coc_floats()
   store = {}
   if not is_ready('documentSymbol') then
     return
@@ -682,6 +707,7 @@ end
 
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
+wk.register({ mode = { "n" }, ["gD"] = { diagnostic_related_info, "Go to diagnostic related information" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
 wk.register({ mode = { "n" },
               ["<leader>ld"] = { diagnostic_from_current_buffer, "LSP diagnostics from current buffer" } })

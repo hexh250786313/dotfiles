@@ -1,7 +1,7 @@
 ---------> 配置
 -- 除了 autocmd 处对大文件进行处理, 这里也不能省略
 local disabler = function(lang, bufnr)
-  local max_filesize = 50 * 1024 -- 50 KB
+  local max_filesize = 500 * 1024 -- 500K
   local lcount = vim.api.nvim_buf_line_count(bufnr)
   local bytes = vim.api.nvim_buf_get_offset(bufnr, lcount)
   -- stats.size 的值等于 bytes，但是 nvim_buf_get_offset 看起来语法漂亮点
@@ -26,7 +26,9 @@ require("nvim-treesitter.configs").setup {
     "html",
     "markdown_inline",
     "svelte",
-    "go"
+    "go",
+    "rust",
+    "vimdoc"
   },
   auto_install = false,
   highlight = { enable = true, disable = disabler },
@@ -49,6 +51,6 @@ require("nvim-treesitter.configs").setup {
 }
 
 vim.cmd([[
-" 约 50K
-autocmd BufEnter * if line2byte('$') + len(getline('$')) > 51200 | syntax clear | setlocal nowrap | endif
+" 约 500K
+autocmd BufEnter * if line2byte('$') + len(getline('$')) > 512000 | syntax clear | setlocal nowrap | endif
 ]])

@@ -21,7 +21,7 @@ function! s:SHORT_PATH() abort
   return empty(short) ? '~'.slash : short . (short =~ escape(slash, '\').'$' ? '' : slash)
 endfunction
 
-let g:fzf_layout = { 'window': { 'width': 0.77, 'height': 0.86 } }
+let g:fzf_layout = { 'window': { 'width': 0.80, 'height': 0.87 } }
 
 function! s:FZF(...)
   let l:opts = fzf#wrap('FZF', { 'options': ['--multi', '--reverse', '--prompt=' . s:SHORT_PATH(), '--cycle' ] })
@@ -67,6 +67,7 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:toggle-all'
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Comment'],
   \ 'bg':      ['bg', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
   \ 'hl':      ['fg', 'DiagnosticInfo'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'StatusLine'],
   \ 'hl+':     ['fg', 'Statement'],
@@ -78,5 +79,6 @@ let g:fzf_colors =
   \ 'border':  ['fg', 'Normal'],
   \ 'header':  ['fg', 'Comment'] }
 ]])
--- \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'], -- 选中行的背景 + 箭头前面那一列奇怪的竖线
+-- \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'], -- 选中行的背景 + 箭头前面那一列奇怪的竖线，默认颜色较浅
+-- \ 'bg+':     ['bg', 'CocMenuSel', 'CursorColumn'], -- 使用 CocMenuSel 这种颜色更深
 -- \ 'border':  ['bg', 'StatusLine'], -- 边框

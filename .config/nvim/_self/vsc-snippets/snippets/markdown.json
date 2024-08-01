@@ -1,0 +1,27 @@
+{
+  "Insert table": {
+    "prefix": "table",
+    "body": [
+      "| ${1:Column1}  | ${2:Column2}   | ${3:Column3}   |",
+      "|-------------- | -------------- | -------------- |",
+      "| ${4:Item1}    | ${5:Item1}     | ${6:Item1}     |",
+      "${0}"
+    ],
+    "description": "Insert table with 2 rows and 3 columns. First row is heading."
+  },
+  "Images": {
+    "prefix": "img",
+    "body": ["![${1:alt text}](${2:path}) ${0}"],
+    "description": "Add images"
+  },
+  "Images with width": {
+    "prefix": "imgw",
+    "body": ["<img src=\"${1:path}\" alt=\"${2:alt text}\" width=\"${3:85px}\" />"],
+    "description": "Add images with width"
+  },
+  "Links": {
+    "prefix": ["l", "link"],
+    "body": ["[${1:text}](${2:url}) ${0}"],
+    "description": "Add links"
+  }
+}

@@ -26,6 +26,14 @@ let s:exact_matches = extend({
 __REPLACE_1__
       \ }, get(g:, 'defx_icons_exact_matches', {}))
 
+let s:extensions_light = extend({
+__REPLACE_4__
+      \ }, get(g:, 'defx_icons_extensions', {}))
+
+let s:exact_matches_light = extend({
+__REPLACE_3__
+      \ }, get(g:, 'defx_icons_exact_matches', {}))
+
 let s:pattern_matches = extend({ }, get(g:, 'defx_icon_pattern_matches', {}))
 
 let s:exact_dir_matches = extend({ }, get(g:, 'defx_icon_exact_dir_matches', {}))
@@ -44,8 +52,8 @@ hi default link DefxIconsClosedTreeIcon Directory
 function! defx_icons#get() abort
   return {
         \ 'icons': {
-        \   'extensions': s:extensions,
-        \   'exact_matches': s:exact_matches,
+        \   'extensions': &background == 'dark' ? s:extensions : s:extensions_light,
+        \   'exact_matches': &background == 'dark' ? s:exact_matches : s:exact_matches_light,
         \   'pattern_matches': s:pattern_matches,
         \   'exact_dir_matches': s:exact_dir_matches,
         \   'parent_icon': s:parent_icon,

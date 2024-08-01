@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 ---- 快捷键
-wk.setup({ key_labels = { ["<leader>"] = "SPC" } })
+wk.setup({ key_labels = { ["<leader>"] = "SPC" }, notify = false })
 wk.register({
   mode = { "n" },
   ["<leader>w"] = { name = "Window" },
