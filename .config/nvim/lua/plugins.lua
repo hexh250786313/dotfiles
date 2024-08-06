@@ -355,6 +355,17 @@ return packer.startup(function(use)
     commit = "21d52973bde32db998fc8b6590f87eb3c3c6d8e4",
   })
 
+  -- ┌───────────────────────────────────────
+  -- │  Markdown Module
+  -- └───────────────────────────────────────
+  use({
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { 'markdown' },
+    config = function()
+      require('render-markdown').setup({})
+    end,
+  })
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
