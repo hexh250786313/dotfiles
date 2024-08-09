@@ -47,6 +47,11 @@ local lazygit = Terminal:new({
   on_close = function(term)
     -- vim.cmd("startinsert!")
   end,
+  float_opts = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    width = 999,
+    height = 999,
+  },
   auto_scroll = false,
 })
 local gitwebui = Terminal:new(
