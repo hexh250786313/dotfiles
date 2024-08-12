@@ -260,6 +260,8 @@
     "typescript": "prettierd",
     "javascript": "prettierd",
     "javascriptreact": "prettierd",
+    "javascript.jsx": "prettierd",
+    "typescript.tsx": "prettierd",
     "markdown": "prettierd",
     "json": "prettierd",
     "jsonc": "prettierd",

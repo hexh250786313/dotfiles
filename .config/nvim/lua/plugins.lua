@@ -263,10 +263,11 @@ return packer.startup(function(use)
   -- │  CoC Module
   -- └───────────────────────────────────────
   use({
-    "neoclide/coc.nvim",
+    "statiolake/coc.nvim",
+    -- "neoclide/coc.nvim",
     -- "~/workspace/hexh/coc.nvim",
     -- "hexh250786313/coc.nvim",
-    -- branch = "feat/incompletionSource",
+    branch = "feat/5076-specify-formatter",
     config = [[require("modules.coc.config")]],
     run = "rm -rf /home/hexh/.local/share/nvim/site/pack/packer/opt/coc.nvim/build && npm ci",
     -- 这个事件是 nvim-config-local 完成后的事件
