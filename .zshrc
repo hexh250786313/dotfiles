@@ -117,7 +117,7 @@ bindkey -r "^k" # disable c-k
 # fi
 export PATH="/home/$ME/.local/share/fnm:$PATH"
 # eval "`fnm env`"
-export DEFAULT_NODE_VERSION="v18.20.0"
+export DEFAULT_NODE_VERSION="v20.16.0"
 export LOWER_NODE_VERSION="v14.15.0"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
