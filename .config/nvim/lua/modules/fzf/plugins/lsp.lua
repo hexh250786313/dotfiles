@@ -352,7 +352,8 @@ local function list_or_jump(provider, has_jump)
   store.items = results;
 
   local opts = {
-    previewer = CommonPreviewr,
+    -- _ctor 是为了防止 fzf 内部有深拷贝，导致报错
+    previewer = { _ctor = function() return CommonPreviewr end },
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
   }
 
@@ -457,7 +458,8 @@ local function diagnostic_from_current_buffer()
   end
 
   local opts = {
-    previewer = CommonPreviewr,
+    -- _ctor 是为了防止 fzf 内部有深拷贝，导致报错
+    previewer = { _ctor = function() return CommonPreviewr end },
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
   }
 
@@ -474,7 +476,8 @@ local function diagnostic_from_workspace()
   end
 
   local opts = {
-    previewer = CommonPreviewr,
+    -- _ctor 是为了防止 fzf 内部有深拷贝，导致报错
+    previewer = { _ctor = function() return CommonPreviewr end },
     actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
   }
 
@@ -661,7 +664,8 @@ local function get_symbols(symbols)
   store.items = items
 
   local opts = {
-    previewer = SymbolPreviewr,
+    -- _ctor 是为了防止 fzf 内部有深拷贝，导致报错
+    previewer = { _ctor = function() return SymbolPreviewr end },
     actions = {
       ['enter'] = jump_to_location,
       ['ctrl-q'] = send_selected_to_qf,
