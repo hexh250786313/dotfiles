@@ -360,9 +360,7 @@ return packer.startup(function(use)
   use({
     "MeanderingProgrammer/render-markdown.nvim",
     ft = { 'markdown' },
-    config = function()
-      require('render-markdown').setup({})
-    end,
+    config = [[require("modules.markdown.plugins.render-markdown")]],
   })
 
   if PACKER_BOOTSTRAP then
