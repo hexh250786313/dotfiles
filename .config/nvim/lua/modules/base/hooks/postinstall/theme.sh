@@ -19,3 +19,10 @@ target_dir="$HOME/.local/share/nvim/site/pack/packer/start/theme/lua/lualine/the
 if [[ -f $ofirkai_lualine && ! -f $target_dir/ofirkai.lua ]]; then
   echo "return require('ofirkai.statuslines.lualine').theme" > $target_dir/ofirkai.lua
 fi
+
+# grey
+grey_lualine="$HOME/.config/nvim/lua/modules/highlight/lualine/nvim-grey.lua"
+target_dir="$HOME/.local/share/nvim/site/pack/packer/start/theme/lua/lualine/themes"
+if [[ -f $grey_lualine && ! -f $target_dir/grey.lua ]]; then
+  cp $grey_lualine $target_dir/grey.lua
+fi
