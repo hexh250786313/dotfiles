@@ -167,6 +167,15 @@ local function getNewPreviewer(string_parser)
     local _, lnum, col = string_parser(display_str)
 
     local target = get_target_store(display_str)
+
+    -- 判断 target 和 target.source 是否存在
+    if not target or not target.source then
+      -- 清空预览框并返回
+      api.nvim_buf_set_lines(tmpbuf, 0, -1, false, {})
+      self:set_preview_buf(tmpbuf)
+      return
+    end
+
     local uri = target.source.uri
 
     -- 先查询 buffer 是否已经打开，如果已经打开，读取 buffer 的内容
