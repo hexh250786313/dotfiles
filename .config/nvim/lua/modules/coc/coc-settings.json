@@ -637,5 +637,5 @@
       }
     }
   },
-  "markdown-preview-enhanced.previewTheme": "vue.css"
+  // "markdown-preview-enhanced.previewTheme": "vue.css" // 不要用，长代码块样式会错乱，还是用默认的好
 }

@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
-local function has(os)
-  return vim.fn.has(os) == 1
+local function is_wsl()
+  -- 不知道什么原因 vim.fn.has("wsl") 返回 0，所以这里用 os_unmae 的方式
+  local uname = vim.loop.os_uname()
+  return uname.release:lower():find("microsoft") or uname.release:lower():find("windows")
 end
 
 -- coc 的配置目录路径，需要初始化时指定，所以放在这里
@@ -24,7 +26,7 @@ vim.cmd("let $http_proxy ='http://" .. host .. ":4780'")
 vim.cmd("let $https_proxy ='http://" .. host .. ":4780'")
 
 if vim.fn.exists('$SSH_CLIENT') == 0 then
-  if has("wsl") then
+  if is_wsl() then
     vim.g.clipboard = {
       name = "win32yank_override",
       copy = { ["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf" },
