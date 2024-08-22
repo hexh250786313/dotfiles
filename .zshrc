@@ -56,7 +56,7 @@ alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 alias editor=nvim
 alias lazygit="lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml"
 alias zhiyun-chrome='proxy_unset && export http_proxy="http://10.10.1.30:6699" && export https_proxy="http://10.10.1.30:6699" && google-chrome-stable --disable-site-isolation-trials --disable-web-security --user-data-dir="/home/hexh/Desktop/chrome-data"'
-alias ranger="source ranger"
+alias ranger="source TERM=xterm-256color ranger"
 # alias fd="fdfind"
 # alias bat="batcat"
 # alias python="python3"
