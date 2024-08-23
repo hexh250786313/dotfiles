@@ -7,7 +7,7 @@ export ME="hexh"
 export REAL_ME="hexh"
 export ZSH_CUSTOM="/home/$ME/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/$ME/.config"
-# export DISPLAY=$MY_HOST:0.0
+# export DISPLAY=10.6.22.2:0.0 # ssh 通讯的时候可以开，ip 填本地机器的局域网 ip
 
 # path
 export PATH="$HOME/.cargo/bin:$PATH"

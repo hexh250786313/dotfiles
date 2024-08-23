@@ -41,6 +41,13 @@ if vim.fn.exists('$SSH_CLIENT') == 0 then
       cache_enabled = 1,
     }
   end
+else
+  vim.g.clipboard = {
+    name = "xsel_override",
+    copy = { ["+"] = "xsel --input --clipboard", ["*"] = "xsel --input --primary" },
+    paste = { ["+"] = "xsel --output --clipboard", ["*"] = "xsel --output --primary" },
+    cache_enabled = 1,
+  }
 end
 
 local optionList = {
