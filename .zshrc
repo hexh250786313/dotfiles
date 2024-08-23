@@ -7,7 +7,11 @@ export ME="hexh"
 export REAL_ME="hexh"
 export ZSH_CUSTOM="/home/$ME/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/$ME/.config"
-# export DISPLAY=10.6.22.2:0.0 # ssh 通讯的时候可以开，ip 填本地机器的局域网 ip
+
+if [[ -n "$SSH_CONNECTION" ]]; then
+  SSH_CLIENT_IP=$(echo $SSH_CONNECTION | awk '{print $1}')
+  export DISPLAY="${SSH_CLIENT_IP}:0.0"
+fi
 
 # path
 export PATH="$HOME/.cargo/bin:$PATH"
