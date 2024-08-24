@@ -8,6 +8,11 @@ export REAL_ME="hexh"
 export ZSH_CUSTOM="/home/$ME/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/$ME/.config"
 
+if [[ -n "$SSH_CONNECTION" ]]; then
+  SSH_CLIENT_IP=10.6.22.4
+  export DISPLAY="${SSH_CLIENT_IP}:0.0"
+fi
+
 # path
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/home/$ME/.local/bin:$PATH"
