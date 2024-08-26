@@ -1,6 +1,7 @@
 # requirement
 # export MY_HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
-export MY_HOST=$(ip route show | grep -i default | awk '{ print $3}')
+# export MY_HOST=$(ip route show | grep -i default | awk '{ print $3}')
+export MY_HOST=127.0.0.1
 unset HOST
 export CONFIG_DIR="/home/$ME/.config"
 export ME="hexh"
@@ -22,11 +23,11 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 # proxy
-# export all_proxy="socks5://$MY_HOST:4780"
-# export http_proxy="http://$MY_HOST:4780"
-# export https_proxy="http://$MY_HOST:4780"
+# export all_proxy="socks5://$MY_HOST:4781"
+# export http_proxy="http://$MY_HOST:4781"
+# export https_proxy="http://$MY_HOST:4781"
 alias proxy_unset="unset all_proxy && unset http_proxy && unset https_proxy"
-alias proxy_set="export all_proxy="socks://$MY_HOST:4780" && export http_proxy="http://$MY_HOST:4780" && export https_proxy="http://$MY_HOST:4780""
+alias proxy_set="export all_proxy="socks://$MY_HOST:4781" && export http_proxy="http://$MY_HOST:4781" && export https_proxy="http://$MY_HOST:4781""
 
 # p10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
