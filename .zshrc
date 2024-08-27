@@ -10,7 +10,7 @@ export ZSH_CUSTOM="/home/$ME/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/$ME/.config"
 
 if [[ -n "$SSH_CONNECTION" ]]; then
-  SSH_CLIENT_IP=10.6.22.4
+  SSH_CLIENT_IP=192.168.20.135
   export DISPLAY="${SSH_CLIENT_IP}:0.0"
 fi
 
