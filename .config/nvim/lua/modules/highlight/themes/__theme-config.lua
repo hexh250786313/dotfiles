@@ -6,9 +6,9 @@ local M = {}
 -- local theme = require('modules/highlight/themes/rose-pine-neovim')
 -- local theme = require('modules/highlight/themes/folke-tokyonight')
 -- local theme = require('modules/highlight/themes/pbrisbin-vim-colors-off')
--- local theme = require('modules/highlight/themes/sainnhe-everforest')
+local theme = require('modules/highlight/themes/sainnhe-everforest')
 -- local theme = require('modules/highlight/themes/polirritmico-monokai-nightasty')
-local theme = require('modules/highlight/themes/nvim-grey')
+-- local theme = require('modules/highlight/themes/nvim-grey')
 
 function M.get_current_theme()
   theme.commonSetup = function()

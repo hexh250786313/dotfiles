@@ -1,17 +1,17 @@
 tmux_conf_24b_colour=true
 
 # grey
-color0="#cfcfcf" # leftest bar bg
-color1="#d9d9d9" # status bg
-color2="#000000" # time bg
-color3="#cfcfcf" # hexh bg
-color4="#ffffff" # status fg
-color5="#f2f2f2" # leftest bar fg
-color6="#f2f2f2" # selected fg
+color0="#8da101" # leftest bar bg
+color1="#f3efda" # status bg
+color2="#93b259" # time bg
+color3="#8da101" # hexh bg
+color4="#96a293" # status fg
+color5="#fdf6e3" # leftest bar fg
+color6="#fdf6e3" # selected fg
 color7="#f44336"
 color8="#f44336"
 color9="#f44336"
-color10="#000000" # selected bg
+color10="#93b259" # selected bg
 color11="#f44336"
 color12="#f44336"
 color13="#ffffff" # command bg
