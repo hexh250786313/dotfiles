@@ -225,3 +225,5 @@ bindkey '^X' edit-command-line
 # export BAT_THEME="arctic"
 # export BAT_THEME="CatppuccinMocha"
 export BAT_THEME="CatppuccinLatte" # 适合白色背景
+
+source ~/.config/my-config/sh/keep-wsl-alive.sh
