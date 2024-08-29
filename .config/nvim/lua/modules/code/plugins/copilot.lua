@@ -1,5 +1,5 @@
 local host = os.getenv("MY_HOST")
--- vim.cmd("let g:copilot_proxy ='http://" .. host .. ":4780'")
+-- vim.cmd("let g:copilot_proxy ='http://" .. host .. ":4781'")
 vim.cmd([[
  " 必须要定一个映射，否则无法取消 tab 映射，很诡异，总之这一行不能删
 imap <silent><script><expr> <c-o> copilot#Accept("\<Tab>")
