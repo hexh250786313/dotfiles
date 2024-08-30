@@ -12,6 +12,8 @@ export CONFIG_DIR="/home/$ME/.config"
 if [[ -n "$SSH_CONNECTION" ]]; then
   SSH_CLIENT_IP=192.168.20.135
   export DISPLAY="${SSH_CLIENT_IP}:0.0"
+else
+  export DISPLAY="$(ip route show | grep -i default | awk '{ print $3}'):0.0"
 fi
 
 # path
