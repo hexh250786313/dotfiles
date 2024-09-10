@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # git-dude - Git commit notifier
 # https://github.com/sickill/git-dude

@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 src_file1="$HOME/.local/share/nvim/site/pack/packer/opt/fzf-lua/lua/fzf-lua/previewer/builtin.lua"
 src_file2="$HOME/.local/share/nvim/site/pack/packer/opt/fzf-lua/lua/fzf-lua/actions.lua"

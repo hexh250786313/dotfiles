@@ -210,11 +210,11 @@ add-zsh-hook chpwd _ls_on_cwd_change
 
 edit-command-line() {
   local tmpfile=$(mktemp)
-  # 在临时文件开头添加 #!/bin/zsh
-  echo "#!/bin/zsh" > $tmpfile
+  # 在临时文件开头添加 #!/usr/bin/env zsh
+  echo "#!/usr/bin/env zsh" > $tmpfile
   print -r -- $BUFFER >> $tmpfile
   nvim -c "set ft=sh" $tmpfile
-  # 从临时文件中读取内容，并移除第一行（#!/bin/zsh）
+  # 从临时文件中读取内容，并移除第一行（#!/usr/bin/env zsh）
   BUFFER=$(sed '1d' $tmpfile)
   CURSOR=$#BUFFER
   rm -f $tmpfile

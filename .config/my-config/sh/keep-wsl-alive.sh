@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #-----------------------
 # keep wsl distro alive，既需要在 windows 定时计划中启动（ssh 的情况），也需要在 zshrc 中添加（wsl --shutdown 的情况）

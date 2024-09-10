@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cwd=$1  # 获取传入的当前工作目录
 input=$2 # 获取用户输入

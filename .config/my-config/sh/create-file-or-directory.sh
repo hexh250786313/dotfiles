@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 if [[ "$1" == */ ]]; then
   # 参数以斜杠结尾，创建文件夹

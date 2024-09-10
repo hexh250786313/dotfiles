@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 if pgrep -x rofi; then
   # notify-send "bye" -t 5
   killall rofi

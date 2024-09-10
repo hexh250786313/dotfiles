@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 SESSIONNAME_0="I_fixed_it!"
 tmux has-session -t $SESSIONNAME_0

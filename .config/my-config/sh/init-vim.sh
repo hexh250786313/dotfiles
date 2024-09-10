@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 exclude_file=".git/info/exclude"
 search_string=".vim/"

@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 sd '.*qlist:changedtick.*then\n.*return.*\n.*end' '' ~/.local/share/nvim/site/pack/packer/start/nvim-bqf/lua/bqf/main.lua
 sd 'api.nvim_win_get_height\(qwinid\)' '6' ~/.local/share/nvim/site/pack/packer/start/nvim-bqf/lua/bqf/layout.lua

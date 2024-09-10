@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export DISPLAY=':0'
 xprop -spy -root _NET_ACTIVE_WINDOW | grep --line-buffered -o '0[xX][a-zA-Z0-9]\{7\}' \

@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 SESSIONNAME_0="server"
 tmux has-session -t $SESSIONNAME_0
