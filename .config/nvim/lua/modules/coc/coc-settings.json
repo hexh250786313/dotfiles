@@ -282,8 +282,12 @@
       "isStderr": true
     },
     "luafmt": {
-      "command": "lua-format",
-      "args": ["--config", "/home/hexh/.config/nvim/_self/lang-configs/lua/formatter.conf"],
+      // "command": "lua-format",
+      // "args": ["--config", "/home/hexh/.config/nvim/_self/lang-configs/lua/formatter.conf"],
+      // "isStdout": true,
+      // "isStderr": true
+      "command": "stylua",
+      "args": ["-"],
       "isStdout": true,
       "isStderr": true
     },
