@@ -59,8 +59,10 @@ wk.register({
 wk.register({ mode = { "x" }, ["<leader>aa"] = { "<plug>(coc-codeaction-selected)", "LSP CodeActions list" } })
 wk.register({
   mode = { "x" },
-  ["<leader>ar"] = { "<plug>(coc-codeaction-refactor-selected)",
-                     "Get and run refactor code action(s) at current cursor" },
+  ["<leader>ar"] = {
+    "<plug>(coc-codeaction-refactor-selected)",
+    "Get and run refactor code action(s) at current cursor",
+  },
 })
 
 ---- 配置
@@ -106,17 +108,19 @@ vim.g.coc_global_extensions = {
 vim.g.coc_quickfix_open_command = "copen"
 
 -- 禁用默认插入模式下的 c-n keyword completion
-vim.api.nvim_set_keymap('i', '<C-n>', '<Nop>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-p>', '<Nop>', { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-n>", "<Nop>", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-p>", "<Nop>", { noremap = true })
 
 -- coc snippets 自动跳跃
-vim.g.coc_snippet_next = '<c-n>'
-vim.g.coc_snippet_prev = '<c-p>'
+vim.g.coc_snippet_next = "<c-n>"
+vim.g.coc_snippet_prev = "<c-p>"
 
 -- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
 vim.g.coc_enable_locationlist = 0
-api.nvim_create_autocmd({ "User" },
-                        { pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location" })
+api.nvim_create_autocmd(
+  { "User" },
+  { pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location" }
+)
 
 vim.cmd([[
 " 获取识别码

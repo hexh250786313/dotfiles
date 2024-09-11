@@ -1,6 +1,6 @@
 local fn = vim.fn
 
-local theme_config = require('modules.highlight.themes.__theme-config')
+local theme_config = require("modules.highlight.themes.__theme-config")
 local theme = theme_config.get_current_theme()
 
 local packer_install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -96,23 +96,26 @@ return packer.startup(function(use)
     config = [[require("modules.buffer.plugins.vim-bbye")]],
   })
   -- use({"akinsho/bufferline.nvim", config = [[require("modules.buffer.plugins.bufferline")]], after = {"theme"}})
-  use({ "hoob3rt/lualine.nvim", config = [[require("modules.buffer.plugins.lualine")]],
-        after = { "theme", "highlight" } })
+  use({
+    "hoob3rt/lualine.nvim",
+    config = [[require("modules.buffer.plugins.lualine")]],
+    after = { "theme", "highlight" },
+  })
   use({
     "~/.config/nvim/_self/plugins/delete-all-buffers",
     config = [[require("modules.buffer.plugins.delete-all-buffers")]],
     keys = { { "n", "<leader>qB" } },
   })
   use("~/.config/nvim/_self/plugins/avoid-scrolling-when-switch-buffers")
-  use {
-    'kevinhwang91/nvim-fundo',
-    requires = 'kevinhwang91/promise-async',
+  use({
+    "kevinhwang91/nvim-fundo",
+    requires = "kevinhwang91/promise-async",
     run = function()
-      require('fundo').install()
+      require("fundo").install()
     end,
     config = [[require("modules.buffer.plugins.nvim-fundo")]],
-  }
-  use { 'lambdalisue/suda.vim', cmd = { "SudaWrite" } }
+  })
+  use({ "lambdalisue/suda.vim", cmd = { "SudaWrite" } })
   -- use({"chrisgrieser/nvim-early-retirement", config = [[require("modules.buffer.plugins.nvim-early-retirement")]]})
 
   -- ┌───────────────────────────────────────
@@ -214,7 +217,7 @@ return packer.startup(function(use)
     requires = theme.requires,
     as = "theme",
     config = function()
-      theme_config = require('modules.highlight.themes.__theme-config')
+      theme_config = require("modules.highlight.themes.__theme-config")
       theme = theme_config.get_current_theme()
       theme.setup()
       theme.commonSetup()
@@ -301,14 +304,17 @@ return packer.startup(function(use)
     keys = { { "x", "v" }, { "x", "V" } },
     config = [[require("modules.text.plugins.vim-expand-region")]],
   })
-  use({ "junegunn/vim-easy-align", keys = { { "x", "ga" } },
-        config = [[require("modules.text.plugins.vim-easy-align")]] })
+  use({
+    "junegunn/vim-easy-align",
+    keys = { { "x", "ga" } },
+    config = [[require("modules.text.plugins.vim-easy-align")]],
+  })
   use({ "tpope/vim-surround", keys = { { "n", "vi" }, { "n", "va" }, { "n", "cs" }, { "n", "ds" }, { "x", "S" } } })
   use({ "AndrewRadev/linediff.vim", cmd = { "Linediff" } })
   use({
     "windwp/nvim-autopairs",
     config = function()
-      require("nvim-autopairs").setup {}
+      require("nvim-autopairs").setup({})
     end,
   })
   use({ "xiyaowong/nvim-cursorword", config = [[ require("modules.text.plugins.nvim-cursorword") ]] })
@@ -359,7 +365,7 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { 'markdown' },
+    ft = { "markdown" },
     config = [[require("modules.markdown.plugins.render-markdown")]],
   })
 

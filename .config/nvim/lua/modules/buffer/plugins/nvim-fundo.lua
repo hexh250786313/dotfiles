@@ -1,2 +1,2 @@
 vim.o.undofile = true
-require('fundo').setup()
+require("fundo").setup()

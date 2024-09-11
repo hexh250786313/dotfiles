@@ -56,7 +56,7 @@ end
 vim.g.sort_buffer_line_tabs = sortBufferLineTabs
 
 ---------> 配置
-require("bufferline").setup {
+require("bufferline").setup({
   options = {
     separator_style = { "", "" },
     indicator = { icon = "▌" },
@@ -73,7 +73,7 @@ require("bufferline").setup {
     -- sort_by = function(buffer_a, buffer_b) end,
     numbers = "none",
   },
-}
+})
 
 function DelayedCommand(cmd)
   vim.defer_fn(function()

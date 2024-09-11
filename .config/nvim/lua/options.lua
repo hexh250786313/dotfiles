@@ -25,7 +25,7 @@ vim.cmd("let $all_proxy ='http://" .. host .. ":4781'")
 vim.cmd("let $http_proxy ='http://" .. host .. ":4781'")
 vim.cmd("let $https_proxy ='http://" .. host .. ":4781'")
 
-if vim.fn.exists('$SSH_CLIENT') == 0 then
+if vim.fn.exists("$SSH_CLIENT") == 0 then
   if is_wsl() then
     vim.g.clipboard = {
       name = "win32yank_override",

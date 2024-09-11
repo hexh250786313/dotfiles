@@ -1,4 +1,4 @@
-require("colorizer").setup {
+require("colorizer").setup({
   user_default_options = {
     RGB = true, -- #RGB hex codes
     RRGGBB = true, -- #RRGGBB hex codes
@@ -15,5 +15,4 @@ require("colorizer").setup {
     mode = "virtualtext",
     virtualtext_inline = true,
   },
-}
-
+})

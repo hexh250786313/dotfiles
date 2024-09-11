@@ -1,4 +1,4 @@
-local util = require "formatter.util"
+local util = require("formatter.util")
 
 ---------> 快捷键
 local wk = require("which-key")
@@ -17,7 +17,7 @@ local function format_prettier()
   return {
     exe = "prettier",
     args = {
-      '--stdin-filepath',
+      "--stdin-filepath",
       util.escape_path(util.get_current_buffer_file_path()),
       -- util.escape_path(util.get_current_buffer_file_path())
     },

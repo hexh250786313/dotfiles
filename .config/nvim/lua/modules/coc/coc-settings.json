@@ -287,7 +287,7 @@
       // "isStdout": true,
       // "isStderr": true
       "command": "stylua",
-      "args": ["-"],
+      "args": ["--config-path", "/home/hexh/.config/nvim/_self/lang-configs/lua/formatter.toml", "-"],
       "isStdout": true,
       "isStderr": true
     },

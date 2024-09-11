@@ -10,7 +10,7 @@ wk.register({
 ---- 配置
 local actions = require("diffview.actions")
 
-require"diffview".setup {
+require("diffview").setup({
   view = {
     merge_tool = {
       -- Config for conflicted files in diff views during a merge or rebase.
@@ -46,7 +46,7 @@ require"diffview".setup {
       -- vim.cmd(":IndentBlanklineDisable")
       vim.cmd(":setlocal nocursorline")
       vim.opt_local.wrap = false
-      vim.opt_local.winbar = ''
+      vim.opt_local.winbar = ""
       -- vim.opt_local.list = false
       -- vim.opt_local.colorcolumn = {120}
     end,
@@ -100,7 +100,7 @@ require"diffview".setup {
       end,
     },
   },
-}
+})
 
 vim.cmd([[
 function! s:CLOSE_TAB()
