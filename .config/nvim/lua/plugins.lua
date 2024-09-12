@@ -162,7 +162,7 @@ return packer.startup(function(use)
   -- │  File Module
   -- └───────────────────────────────────────
   use({
-    "Shougo/defx.nvim",
+    "hexh250786313/defx.nvim",
     keys = { { "n", "<leader>e" } },
     cmd = { "Defx" },
     config = function()

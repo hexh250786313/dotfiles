@@ -79,38 +79,6 @@ function! s:OPEN_AT_WSL_EXPLORER(_)
   endif
 endfunction
 
-" 删除文件或目录
-function! s:SEND_2_TRASH(_) abort
-  let s:candidate = defx#get_candidate()
-  let s:path = s:candidate['action__path']
-  if empty(s:path)
-    echomsg 'No file or directory selected'
-    return
-  endif
-
-  " 询问用户是否确认删除
-  echo 'Are you sure you want to delete ' . s:path . '? (Y/N/C): '
-  let l:choice = nr2char(getchar())
-
-  " 根据用户选择执行相应操作
-  if l:choice ==? 'Y'
-    " 使用 send2trash 将文件或目录移动到回收站
-    call system('send2trash ' . shellescape(s:path))
-    if v:shell_error
-      echomsg 'Failed to move to trash: ' . s:path
-    else
-      echomsg 'Moved to trash: ' . s:path
-      call defx#call_action('redraw')
-    endif
-  elseif l:choice ==? 'N'
-    echomsg 'Deletion cancelled: ' . s:path
-  elseif l:choice ==? 'C'
-    echomsg 'Operation cancelled'
-  else
-    echomsg 'Invalid input. Operation cancelled'
-  endif
-endfunction
-
 " 收回目录 or 打开上一页
 function! s:DEFX_TOGGLE_TREE_LEFT(_) abort
   " if cursor line is first line, or in empty dir
@@ -208,8 +176,8 @@ function! s:DEFX_MY_SETTINGS() abort
   " nnoremap <silent><buffer><expr> h     defx#do_action('cd', ['..'])
 
   " 我的映射
-  nnoremap <silent><buffer><expr> d             defx#do_action('call', g:defx_config_sid . 'SEND_2_TRASH')
-  nnoremap <silent><buffer><expr> D             defx#do_action('call', g:defx_config_sid . 'SEND_2_TRASH')
+  nnoremap <silent><buffer><expr> d             defx#do_action('remove_trash')
+  nnoremap <silent><buffer><expr> D             defx#do_action('remove_trash')
   nnoremap <silent><buffer><expr> <CR>          defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
   nnoremap <silent><buffer><expr> <2-LeftMouse> defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
   nnoremap <silent><buffer><expr> o             defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
