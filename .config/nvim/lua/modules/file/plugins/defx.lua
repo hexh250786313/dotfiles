@@ -56,6 +56,24 @@ function! s:DEFX_OPEN(search) abort
   exec 'Defx `getcwd()` -wincol=`&columns/9` -preview-width=`&columns/2` -winrow=`&lines/9` -winheight=`&lines/2` -preview_height=`&lines/1`' . l:str
 endfunction
 
+" 删除文件或目录
+function! s:SEND_2_TRASH(_) abort
+  let s:candidate = defx#get_candidate()
+  let s:path = s:candidate['action__path']
+  if empty(s:path)
+    echomsg 'No file or directory selected'
+    return
+  endif
+  " 使用 send2trash 将文件或目录移动到回收站
+  call system('echo ' . shellescape(s:path))
+  if v:shell_error
+    echomsg 'Failed to move to trash: ' . s:path
+  else
+    echomsg 'Moved to trash: ' . s:path
+    call defx#call_action('redraw')
+  endif
+endfunction
+
 " 打开目录 or 打开文件
 function! s:DEFX_SMART_L(_) abort
   if defx#is_directory()
@@ -164,8 +182,8 @@ function! s:DEFX_MY_SETTINGS() abort
   " nnoremap <silent><buffer><expr> h     defx#do_action('cd', ['..'])
 
   " 我的映射
-  nnoremap <silent><buffer><expr> d             defx#do_action('remove_trash')
-  nnoremap <silent><buffer><expr> D             defx#do_action('remove_trash')
+  " nnoremap <silent><buffer><expr> d             defx#do_action('call', g:defx_config_sid . 'SEND_2_TRASH')
+  " nnoremap <silent><buffer><expr> D             defx#do_action('call', g:defx_config_sid . 'SEND_2_TRASH')
   nnoremap <silent><buffer><expr> <CR>          defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
   nnoremap <silent><buffer><expr> <2-LeftMouse> defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
   nnoremap <silent><buffer><expr> o             defx#do_action('call', g:defx_config_sid . 'DEFX_SMART_L')
