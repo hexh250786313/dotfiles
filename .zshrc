@@ -63,7 +63,6 @@ alias cache-free="sh -c 'echo 1 > /proc/sys/vm/drop_caches'"
 alias editor=nvim
 alias lazygit="lazygit -ucf ~/workspace/dotfiles/.config/lazygit/config.yml"
 alias zhiyun-chrome='proxy_unset && export http_proxy="http://10.10.1.30:6699" && export https_proxy="http://10.10.1.30:6699" && google-chrome-stable --disable-site-isolation-trials --disable-web-security --user-data-dir="/home/hexh/Desktop/chrome-data"'
-alias ranger="source ranger"
 # alias fd="fdfind"
 # alias bat="batcat"
 # alias python="python3"
@@ -229,3 +228,20 @@ bindkey '^X' edit-command-line
 export BAT_THEME="CatppuccinLatte" # 适合白色背景
 
 source ~/.config/my-config/sh/keep-wsl-alive.sh
+
+# 退出 ranger 保留在原地
+function ranger {
+  local IFS=$'\t\n'
+  local tempfile="$(mktemp -t tmp.XXXXXX)"
+  local ranger_cmd=(
+    command
+    ranger
+    --cmd="map q chain shell echo %d > "$tempfile"; quitall"
+  )
+
+  ${ranger_cmd[@]} "$@"
+  if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+    cd -- "$(cat "$tempfile")" || return
+  fi
+  command rm -f -- "$tempfile" 2>/dev/null
+}
