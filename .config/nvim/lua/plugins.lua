@@ -313,9 +313,7 @@ return packer.startup(function(use)
   use({ "AndrewRadev/linediff.vim", cmd = { "Linediff" } })
   use({
     "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup({})
-    end,
+    config = [[require("modules.text.plugins.nvim-autopairs")]],
   })
   use({ "xiyaowong/nvim-cursorword", config = [[ require("modules.text.plugins.nvim-cursorword") ]] })
 
@@ -354,10 +352,20 @@ return packer.startup(function(use)
   --   keys = { { "n", "<leader>ww" } },
   --   -- after = "defx.nvim"
   -- })
+  -- use({
+  --   "karb94/neoscroll.nvim",
+  --   config = [[require("modules.motion.plugins.neoscroll")]],
+  --   commit = "21d52973bde32db998fc8b6590f87eb3c3c6d8e4",
+  -- })
   use({
-    "karb94/neoscroll.nvim",
-    config = [[require("modules.motion.plugins.neoscroll")]],
-    commit = "21d52973bde32db998fc8b6590f87eb3c3c6d8e4",
+    "echasnovski/mini.animate",
+    config = function()
+      require("mini.animate").setup()
+    end,
+  })
+  use({
+    "echasnovski/mini.map",
+    config = [[require("modules.motion.plugins.mini-map")]],
   })
 
   -- ┌───────────────────────────────────────

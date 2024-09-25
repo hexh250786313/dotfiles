@@ -212,6 +212,10 @@ function! s:GREP_FROM_SELECTED(type)
   " lua require('fzf-lua').live_grep({ search = vim.fn.eval("word"), no_esc=true })
 endfunction
 
+" 退格触发补全
+" inoremap <silent><expr> <backspace> coc#pum#visible() ? "\<bs>" : "\<bs>\<c-r>=coc#refresh()\<CR>"
+inoremap <silent><expr> <backspace> coc#pum#visible() ? luaeval("require('nvim-autopairs').autopairs_bs()") : luaeval("require('nvim-autopairs').autopairs_bs()") . "\<c-r>=coc#refresh()\<CR>"
+
 " coc#pum#next(0) 0 是不插入文本，1 是插入
 " inoremap <silent><expr> <Tab>
 "   \ coc#pum#visible() ? coc#pum#next(0) :
@@ -254,8 +258,8 @@ inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,
 "  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "3<C-e>"
-  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "3<C-y>"
+  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "9<C-e>"
+  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "9<C-y>"
   " inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
   " inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
   inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "<cmd> call coc#float#scroll(1, 1)\<cr>" : "\<Down>"
