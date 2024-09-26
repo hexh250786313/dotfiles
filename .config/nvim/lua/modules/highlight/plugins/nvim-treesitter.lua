@@ -12,7 +12,7 @@ local disabler = function(lang, bufnr)
   return false
 end
 
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "javascript",
     "typescript",
@@ -28,7 +28,7 @@ require("nvim-treesitter.configs").setup {
     "svelte",
     "go",
     "rust",
-    "vimdoc"
+    "vimdoc",
   },
   auto_install = false,
   highlight = { enable = true, disable = disabler },
@@ -44,11 +44,11 @@ require("nvim-treesitter.configs").setup {
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
         ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
       },
-      selection_modes = { ['@parameter.outer'] = 'v', ['@function.outer'] = 'V', ['@class.outer'] = '<c-v>' },
+      selection_modes = { ["@parameter.outer"] = "v", ["@function.outer"] = "V", ["@class.outer"] = "<c-v>" },
       include_surrounding_whitespace = true,
     },
   },
-}
+})
 
 vim.cmd([[
 " 约 500K

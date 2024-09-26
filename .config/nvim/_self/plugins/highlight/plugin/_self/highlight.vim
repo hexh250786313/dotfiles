@@ -213,16 +213,16 @@ else
     \' guifg=none'
 endif
 
-exec 'hi! UfoFoldedBg' .
-  \' guibg=none' .
-  \' guifg=none'
+" exec 'hi! UfoFoldedBg' .
+"   \' guibg=none' .
+"   \' guifg=none'
 
-exec 'hi! UfoCursorFoldedLine' .
-  \' guibg=' . _self#highlight#pick('DiffChange', 'bg') .
-  \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
-autocmd VimEnter * exec 'hi! UfoFoldedEllipsis' .
-  \' guibg=' . _self#highlight#pick('Folded', 'bg') .
-  \' guifg=' . _self#highlight#pick('CocInlayHint', 'fg')
+" exec 'hi! UfoCursorFoldedLine' .
+"   \' guibg=' . _self#highlight#pick('DiffChange', 'bg') .
+"   \' guifg=' . _self#highlight#pick('DiffChange', 'bg')
+" autocmd VimEnter * exec 'hi! UfoFoldedEllipsis' .
+"   \' guibg=' . _self#highlight#pick('Folded', 'bg') .
+"   \' guifg=' . _self#highlight#pick('CocInlayHint', 'fg')
 
 exec 'hi! DiagnosticError' .
   \' guifg=' . s:error .

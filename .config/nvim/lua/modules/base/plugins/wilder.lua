@@ -1,4 +1,4 @@
-local wilder = require "wilder"
+local wilder = require("wilder")
 
 vim.cmd([[
 call wilder#setup({
@@ -21,12 +21,15 @@ call wilder#set_option('pipeline', [
       \ ])
 ]])
 
-wilder.set_option("renderer", wilder.popupmenu_renderer({
-  highlighter = wilder.basic_highlighter(),
-  left = { " ", wilder.popupmenu_devicons(), " " },
-  right = { " ", wilder.popupmenu_scrollbar(), " " },
-  pumblend = 0, -- 窗口透明度
-}))
+wilder.set_option(
+  "renderer",
+  wilder.popupmenu_renderer({
+    highlighter = wilder.basic_highlighter(),
+    left = { " ", wilder.popupmenu_devicons(), " " },
+    right = { " ", wilder.popupmenu_scrollbar(), " " },
+    pumblend = 0, -- 窗口透明度
+  })
+)
 
 -- -- floating window
 -- wilder.set_option(

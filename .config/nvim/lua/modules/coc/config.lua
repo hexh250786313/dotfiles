@@ -59,8 +59,10 @@ wk.register({
 wk.register({ mode = { "x" }, ["<leader>aa"] = { "<plug>(coc-codeaction-selected)", "LSP CodeActions list" } })
 wk.register({
   mode = { "x" },
-  ["<leader>ar"] = { "<plug>(coc-codeaction-refactor-selected)",
-                     "Get and run refactor code action(s) at current cursor" },
+  ["<leader>ar"] = {
+    "<plug>(coc-codeaction-refactor-selected)",
+    "Get and run refactor code action(s) at current cursor",
+  },
 })
 
 ---- 配置
@@ -106,17 +108,19 @@ vim.g.coc_global_extensions = {
 vim.g.coc_quickfix_open_command = "copen"
 
 -- 禁用默认插入模式下的 c-n keyword completion
-vim.api.nvim_set_keymap('i', '<C-n>', '<Nop>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-p>', '<Nop>', { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-n>", "<Nop>", { noremap = true })
+vim.api.nvim_set_keymap("i", "<C-p>", "<Nop>", { noremap = true })
 
 -- coc snippets 自动跳跃
-vim.g.coc_snippet_next = '<c-n>'
-vim.g.coc_snippet_prev = '<c-p>'
+vim.g.coc_snippet_next = "<c-n>"
+vim.g.coc_snippet_prev = "<c-p>"
 
 -- 如果要自定义跳转行为, 则把这个设置为 0, jumpDefinition 和 jumpDeclaration 的跳转行为
 vim.g.coc_enable_locationlist = 0
-api.nvim_create_autocmd({ "User" },
-                        { pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location" })
+api.nvim_create_autocmd(
+  { "User" },
+  { pattern = "CocLocationsChange", command = "CocList --number-select --auto-preview location" }
+)
 
 vim.cmd([[
 " 获取识别码
@@ -208,6 +212,10 @@ function! s:GREP_FROM_SELECTED(type)
   " lua require('fzf-lua').live_grep({ search = vim.fn.eval("word"), no_esc=true })
 endfunction
 
+" 退格触发补全
+" inoremap <silent><expr> <backspace> coc#pum#visible() ? "\<bs>" : "\<bs>\<c-r>=coc#refresh()\<CR>"
+inoremap <silent><expr> <backspace> coc#pum#visible() ? luaeval("require('nvim-autopairs').autopairs_bs()") : luaeval("require('nvim-autopairs').autopairs_bs()") . "\<c-r>=coc#refresh()\<CR>"
+
 " coc#pum#next(0) 0 是不插入文本，1 是插入
 " inoremap <silent><expr> <Tab>
 "   \ coc#pum#visible() ? coc#pum#next(0) :
@@ -250,8 +258,8 @@ inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,
 "  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "3<C-e>"
-  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "3<C-y>"
+  nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "9<C-e>"
+  nnoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "9<C-y>"
   " inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Down>"
   " inoremap <silent><nowait><expr> <up> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Up>"
   inoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? "<cmd> call coc#float#scroll(1, 1)\<cr>" : "\<Down>"

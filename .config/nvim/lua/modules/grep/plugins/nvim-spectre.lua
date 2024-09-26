@@ -29,7 +29,7 @@ require("spectre").setup({
     -- headers = "Comment",
     -- ui = "String",
     -- border = "Comment",
-    -- 
+    --
     filename = "SpectreFilename",
     filedirectory = "SpectreFiledirectory",
     search = "CocWarningVirtualText",

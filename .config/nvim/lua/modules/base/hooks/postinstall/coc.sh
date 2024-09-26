@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 coc_dir="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim"
 src_file="$HOME/.local/share/nvim/site/pack/packer/opt/coc.nvim/build/index.js"

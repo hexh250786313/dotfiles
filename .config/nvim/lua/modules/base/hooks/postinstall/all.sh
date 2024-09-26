@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 cp ~/.config/nvim/lua/modules/base/hooks/postinstall/rplugin.vim ~/.local/share/nvim/
 

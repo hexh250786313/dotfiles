@@ -1,4 +1,4 @@
-local rainbow = require 'rainbow-delimiters'
+local rainbow = require("rainbow-delimiters")
 local disabler = function(bufnr)
   local max_filesize = 50 * 1024
   local lcount = vim.api.nvim_buf_line_count(bufnr)
@@ -8,14 +8,14 @@ local disabler = function(bufnr)
   end
   return false
 end
-require('rainbow-delimiters.setup').setup {
+require("rainbow-delimiters.setup").setup({
   strategy = {
-    [''] = function(bufnr)
+    [""] = function(bufnr)
       local disable = disabler(bufnr)
       if disable == false then
-        return rainbow.strategy['global']
+        return rainbow.strategy["global"]
       end
       return nil
     end,
   },
-}
+})

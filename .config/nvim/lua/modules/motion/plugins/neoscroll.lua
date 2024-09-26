@@ -3,10 +3,8 @@ require("neoscroll").setup({
   cursor_scrolls_alone = false,
   hide_cursor = true,
   mappings = {},
-  pre_hook = function(info)
-  end,
-  post_hook = function(info)
-  end,
+  pre_hook = function(info) end,
+  post_hook = function(info) end,
 })
 
 local t = {}

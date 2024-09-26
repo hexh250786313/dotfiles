@@ -5,7 +5,7 @@ local function get_color(group, attr)
   return fn.synIDattr(fn.synIDtrans(fn.hlID(group)), attr)
 end
 
-require("toggleterm").setup {
+require("toggleterm").setup({
   size = function(term)
     if term.direction == "horizontal" then
       return 19
@@ -32,7 +32,7 @@ require("toggleterm").setup {
     },
   },
   auto_scroll = true,
-}
+})
 
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
@@ -54,8 +54,8 @@ local lazygit = Terminal:new({
   },
   auto_scroll = false,
 })
-local gitwebui = Terminal:new(
-                   { cmd = "git webui --port=9989", direction = "horizontal", count = 6, auto_scroll = false })
+local gitwebui =
+  Terminal:new({ cmd = "git webui --port=9989", direction = "horizontal", count = 6, auto_scroll = false })
 
 function _lazygit_toggle()
   vim.cmd("let g:floating_termnr = " .. 7)

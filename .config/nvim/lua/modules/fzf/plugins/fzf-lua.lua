@@ -1,4 +1,4 @@
-require("modules.fzf.plugins.lsp");
+require("modules.fzf.plugins.lsp")
 
 ---- 快捷键
 local wk = require("which-key")
@@ -82,22 +82,22 @@ EOF
 endfunction
 ]])
 
-require('fzf-lua').setup({
+require("fzf-lua").setup({
   -- 'fzf-native', -- 使用 fzf 本身的预览框预览，但是展示的是实际写入的文件，而不是 neovim 的 buffer，所以不推荐开
   keymap = {
     builtin = { ["<down>"] = "preview-page-down", ["<up>"] = "preview-page-up", ["<c-p>"] = "toggle-preview" },
     fzf = {
-      ['CTRL-A'] = 'toggle-all',
-      ['CTRL-Q'] = 'select-all+accept',
+      ["CTRL-A"] = "toggle-all",
+      ["CTRL-Q"] = "select-all+accept",
       ["CTRL-P"] = "toggle-preview",
     },
   },
-  fzf_opts = { ['--cycle'] = '' },
+  fzf_opts = { ["--cycle"] = "" },
   winopts = {
-    border = 'rounded',
+    border = "rounded",
     preview = {
-      vertical = 'down:66%',
-      layout = 'vertical', -- horizontal | vertical | flex
+      vertical = "down:66%",
+      layout = "vertical", -- horizontal | vertical | flex
     },
     backdrop = false, -- 背景是否改变颜色
   },

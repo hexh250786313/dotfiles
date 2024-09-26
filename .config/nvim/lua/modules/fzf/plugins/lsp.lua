@@ -4,7 +4,7 @@ local fzf_lua = require("fzf-lua")
 local fzf_lua_config = require("fzf-lua.config")
 local builtin = require("fzf-lua.previewer.builtin")
 local wk = require("which-key")
-local utils = require "fzf-lua.utils"
+local utils = require("fzf-lua.utils")
 -- local CocAction = fn.CocAction
 local CocActionAsync = fn.CocActionAsync
 
@@ -12,11 +12,14 @@ local store = { results = {}, items = {} }
 
 -- 关闭所有的浮动窗口
 local function close_all_coc_floats()
-  vim.api.nvim_exec([[
+  vim.api.nvim_exec(
+    [[
     if coc#float#has_float() > 0
       call coc#float#close_all()
     endif
-  ]], false)
+  ]],
+    false
+  )
 end
 
 -- 定义设置高亮的函数
@@ -65,12 +68,12 @@ end
 -- 检查 coc 是否已经初始化
 local function is_ready(feature)
   if vim.g.coc_service_initialized ~= 1 then
-    print('Coc is not ready!')
+    print("Coc is not ready!")
     return
   end
 
   if feature and not fn.CocHasProvider(feature) then
-    print('Coc: server does not support ' .. feature)
+    print("Coc: server does not support " .. feature)
     return
   end
 
@@ -121,7 +124,7 @@ local locations_to_items = function(locs)
       l.range = l.targetRange
     end
     local bufnr = vim.uri_to_bufnr(l.uri)
-    local line = ''
+    local line = ""
     -- 判断是否真是存在的文件
     local is_file = fn.filereadable(vim.uri_to_fname(l.uri))
     if is_file == 0 then
@@ -132,10 +135,10 @@ local locations_to_items = function(locs)
     if not was_buffer_previously_opend then
       -- 没有打开过 buffer，使用 fn.readfile 读取文件内容
       local content = fn.readfile(vim.uri_to_fname(l.uri))
-      line = content[l.range.start.line + 1] or ''
+      line = content[l.range.start.line + 1] or ""
     else
       -- 已有 buffer，使用 api.nvim_buf_get_lines 读取文件内容
-      line = (api.nvim_buf_get_lines(bufnr, l.range.start.line, l.range.start.line + 1, false) or { '' })[1] or ''
+      line = (api.nvim_buf_get_lines(bufnr, l.range.start.line, l.range.start.line + 1, false) or { "" })[1] or ""
     end
 
     -- 移除开头空格
@@ -181,7 +184,7 @@ local function getNewPreviewer(string_parser)
     -- 先查询 buffer 是否已经打开，如果已经打开，读取 buffer 的内容
     -- 否则，使用 fn.readfile 读取文件内容
     local content = {}
-    local filetype = ''
+    local filetype = ""
 
     local bufnr = vim.uri_to_bufnr(uri)
     local was_buffer_previously_opend = api.nvim_buf_is_loaded(bufnr)
@@ -190,7 +193,7 @@ local function getNewPreviewer(string_parser)
     -- 打开 buffer，获取内容和 filetype，如果 buffer 已经打开，不会重复打开
     -- 获取完毕后，如果之前未打开，关闭 buffer
     content = api.nvim_buf_get_lines(bufnr, 0, -1, false)
-    filetype = api.nvim_buf_get_option(bufnr, 'filetype')
+    filetype = api.nvim_buf_get_option(bufnr, "filetype")
     if not was_buffer_previously_opend then
       api.nvim_buf_delete(bufnr, { force = true })
     end
@@ -203,7 +206,7 @@ local function getNewPreviewer(string_parser)
     local max_filesize = 500 * 1024 -- 500K
     if bytes <= max_filesize then
       -- api.nvim_buf_set_option(tmpbuf, 'filetype', filetype) -- 使用 filetype 会启用 treesitter
-      api.nvim_buf_set_option(tmpbuf, 'syntax', filetype) -- 使用 syntax 不会启用 treesitter，用普通的语法高亮
+      api.nvim_buf_set_option(tmpbuf, "syntax", filetype) -- 使用 syntax 不会启用 treesitter，用普通的语法高亮
     end
     self:set_preview_buf(tmpbuf)
 
@@ -214,7 +217,7 @@ local function getNewPreviewer(string_parser)
       api.nvim_win_set_cursor(0, { lnum, col - 1 })
       fn.clearmatches()
       -- 高亮
-      highlight_lsp_range(tmpbuf, -1, 'LspReferenceText', target.source)
+      highlight_lsp_range(tmpbuf, -1, "LspReferenceText", target.source)
       self.orig_pos = api.nvim_win_get_cursor(0) -- 给 previewer:scroll() 用的原始光标位置，用于判断是否需要设置 cursorline
       utils.zz()
     end)
@@ -232,7 +235,7 @@ local function parse_symbol_string(str)
   local display_str = utils.strip_ansi_coloring(str)
   local _, lnum, col = string.match(display_str, pattern)
 
-  return '', tonumber(lnum), tonumber(col)
+  return "", tonumber(lnum), tonumber(col)
 end
 
 local CommonPreviewr = getNewPreviewer(parse_string)
@@ -274,11 +277,18 @@ local function send_selected_to_qf(selected, opts)
   for _, item in ipairs(all_items) do
     local target = get_target_store(item.display)
     local source = target.source
-    table.insert(qf_list, { filename = get_filename(item.filename), lnum = item.lnum, col = item.col, text = item.text })
+    table.insert(
+      qf_list,
+      { filename = get_filename(item.filename), lnum = item.lnum, col = item.col, text = item.text }
+    )
     table.insert(lsp_ranges, source.range)
   end
 
-  fn.setqflist({}, " ", { nr = "$", items = qf_list, title = title, context = { bqf = { lsp_ranges_hl = lsp_ranges } } })
+  fn.setqflist(
+    {},
+    " ",
+    { nr = "$", items = qf_list, title = title, context = { bqf = { lsp_ranges_hl = lsp_ranges } } }
+  )
   if type(opts.copen) == "function" then
     opts.copen(selected, opts)
   elseif opts.copen ~= false then
@@ -324,7 +334,7 @@ local function list_or_jump(provider, has_jump)
 
   local tables = CocActionWithTimeout(action)
 
-  if type(tables) ~= 'table' then
+  if type(tables) ~= "table" then
     return
   end
 
@@ -333,13 +343,13 @@ local function list_or_jump(provider, has_jump)
     return
   end
   if has_jump and #tables == 1 then
-    CocActionAsync('runCommand', 'workspace.openLocation', nil, tables[1])
+    CocActionAsync("runCommand", "workspace.openLocation", nil, tables[1])
     return
   end
 
-  store.source = tables;
+  store.source = tables
 
-  local results = locations_to_items(tables);
+  local results = locations_to_items(tables)
 
   if not results or vim.tbl_isempty(results) then
     return
@@ -358,12 +368,16 @@ local function list_or_jump(provider, has_jump)
     result.display = utils.strip_ansi_coloring(str)
   end
 
-  store.items = results;
+  store.items = results
 
   local opts = {
     -- _ctor 是为了防止 fzf 内部有深拷贝，导致报错
-    previewer = { _ctor = function() return CommonPreviewr end },
-    actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
+    previewer = {
+      _ctor = function()
+        return CommonPreviewr
+      end,
+    },
+    actions = { ["enter"] = jump_to_location, ["ctrl-q"] = send_selected_to_qf },
   }
 
   local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
@@ -378,9 +392,9 @@ local function diagnostic(filter)
     return
   end
 
-  local tables = CocActionWithTimeout('diagnosticList')
+  local tables = CocActionWithTimeout("diagnosticList")
 
-  if type(tables) ~= 'table' then
+  if type(tables) ~= "table" then
     return
   end
   if filter then
@@ -401,7 +415,7 @@ local function diagnostic(filter)
 
   store.source = source
 
-  local results = locations_to_items(source);
+  local results = locations_to_items(source)
 
   if not results or vim.tbl_isempty(results) then
     return
@@ -440,11 +454,12 @@ local function diagnostic(filter)
     strings[#strings + 1] = str
 
     result.display = utils.strip_ansi_coloring(str)
-    ::continue::
+    -- @todo: 有问题就取消这里的注释
+    -- ::continue::
   end
 
-  store.items = results;
-  return strings;
+  store.items = results
+  return strings
 end
 
 local function diagnostic_from_current_buffer()
@@ -462,14 +477,18 @@ local function diagnostic_from_current_buffer()
   end
 
   local strings = diagnostic(filter)
-  if type(strings) ~= 'table' or vim.tbl_isempty(strings) then
+  if type(strings) ~= "table" or vim.tbl_isempty(strings) then
     return
   end
 
   local opts = {
     -- _ctor 是为了防止 fzf 内部有深拷贝，导致报错
-    previewer = { _ctor = function() return CommonPreviewr end },
-    actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
+    previewer = {
+      _ctor = function()
+        return CommonPreviewr
+      end,
+    },
+    actions = { ["enter"] = jump_to_location, ["ctrl-q"] = send_selected_to_qf },
   }
 
   local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
@@ -480,14 +499,18 @@ end
 local function diagnostic_from_workspace()
   close_all_coc_floats()
   local strings = diagnostic()
-  if type(strings) ~= 'table' or vim.tbl_isempty(strings) then
+  if type(strings) ~= "table" or vim.tbl_isempty(strings) then
     return
   end
 
   local opts = {
     -- _ctor 是为了防止 fzf 内部有深拷贝，导致报错
-    previewer = { _ctor = function() return CommonPreviewr end },
-    actions = { ['enter'] = jump_to_location, ['ctrl-q'] = send_selected_to_qf },
+    previewer = {
+      _ctor = function()
+        return CommonPreviewr
+      end,
+    },
+    actions = { ["enter"] = jump_to_location, ["ctrl-q"] = send_selected_to_qf },
   }
 
   local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
@@ -507,22 +530,22 @@ local function exec_code_action(display_strs)
   if not target then
     return
   end
-  CocActionAsync('doCodeAction', target)
+  CocActionAsync("doCodeAction", target)
   store = {}
 end
 
 local function handle_code_action(mode)
   store = {}
-  if not is_ready('codeAction') then
+  if not is_ready("codeAction") then
     return
   end
-  local results = CocActionWithTimeout('codeActions', mode)
-  if type(results) ~= 'table' then
+  local results = CocActionWithTimeout("codeActions", mode)
+  if type(results) ~= "table" then
     return
   end
 
   if vim.tbl_isempty(results) then
-    print('No available code actions')
+    print("No available code actions")
     return
   end
 
@@ -534,7 +557,7 @@ local function handle_code_action(mode)
     strings[#strings + 1] = index .. ". " .. result.title
   end
 
-  fzf_lua.fzf_exec(strings, { actions = { ['enter'] = exec_code_action }, winopts = { height = 0.21 } })
+  fzf_lua.fzf_exec(strings, { actions = { ["enter"] = exec_code_action }, winopts = { height = 0.21 } })
 end
 
 local function get_lsp_icon(kind)
@@ -601,12 +624,12 @@ end
 
 local function code_action_line()
   close_all_coc_floats()
-  handle_code_action('line')
+  handle_code_action("line")
 end
 
 local function code_action_cursor()
   close_all_coc_floats()
-  handle_code_action('cursor')
+  handle_code_action("cursor")
 end
 
 local function code_action_file()
@@ -616,32 +639,32 @@ end
 
 local function code_action_source()
   close_all_coc_floats()
-  handle_code_action('source')
+  handle_code_action("source")
 end
 
 local function code_action_refactor()
   close_all_coc_floats()
-  handle_code_action('refactor')
+  handle_code_action("refactor")
 end
 
 local function lsp_reference()
   close_all_coc_floats()
-  list_or_jump('references', true)
+  list_or_jump("references", true)
 end
 
 local function lsp_implementation()
   close_all_coc_floats()
-  list_or_jump('implementations', true)
+  list_or_jump("implementations", true)
 end
 
 local function lsp_definition()
   close_all_coc_floats()
-  list_or_jump('definitions', true)
+  list_or_jump("definitions", true)
 end
 
 local function diagnostic_related_info()
   close_all_coc_floats()
-  list_or_jump('diagnosticRelatedInformation', true)
+  list_or_jump("diagnosticRelatedInformation", true)
 end
 
 local function get_symbols(symbols)
@@ -653,9 +676,9 @@ local function get_symbols(symbols)
 
   for _, s in ipairs(symbols) do
     local icon = utils.ansi_from_hl("WarningMsg", get_lsp_icon(s.kind))
-    local kind = utils.ansi_from_hl("DefxIconsDefaultIcon", '[' .. s.kind .. ']');
+    local kind = utils.ansi_from_hl("DefxIconsDefaultIcon", "[" .. s.kind .. "]")
     local text = utils.ansi_from_hl("Directory", s.text)
-    local position = utils.ansi_from_hl("DefxIconsDefaultIcon", s.lnum .. ' col ' .. s.col)
+    local position = utils.ansi_from_hl("DefxIconsDefaultIcon", s.lnum .. " col " .. s.col)
     local string = icon .. " " .. kind .. " " .. text .. " " .. position
     strings[#strings + 1] = string
     s.uri = uri
@@ -674,11 +697,15 @@ local function get_symbols(symbols)
 
   local opts = {
     -- _ctor 是为了防止 fzf 内部有深拷贝，导致报错
-    previewer = { _ctor = function() return SymbolPreviewr end },
+    previewer = {
+      _ctor = function()
+        return SymbolPreviewr
+      end,
+    },
     actions = {
-      ['enter'] = jump_to_location,
-      ['ctrl-q'] = send_selected_to_qf,
-      ['ctrl-x'] = function(selected)
+      ["enter"] = jump_to_location,
+      ["ctrl-q"] = send_selected_to_qf,
+      ["ctrl-x"] = function(selected)
         utils.fzf_exit()
         local next_source = {}
 
@@ -705,13 +732,13 @@ end
 local function symbol()
   close_all_coc_floats()
   store = {}
-  if not is_ready('documentSymbol') then
+  if not is_ready("documentSymbol") then
     return
   end
 
   local current_buf = api.nvim_get_current_buf()
-  local symbols = CocActionWithTimeout('documentSymbols', current_buf)
-  if type(symbols) ~= 'table' or vim.tbl_isempty(symbols) then
+  local symbols = CocActionWithTimeout("documentSymbols", current_buf)
+  if type(symbols) ~= "table" or vim.tbl_isempty(symbols) then
     return
   end
 
@@ -722,8 +749,10 @@ wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gD"] = { diagnostic_related_info, "Go to diagnostic related information" } })
 wk.register({ mode = { "n" }, ["gi"] = { lsp_implementation, "Go to implementations" } })
-wk.register({ mode = { "n" },
-              ["<leader>ld"] = { diagnostic_from_current_buffer, "LSP diagnostics from current buffer" } })
+wk.register({
+  mode = { "n" },
+  ["<leader>ld"] = { diagnostic_from_current_buffer, "LSP diagnostics from current buffer" },
+})
 wk.register({ mode = { "n" }, ["<leader>lD"] = { diagnostic_from_workspace, "LSP diagnostics from workspace" } })
 wk.register({ mode = { "n" }, ["<leader>ls"] = { symbol, "LSP document symbols" } })
 wk.register({ mode = { "n" }, ["<leader>aA"] = { code_action_line, "LSP CodeActions list for line" } })

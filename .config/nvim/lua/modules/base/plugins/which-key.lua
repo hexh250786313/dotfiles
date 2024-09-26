@@ -55,8 +55,8 @@ nnoremap <c-H> 3<c-w><
 nnoremap <c-J> 3<c-w>-
 nnoremap <c-K> 3<c-w>+
 ]])
-vim.keymap.set({ "n", "x" }, "<ScrollWheelUp>", "<esc>3<c-y>")
-vim.keymap.set({ "n", "x" }, "<ScrollWheelDown>", "<esc>3<c-e>")
+vim.keymap.set({ "n", "x" }, "<ScrollWheelUp>", "<esc>9<c-y>")
+vim.keymap.set({ "n", "x" }, "<ScrollWheelDown>", "<esc>9<c-e>")
 vim.keymap.set({ "i" }, "<ScrollWheelUp>", "<c-x><c-y><c-x><c-y><c-x><c-y>")
 vim.keymap.set({ "i" }, "<ScrollWheelDown>", "<c-x><c-e><c-x><c-e><c-x><c-e>")
 vim.keymap.set({ "n", "x" }, "<c-v>", '"+p')

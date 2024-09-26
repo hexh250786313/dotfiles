@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 #
 target_dir="$HOME/.local/share/nvim/site/pack/packer/start/theme/lua/lualine/themes"
 mkdir -p $target_dir
