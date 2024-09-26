@@ -157,6 +157,25 @@ return packer.startup(function(use)
     after = "copilot.vim",
     config = [[require("modules.code.plugins.CopilotChat")]],
   })
+  use({
+    "yetone/avante.nvim",
+    config = [[require("modules.code.plugins.avante")]],
+    requires = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    keys = {
+      { "n", "<leader>ca" },
+      { "x", "<leader>ca" },
+      { "n", "<leader>ce" },
+      { "x", "<leader>ce" },
+      { "n", "<leader>cr" },
+    },
+    run = "make",
+    after = { "theme", "highlight" },
+  })
 
   -- ┌───────────────────────────────────────
   -- │  File Module
@@ -373,7 +392,7 @@ return packer.startup(function(use)
   -- └───────────────────────────────────────
   use({
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown" },
+    ft = { "markdown", "Avante" },
     config = [[require("modules.markdown.plugins.render-markdown")]],
   })
 
