@@ -1,1 +1,1 @@
-require("render-markdown").setup({ sign = { enabled = false } })
+require("render-markdown").setup({ sign = { enabled = false }, file_types = { "markdown" } })
