@@ -378,9 +378,7 @@ return packer.startup(function(use)
   -- })
   use({
     "echasnovski/mini.animate",
-    config = function()
-      require("mini.animate").setup()
-    end,
+    config = [[require("modules.motion.plugins.mini-animate")]],
   })
   use({
     "echasnovski/mini.map",
