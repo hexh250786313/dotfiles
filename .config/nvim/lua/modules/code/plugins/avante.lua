@@ -40,6 +40,7 @@ require("avante").setup({
   auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
   windows = {
     width = 50,
+    position = "left",
   },
   -- claude = {
   --   endpoint = "https://api.anthropic.com",
