@@ -15,7 +15,7 @@ animate.setup({
     timing = function(_, n)
       return math.min(250 / n, 5)
     end,
-    -- enable = false,
+    enable = false,
   },
   cursor = {
     enable = true,
