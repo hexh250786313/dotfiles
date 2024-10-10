@@ -19,10 +19,11 @@ animate.setup({
   },
   cursor = {
     enable = true,
-    path = animate.gen_path.line({
-      predicate = function(destination)
-        return destination[1] < -2 or 2 < destination[1]
-      end,
-    }),
+    -- 如果开启 scroll，则开启，否则关闭
+    -- path = animate.gen_path.line({
+    --   predicate = function(destination)
+    --     return destination[1] < -2 or 2 < destination[1]
+    --   end,
+    -- }),
   },
 })
