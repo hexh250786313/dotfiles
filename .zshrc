@@ -92,7 +92,7 @@ if [[ ! -d $ZSH_CUSTOM/plugins/fzf-tab ]]; then
   git clone https://github.com/Aloxaf/fzf-tab.git $ZSH_CUSTOM/plugins/fzf-tab
 fi
 alias nvimf='nvim $(fzf --reverse --preview-window "right:50%" --preview "COLORTERM=truecolor bat --style=numbers --color=always --line-range :100 {}")'
-alias gb="(git branch --sort=-committerdate | head -n 10 && git branch --sort=-committerdate -r | head -n 10) | grep -v HEAD | fzf --reverse --preview-window \"right:70%\" --preview \"git log --max-count=333 --color=always --format='%C(auto)%h%d %C(green)%cr%C(reset) %C(yellow)%cn%C(reset) %s %C(black)%C(bold)%cr' {1}\" | perl -0777 -pe \"s/.*origin\///i\" | xargs git checkout"
+alias gb="(git branch --sort=-committerdate | head -n 30 && git branch --sort=-committerdate -r | head -n 30) | grep -v HEAD | fzf --reverse --preview-window \"right:70%\" --preview \"git log --max-count=333 --color=always --format='%C(auto)%h%d %C(green)%cr%C(reset) %C(yellow)%cn%C(reset) %s %C(black)%C(bold)%cr' {1}\" | perl -0777 -pe \"s/.*origin\///i\" | xargs git checkout"
 plugins=(
   wd
   zsh-autosuggestions
