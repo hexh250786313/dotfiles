@@ -170,7 +170,7 @@
   },
   "floatFactory.floatConfig": {
     // 旧的：
-    // "border": [1, 1, 1, 1], // or bool
+    "border": [1, 1, 1, 1], // or bool
     // "rounded": true,
     // "highlight": "Normal",
     // // "borderhighlight": "LspInfoBorder",
