@@ -249,7 +249,7 @@ return packer.startup(function(use)
     -- 样式相关的插件都要比这个先启动
     after = {
       "nvim-cursorword",
-      -- "nvim-treesitter",
+      "nvim-treesitter",
       "theme",
     },
   })
