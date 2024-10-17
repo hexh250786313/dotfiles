@@ -22,8 +22,12 @@ wk.register({
 })
 wk.register({ mode = { "n" }, ["<leader>lq"] = { "<cmd>copen<cr>", "Open quickfix" } })
 
-wk.register({ mode = { "x" }, ["<leader>y"] = { '"zy', "Copy to z register" } })
+wk.register({ mode = { "x" }, ["<leader>y"] = { '"zygv<Esc>', "Copy to z register and keep cursor at the end" } })
 wk.register({ mode = { "n", "x" }, ["<leader>p"] = { '"zp', "Paste from z register" } })
+
+wk.register({
+  ["y"] = { "ygv<Esc>", "Yank and keep cursor at the end" },
+}, { mode = "x" })
 
 ---- 配置
 vim.cmd([[
