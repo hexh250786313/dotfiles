@@ -248,7 +248,7 @@ return packer.startup(function(use)
     config = [[require("modules.highlight.plugins.highlight")]],
     -- 样式相关的插件都要比这个先启动
     after = {
-      "nvim-cursorword",
+      -- "nvim-cursorword",
       "nvim-treesitter",
       "theme",
     },
@@ -334,7 +334,7 @@ return packer.startup(function(use)
     "windwp/nvim-autopairs",
     config = [[require("modules.text.plugins.nvim-autopairs")]],
   })
-  use({ "xiyaowong/nvim-cursorword", config = [[ require("modules.text.plugins.nvim-cursorword") ]] })
+  -- use({ "xiyaowong/nvim-cursorword", config = [[ require("modules.text.plugins.nvim-cursorword") ]] })
 
   -- ┌───────────────────────────────────────
   -- │  Grep Module
