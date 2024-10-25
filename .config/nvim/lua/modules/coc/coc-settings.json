@@ -1,6 +1,6 @@
 {
   // "copilot.triggerCharacters": [],
-  "pretty-ts-errors.serverName": "vtsls",
+  // "pretty-ts-errors.serverName": "vtsls",
   "coc.preferences.extensionUpdateUIInTab": true,
   "suggest.insertMode": "insert",
   "svelte.enable-ts-plugin": true,
@@ -170,7 +170,7 @@
   },
   "floatFactory.floatConfig": {
     // 旧的：
-    // "border": [1, 1, 1, 1], // or bool
+    "border": [1, 1, 1, 1], // or bool
     // "rounded": true,
     // "highlight": "Normal",
     // // "borderhighlight": "LspInfoBorder",
@@ -565,7 +565,7 @@
   "rust-analyzer.disableProgressNotifications": true,
   "rust-analyzer.check.command": "clippy",
   "Lua.diagnostics.globals": ["vim"],
-  "tsserver.enable": false,
+  "tsserver.enable": true,
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
     "taplo": {
@@ -610,7 +610,7 @@
       }
     },
     "vtsls": {
-      "enable": true,
+      "enable": false,
       "command": "vtsls",
       "args": ["--stdio"],
       "rootPatterns": ["package.json", ".git", ".editorconfig"],

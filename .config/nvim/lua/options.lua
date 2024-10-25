@@ -57,7 +57,7 @@ local optionList = {
   -- numberwidth = 2, -- 行号的宽度
   title = true, -- 任务栏显示标题
   hlsearch = true, -- 光标搜索
-  -- scrolloff = 9, -- 光标滚动距离
+  scrolloff = 3, -- 光标滚动距离
   updatetime = 300, -- 更新时间
   cursorline = true, -- 光标行
   termguicolors = true, -- 终端
@@ -78,7 +78,7 @@ local optionList = {
   laststatus = 3, -- 2（默认）：一个窗口一个状态栏；3：状态栏全局只展示一个
   timeout = true,
   timeoutlen = 2000,
-  textwidth = 120,
+  textwidth = 0, -- 防止 txt 中自动换行
   incsearch = true, -- 高亮搜索
   -- guicursor = 'i:ver25,n:hor20,v:hor20', -- 光标样式：n：下划线，v：下划线，i：竖线
 }

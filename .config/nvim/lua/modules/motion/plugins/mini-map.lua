@@ -11,4 +11,4 @@ require("mini.map").setup({
 })
 
 -- 进入 vim 后启动 MiniMap
-vim.cmd("autocmd VimEnter * lua MiniMap.open()")
+-- vim.cmd("autocmd VimEnter * lua MiniMap.open()")
