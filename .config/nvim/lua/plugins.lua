@@ -39,12 +39,6 @@ return packer.startup(function(use)
   -- ┌───────────────────────────────────────
   -- │  Base Module
   -- └───────────────────────────────────────
-  use({
-    "lewis6991/impatient.nvim",
-    config = function()
-      require("impatient").enable_profile()
-    end,
-  })
   use({ "wbthomason/packer.nvim" })
   use({ "dstein64/vim-startuptime", cmd = "StartupTime", config = [[vim.g.startuptime_tries = 10]] })
   use({ "kevinhwang91/nvim-bqf", config = [[require("modules.base.plugins.nvim-bqf")]], requires = "~/.fzf" })
