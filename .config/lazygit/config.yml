@@ -20,6 +20,7 @@ git:
     pager: delta --light --paging=never
 services:
   'git.fpdev.tech': 'gitlab:git.fpdev.tech'
+  'git.finovy.cn': 'gitlab:git.finovy.cn'
 os:
   # edit: '~/Downloads/nvim.appimage {{filename}}'
   edit: 'nvim {{filename}} -c "call timer_start(1000, {-> execute(\"CocDisable\")})"'
