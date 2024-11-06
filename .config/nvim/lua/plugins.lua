@@ -1,5 +1,11 @@
 local fn = vim.fn
 
+local function is_wsl()
+  -- 不知道什么原因 vim.fn.has("wsl") 返回 0，所以这里用 os_unmae 的方式
+  local uname = vim.loop.os_uname()
+  return uname.release:lower():find("microsoft") or uname.release:lower():find("windows")
+end
+
 local theme_config = require("modules.highlight.themes.__theme-config")
 local theme = theme_config.get_current_theme()
 
@@ -179,7 +185,7 @@ return packer.startup(function(use)
     keys = { { "n", "<leader>e" } },
     cmd = { "Defx" },
     config = function()
-      if vim.fn.has("wsl") == 1 then
+      if is_wsl() then
         require("modules.file.plugins.defx-wsl")
       else
         require("modules.file.plugins.defx")
