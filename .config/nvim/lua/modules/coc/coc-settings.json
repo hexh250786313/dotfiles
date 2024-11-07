@@ -568,6 +568,21 @@
   "tsserver.enable": true,
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
+    "dartls": {
+      // 使用 vscode 来安装这个，安装到 ~/build 中，不需要新建 flutter 文件夹，vsc 会自动创建
+      // 配置参考：https://github.com/pwntester/nvim-lsp/blob/master/lua/nvim_lsp/dartls.lua
+      "command": "/home/hexh/build/flutter/bin/cache/dart-sdk/bin/dart",
+      "args": ["/home/hexh/build/flutter/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot", "--lsp"],
+      "filetypes": ["dart"],
+      "rootPatterns": ["pubspec.yaml"],
+      "initializationOptions": {
+        "onlyAnalyzeProjectsWithOpenFiles": false,
+        "suggestFromUnimportedLibraries": true,
+        "closingLabels": true,
+        "outline": true,
+        "flutterOutline": true
+      }
+    },
     "taplo": {
       "command": "taplo",
       "args": ["lsp", "stdio"],
@@ -640,6 +655,6 @@
         "vtsls.autoUseWorkspaceTsdk": true
       }
     }
-  },
+  }
   // "markdown-preview-enhanced.previewTheme": "vue.css" // 不要用，长代码块样式会错乱，还是用默认的好
 }
