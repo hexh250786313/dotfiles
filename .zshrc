@@ -23,6 +23,7 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$PATH:$HOME/build/flutter/bin"
 
 # proxy
 # export all_proxy="socks5://$MY_HOST:4781"
