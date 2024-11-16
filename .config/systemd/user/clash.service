@@ -3,7 +3,7 @@ Description=Clash Service
 After=network.target
 
 [Service]
-ExecStart=/usr/sbin/clash -d /home/hexh/.config/clash
+ExecStart=/usr/sbin/mihomo -d /home/hexh/.config/clash
 Restart=always
 StandardOutput=null
 StandardError=null
