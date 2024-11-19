@@ -16,6 +16,8 @@ else
   export DISPLAY="$(ip route show | grep -i default | awk '{ print $3}'):0.0"
 fi
 
+export ANDROID_HOME=$HOME/build/android-sdk
+
 # path
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/home/$ME/.local/bin:$PATH"
@@ -24,6 +26,7 @@ export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/build/flutter/bin"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$HOME/build/android-sdk/platform-tools"
 
 # proxy
 # export all_proxy="socks5://$MY_HOST:4781"
