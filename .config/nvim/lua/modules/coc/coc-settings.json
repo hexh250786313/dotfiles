@@ -2,6 +2,7 @@
   // "copilot.triggerCharacters": [],
   // "pretty-ts-errors.serverName": "vtsls",
   "coc.preferences.extensionUpdateUIInTab": true,
+  "pretty-ts-errors.codeBlockHighlightType": "typescript",
   "suggest.insertMode": "insert",
   "svelte.enable-ts-plugin": true,
   "copilot.kindLabel": "cpil",
