@@ -2,6 +2,8 @@ require("CopilotChat").setup({
   debug = false, -- Enable debugging
   show_help = false,
   model = "claude-3.5-sonnet",
+  -- model = "o1-preview",
+  -- model = "o1-mini",
   -- See Configuration section for rest
   mappings = { reset = { normal = "<C-q>", insert = "<C-q>" } },
 })

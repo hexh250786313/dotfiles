@@ -15,14 +15,20 @@ fi
 # 如果存在，把它写入，引入正确的 lualine 配置
 # ofirkai
 ofirkai_lualine="$HOME/.local/share/nvim/site/pack/packer/start/theme/lua/ofirkai/statuslines/lualine.lua"
-target_dir="$HOME/.local/share/nvim/site/pack/packer/start/theme/lua/lualine/themes"
 if [[ -f $ofirkai_lualine && ! -f $target_dir/ofirkai.lua ]]; then
   echo "return require('ofirkai.statuslines.lualine').theme" > $target_dir/ofirkai.lua
 fi
 
 # grey
-grey_lualine="$HOME/.config/nvim/lua/modules/highlight/lualine/nvim-grey.lua"
-target_dir="$HOME/.local/share/nvim/site/pack/packer/start/theme/lua/lualine/themes"
-if [[ -f $grey_lualine && ! -f $target_dir/grey.lua ]]; then
-  cp $grey_lualine $target_dir/grey.lua
+# grey_lualine="$HOME/.config/nvim/lua/modules/highlight/lualine/nvim-grey.lua"
+# if [[ -f $grey_lualine && ! -f $target_dir/grey.lua ]]; then
+#   cp $grey_lualine $target_dir/grey.lua
+# fi
+
+# catppuccin
+latte="$HOME/.config/nvim/lua/modules/highlight/themes/hack/catppuccin-nvim/latte.lua"
+latte_target="$HOME/.local/share/nvim/site/pack/packer/start/theme/lua/catppuccin/palettes/latte.lua"
+if [[ -f $latte ]]; then
+  ln -sf $latte $latte_target
 fi
+

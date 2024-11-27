@@ -167,7 +167,7 @@ return packer.startup(function(use)
       { "x", "<leader>ce" },
       { "n", "<leader>cr" },
     },
-    run = "make",
+    run = "make BUILD_FROM_SOURCE=true",
     after = { "theme", "highlight" },
   })
 

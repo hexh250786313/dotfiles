@@ -40,6 +40,8 @@ require("avante").setup({
   auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
   copilot = {
     model = "claude-3.5-sonnet",
+    -- model = "o1-preview",
+    -- model = "o1-mini",
   },
   windows = {
     width = 50,
