@@ -15,15 +15,15 @@ animate.setup({
     timing = function(_, n)
       return math.min(250 / n, 5)
     end,
-    enable = false,
+    enable = true, -- 如果关闭，则注释掉下面那个 path
   },
   cursor = {
     enable = true,
     -- 如果开启 scroll，则开启，否则关闭
-    -- path = animate.gen_path.line({
-    --   predicate = function(destination)
-    --     return destination[1] < -2 or 2 < destination[1]
-    --   end,
-    -- }),
+    path = animate.gen_path.line({
+      predicate = function(destination)
+        return destination[1] < -2 or 2 < destination[1]
+      end,
+    }),
   },
 })
