@@ -142,7 +142,7 @@ return packer.startup(function(use)
   })
   use({
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    -- branch = "canary",
     requires = {
       { "github/copilot.vim" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
