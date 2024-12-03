@@ -171,15 +171,15 @@
   },
   "floatFactory.floatConfig": {
     // 旧的：
-    // "border": [1, 1, 1, 1], // or bool
-    // "rounded": true,
-    // "highlight": "Normal",
-    // // "borderhighlight": "LspInfoBorder",
-    // "winblend": 0,
-    // 新的：
+    "border": [1, 1, 1, 1], // or bool
     "rounded": true,
-    "highlight": "NormalFloat",
-    "winblend": 0
+    "highlight": "Normal",
+    // "borderhighlight": "LspInfoBorder",
+    "winblend": 0,
+    // 新的：
+    // "rounded": true,
+    // "highlight": "NormalFloat",
+    // "winblend": 0
   },
   "suggest.timeout": 5000,
   "coc.preferences.extensionUpdateCheck": "never",
