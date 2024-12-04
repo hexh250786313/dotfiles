@@ -125,13 +125,13 @@ color14="#f44336"
 color15="#f44336"
 
 # paper
-color0="#1e6fcc" # leftest bar bg
+color0="#aba99d" # leftest bar bg
 color1="#d8d5c7" # status bg
 color2="#bfbcaf" # time bg
-color3="#1e6fcc" # hexh bg
+color3="#c2bfb3" # hexh bg
 color4="#96a293" # status fg
-color5="#f2eede" # leftest bar fg
-color6="#1e6fcc" # selected fg
+color5="#5c594a" # leftest bar fg
+color6="#216609" # selected fg
 color7="#f44336"
 color8="#f44336"
 color9="#f44336"

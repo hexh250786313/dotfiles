@@ -212,7 +212,8 @@ add-zsh-hook chpwd _ls_on_cwd_change
 # -------------------
 
 edit-command-line() {
-  local tmpfile=$(mktemp)
+  # local tmpfile=$(mktemp) # 使用随机文件名
+  local tmpfile="/tmp/zsh-edit-buffer" # 使用固定文件名
   # 在临时文件开头添加 #!/usr/bin/env zsh
   echo "#!/usr/bin/env zsh" > $tmpfile
   print -r -- $BUFFER >> $tmpfile
