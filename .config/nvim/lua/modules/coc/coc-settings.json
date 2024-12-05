@@ -1,6 +1,6 @@
 {
   // "copilot.triggerCharacters": [],
-  // "pretty-ts-errors.serverName": "vtsls",
+  "pretty-ts-errors.serverName": "vtsls",
   "coc.preferences.extensionUpdateUIInTab": true,
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
   "suggest.insertMode": "insert",
@@ -566,7 +566,7 @@
   "rust-analyzer.disableProgressNotifications": true,
   "rust-analyzer.check.command": "clippy",
   "Lua.diagnostics.globals": ["vim"],
-  "tsserver.enable": true,
+  "tsserver.enable": false,
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
     "dartls": {
@@ -626,7 +626,7 @@
       }
     },
     "vtsls": {
-      "enable": false,
+      "enable": true,
       "command": "vtsls",
       "args": ["--stdio"],
       "rootPatterns": ["package.json", ".git", ".editorconfig"],

@@ -28,7 +28,7 @@ fi
 # catppuccin
 latte="$HOME/.config/nvim/lua/modules/highlight/themes/hack/catppuccin-nvim/latte.lua"
 latte_target="$HOME/.local/share/nvim/site/pack/packer/start/theme/lua/catppuccin/palettes/latte.lua"
-if [[ -f $latte ]]; then
+if [[ -f $latte_target ]]; then
   ln -sf $latte $latte_target
 fi
 
