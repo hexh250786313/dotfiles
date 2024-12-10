@@ -253,6 +253,19 @@ local function jump_to_location(selected)
     vim.cmd("e " .. vim.uri_to_fname(target.source.uri))
     return
   end
+  -- target.source.range.start 和 target.source.range["end"] 里面的值有可能是负数，修正为 0，例如 eslint_d 在遇到 git conflict 标记的时候
+  if target.source.range.start.line < 0 then
+    target.source.range.start.line = 0
+  end
+  if target.source.range.start.character < 0 then
+    target.source.range.start.character = 0
+  end
+  if target.source.range["end"].line < 0 then
+    target.source.range["end"].line = 0
+  end
+  if target.source.range["end"].character < 0 then
+    target.source.range["end"].character = 0
+  end
   vim.lsp.util.show_document(target.source, "utf-8")
   store = {}
 end
@@ -450,6 +463,13 @@ local function diagnostic(filter)
     end
     -- local text = "[" .. target.source .. "] " .. severity .. " " .. target.message
     local text = "[" .. target.source .. "] " .. message .. " " .. severity
+    -- 如果 result.lnum 或者 result.col 为负数或 0，则把其变为 1
+    if result.lnum <= 0 then
+      result.lnum = 1
+    end
+    if result.col <= 0 then
+      result.col = 1
+    end
     local str = format_string(filename, result.lnum, result.col, text)
     strings[#strings + 1] = str
 
@@ -744,6 +764,12 @@ local function symbol()
 
   get_symbols(symbols)
 end
+
+-- 先取消默认 keymap gra/grn/gri/grr
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grr")
 
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
