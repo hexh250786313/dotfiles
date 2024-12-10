@@ -44,7 +44,7 @@ require("avante").setup({
     -- model = "o1-mini",
   },
   windows = {
-    width = 50,
+    width = 80,
     position = "left",
   },
   -- claude = {

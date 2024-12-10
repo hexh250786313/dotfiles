@@ -181,6 +181,11 @@
     // "highlight": "NormalFloat",
     // "winblend": 0
   },
+  "diagnostic.floatConfig": {
+    "position": "fixed",
+    "bottom": 1,
+    "right": 1,
+  },
   "suggest.timeout": 5000,
   "coc.preferences.extensionUpdateCheck": "never",
   "diagnostic.checkCurrentLine": false,
