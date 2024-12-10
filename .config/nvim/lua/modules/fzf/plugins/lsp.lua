@@ -765,12 +765,6 @@ local function symbol()
   get_symbols(symbols)
 end
 
--- 先取消默认 keymap gra/grn/gri/grr
-vim.keymap.del("n", "gra")
-vim.keymap.del("n", "grn")
-vim.keymap.del("n", "gri")
-vim.keymap.del("n", "grr")
-
 wk.register({ mode = { "n" }, ["gr"] = { lsp_reference, "Go to references" } })
 wk.register({ mode = { "n" }, ["gd"] = { lsp_definition, "Go to definitions" } })
 wk.register({ mode = { "n" }, ["gD"] = { diagnostic_related_info, "Go to diagnostic related information" } })
