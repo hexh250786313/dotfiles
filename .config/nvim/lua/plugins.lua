@@ -79,6 +79,18 @@ return packer.startup(function(use)
     keys = { { "n", "<leader>qW" } },
   })
   -- use({"~/.config/nvim/_self/plugins/copy-to-clipboard", config = [[require("modules.base.plugins.copy-to-clipboard")]]})
+  use({ "rcarriga/nvim-notify", config = [[require("modules.base.plugins.nvim-notify")]] })
+  use({ "MunifTanjim/nui.nvim" })
+  use({ "rcarriga/nvim-notify" })
+  use({ "stevearc/dressing.nvim" })
+  use({
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = [[require("modules.base.plugins.noice")]],
+  })
 
   -- ┌───────────────────────────────────────
   -- │  Buffer Module
@@ -340,8 +352,8 @@ return packer.startup(function(use)
     config = [[require("modules.grep.plugins.nvim-spectre")]],
     run = "./build.sh",
   })
-  -- use({ "hexh250786313/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
-  use({ "romainl/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
+  use({ "hexh250786313/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
+  -- use({ "romainl/vim-cool", config = [[require("modules.grep.plugins.vim-cool")]] })
   use({ "bronson/vim-visual-star-search", keys = { { "n", "*" }, { "v", "*" } } })
   -- use({
   --   "ggVGc/vim-fuzzysearch",
@@ -370,10 +382,10 @@ return packer.startup(function(use)
   --   config = [[require("modules.motion.plugins.neoscroll")]],
   --   commit = "21d52973bde32db998fc8b6590f87eb3c3c6d8e4",
   -- })
-  use({
-    "echasnovski/mini.animate",
-    config = [[require("modules.motion.plugins.mini-animate")]],
-  })
+  -- use({
+  --   "echasnovski/mini.animate",
+  --   config = [[require("modules.motion.plugins.mini-animate")]],
+  -- })
   use({
     "echasnovski/mini.map",
     config = [[require("modules.motion.plugins.mini-map")]],

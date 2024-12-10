@@ -253,7 +253,7 @@ local function jump_to_location(selected)
     vim.cmd("e " .. vim.uri_to_fname(target.source.uri))
     return
   end
-  vim.lsp.util.jump_to_location(target.source, "utf-8")
+  vim.lsp.util.show_document(target.source, "utf-8")
   store = {}
 end
 

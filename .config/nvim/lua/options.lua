@@ -66,7 +66,8 @@ local optionList = {
   wrap = true, -- 是否折行, false 的话会影响多 cols 文件的性能
   swapfile = false, -- 是否使用交换文件
   signcolumn = "auto:1", -- icon 展示在哪, "number" 为展示在行号上, "auto:1" 指的是有 icon 时展示一列, "auto:1-2" 指的是平时至少一列, 有 icon 时最多两列, "auto:2" 指的是平时没有, 有 icon 时最多两列
-  lazyredraw = true, -- 执行脚本时不刷新
+  -- lazyredraw = true, -- 执行脚本时不刷新
+  lazyredraw = false, -- 执行脚本时不刷新，和 noice.nvim 冲突，冲突的点在于
   wildignorecase = true, -- 弹窗忽略大小写
   -- foldmethod = "expr", -- 折叠方式
   -- foldexpr = "nvim_treesitter#foldexpr()", -- 折叠表达式
@@ -86,3 +87,9 @@ local optionList = {
 for k, v in pairs(optionList) do
   vim.opt[k] = v
 end
+
+-- 禁用 diagnostic 虚拟文本和标记
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = false,
+})
