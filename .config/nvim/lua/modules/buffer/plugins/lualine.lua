@@ -129,7 +129,12 @@ local config = {
       -- { "filename", path = 4 },
     },
     lualine_c = {},
-    lualine_x = { "g:coc_status", "encoding", search_result, "filetype" },
+    lualine_x = {
+      "g:coc_status",
+      "encoding",
+      -- search_result,
+      "filetype",
+    },
     lualine_y = { "progress" },
     lualine_z = { "location" },
   },
