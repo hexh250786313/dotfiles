@@ -4,6 +4,7 @@
   "coc.preferences.extensionUpdateUIInTab": true,
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
   "suggest.insertMode": "insert",
+  "suggest.maxCompleteItemCount": 999,
   "svelte.enable-ts-plugin": true,
   "copilot.kindLabel": "cpil",
   // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
