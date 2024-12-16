@@ -40,6 +40,8 @@ require("nvim-treesitter.configs").setup({
     "go",
     "rust",
     "vimdoc",
+    "regex",
+    "bash"
   },
   auto_install = false,
   highlight = { enable = true, disable = disabler },

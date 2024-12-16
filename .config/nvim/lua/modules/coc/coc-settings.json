@@ -186,11 +186,13 @@
     "position": "fixed",
     "bottom": 1,
     "right": 1,
+    "border": false
   },
   "signature.floatConfig": {
     "position": "fixed",
     "bottom": 1,
     "right": 1,
+    "border": false
   },
   "suggest.timeout": 5000,
   "coc.preferences.extensionUpdateCheck": "never",
