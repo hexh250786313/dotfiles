@@ -2,6 +2,9 @@ require("noice").setup({
   cmdline = {
     enabled = true,
     view = "cmdline", -- 改回传统的命令行视图
+    format = {
+      input = { view = "cmdline_input", icon = " " },
+    },
   },
   hover = {
     enabled = false,

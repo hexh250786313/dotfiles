@@ -81,8 +81,7 @@ return packer.startup(function(use)
   -- use({"~/.config/nvim/_self/plugins/copy-to-clipboard", config = [[require("modules.base.plugins.copy-to-clipboard")]]})
   use({ "rcarriga/nvim-notify", config = [[require("modules.base.plugins.nvim-notify")]] })
   use({ "MunifTanjim/nui.nvim" })
-  use({ "rcarriga/nvim-notify" })
-  use({ "stevearc/dressing.nvim" })
+  -- use({ "stevearc/dressing.nvim" })
   use({
     "folke/noice.nvim",
     requires = {
@@ -163,25 +162,25 @@ return packer.startup(function(use)
     after = "copilot.vim",
     config = [[require("modules.code.plugins.CopilotChat")]],
   })
-  use({
-    "yetone/avante.nvim",
-    config = [[require("modules.code.plugins.avante")]],
-    requires = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-    keys = {
-      { "n", "<leader>ca" },
-      { "x", "<leader>ca" },
-      { "n", "<leader>ce" },
-      { "x", "<leader>ce" },
-      { "n", "<leader>cr" },
-    },
-    run = "make BUILD_FROM_SOURCE=true",
-    after = { "theme", "highlight" },
-  })
+  -- use({
+  --   "yetone/avante.nvim",
+  --   config = [[require("modules.code.plugins.avante")]],
+  --   requires = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "stevearc/dressing.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   keys = {
+  --     { "n", "<leader>ca" },
+  --     { "x", "<leader>ca" },
+  --     { "n", "<leader>ce" },
+  --     { "x", "<leader>ce" },
+  --     { "n", "<leader>cr" },
+  --   },
+  --   run = "make BUILD_FROM_SOURCE=true",
+  --   after = { "theme", "highlight" },
+  -- })
 
   -- ┌───────────────────────────────────────
   -- │  File Module
@@ -394,11 +393,11 @@ return packer.startup(function(use)
   -- ┌───────────────────────────────────────
   -- │  Markdown Module
   -- └───────────────────────────────────────
-  use({
-    "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "Avante" },
-    config = [[require("modules.markdown.plugins.render-markdown")]],
-  })
+  -- use({
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   ft = { "markdown", "Avante" },
+  --   config = [[require("modules.markdown.plugins.render-markdown")]],
+  -- })
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
