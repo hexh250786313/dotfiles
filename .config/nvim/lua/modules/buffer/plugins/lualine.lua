@@ -54,6 +54,9 @@ local function search_result()
   return last_search .. "(" .. searchcount.current .. "/" .. searchcount.total .. ")"
 end
 
+-- local separators = { left = "", right = "" }
+local separators = { left = "", right = "" }
+
 local config = {
   options = {
     disabled_filetypes = { "qf" },
@@ -62,7 +65,7 @@ local config = {
     -- component_separators = { left = " ", right = " " },
     -- 斜主题
     component_separators = "",
-    section_separators = { left = "", right = "" },
+    section_separators = separators,
   },
   -- 如果不想要斜分割，就去掉 process_sections
   -- sections = process_sections {
