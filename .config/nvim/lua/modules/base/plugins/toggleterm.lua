@@ -49,8 +49,14 @@ local lazygit = Terminal:new({
   end,
   float_opts = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    width = 999,
-    height = 999,
+    width = function()
+      return math.floor(vim.o.columns * 1)
+    end,
+    height = function()
+      return math.floor(vim.o.lines * 1)
+    end
+    -- width = 999,
+    -- height = 999,
   },
   auto_scroll = false,
 })
