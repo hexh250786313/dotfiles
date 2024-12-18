@@ -1,4 +1,8 @@
 #!/usr/bin/env zsh
 
-/mnt/c/Program\ Files/PowerShell/7/pwsh.exe -File "C:\Users\25078\Documents\Nutstore\share\startup\set_ports.ps1"
-# /mnt/c/Program\ Files/PowerShell/7/pwsh.exe -File "C:\Users\25078\Documents\Nutstore\share\startup\unset_ports.ps1"
+for port in {7766..7776} 22 8877 8878; do
+    echo "Processing port $port..."
+    zsh -ic "/home/hexh/.config/my-config/sh/pwsh.sh fw-port-set $port"
+    zsh -ic "/home/hexh/.config/my-config/sh/pwsh.sh wsl-netsh-unset $port"
+    zsh -ic "/home/hexh/.config/my-config/sh/pwsh.sh wsl-netsh-set $port"
+done

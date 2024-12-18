@@ -3,7 +3,7 @@ Description=Forward Ports Service
 After=network.target
 
 [Service]
-ExecStart=zsh -c /home/hexh/workspace/dotfiles/.config/my-config/sh/forward-ports.sh
+ExecStart=zsh -ic /home/hexh/workspace/dotfiles/.config/my-config/sh/forward-ports.sh
 StandardOutput=null
 StandardError=null
 

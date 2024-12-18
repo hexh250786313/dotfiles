@@ -13,10 +13,15 @@ language en_US.UTF-8
 set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 set clipboard+=unnamedplus
 " let g:loaded_matchparen = 1 " 关闭括弧配对高亮
-set guifont=FiraCode\ Nerd\ Font:h12
-let g:neovide_transparency = 0.9
+" set guifont=FiraCode\ Nerd\ Font:h12
+set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h12
+" let g:neovide_scale_factor = 1.6
+" let g:neovide_transparency = 0.9
 au BufEnter * set noro
 ]])
+
+vim.g.neovide_floating_shadow = false
+-- vim.g.neovide_cursor_animation_length = 0 -- 关闭 cursor 动画
 
 local myNodePath = os.getenv("MY_NODE_PATH")
 local host = os.getenv("MY_HOST")
@@ -57,7 +62,7 @@ local optionList = {
   -- numberwidth = 2, -- 行号的宽度
   title = true, -- 任务栏显示标题
   hlsearch = true, -- 光标搜索
-  scrolloff = 3, -- 光标滚动距离
+  scrolloff = 0, -- 光标滚动距离
   updatetime = 300, -- 更新时间
   cursorline = true, -- 光标行
   termguicolors = true, -- 终端

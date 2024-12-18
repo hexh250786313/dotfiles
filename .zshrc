@@ -243,3 +243,46 @@ function ranger {
   fi
   command rm -f -- "$tempfile" 2>/dev/null
 }
+
+# alias nvimr="nvim --headless --listen localhost:7766 & sleep 1 && ssh -p 2222 'hexh-ser\\25078'@192.168.10.65 'C:\Users\25078\Desk\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\Users\25078\Desk\7766.bat\"'"
+
+function nvimr() {
+    # 在指定范围内查找可用端口
+    local port
+    for p in {7766..7776}; do
+        if ! nc -z localhost $p 2>/dev/null; then
+            port=$p
+            break
+        fi
+    done
+
+    if [ -z "$port" ]; then
+        echo "No available ports in range 7766-7776"
+        return 1
+    fi
+
+    # 创建临时 bat 文件
+    local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncd /d %USERPROFILE%\r\n\r\n:: 启动 neovide\r\nstart \"\" \"C:\\\\Users\\\\25078\\\\scoop\\\\shims\\\\neovide.exe\" --server 192.168.10.68:$port"
+    local temp_bat="/tmp/$port.bat"
+    echo -e "$bat_content" > "$temp_bat"
+
+    # 传送文件到远程 Windows
+    scp -P 2222 "$temp_bat" 'hexh-ser\25078'@192.168.10.65:"C:/Users/25078/Desk/$port.bat"
+    rm "$temp_bat"
+
+    # 启动 nvim 服务
+    echo "Starting Neovim server on port $port..."
+    nvim --headless --listen localhost:$port &
+
+    # 等待端口可用并执行远程命令
+    while ! nc -z localhost $port; do
+        sleep 0.1
+    done
+
+    ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\$port.bat\""
+    sleep 2
+    ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "del /f /q C:\\Users\\25078\\Desk\\$port.bat"
+
+    # 等待 nvim 服务结束
+    wait
+}
