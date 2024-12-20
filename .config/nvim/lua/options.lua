@@ -14,10 +14,11 @@ set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 set clipboard+=unnamedplus
 " let g:loaded_matchparen = 1 " 关闭括弧配对高亮
 " set guifont=FiraCode\ Nerd\ Font:h12
-set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h12
+set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h9
 " let g:neovide_scale_factor = 1.6
 " let g:neovide_transparency = 0.9
 au BufEnter * set noro
+set linespace=4 " neovide 的行高，但是不是按照字体比例计算的行高，单纯只是在行之间插入像素，会导致一些 nerd font icon 显示高度不一致，效果没有 windows terminal 的行高好
 ]])
 
 vim.g.neovide_floating_shadow = false
