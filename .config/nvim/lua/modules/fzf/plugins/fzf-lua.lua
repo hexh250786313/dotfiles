@@ -5,7 +5,7 @@ local wk = require("which-key")
 wk.register({
   mode = { "n" },
   ["<leader>/"] = {
-    "<cmd>lua require('fzf-lua').live_grep_native({ cmd = 'rg --column --max-columns=300 --ignore-case --hidden --multiline --sort-files --vimgrep', no_esc = true, resume = true, actions = { ['ctrl-q'] = { fn = require('fzf-lua.actions').file_edit_or_qf } } })<cr>",
+    "<cmd>lua require('fzf-lua').live_grep_native({ cmd = 'rg --column --max-columns=300 --ignore-case --hidden --multiline --sort-files --vimgrep --line-number', no_esc = true, resume = true, actions = { ['ctrl-q'] = { fn = require('fzf-lua.actions').file_edit_or_qf } } })<cr>",
     "Grep globally",
   },
   ["<leader>F"] = {
