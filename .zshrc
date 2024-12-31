@@ -26,7 +26,7 @@ export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/build/flutter/bin"
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$HOME/build/android-sdk/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$HOME/build/android-sdk/platform-tools:$HOME/build/android-sdk/emulator"
 
 # proxy
 # export all_proxy="socks5://$MY_HOST:4781"

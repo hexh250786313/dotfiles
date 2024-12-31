@@ -70,7 +70,7 @@ function! s:GREP_FROM_SELECTED(type)
   " no_esc 是不转义的意思，就是不使用 fzf-lua 的转义
 lua <<EOF
   require('fzf-lua').live_grep_native({
-    cmd = "rg --column --max-columns=300 --ignore-case --hidden --multiline --sort-files --vimgrep",
+    cmd = "rg --column --max-columns=300 --ignore-case --hidden --multiline --sort-files --vimgrep --line-number",
     search = vim.fn.eval("word"),
     no_esc = true,
     resume = true,
