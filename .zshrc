@@ -262,7 +262,7 @@ function nvimr() {
     fi
 
     # 创建临时 bat 文件
-    local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncd /d %USERPROFILE%\r\n\r\n:: 启动 neovide\r\nstart \"\" \"C:\\\\Users\\\\25078\\\\scoop\\\\shims\\\\neovide.exe\" --server 192.168.10.68:$port"
+    local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncd /d %USERPROFILE%\r\n\r\n:: 启动 neovide\r\nstart \"\" \"C:\\\\Users\\\\25078\\\\scoop\\\\shims\\\\neovide.exe\" --server 192.168.10.160:$port"
     local temp_bat="/tmp/$port.bat"
     echo -e "$bat_content" > "$temp_bat"
 
@@ -298,8 +298,8 @@ function code() {
     fi
 
     # 创建临时 bat 文件
-    # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@192.168.10.68 \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
-    local bat_content="@echo off\r\n:: 切换到用户主目录\r\necho | code --remote ssh-remote+hexh@192.168.10.68 \"$target_path\" | exit /b" # 这个 `echo | xxxxx | exit /b` 的写法则可以关闭 cmd 窗口
+    # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@192.168.10.160 \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
+    local bat_content="@echo off\r\n:: 切换到用户主目录\r\necho | code --remote ssh-remote+hexh@192.168.10.160 \"$target_path\" | exit /b" # 这个 `echo | xxxxx | exit /b` 的写法则可以关闭 cmd 窗口
     local temp_bat="/tmp/code.bat"
     echo -e "$bat_content" > "$temp_bat"
 
