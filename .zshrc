@@ -286,3 +286,28 @@ function nvimr() {
     # 等待 nvim 服务结束
     wait
 }
+
+
+function code() {
+    # 获取要打开的路径（如果没有参数则使用当前目录）
+    local target_path="${1:-$(pwd)}"
+    
+    # 如果是相对路径，转换为绝对路径
+    if [[ ! "$target_path" = /* ]]; then
+        target_path="$(pwd)/$target_path"
+    fi
+
+    # 创建临时 bat 文件
+    # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@192.168.10.68 \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
+    local bat_content="@echo off\r\n:: 切换到用户主目录\r\necho | code --remote ssh-remote+hexh@192.168.10.68 \"$target_path\" | exit /b" # 这个 `echo | xxxxx | exit /b` 的写法则可以关闭 cmd 窗口
+    local temp_bat="/tmp/code.bat"
+    echo -e "$bat_content" > "$temp_bat"
+
+    # 传送文件到远程 Windows
+    scp -P 2222 "$temp_bat" 'hexh-ser\25078'@192.168.10.65:"C:/Users/25078/Desk/code.bat"
+    rm "$temp_bat"
+
+    ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\code.bat\""
+    sleep 2
+    ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "del /f /q C:\\Users\\25078\\Desk\\code.bat"
+}
