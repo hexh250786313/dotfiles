@@ -15,8 +15,12 @@ if [[ -n "$SSH_CONNECTION" ]]; then
 else
   export DISPLAY="$(ip route show | grep -i default | awk '{ print $3}'):0.0"
 fi
+# export DISPLAY=:0
 
 export ANDROID_HOME=$HOME/build/android-sdk
+export ANDROID_EMU_VK_ICD=/usr/share/vulkan/icd.d/nvidia_icd.json
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/dzn_icd.x86_64.json
+export NVIDIA_DRIVER_CAPABILITIES=all
 
 # path
 export PATH="$HOME/.cargo/bin:$PATH"
