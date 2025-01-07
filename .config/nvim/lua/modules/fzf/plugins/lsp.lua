@@ -222,7 +222,7 @@ local function getNewPreviewer(string_parser)
       utils.zz()
     end)
 
-    self.win:update_scrollbar(true)
+    self.win:update_preview_scrollbar()
   end
 
   return previewer
@@ -394,6 +394,7 @@ local function list_or_jump(provider, has_jump)
   }
 
   local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
+  normalized_opts.winopts.title_pos = nil -- 默认值是 "center"，把它移除掉，否则会最终传给 vim.api.nvim_open_win(bufnr, true, opts)，nvim_open_win 不接受 title_pos
   return fzf_lua.fzf_exec(strings, normalized_opts)
 end
 

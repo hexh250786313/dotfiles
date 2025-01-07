@@ -5,7 +5,7 @@ local wk = require("which-key")
 wk.register({
   mode = { "n" },
   ["<leader>/"] = {
-    "<cmd>lua require('fzf-lua').live_grep_native({ cmd = 'rg --column --max-columns=300 --ignore-case --hidden --multiline --sort-files --vimgrep', no_esc = true, resume = true, actions = { ['ctrl-q'] = { fn = require('fzf-lua.actions').file_edit_or_qf } } })<cr>",
+    "<cmd>lua require('fzf-lua').live_grep_native({ cmd = 'rg --column --max-columns=300 --ignore-case --hidden --multiline --sort-files --vimgrep --line-number', no_esc = true, resume = true, actions = { ['ctrl-q'] = { fn = require('fzf-lua.actions').file_edit_or_qf } } })<cr>",
     "Grep globally",
   },
   ["<leader>F"] = {
@@ -70,7 +70,7 @@ function! s:GREP_FROM_SELECTED(type)
   " no_esc 是不转义的意思，就是不使用 fzf-lua 的转义
 lua <<EOF
   require('fzf-lua').live_grep_native({
-    cmd = "rg --column --max-columns=300 --ignore-case --hidden --multiline --sort-files --vimgrep",
+    cmd = "rg --column --max-columns=300 --ignore-case --hidden --multiline --sort-files --vimgrep --line-number",
     search = vim.fn.eval("word"),
     no_esc = true,
     resume = true,
