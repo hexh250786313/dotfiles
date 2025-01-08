@@ -204,6 +204,12 @@ return packer.startup(function(use)
     cmd = { "RnvimrToggle" },
     config = [[require("modules.file.plugins.rnvimr")]],
   })
+  -- use({
+  --   "mikavilpas/yazi.nvim",
+  --   keys = { { "n", "<leader>E" } },
+  --   cmd = { "Yazi" },
+  --   config = [[require("modules.file.plugins.yazi")]],
+  -- })
   use({ "hexh250786313/defx-icons", after = "defx.nvim", branch = "hexh" })
   use({ "~/.config/nvim/_self/plugins/port-defx-icons", after = "defx-icons" })
 
