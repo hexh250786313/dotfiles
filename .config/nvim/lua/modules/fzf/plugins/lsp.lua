@@ -513,7 +513,7 @@ local function diagnostic_from_current_buffer()
   }
 
   local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
-
+  normalized_opts.winopts.title_pos = nil -- 默认值是 "center"，把它移除掉，否则会最终传给 vim.api.nvim_open_win(bufnr, true, opts)，nvim_open_win 不接受 title_pos
   fzf_lua.fzf_exec(strings, normalized_opts)
 end
 
@@ -535,7 +535,7 @@ local function diagnostic_from_workspace()
   }
 
   local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
-
+  normalized_opts.winopts.title_pos = nil -- 默认值是 "center"，把它移除掉，否则会最终传给 vim.api.nvim_open_win(bufnr, true, opts)，nvim_open_win 不接受 title_pos
   fzf_lua.fzf_exec(strings, normalized_opts)
 end
 
@@ -746,7 +746,7 @@ local function get_symbols(symbols)
   }
 
   local normalized_opts = fzf_lua_config.normalize_opts(opts, "lsp")
-
+  normalized_opts.winopts.title_pos = nil -- 默认值是 "center"，把它移除掉，否则会最终传给 vim.api.nvim_open_win(bufnr, true, opts)，nvim_open_win 不接受 title_pos
   fzf_lua.fzf_exec(strings, normalized_opts)
 end
 
