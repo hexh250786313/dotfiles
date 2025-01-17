@@ -29,6 +29,7 @@ require("nvim-treesitter.configs").setup({
     "typescript",
     "css",
     "scss",
+    "styled",
     "vue",
     "lua",
     "vim",
