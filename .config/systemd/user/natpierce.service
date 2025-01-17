@@ -1,0 +1,12 @@
+[Unit]
+Description=Natpierce
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/hexh/build/natpierce/natpierce
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
