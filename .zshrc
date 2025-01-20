@@ -30,6 +30,7 @@ export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/build/flutter/bin"
+export PATH="$HOME/build/yek/target/release:$PATH"
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$HOME/build/android-sdk/platform-tools:$HOME/build/android-sdk/emulator"
 
 # proxy
