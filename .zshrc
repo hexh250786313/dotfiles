@@ -37,8 +37,8 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$HOME/build/android-sd
 # export all_proxy="socks5://$MY_HOST:4781"
 # export http_proxy="http://$MY_HOST:4781"
 # export https_proxy="http://$MY_HOST:4781"
-alias proxy_unset="unset all_proxy && unset http_proxy && unset https_proxy"
-alias proxy_set="export all_proxy="socks://$MY_HOST:4781" && export http_proxy="http://$MY_HOST:4781" && export https_proxy="http://$MY_HOST:4781""
+alias proxy_unset="unset all_proxy && unset http_proxy && unset https_proxy && unset no_proxy"
+alias proxy_set="export all_proxy="socks://$MY_HOST:4781" && export http_proxy="http://$MY_HOST:4781" && export https_proxy="http://$MY_HOST:4781" && export no_proxy="localhost,127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.baidu.com"" # 不能使用通配符 *，使用 . 前缀就可以匹配所有子域名
 
 # p10k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -252,67 +252,67 @@ function ranger {
 # alias nvimr="nvim --headless --listen localhost:7766 & sleep 1 && ssh -p 2222 'hexh-ser\\25078'@192.168.10.65 'C:\Users\25078\Desk\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\Users\25078\Desk\7766.bat\"'"
 
 function nvimr() {
-    # 在指定范围内查找可用端口
-    local port
-    for p in {7766..7776}; do
-        if ! nc -z localhost $p 2>/dev/null; then
-            port=$p
-            break
-        fi
-    done
-
-    if [ -z "$port" ]; then
-        echo "No available ports in range 7766-7776"
-        return 1
+  # 在指定范围内查找可用端口
+  local port
+  for p in {7766..7776}; do
+    if ! nc -z localhost $p 2>/dev/null; then
+      port=$p
+      break
     fi
+  done
 
-    # 创建临时 bat 文件
-    local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncd /d %USERPROFILE%\r\n\r\n:: 启动 neovide\r\nstart \"\" \"C:\\\\Users\\\\25078\\\\scoop\\\\shims\\\\neovide.exe\" --server 192.168.10.160:$port"
-    local temp_bat="/tmp/$port.bat"
-    echo -e "$bat_content" > "$temp_bat"
+  if [ -z "$port" ]; then
+    echo "No available ports in range 7766-7776"
+    return 1
+  fi
 
-    # 传送文件到远程 Windows
-    scp -P 2222 "$temp_bat" 'hexh-ser\25078'@192.168.10.65:"C:/Users/25078/Desk/$port.bat"
-    rm "$temp_bat"
+  # 创建临时 bat 文件
+  local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncd /d %USERPROFILE%\r\n\r\n:: 启动 neovide\r\nstart \"\" \"C:\\\\Users\\\\25078\\\\scoop\\\\shims\\\\neovide.exe\" --server 192.168.10.160:$port"
+  local temp_bat="/tmp/$port.bat"
+  echo -e "$bat_content" > "$temp_bat"
 
-    # 启动 nvim 服务
-    echo "Starting Neovim server on port $port..."
-    nvim --headless --listen localhost:$port &
+  # 传送文件到远程 Windows
+  scp -P 2222 "$temp_bat" 'hexh-ser\25078'@192.168.10.65:"C:/Users/25078/Desk/$port.bat"
+  rm "$temp_bat"
 
-    # 等待端口可用并执行远程命令
-    while ! nc -z localhost $port; do
-        sleep 0.1
-    done
+  # 启动 nvim 服务
+  echo "Starting Neovim server on port $port..."
+  nvim --headless --listen localhost:$port &
 
-    ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\$port.bat\""
-    sleep 2
-    ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "del /f /q C:\\Users\\25078\\Desk\\$port.bat"
+  # 等待端口可用并执行远程命令
+  while ! nc -z localhost $port; do
+    sleep 0.1
+  done
 
-    # 等待 nvim 服务结束
-    wait
+  ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\$port.bat\""
+  sleep 2
+  ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "del /f /q C:\\Users\\25078\\Desk\\$port.bat"
+
+  # 等待 nvim 服务结束
+  wait
 }
 
 
 function code() {
-    # 获取要打开的路径（如果没有参数则使用当前目录）
-    local target_path="${1:-$(pwd)}"
-    
-    # 如果是相对路径，转换为绝对路径
-    if [[ ! "$target_path" = /* ]]; then
-        target_path="$(pwd)/$target_path"
-    fi
+  # 获取要打开的路径（如果没有参数则使用当前目录）
+  local target_path="${1:-$(pwd)}"
 
-    # 创建临时 bat 文件
-    # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@192.168.10.160 \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
-    local bat_content="@echo off\r\n:: 切换到用户主目录\r\necho | code --remote ssh-remote+hexh@192.168.10.160 \"$target_path\" | exit /b" # 这个 `echo | xxxxx | exit /b` 的写法则可以关闭 cmd 窗口
-    local temp_bat="/tmp/code.bat"
-    echo -e "$bat_content" > "$temp_bat"
+  # 如果是相对路径，转换为绝对路径
+  if [[ ! "$target_path" = /* ]]; then
+    target_path="$(pwd)/$target_path"
+  fi
 
-    # 传送文件到远程 Windows
-    scp -P 2222 "$temp_bat" 'hexh-ser\25078'@192.168.10.65:"C:/Users/25078/Desk/code.bat"
-    rm "$temp_bat"
+  # 创建临时 bat 文件
+  # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@192.168.10.160 \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
+  local bat_content="@echo off\r\n:: 切换到用户主目录\r\necho | code --remote ssh-remote+hexh@192.168.10.160 \"$target_path\" | exit /b" # 这个 `echo | xxxxx | exit /b` 的写法则可以关闭 cmd 窗口
+  local temp_bat="/tmp/code.bat"
+  echo -e "$bat_content" > "$temp_bat"
 
-    ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\code.bat\""
-    sleep 2
-    ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "del /f /q C:\\Users\\25078\\Desk\\code.bat"
+  # 传送文件到远程 Windows
+  scp -P 2222 "$temp_bat" 'hexh-ser\25078'@192.168.10.65:"C:/Users/25078/Desk/code.bat"
+  rm "$temp_bat"
+
+  ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\code.bat\""
+  sleep 2
+  ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "del /f /q C:\\Users\\25078\\Desk\\code.bat"
 }
