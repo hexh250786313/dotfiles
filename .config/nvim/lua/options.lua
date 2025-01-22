@@ -14,7 +14,7 @@ set noincsearch " / 搜索时, 在按下 <cr> 前不会乱跳
 set clipboard+=unnamedplus
 " let g:loaded_matchparen = 1 " 关闭括弧配对高亮
 " set guifont=FiraCode\ Nerd\ Font:h12
-set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h9
+set guifont=JetBrainsMonoNL\ Nerd\ Font\ Mono:h11
 " let g:neovide_scale_factor = 1.6
 " let g:neovide_transparency = 0.9
 au BufEnter * set noro
