@@ -5,12 +5,14 @@ export MY_HOST=127.0.0.1
 unset HOST
 export CONFIG_DIR="/home/$ME/.config"
 export ME="hexh"
+export MY_IP="192.168.10.160"
+export REMOTE_IP="192.168.10.65"
 export REAL_ME="hexh"
 export ZSH_CUSTOM="/home/$ME/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/$ME/.config"
 
 if [[ -n "$SSH_CONNECTION" ]]; then
-  SSH_CLIENT_IP=192.168.10.65
+  SSH_CLIENT_IP=$REMOTE_IP
   export DISPLAY="${SSH_CLIENT_IP}:0.0"
 else
   export DISPLAY="$(ip route show | grep -i default | awk '{ print $3}'):0.0"
@@ -267,12 +269,12 @@ function nvimr() {
   fi
 
   # 创建临时 bat 文件
-  local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncd /d %USERPROFILE%\r\n\r\n:: 启动 neovide\r\nstart \"\" \"C:\\\\Users\\\\25078\\\\scoop\\\\shims\\\\neovide.exe\" --server 192.168.10.160:$port"
+  local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncd /d %USERPROFILE%\r\n\r\n:: 启动 neovide\r\nstart \"\" \"C:\\\\Users\\\\25078\\\\scoop\\\\shims\\\\neovide.exe\" --server ${MY_IP}:$port"
   local temp_bat="/tmp/$port.bat"
   echo -e "$bat_content" > "$temp_bat"
 
   # 传送文件到远程 Windows
-  scp -P 2222 "$temp_bat" 'hexh-ser\25078'@192.168.10.65:"C:/Users/25078/Desk/$port.bat"
+  scp -P 2222 "$temp_bat" "hexh-ser\\25078@${REMOTE_IP}:C:/Users/25078/Desk/$port.bat"
   rm "$temp_bat"
 
   # 启动 nvim 服务
@@ -284,9 +286,9 @@ function nvimr() {
     sleep 0.1
   done
 
-  ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\$port.bat\""
+  ssh -p 2222 "hexh-ser\\25078@${REMOTE_IP}" "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\$port.bat\""
   sleep 2
-  ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "del /f /q C:\\Users\\25078\\Desk\\$port.bat"
+  ssh -p 2222 "hexh-ser\\25078@${REMOTE_IP}" "del /f /q C:\\Users\\25078\\Desk\\$port.bat"
 
   # 等待 nvim 服务结束
   wait
@@ -303,16 +305,16 @@ function code() {
   fi
 
   # 创建临时 bat 文件
-  # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@192.168.10.160 \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
-  local bat_content="@echo off\r\n:: 切换到用户主目录\r\necho | code --remote ssh-remote+hexh@192.168.10.160 \"$target_path\" | exit /b" # 这个 `echo | xxxxx | exit /b` 的写法则可以关闭 cmd 窗口
+  # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@${MY_IP} \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
+  local bat_content="@echo off\r\n:: 切换到用户主目录\r\necho | code --remote ssh-remote+hexh@${MY_IP} \"$target_path\" | exit /b"
   local temp_bat="/tmp/code.bat"
   echo -e "$bat_content" > "$temp_bat"
 
   # 传送文件到远程 Windows
-  scp -P 2222 "$temp_bat" 'hexh-ser\25078'@192.168.10.65:"C:/Users/25078/Desk/code.bat"
+  scp -P 2222 "$temp_bat" "hexh-ser\\25078@${REMOTE_IP}:C:/Users/25078/Desk/code.bat"
   rm "$temp_bat"
 
-  ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\code.bat\""
+  ssh -p 2222 "hexh-ser\\25078@${REMOTE_IP}" "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\code.bat\""
   sleep 2
-  ssh -p 2222 'hexh-ser\25078'@192.168.10.65 "del /f /q C:\\Users\\25078\\Desk\\code.bat"
+  ssh -p 2222 "hexh-ser\\25078@${REMOTE_IP}" "del /f /q C:\\Users\\25078\\Desk\\code.bat"
 }
