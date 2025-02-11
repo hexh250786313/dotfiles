@@ -297,12 +297,10 @@ function nvimr() {
 
 function code() {
   # 获取要打开的路径（如果没有参数则使用当前目录）
-  local target_path="${1:-$(pwd)}"
+  local target_path="${1:-.}"
 
   # 如果是相对路径，转换为绝对路径
-  if [[ ! "$target_path" = /* ]]; then
-    target_path="$(pwd)/$target_path"
-  fi
+  target_path=$(realpath "$target_path")
 
   # 创建临时 bat 文件
   # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@${MY_IP} \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
