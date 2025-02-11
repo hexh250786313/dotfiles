@@ -87,7 +87,7 @@ vim.g.coc_global_extensions = {
   "coc-tasks",
   "coc-todo-tree",
   "@yaegassy/coc-tailwindcss3",
-  "coc-styled-components",
+  -- "coc-styled-components",
   "coc-typos",
   -- "@hexuhua/coc-list-files-mru",
   "@hexuhua/coc-copilot",

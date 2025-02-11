@@ -1,6 +1,6 @@
 {
   // "copilot.triggerCharacters": [],
-  // "pretty-ts-errors.serverName": "vtsls",
+  "pretty-ts-errors.serverName": "vtsls",
   "coc.preferences.extensionUpdateUIInTab": true,
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
   "suggest.insertMode": "insert",
@@ -176,7 +176,7 @@
     "rounded": true,
     "highlight": "Normal",
     // "borderhighlight": "LspInfoBorder",
-    "winblend": 0,
+    "winblend": 0
     // 新的：
     // "rounded": true,
     // "highlight": "NormalFloat",
@@ -583,7 +583,7 @@
   "rust-analyzer.disableProgressNotifications": true,
   "rust-analyzer.check.command": "clippy",
   "Lua.diagnostics.globals": ["vim"],
-  "tsserver.enable": true,
+  "tsserver.enable": false,
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
     "dartls": {
@@ -643,7 +643,7 @@
       }
     },
     "vtsls": {
-      "enable": false,
+      "enable": true,
       "command": "vtsls",
       "args": ["--stdio"],
       "rootPatterns": ["package.json", ".git", ".editorconfig"],
@@ -670,7 +670,14 @@
         "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
         "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
         "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
-        "vtsls.autoUseWorkspaceTsdk": true
+        // "vtsls.autoUseWorkspaceTsdk": true
+        "vtsls.tsserver.globalPlugins": [
+          {
+            "name": "@styled/typescript-styled-plugin",
+            "location": "/home/hexh/.local/share/fnm/node-versions/v20.16.0/installation/lib/node_modules",
+            "enableForWorkspaceTypeScriptVersions": true
+          }
+        ]
       }
     }
   }
