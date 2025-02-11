@@ -1,6 +1,8 @@
 {
   // "copilot.triggerCharacters": [],
   "pretty-ts-errors.serverName": "vtsls",
+  "tailwindCSS.enable": false,
+  "json.enable": true,
   "coc.preferences.extensionUpdateUIInTab": true,
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
   "suggest.insertMode": "insert",
@@ -640,6 +642,168 @@
         "typescript.inlayHints.includeInlayFunctionLikeReturnTypeHints": true,
         "typescript.inlayHints.includeInlayPropertyDeclarationTypeHints": true,
         "typescript.inlayHints.includeInlayVariableTypeHintsWhenTypeMatchesName": true
+      }
+    },
+    // https://github.com/hrsh7th/vscode-langservers-extracted
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/jsonls.lua
+    "json": {
+      "enable": false,
+      "command": "vscode-json-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["jsonc", "json"],
+      "initializationOptions": {
+        "provideFormatter": false
+      },
+      "settings": {},
+      "rootPatterns": [".git"]
+    },
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/yamlls.lua
+    "yaml": {
+      "enable": true,
+      "command": "yaml-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["yaml", "yaml.docker-compose", "yaml.gitlab"],
+      "initializationOptions": {},
+      "settings": {
+        "redhat": { "telemetry": { "enabled": false } }
+      },
+      "rootPatterns": [".git"]
+    },
+    // https://github.com/neovim/nvim-lspconfig/blob/6c17f8656f667727b27f5f598463afedb7791b18/lua/lspconfig/configs/html.lua
+    "html": {
+      "enable": true,
+      "command": "vscode-html-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["html", "templ"],
+      "initializationOptions": {
+        "provideFormatter": false,
+        "embeddedLanguages": {
+          "css": true,
+          "javascript": true
+        },
+        "configurationSection": ["html", "css", "javascript"]
+      },
+      "rootPatterns": ["package.json", ".git"]
+    },
+    // https://github.com/neovim/nvim-lspconfig/blob/6c17f8656f667727b27f5f598463afedb7791b18/lua/lspconfig/configs/cssls.lua
+    "css": {
+      "enable": true,
+      "command": "vscode-css-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["css", "scss", "less"],
+      "initializationOptions": {
+        "provideFormatter": false
+      },
+      "rootPatterns": ["package.json", ".git"],
+      "settings": {
+        "css.validate": true,
+        "scss.validate": true,
+        "less.validate": true
+      }
+    },
+    "tailwindcss": {
+      "enable": true,
+      "command": "tailwindcss-language-server",
+      "args": ["--stdio"],
+      "rootPatterns": [
+        "tailwind.config.js",
+        "tailwind.config.cjs",
+        "tailwind.config.mjs",
+        "tailwind.config.ts",
+        "postcss.config.js",
+        "postcss.config.cjs",
+        "postcss.config.mjs",
+        "postcss.config.ts"
+      ],
+      "filetypes": [
+        "aspnetcorerazor",
+        "astro",
+        "astro-markdown",
+        "blade",
+        "clojure",
+        "django-html",
+        "htmldjango",
+        "edge",
+        "eelixir",
+        "elixir",
+        "ejs",
+        "erb",
+        "eruby",
+        "gohtml",
+        "gohtmltmpl",
+        "haml",
+        "handlebars",
+        "hbs",
+        "html",
+        "htmlangular",
+        "html-eex",
+        "heex",
+        "jade",
+        "leaf",
+        "liquid",
+        "markdown",
+        "mdx",
+        "mustache",
+        "njk",
+        "nunjucks",
+        "php",
+        "razor",
+        "slim",
+        "twig",
+        "css",
+        "less",
+        "postcss",
+        "sass",
+        "scss",
+        "stylus",
+        "sugarss",
+        "javascript",
+        "javascriptreact",
+        "reason",
+        "rescript",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "svelte",
+        "templ"
+      ],
+      // "trace.server": "verbose",
+      "settings": {
+        "tailwindCSS": {
+          "validate": true,
+          "classAttributes": ["class", "className", "class:list", "classList", "ngClass"],
+          "lint": {
+            "cssConflict": "warning",
+            "invalidApply": "error",
+            "invalidScreen": "error",
+            "invalidVariant": "error",
+            "invalidConfigPath": "error",
+            "invalidTailwindDirective": "error",
+            "recommendedVariantOrder": "warning"
+          },
+          "includeLanguages": {
+            "eelixir": "html-eex",
+            "eruby": "erb",
+            "templ": "html",
+            "htmlangular": "html"
+          }
+        }
+        // 这种平铺的也行，上面那种树状的也行，两种配置方式
+        // "tailwindCSS.validate": true,
+        // "tailwindCSS.classAttributes": ["class", "className", "class:list", "classList", "ngClass"],
+        // "tailwindCSS.lint.cssConflict": "warning",
+        // "tailwindCSS.lint.invalidApply": "error",
+        // "tailwindCSS.lint.invalidScreen": "error",
+        // "tailwindCSS.lint.invalidVariant": "error",
+        // "tailwindCSS.lint.invalidConfigPath": "error",
+        // "tailwindCSS.lint.invalidTailwindDirective": "error",
+        // "tailwindCSS.lint.recommendedVariantOrder": "warning",
+        // "tailwindCSS.includeLanguages": {
+        //   "eelixir": "html-eex",
+        //   "eruby": "erb",
+        //   "templ": "html",
+        //   "htmlangular": "html"
+        // }
       }
     },
     "vtsls": {

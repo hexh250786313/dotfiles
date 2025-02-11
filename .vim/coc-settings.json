@@ -1,0 +1,8 @@
+{
+  "json.enable": true,
+  "languageserver": {
+    "json": {
+      "enable": false
+    }
+  }
+}
