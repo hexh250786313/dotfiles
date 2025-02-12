@@ -669,7 +669,7 @@
       },
       "rootPatterns": [".git"]
     },
-    // https://github.com/neovim/nvim-lspconfig/blob/6c17f8656f667727b27f5f598463afedb7791b18/lua/lspconfig/configs/html.lua
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/html.lua
     "html": {
       "enable": true,
       "command": "vscode-html-language-server",
@@ -685,7 +685,7 @@
       },
       "rootPatterns": ["package.json", ".git"]
     },
-    // https://github.com/neovim/nvim-lspconfig/blob/6c17f8656f667727b27f5f598463afedb7791b18/lua/lspconfig/configs/cssls.lua
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/cssls.lua
     "css": {
       "enable": true,
       "command": "vscode-css-language-server",
@@ -701,6 +701,17 @@
         "less.validate": true
       }
     },
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/svelte.lua
+    // https://github.com/sveltejs/language-tools/tree/master/packages/typescript-plugin#a-typescript-plugin-for-svelte-intellisense
+    // 插件安装到下面 typescript-svelte-plugin 里面去
+    "svelte": {
+      "enable": true,
+      "command": "svelteserver",
+      "args": ["--stdio"],
+      "filetypes": ["svelte"],
+      "rootPatterns": ["package.json", ".git"]
+    },
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/tailwindcss.lua
     "tailwindcss": {
       "enable": true,
       "command": "tailwindcss-language-server",
@@ -838,8 +849,14 @@
         "vtsls.tsserver.globalPlugins": [
           {
             "name": "@styled/typescript-styled-plugin",
+            "location": "/home/hexh/.local/share/fnm/node-versions/v20.16.0/installation/lib/node_modules"
+            // "enableForWorkspaceTypeScriptVersions": true
+          },
+          // https://github.com/sveltejs/language-tools/tree/master/packages/typescript-plugin#a-typescript-plugin-for-svelte-intellisense
+          {
+            "name": "typescript-svelte-plugin",
             "location": "/home/hexh/.local/share/fnm/node-versions/v20.16.0/installation/lib/node_modules",
-            "enableForWorkspaceTypeScriptVersions": true
+            "assumeIsSvelteProject": false
           }
         ]
       }

@@ -78,11 +78,7 @@ vim.g.coc_global_extensions = {
   "coc-biome",
   "coc-go",
   "coc-json",
-  -- "coc-yaml",
-  -- "coc-css",
-  -- "coc-html",
   -- "coc-angular",
-  -- "coc-svelte",
   -- other
   "coc-diagnostic",
   "coc-lists",
