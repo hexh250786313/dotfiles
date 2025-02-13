@@ -7,7 +7,6 @@
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
   "suggest.insertMode": "insert",
   "suggest.maxCompleteItemCount": 999,
-  "svelte.enable-ts-plugin": true,
   "copilot.kindLabel": "cpil",
   // "less.completion.triggerPropertyValueCompletion": false, // 导致异步补全源堵塞 nvim
   // "css.completion.triggerPropertyValueCompletion": false,
@@ -209,8 +208,6 @@
   "coc.source.file.ignoreHidden": false,
   "git.conflict.enabled": false,
   "suggest.selection": "first",
-  "lightbulb.enableSign": false,
-  "lightbulb.virtualTextPosition": "eol",
   "notification.statusLineProgress": true,
   "hover.target": "float",
   "diagnostic.messageTarget": "float",
