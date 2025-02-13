@@ -2,7 +2,7 @@
   // "copilot.triggerCharacters": [],
   "pretty-ts-errors.serverName": "vtsls",
   "tailwindCSS.enable": false,
-  "json.enable": true,
+  "json.enable": false,
   "coc.preferences.extensionUpdateUIInTab": true,
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
   "suggest.insertMode": "insert",
@@ -647,14 +647,27 @@
     // https://github.com/hrsh7th/vscode-langservers-extracted
     // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/jsonls.lua
     "json": {
-      "enable": false,
+      "enable": true,
       "command": "vscode-json-language-server",
       "args": ["--stdio"],
       "filetypes": ["jsonc", "json"],
       "initializationOptions": {
         "provideFormatter": false
       },
-      "settings": {},
+      "settings": {
+        "json": {
+          "schemas": [
+            {
+              "fileMatch": ["package.json"],
+              "url": "https://json.schemastore.org/package.json"
+            },
+            {
+              "fileMatch": ["tsconfig.json"],
+              "url": "https://json.schemastore.org/tsconfig.json"
+            }
+          ]
+        }
+      },
       "rootPatterns": [".git"]
     },
     // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/yamlls.lua
