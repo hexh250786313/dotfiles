@@ -659,8 +659,21 @@
               "url": "https://json.schemastore.org/package.json"
             },
             {
-              "fileMatch": ["tsconfig.json"],
+              "fileMatch": ["tsconfig*.json"],
               "url": "https://json.schemastore.org/tsconfig.json"
+            },
+            {
+              "fileMatch": [".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.yaml"],
+              "url": "https://json.schemastore.org/prettierrc.json",
+              "versions": {
+                "1.8.2": "https://json.schemastore.org/prettierrc-1.8.2.json",
+                "2.8.8": "https://json.schemastore.org/prettierrc-2.8.8.json",
+                "3.0.0": "https://json.schemastore.org/prettierrc.json"
+              }
+            },
+            {
+              "fileMatch": [".eslintrc", ".eslintrc.json", ".eslintrc.yml", ".eslintrc.yaml"],
+              "url": "https://json.schemastore.org/eslintrc.json"
             }
           ]
         }
