@@ -1,7 +1,6 @@
 {
   // "copilot.triggerCharacters": [],
   "pretty-ts-errors.serverName": "vtsls",
-  "tailwindCSS.enable": false,
   "json.enable": false,
   "coc.preferences.extensionUpdateUIInTab": true,
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
