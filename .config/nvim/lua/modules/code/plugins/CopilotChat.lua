@@ -1,7 +1,8 @@
 require("CopilotChat").setup({
   debug = false, -- Enable debugging
   show_help = false,
-  model = "claude-3.5-sonnet",
+  -- model = "claude-3.5-sonnet",
+  model = "claude-3.7-sonnet-thought",
   -- model = "o1-preview",
   -- model = "o1-mini",
   -- See Configuration section for rest
