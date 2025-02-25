@@ -232,8 +232,8 @@ return packer.startup(function(use)
   --   requires = { "nvim-treesitter/nvim-treesitter" },
   --   config = [[require("modules.highlight.plugins.rainbow-delimiters")]],
   -- })
-  use({ "hexh250786313/yats.vim" })
-  use({ "hexh250786313/vim-svelte-plugin" })
+  -- use({ "hexh250786313/yats.vim" })
+  -- use({ "hexh250786313/vim-svelte-plugin" })
   use({
     "NvChad/nvim-colorizer.lua",
     cmd = { "ColorizerToggle" },
