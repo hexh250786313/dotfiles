@@ -341,10 +341,19 @@ return packer.startup(function(use)
   })
   use({ "tpope/vim-surround", keys = { { "n", "vi" }, { "n", "va" }, { "n", "cs" }, { "n", "ds" }, { "x", "S" } } })
   use({ "AndrewRadev/linediff.vim", cmd = { "Linediff" } })
+  -- use({
+  --   "windwp/nvim-autopairs",
+  --   config = [[require("modules.text.plugins.nvim-autopairs")]],
   use({
-    "windwp/nvim-autopairs",
-    config = [[require("modules.text.plugins.nvim-autopairs")]],
-  })
+    "altermo/ultimate-autopair.nvim",
+    event = { "InsertEnter", "CmdlineEnter" },
+    branch = "v0.6", --recommended as each new version will have breaking changes
+    config = function()
+      require("ultimate-autopair").setup({
+        --Config goes here
+      })
+    end,
+  }) -- })
   -- use({ "xiyaowong/nvim-cursorword", config = [[ require("modules.text.plugins.nvim-cursorword") ]] })
 
   -- ┌───────────────────────────────────────
