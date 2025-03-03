@@ -72,7 +72,6 @@ vim.g.coc_global_extensions = {
   "@yaegassy/coc-volar",
   "@yaegassy/coc-marksman",
   "coc-rust-analyzer",
-  "coc-sumneko-lua",
   "coc-tsserver",
   "coc-biome",
   "coc-go",
