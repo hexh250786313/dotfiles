@@ -2,7 +2,7 @@
   // "copilot.triggerCharacters": [],
   "pretty-ts-errors.serverName": "vtsls",
   "json.enable": false,
-  "coc.preferences.extensionUpdateUIInTab": true,
+  "extensions.updateUIInTab": true,
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
   "suggest.insertMode": "insert",
   "suggest.maxCompleteItemCount": 999,
@@ -199,7 +199,7 @@
     // "border": [1, 0, 0, 1], // or bool
   },
   "suggest.timeout": 5000,
-  "coc.preferences.extensionUpdateCheck": "never",
+  "extensions.updateCheck": "daily",
   "diagnostic.checkCurrentLine": false,
   "git.semanticCommit.scope": false,
   "suggest.detailField": "abbr",
@@ -580,7 +580,6 @@
   "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
   "rust-analyzer.disableProgressNotifications": true,
   "rust-analyzer.check.command": "clippy",
-  "Lua.diagnostics.globals": ["vim"],
   "tsserver.enable": false,
   // "rust-analyzer.check.overrideCommand": ["cargo", "clippy", "--message-format=json-diagnostic-rendered-ansi"],
   "languageserver": {
@@ -732,6 +731,29 @@
       "args": ["--stdio"],
       "filetypes": ["svelte"],
       "rootPatterns": ["package.json", ".git"]
+    },
+    "lua": {
+      "enable": true,
+      "command": "lua-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["lua"],
+      "rootPatterns": [
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        "stylua.toml",
+        "selene.toml",
+        "selene.yml",
+        ".git"
+      ],
+      "settings": {
+        "Lua": {
+          "diagnostics": {
+            "globals": ["vim"]
+          }
+        }
+      }
     },
     // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/tailwindcss.lua
     "tailwindcss": {
