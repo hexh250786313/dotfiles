@@ -341,19 +341,22 @@ return packer.startup(function(use)
   })
   use({ "tpope/vim-surround", keys = { { "n", "vi" }, { "n", "va" }, { "n", "cs" }, { "n", "ds" }, { "x", "S" } } })
   use({ "AndrewRadev/linediff.vim", cmd = { "Linediff" } })
+  -- 在 less 中会无缘无故失效，需要重启 nvim 才行
   -- use({
   --   "windwp/nvim-autopairs",
   --   config = [[require("modules.text.plugins.nvim-autopairs")]],
-  use({
-    "altermo/ultimate-autopair.nvim",
-    event = { "InsertEnter", "CmdlineEnter" },
-    branch = "v0.6", --recommended as each new version will have breaking changes
-    config = function()
-      require("ultimate-autopair").setup({
-        --Config goes here
-      })
-    end,
-  }) -- })
+  -- })
+  -- 没什么缺点，但是 coc-pairs 更简单，我可以自己调试
+  -- use({
+  --   "altermo/ultimate-autopair.nvim",
+  --   event = { "InsertEnter", "CmdlineEnter" },
+  --   branch = "v0.6", --recommended as each new version will have breaking changes
+  --   config = function()
+  --     require("ultimate-autopair").setup({
+  --       --Config goes here
+  --     })
+  --   end,
+  -- })
   -- use({ "xiyaowong/nvim-cursorword", config = [[ require("modules.text.plugins.nvim-cursorword") ]] })
 
   -- ┌───────────────────────────────────────

@@ -81,6 +81,7 @@ vim.g.coc_global_extensions = {
   -- other
   "coc-diagnostic",
   "coc-lists",
+  "https://github.com/hexh250786313/coc-pairs",
   "coc-markdown-preview-enhanced",
   "coc-snippets",
   "coc-webview",
@@ -249,6 +250,8 @@ inoremap <silent><expr><c-k> coc#pum#visible() ? "<cmd>call coc#pum#_navigate(0,
 " 回车选择当前项
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
 "  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+inoremap <silent><expr> <CR> "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <down> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "3<C-e>"
