@@ -347,16 +347,16 @@ return packer.startup(function(use)
   --   config = [[require("modules.text.plugins.nvim-autopairs")]],
   -- })
   -- 没什么缺点，但是 coc-pairs 更简单，我可以自己调试
-  -- use({
-  --   "altermo/ultimate-autopair.nvim",
-  --   event = { "InsertEnter", "CmdlineEnter" },
-  --   branch = "v0.6", --recommended as each new version will have breaking changes
-  --   config = function()
-  --     require("ultimate-autopair").setup({
-  --       --Config goes here
-  --     })
-  --   end,
-  -- })
+  use({
+    "altermo/ultimate-autopair.nvim",
+    event = { "InsertEnter", "CmdlineEnter" },
+    branch = "v0.6", --recommended as each new version will have breaking changes
+    config = function()
+      require("ultimate-autopair").setup({
+        --Config goes here
+      })
+    end,
+  })
   -- use({ "xiyaowong/nvim-cursorword", config = [[ require("modules.text.plugins.nvim-cursorword") ]] })
 
   -- ┌───────────────────────────────────────

@@ -81,7 +81,7 @@ vim.g.coc_global_extensions = {
   -- other
   "coc-diagnostic",
   "coc-lists",
-  "coc-pairs",
+  -- "coc-pairs",
   "coc-markdown-preview-enhanced",
   "coc-snippets",
   "coc-webview",
