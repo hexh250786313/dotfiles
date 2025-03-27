@@ -1,23 +1,44 @@
 const fs = require("fs");
 const HOME = require("os").homedir();
 
-const dark = `${HOME}/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua/nvim-web-devicons/icons-default.lua`;
-const light = `${HOME}/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua/nvim-web-devicons/icons-light.lua`;
+// 旧的
+// const dark = `${HOME}/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua/nvim-web-devicons/icons-default.lua`;
+// const light = `${HOME}/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/lua/nvim-web-devicons/icons-light.lua`;
+const dark = `${HOME}/workspace/dotfiles/.config/nvim/lua/modules/base/hooks/postinstall/defx/icons_default.lua`;
+const light = `${HOME}/workspace/dotfiles/.config/nvim/lua/modules/base/hooks/postinstall/defx/icons_light.lua`;
 const template = `${__dirname}/template.vim`;
 
 function getIcon(target) {
   const luaData = fs.readFileSync(target, "utf8");
 
   function rep(str) {
+    // 前面的替换规则一致
     str = str.replace(/\["(.*?)"\]/g, "\\ '$1'");
     str = str.replace(/\ =/g, ":");
-    str = str.replace(/(?<=(,|{))\n.* icon/g, " 'icon'");
-    str = str.replace(/(?<=(,|{))\n.* cterm_color/g, " 'term_color'");
-    str = str.replace(/(?<=(,|{))\n.* color/g, " 'color'");
-    str = str.replace(/(?<=(,|{))\n.* name.*\n.*}/g, " }");
+    //
+    //
+    // 新的解析规则
+    str = str.replace(/\{\u0020icon:/g, "{ 'icon':");
+    str = str.replace(/,\u0020color:/g, ", 'color':");
+    str = str.replace(/,\u0020cterm_color:/g, ", 'term_color':");
+    str = str.replace(/,\u0020+name.*\}/g, " }");
     str = str.replace(/"/g, "'");
-    str = str.replace(/\u0020'#/g, " '");
-    str = str.replace(/\u0020'#/g, " '");
+    str = str.replace(/'color':\u0020'#/g, "'color': '");
+    str = str.replace(/'\u0020+:\u0020{/g, "': {");
+    str = str.replace(/^.*\n}/m, "}");
+    str = str.replace(/{\n.*--.*/g, "{");
+    str = str.replace(/{\n.*/g, "{");
+    // 旧的解析规则
+    // str = str.replace(/(?<=(,|{))\n.* icon/g, " 'icon'");
+    // str = str.replace(/(?<=(,|{))\n.* cterm_color/g, " 'term_color'");
+    // str = str.replace(/(?<=(,|{))\n.* color/g, " 'color'");
+    // str = str.replace(/(?<=(,|{))\n.* name.*\n.*}/g, " }");
+    // str = str.replace(/"/g, "'");
+    // str = str.replace(/\u0020'#/g, " '");
+    // str = str.replace(/\u0020'#/g, " '");
+    //
+    //
+    // 后面的替换规则一致
     str = str.replace(/^{\n^/gm, "");
     str = str.replace(/\n^}/gm, "");
     str = str.replace(/^/gm, "    ");
