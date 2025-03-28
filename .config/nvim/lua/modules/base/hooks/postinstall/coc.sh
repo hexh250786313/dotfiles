@@ -57,5 +57,5 @@ rm -rf ~/.config/coc/extensions/node_modules/coc-tsserver/snippets
 # sd 'this.o.list\(body, ordered, this.tab\);' 'this.o.list(body, ordered);' $src_file
 
 # 解决 lualine 抽搐
-sd '<C-R>=coc#snippet#jump' '<cmd>call coc#snippet#jump' $coc_dir/autoload/coc/snippet.vim
-sd '<Esc>:call coc#snippet#jump' '<Esc><cmd>call coc#snippet#jump' $coc_dir/autoload/coc/snippet.vim
+# sd '<C-R>=coc#snippet#jump' '<cmd>call coc#snippet#jump' $coc_dir/autoload/coc/snippet.vim
+# sd '<Esc>:call coc#snippet#jump' '<Esc><cmd>call coc#snippet#jump' $coc_dir/autoload/coc/snippet.vim
