@@ -184,19 +184,19 @@
   },
   "diagnostic.floatConfig": {
     "position": "fixed",
-    "bottom": 0,
+    // "bottom": 0,
     "right": 1,
-    "border": false
-    // "bottom": 1,
-    // "border": [1, 0, 0, 1], // or bool
+    // "border": false
+    "bottom": 1,
+    "border": [1, 1, 1, 1], // or bool
   },
   "signature.floatConfig": {
     "position": "fixed",
-    "bottom": 0,
+    // "bottom": 0,
     "right": 1,
-    "border": false
-    // "bottom": 1,
-    // "border": [1, 0, 0, 1], // or bool
+    // "border": false
+    "bottom": 1,
+    "border": [1, 1, 1, 1], // or bool
   },
   "suggest.timeout": 5000,
   "extensions.updateCheck": "daily",
