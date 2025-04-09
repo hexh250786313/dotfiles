@@ -208,7 +208,7 @@ endfunction
 
 " 退格触发补全
 " inoremap <silent><expr> <backspace> coc#pum#visible() ? "\<bs>" : "\<bs>\<c-r>=coc#refresh()\<CR>"
-inoremap <silent><expr> <backspace> coc#pum#visible() ? luaeval("require('nvim-autopairs').autopairs_bs()") : luaeval("require('nvim-autopairs').autopairs_bs()") . "\<c-r>=coc#refresh()\<CR>"
+" inoremap <silent><expr> <backspace> coc#pum#visible() ? luaeval("require('nvim-autopairs').autopairs_bs()") : luaeval("require('nvim-autopairs').autopairs_bs()") . "\<c-r>=coc#refresh()\<CR>"
 
 " coc#pum#next(0) 0 是不插入文本，1 是插入
 " inoremap <silent><expr> <Tab>
@@ -285,3 +285,61 @@ endif
 --     end,
 --   })
 -- end
+
+-- 在不影响原有 <bs> 映射的情况下，增强 <bs> 的功能
+-- 全局标志，确保映射修改只执行一次
+vim.g.bs_mapping_modified = false
+vim.api.nvim_create_autocmd("InsertEnter", {
+  callback = function()
+    -- 检查是否已修改过映射
+    if vim.g.bs_mapping_modified then
+      return
+    end
+    -- 延迟执行，确保插件已完成其映射设置
+    vim.defer_fn(function()
+      -- 再次检查，防止在延迟期间被其他地方设置
+      if vim.g.bs_mapping_modified then
+        return
+      end
+      -- 获取插入模式下当前 <bs> 键的映射
+      local bs_mapping = vim.fn.maparg("<bs>", "i", false, true)
+      -- 如果已经有映射，保留并扩展它
+      if not vim.tbl_isempty(bs_mapping) then
+        -- 保存原始映射的属性
+        local rhs = bs_mapping.rhs
+        local is_expr = bs_mapping.expr == 1
+        local is_noremap = bs_mapping.noremap == 1
+        -- 创建新的映射函数
+        vim.keymap.set("i", "<bs>", function()
+          -- 执行原始映射
+          if is_expr then
+            -- 表达式映射：先求值
+            local result = vim.api.nvim_eval(rhs)
+            vim.api.nvim_feedkeys(result, "n", false)
+          else
+            -- 普通映射：直接执行
+            local mode = is_noremap and "n" or "m"
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(rhs, true, false, true), mode, false)
+          end
+          -- 执行自定义CoC逻辑
+          vim.defer_fn(function()
+            -- 正确获取函数返回值：使用api.nvim_eval
+            local is_visible = vim.api.nvim_eval("coc#pum#visible()")
+            if is_visible == 0 then
+              -- print('触发CoC刷新')
+              -- 触发CoC刷新
+              vim.api.nvim_eval("coc#start()") -- 用 coc#refresh() 没效果，原因不明
+            else
+              -- print('CoC补全菜单已显示')
+            end
+          end, 50)  -- 50ms延时，以等待补全面板关闭
+        end, { noremap = true })
+        -- 标记为已修改
+        vim.g.bs_mapping_modified = true
+        -- print("Backspace mapping has been enhanced with CoC refresh")
+      end
+    end, 100) -- 延迟100毫秒执行
+  end,
+  -- 使用 once=true 确保这个自动命令只触发一次
+  once = true
+})

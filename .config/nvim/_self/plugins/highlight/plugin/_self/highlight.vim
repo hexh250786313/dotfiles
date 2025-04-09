@@ -252,8 +252,12 @@ exec 'hi! CocHintVirtualText' .
 
 if &background == "dark"
   hi! PrettyTsErrorType guifg=#393939 guibg=NONE gui=NONE
+  hi! CocFloatDividingLine guifg=#1a1a1a guibg=NONE gui=NONE
+  hi! CocFloatBorder guifg=#1a1a1a guibg=NONE gui=NONE
 else
   hi! PrettyTsErrorType guifg=#D0D0D0  guibg=NONE gui=NONE
+  hi! CocFloatDividingLine guifg=#e6e6e6 guibg=NONE gui=NONE
+  hi! CocFloatBorder guifg=#e6e6e6 guibg=NONE gui=NONE
 endif
 
 " 插入模式的时候让上述 coc 相关的 VirtualText 变为不可视，正常模式下恢复，其实就是变为 CursorLine 的背景一个颜色
