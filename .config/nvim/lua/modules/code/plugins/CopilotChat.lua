@@ -1,4 +1,5 @@
 require("CopilotChat").setup({
+  selection = nil,
   debug = false, -- Enable debugging
   show_help = false,
   -- model = "claude-3.5-sonnet",
@@ -7,6 +8,13 @@ require("CopilotChat").setup({
   -- model = "o1-mini",
   -- See Configuration section for rest
   mappings = { reset = { normal = "<C-q>", insert = "<C-q>" } },
+  prompts = {
+    Chinese = {
+      prompt = "Who are you?",
+      description = "请用中文回答所有问题",
+      system_prompt = "请用中文回答所有问题。",
+    },
+  },
 })
 
 -- Create an autocmd for copilot-chat file type

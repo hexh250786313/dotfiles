@@ -158,7 +158,7 @@ return packer.startup(function(use)
       { "github/copilot.vim" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
-    cmd = { "CopilotChatOpen" },
+    cmd = { "CopilotChatChinese" },
     after = "copilot.vim",
     config = [[require("modules.code.plugins.CopilotChat")]],
   })
