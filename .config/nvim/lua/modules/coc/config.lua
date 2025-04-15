@@ -210,6 +210,10 @@ endfunction
 " inoremap <silent><expr> <backspace> coc#pum#visible() ? "\<bs>" : "\<bs>\<c-r>=coc#refresh()\<CR>"
 " inoremap <silent><expr> <backspace> coc#pum#visible() ? luaeval("require('nvim-autopairs').autopairs_bs()") : luaeval("require('nvim-autopairs').autopairs_bs()") . "\<c-r>=coc#refresh()\<CR>"
 
+" 可视模式下删除并进入插入模式触发补全
+xnoremap <silent> s s<C-r>=coc#refresh()<CR>
+xnoremap <silent> c c<C-r>=coc#refresh()<CR>
+
 " coc#pum#next(0) 0 是不插入文本，1 是插入
 " inoremap <silent><expr> <Tab>
 "   \ coc#pum#visible() ? coc#pum#next(0) :
