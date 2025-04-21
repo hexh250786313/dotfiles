@@ -158,6 +158,7 @@ return packer.startup(function(use)
       { "github/copilot.vim" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
+    commit = "a89f5f1162b04a0962e5f4c3cdf248a81e7e53cb",
     cmd = { "CopilotChatChinese" },
     after = "copilot.vim",
     config = [[require("modules.code.plugins.CopilotChat")]],
