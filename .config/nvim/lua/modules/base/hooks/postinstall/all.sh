@@ -10,3 +10,4 @@ sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/vim-surround.sh
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/fzf-lua.sh
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/theme.sh
 sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/avante.sh
+sh -c ~/.config/nvim/lua/modules/base/hooks/postinstall/CopilotChat.sh
