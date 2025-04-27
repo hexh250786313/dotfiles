@@ -1,6 +1,7 @@
 {
   // "copilot.triggerCharacters": [],
   "pretty-ts-errors.serverName": "vtsls",
+  "inlayHint.maximumLength": 43, // 和 vsc 一样
   "json.enable": false,
   "extensions.updateUIInTab": true,
   // "pretty-ts-errors.codeBlockHighlightType": "typescript",
