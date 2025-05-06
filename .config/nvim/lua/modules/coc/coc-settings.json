@@ -189,7 +189,7 @@
     "right": 1,
     // "border": false
     "bottom": 1,
-    "border": [1, 1, 1, 1], // or bool
+    "border": [1, 1, 1, 1] // or bool
   },
   "signature.floatConfig": {
     "position": "fixed",
@@ -197,7 +197,7 @@
     "right": 1,
     // "border": false
     "bottom": 1,
-    "border": [1, 1, 1, 1], // or bool
+    "border": [1, 1, 1, 1] // or bool
   },
   "suggest.timeout": 5000,
   "extensions.updateCheck": "daily",
@@ -579,6 +579,7 @@
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
   "rust-analyzer.disableProgressNotifications": true,
   "rust-analyzer.check.command": "clippy",
   "tsserver.enable": false,
@@ -890,6 +891,7 @@
         "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
         "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
         "typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+        "typescript.inlayHints.parameterNames.enabled": "literals", // 'none' | 'all' | 'literals'
         // "vtsls.autoUseWorkspaceTsdk": true
         "vtsls.tsserver.globalPlugins": [
           {
