@@ -30,8 +30,8 @@ vim.cmd("let $PATH = '" .. myNodePath .. "/bin:' . $PATH")
 vim.cmd("let $all_proxy ='http://" .. host .. ":4781'")
 vim.cmd("let $http_proxy ='http://" .. host .. ":4781'")
 vim.cmd("let $https_proxy ='http://" .. host .. ":4781'")
-vim.cmd("let $NO_PROXY = 'git.fpdev.tech'")
-vim.cmd("let $no_proxy = 'git.fpdev.tech'")
+vim.cmd("let $NO_PROXY = 'git.fpdev.tech,example.com,localhost'")
+vim.cmd("let $no_proxy = 'git.fpdev.tech,example.com,localhost'")
 
 if vim.fn.exists("$SSH_CLIENT") == 0 then
   if is_wsl() then
