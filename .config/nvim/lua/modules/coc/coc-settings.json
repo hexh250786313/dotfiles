@@ -563,7 +563,7 @@
   },
   "todo-tree.defaultView": "tagsOnly",
   "inlayHint.display": true,
-  "inlayHint.enable": true,
+  "inlayHint.enable": false,
   "inlayHint.enableParameter": true,
   "inlayHint.refreshOnInsertMode": true,
   // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
