@@ -1,8 +1,8 @@
 # 不插入虚拟文本
 sd '.*function!.*s:UpdatePreview.*abort.*\n.*try' 'function! s:UpdatePreview() abort\nlet ft = &filetype\nif ft !=# "copilot-chat"\nreturn\nendif\n  try' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot.vim
 # 优化多行插入
-sd '=\["\\n"\]' '=["\\n\\n\\n"]' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/dist/main.js
-sd 'stop=\[`\n`]' 'stop=[`\n\n\n`]' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/dist/main.js
+sd '=\["\\n"\]' '=["\\n\\n\\n"]' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/copilot-language-server/dist/main.js
+sd 'stop=\[`\n`]' 'stop=[`\n\n\n`]' ~/.local/share/nvim/site/pack/packer/start/copilot.vim/copilot-language-server/dist/main.js
 # 移除多行虚拟文本，让他只展示一行
 sd "(?s)if len\(text\) > 1.*?let data\.virt_text \+= \[\[' '], \[annot, s:annot_hlgroup\]\]\n      endif" "" /home/hexh/.local/share/nvim/site/pack/packer/start/copilot.vim/autoload/copilot.vim
 # 追加代码，当没有 coc 弹窗时，自动触发 coc
