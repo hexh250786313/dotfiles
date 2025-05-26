@@ -176,10 +176,12 @@ use_lower_node() {
     if [[ " ${LOWER_NODE_VERSION} " != *" $node_version " ]]; then
       proxy_unset
       fnm use $LOWER_NODE_VERSION
+      corepack enable
     fi
   else
     if [[ " ${DEFAULT_NODE_VERSION} " != *" $node_version " ]]; then
       fnm use default
+      corepack enable
     fi
   fi
 }
