@@ -282,6 +282,7 @@
     "sql": "pg",
     "zsh": "beautysh",
     "yaml": "prettier",
+    "yml": "prettier",
     "sh": "shfmt"
   },
   "diagnostic-languageserver.formatters": {
