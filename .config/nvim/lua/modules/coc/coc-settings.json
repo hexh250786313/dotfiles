@@ -282,6 +282,7 @@
     "sql": "pg",
     "zsh": "beautysh",
     "yaml": "prettier",
+    "yml": "prettier",
     "sh": "shfmt"
   },
   "diagnostic-languageserver.formatters": {
@@ -537,7 +538,7 @@
   // "codeLens.position": "top"
   "todo-tree.tags": [
     {
-      "tagName": "@todo",
+      "tagName": "todo",
       "regex": "@todo",
       "icon": {
         "text": "",
@@ -545,7 +546,7 @@
       }
     },
     {
-      "tagName": "TODO ",
+      "tagName": "todo",
       "regex": "TODO",
       "icon": {
         "text": "",
@@ -563,7 +564,7 @@
   },
   "todo-tree.defaultView": "tagsOnly",
   "inlayHint.display": true,
-  "inlayHint.enable": true,
+  "inlayHint.enable": false,
   "inlayHint.enableParameter": true,
   "inlayHint.refreshOnInsertMode": true,
   // "tsserver.tsdk": "/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib",
