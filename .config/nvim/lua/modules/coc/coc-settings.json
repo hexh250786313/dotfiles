@@ -725,6 +725,31 @@
         "less.validate": true
       }
     },
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/stylelint_lsp.lua
+    "stylelint": {
+      "enable": true,
+      "command": "stylelint-lsp",
+      "args": ["--stdio"],
+      "filetypes": ["astro", "css", "less", "scss", "sugarss", "vue", "wxss"],
+      "initializationOptions": {
+        "provideFormatter": false
+      },
+      "rootPatterns": [
+        ".stylelintrc",
+        ".stylelintrc.mjs",
+        ".stylelintrc.cjs",
+        ".stylelintrc.js",
+        ".stylelintrc.json",
+        ".stylelintrc.yaml",
+        ".stylelintrc.yml",
+        "stylelint.config.mjs",
+        "stylelint.config.cjs",
+        "stylelint.config.js"
+      ],
+      "settings": {
+        "stylelintplus": {}
+      }
+    },
     // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/svelte.lua
     // https://github.com/sveltejs/language-tools/tree/master/packages/typescript-plugin#a-typescript-plugin-for-svelte-intellisense
     // 插件安装到下面 typescript-svelte-plugin 里面去

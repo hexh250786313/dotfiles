@@ -1,20 +1,20 @@
 tmux_conf_24b_colour=true
 
-# Catppuccin Latte
-color0="#1E66F5" # leftest bar bg
-color1="#E6E9EF" # status bg
-color2="#CCD0DA" # time bg
-color3="#1E66F5" # hexh bg
+# paper
+color0="#aba99d" # leftest bar bg
+color1="#d8d5c7" # status bg
+color2="#bfbcaf" # time bg
+color3="#c2bfb3" # hexh bg
 color4="#96a293" # status fg
-color5="#ffffff" # leftest bar fg
-color6="#1E66F5" # selected fg
+color5="#5c594a" # leftest bar fg
+color6="#216609" # selected fg
 color7="#f44336"
 color8="#f44336"
 color9="#f44336"
-color10="#CCD0DA" # selected bg
+color10="#bfbcaf" # selected bg
 color11="#f44336"
 color12="#f44336"
-color13="#ffffff" # command bg
+color13="#f2eede" # command bg
 color14="#f44336"
 color15="#f44336"
 

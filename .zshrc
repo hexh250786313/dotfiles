@@ -5,8 +5,9 @@ export MY_HOST=127.0.0.1
 unset HOST
 export CONFIG_DIR="/home/$ME/.config"
 export ME="hexh"
-export MY_IP="192.168.10.160"
-export REMOTE_IP="192.168.10.65"
+export MY_IP="192.168.10.174"
+# export REMOTE_IP="192.168.10.65"
+export REMOTE_IP="192.168.10.174"
 export REAL_ME="hexh"
 export ZSH_CUSTOM="/home/$ME/.oh-my-zsh/custom"
 export CONFIG_DIR="/home/$ME/.config"
@@ -134,7 +135,7 @@ bindkey -r "^k" # disable c-k
 # fi
 export PATH="/home/$ME/.local/share/fnm:$PATH"
 # eval "`fnm env`"
-export DEFAULT_NODE_VERSION="v20.16.0"
+export DEFAULT_NODE_VERSION="v22.20.0"
 export LOWER_NODE_VERSION="v14.15.0"
 eval "$(fnm env --use-on-cd)"
 export NODE_OPTIONS="--max-old-space-size=8192"
