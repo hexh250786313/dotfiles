@@ -601,6 +601,7 @@
         "flutterOutline": true
       }
     },
+    // 配置参考：https://github.com/pwntester/nvim-lsp/blob/master/lua/nvim_lsp/taplo.lua
     "taplo": {
       "command": "taplo",
       "args": ["lsp", "stdio"],
@@ -686,10 +687,11 @@
       "enable": true,
       "command": "yaml-language-server",
       "args": ["--stdio"],
-      "filetypes": ["yaml", "yaml.docker-compose", "yaml.gitlab"],
+      "filetypes": ["yaml", "yaml.docker-compose", "yaml.gitlab", "yaml.helm-values"],
       "initializationOptions": {},
       "settings": {
-        "redhat": { "telemetry": { "enabled": false } }
+        "redhat": { "telemetry": { "enabled": false } },
+        "yaml": { "format": { "enable": false } }
       },
       "rootPatterns": [".git"]
     },
@@ -760,6 +762,7 @@
       "filetypes": ["svelte"],
       "rootPatterns": ["package.json", ".git"]
     },
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/lua_ls.lua
     "lua": {
       "enable": true,
       "command": "lua-language-server",
@@ -889,11 +892,12 @@
         // }
       }
     },
+    // https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/vtsls.lua
     "vtsls": {
       "enable": true,
       "command": "vtsls",
       "args": ["--stdio"],
-      "rootPatterns": ["package.json", ".git", ".editorconfig"],
+      "rootPatterns": ["package.json", ".git", "tsconfig.json", "jsconfig.json"],
       // "trace.server": "verbose",
       "filetypes": [
         "typescript",
