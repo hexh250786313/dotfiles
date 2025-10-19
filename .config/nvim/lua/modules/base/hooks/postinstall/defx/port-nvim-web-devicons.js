@@ -42,6 +42,10 @@ function getIcon(target) {
     str = str.replace(/^{\n^/gm, "");
     str = str.replace(/\n^}/gm, "");
     str = str.replace(/^/gm, "    ");
+
+    // 删除开头的空行
+    str = str.replace(/^\s*\n/, "");
+
     return str;
   }
 
