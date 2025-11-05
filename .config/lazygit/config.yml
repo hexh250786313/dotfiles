@@ -7,20 +7,20 @@ gui:
   language: zh-CN
 keybinding:
   universal:
-    quit: '<c-c>'
-    scrollUpMain-alt1: '<up>'
-    scrollDownMain-alt1: '<down>'
-    prevItem: '<c-k>'
-    nextItem: '<c-j>'
-    openDiffTool: '<c-d>'
+    quit: "<c-c>"
+    scrollUpMain-alt1: "<up>"
+    scrollDownMain-alt1: "<down>"
+    prevItem: "<c-k>"
+    nextItem: "<c-j>"
+    openDiffTool: "<c-d>"
 git:
-  paging:
-    colorArg: always
-    # pager: delta --dark --paging=never
-    pager: delta --light --paging=never
+  pagers:
+    - colorArg: always
+      # pager: delta --dark --paging=never
+      pager: delta --light --paging=never
 services:
-  'git.fpdev.tech': 'gitlab:git.fpdev.tech'
-  'git.finovy.cn': 'gitlab:git.finovy.cn'
+  "git.fpdev.tech": "gitlab:git.fpdev.tech"
+  "git.finovy.cn": "gitlab:git.finovy.cn"
 os:
   # edit: '~/Downloads/nvim.appimage {{filename}}'
   edit: 'nvim {{filename}} -c "call timer_start(1000, {-> execute(\"CocDisable\")})"'

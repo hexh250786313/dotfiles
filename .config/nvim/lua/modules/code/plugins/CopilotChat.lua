@@ -13,8 +13,8 @@ require("CopilotChat").setup({
   prompts = {
     Chinese = {
       prompt = "Who are you?",
-      description = "请用中文回答所有问题",
-      system_prompt = "请用中文回答所有问题。",
+      description = "请用中文回答所有问题，如果我没有让你给出代码，任何回答都不要自作主张回复代码块，除非你判断到这个代码块是必须的。",
+      system_prompt = "请用中文回答所有问题，如果我没有让你给出代码，任何回答都不要自作主张回复代码块，除非你判断到这个代码块是必须的。",
     },
   },
 })
