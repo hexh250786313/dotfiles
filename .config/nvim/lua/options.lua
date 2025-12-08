@@ -22,7 +22,7 @@ set linespace=4 " neovide 的行高，但是不是按照字体比例计算的行
 ]])
 
 vim.g.neovide_floating_shadow = false
--- vim.g.neovide_cursor_animation_length = 0 -- 关闭 cursor 动画
+vim.g.neovide_cursor_animation_length = 0 -- 关闭 cursor 动画
 
 local myNodePath = os.getenv("MY_NODE_PATH")
 local host = os.getenv("MY_HOST")

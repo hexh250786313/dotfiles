@@ -38,6 +38,7 @@ function! s:EXECUTE_MACRO_OVER_VISUAL_RANGE()
 endfunction
 
 inoremap <C-v> <C-r>+
+cnoremap <C-v> <C-r>+
 nnoremap <silent> <C-r> :silent redo<CR>
 nnoremap <silent> u :silent undo<CR>
 xnoremap a' 2i'
