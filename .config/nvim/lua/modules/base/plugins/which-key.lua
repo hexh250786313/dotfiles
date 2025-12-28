@@ -39,6 +39,7 @@ endfunction
 
 inoremap <C-v> <C-r>+
 cnoremap <C-v> <C-r>+
+tnoremap <C-v> <C-\><C-n>pi
 nnoremap <silent> <C-r> :silent redo<CR>
 nnoremap <silent> u :silent undo<CR>
 xnoremap a' 2i'
