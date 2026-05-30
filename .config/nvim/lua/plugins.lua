@@ -381,11 +381,10 @@ return packer.startup({
     -- │  Motion Module
     -- └───────────────────────────────────────
     use({
-      "phaazon/hop.nvim",
+      "hexh250786313/hop.nvim",
       cmd = { "HopChar1" },
       keys = { { "n", "f" }, { "v", "f" } },
       config = [[require("modules.motion.plugins.hop")]],
-      commit = "1a1eceafe54b5081eae4cb91c723abd1d450f34b",
     })
     -- use({
     --   "yorickpeterse/nvim-window",
