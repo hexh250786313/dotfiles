@@ -227,6 +227,7 @@ return packer.startup({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
       config = [[require("modules.highlight.plugins.nvim-treesitter")]],
+      branch = "master",
     })
     use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor" } })
     -- use({
