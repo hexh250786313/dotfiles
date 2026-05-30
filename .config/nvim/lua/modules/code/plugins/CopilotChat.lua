@@ -4,8 +4,10 @@ require("CopilotChat").setup({
   show_help = false,
   -- model = "claude-3.5-sonnet",
   -- model = "claude-3.7-sonnet-thought",
-  -- model = "claude-sonnet-4",
-  model = "grok-code-fast-1",
+  -- model = "claude-sonnet-4.6",
+  model = "gemini-3.1-pro-preview",
+  -- model = "claude-opus-4.6",
+  -- model = "grok-code-fast-1",
   -- model = "o1-preview",
   -- model = "o1-mini",
   -- See Configuration section for rest
