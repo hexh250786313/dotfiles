@@ -306,7 +306,6 @@ function code() {
   target_path=$(realpath "$target_path")
 
   # 创建临时 bat 文件
-  # local bat_content="@echo off\r\n:: 切换到用户主目录\r\ncode --remote ssh-remote+hexh@${MY_IP} \"$target_path\"" # 这个写法会留有一个 cmd 窗口无法关闭，通常 cmd 命令如果打开了一个新的程序窗口，那么就会导致 cmd 窗口本身无法关闭
   local bat_content="@echo off\r\n:: 切换到用户主目录\r\necho | code --remote ssh-remote+hexh@${MY_IP} \"$target_path\" | exit /b"
   local temp_bat="/tmp/code.bat"
   echo -e "$bat_content" > "$temp_bat"
@@ -315,7 +314,15 @@ function code() {
   scp -P 2222 "$temp_bat" "hexh-ser\\25078@${REMOTE_IP}:C:/Users/25078/Desk/code.bat"
   rm "$temp_bat"
 
-  ssh -p 2222 "hexh-ser\\25078@${REMOTE_IP}" "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i 1 -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\code.bat\""
+  # 动态获取 Active 状态的会话 ID（寻找 Active 前面的那个字段作为 ID）
+  local session_id=$(ssh -p 2222 "hexh-ser\\25078@${REMOTE_IP}" "query user" | tr -d '\r' | awk '/Active/ {for(i=1;i<=NF;i++) if($i=="Active") print $(i-1)}' | head -n 1)
+  
+  # 如果没获取到，设置回退默认值
+  if [[ -z "$session_id" ]]; then
+    session_id=1
+  fi
+
+  ssh -p 2222 "hexh-ser\\25078@${REMOTE_IP}" "C:\\Users\\25078\\Desk\\PsExec.exe -accepteula -i $session_id -d \"explorer.exe\" \"C:\\Users\\25078\\Desk\\code.bat\""
   sleep 2
   ssh -p 2222 "hexh-ser\\25078@${REMOTE_IP}" "del /f /q C:\\Users\\25078\\Desk\\code.bat"
 }
